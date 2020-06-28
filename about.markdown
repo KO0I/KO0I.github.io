@@ -15,8 +15,8 @@ I am interested in amateur radio, particularly in homebrewing
       enjoy gardening, zero-waste, being outdoors, and bicycling.
 
 Links: <br>
-౾ [Resume][my-resume]<br>
-౾ [Github][my-github]
+తి [Resume][my-resume]<br>
+తి [Github][my-github]
 
 
 [my-resume]: https://github.com/KO0I

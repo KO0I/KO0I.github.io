@@ -44,8 +44,10 @@ Some ideas that I want to play with on this humble site of mine:
 * Pictures of cool places
 * Links to useful resources
 * Rabbit holes of various sorts
+
 <br>
 <br>
+
 So, it seems that I have many directions I want to take this, and many of them
 are open-ended. I suppose if you know me at all, you can expect it to be scattered.<br>
 My hope is to get into making some kind of little post every now and again on something that I found interesting or useful.
