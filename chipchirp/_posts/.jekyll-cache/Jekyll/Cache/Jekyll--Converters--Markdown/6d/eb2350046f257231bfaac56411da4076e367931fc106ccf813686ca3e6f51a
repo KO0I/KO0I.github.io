@@ -1,0 +1,160 @@
+I"�<h1 id="am-i-documenting-enough">Am I Documenting Enough?</h1>
+
+<p>So I bought a Saleae Pro for personal use off of eBay. I wanted to try it out; see if it was fake or broken or whatever. But check it on what?<br /> 
+Oh right, I had an old project from a few semesters ago, let’s fire that up and try it. I used
+a Saleae before to take screenshots of the functionality. Let’s go!</p>
+
+<h2 id="hitting-a-wall-with-the-old-project">Hitting a wall with the old project!</h2>
+
+<p>I remembered which project it was in spite of the school projects being just
+the numbers. My Project Euler entries are the same way: numbered like pieces
+of Chopin’s music.<br /></p>
+
+<p>This is a poor way of organizing because an error involves a safari, but not intolerable… That’s to come. (:<br /></p>
+
+<p>I opened up MCUxpresso and managed to remember to use the QuickStart Panel
+in the bottom-left. Using “Import project(s) from file system” is really
+important. MCUxpresso is also morphing a little so I have to keep in mind
+that at some point I might need to snapshot a working IDE version somehow.
+Maybe a VM? Later ideas, I suppose.<br /></p>
+
+<p>Okay, let’s run it! Oh right, this code needs me to hook things up to that sensor, but how do I do
+that?<br />
+<br />
+<em>Screech</em>
+<br />
+<br />
+This is where my documentation fell short. I remembered that there was a
+document with a picture in it with the board (The user manual), and another
+with a table of all the pins (the Pinout). I added a README in my local docs
+folder for the class after the fact to remind me of these two key ones among
+the others. When you have a bunch of docs, sometimes a summary of what’s what
+is handy, especially if certain documents kept being useful over and over, can be useful when returning to it after a time. <br /></p>
+
+<p>Once I figured out the right (I think) pins for I2C1 I hooked it up to the
+sensor, compiled and got an error. Ok, probably not wiring the sensor up
+right. I had to find the datasheet online to work out an answer to a few
+things. I should bundle documentation or link it in the README for the
+project.</p>
+
+<h2 id="ok-but-is-the-saleae-fake-or-not">Ok but is the Saleae fake or not?</h2>
+
+<p>Well, I can just test the Saleae by hooking it up to a bus pirate I guess. I
+actually wrote quite a bit before realizing I could use <em>two</em> debugging tools
+off of each other.</p>
+
+<h4 id="rabbit-hole">Rabbit Hole:</h4>
+<p><a href="https://github.com/ppannuto/python-saleae">Python Control of a Saleae</a></p>
+
+<hr />
+
+<h3 id="testing-the-saleae-setup">Testing the Saleae: Setup:</h3>
+
+<ul>
+  <li>1 Alleged Saleae Pro 8-channel Logic Analyzer</li>
+  <li>1 BusPirate v3.6b (Sparkfun Edition)
+    <ul>
+      <li>Firmware v5.10 (r559)  Bootloader v4.4</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="wiring">Wiring:</h3>
+
+<ul>
+  <li>Bus Pirate Orange (I2C SDA) to ‘0’ on Saleae</li>
+  <li>Bus Pirate Yellow (I2C SCL) to ‘1’ on Saleae</li>
+  <li>Bus Pirate Brown  (Gnd) to split GNDs for the Saleae signals</li>
+</ul>
+
+<p>I open up bus pirate:</p>
+
+<blockquote>
+  <p>picocom -b 115200 /dev/buspirate</p>
+</blockquote>
+
+<p>I set mode ‘m’ to 4 (I2C), set it to some low rate and try to fire it off. The
+Saleae is stuck on “Waiting for Trigger”</p>
+
+<p>(I have a udev rule to map the buspirate’s USB identifier to a symlink, do
+this with hardware you use a lot because it will get OLD OLD OLD to keep
+tracks of things by anonymized ttyACMx or whatnot)</p>
+
+<p><br />…<br /></p>
+
+<p>I was not able to get the trusty BusPirate to talk to the Saleae directly!
+Like before with my class, I was not able to start it up. It was time to run
+the self-test.</p>
+
+<p>It consists of wiring the jumpers:
+[<img src="https://i.imgur.com/1DrLeyE.jpeg" alt="Part Name" /></p>
+
+<p><br />…and hitting ~ in the serial terminal to the buspirate. The analog pin
+tests failed with the VPU and 5V rail coming in at 4.32 V…<br /></p>
+
+<p>I did add a new case, just maybe that’s causing a problem?</p>
+
+<h2 id="not-the-first-time">Not the first time</h2>
+
+<p>I suppose I have always been living out a certain attitude of not dwelling on
+accomplishments. Partly to avoid regrettable design mistakes and partly just to move on from stressful school projects, often on to another.<br /></p>
+
+<p>The answer to my question is “no”. I am not documenting enough. I go through my
+collection of cool old projects and I don’t quite remember the quirk or two to
+get it working like I did so cooly on the final demo day.
+<br />
+In the moment it wouldn’t have been too hard or time-consuming to snap pics,
+jot down notes, clarify ah-ha tidbits in notebooks in a more complete form.
+That’s a future habit for me to form, but for now here’s a post-mortem.<br /></p>
+
+<p>There’s a lot of issues I had/have that feed into this behavior, some of which are tragic, not my fault, and are ultimately tempting potential excuses to shuffle into and dwell on.<br /></p>
+
+<p>But I want to get better and I can’t if I am in denial about my lack of thoroughness when it comes to docs, especially given how scatterbrained and forgetful I am, I really have to do better.
+This post isn’t supposed to be a bunch of self-criticism for its own sake, but rather a walk-through after a long pause to consider what would make for ergonomic documentation from the perspective of a “user”.<br /></p>
+
+<p>I have concise down for the moment, but if I am to be a successful engineer I need to be able to at least communicate my own work to my future self, who will have forgotton most everything because of all the interesting stuff I do.<br /></p>
+
+<h2 id="an-exercise-make-that-readme-better">An exercise: make that README better</h2>
+
+<p>Like I said, I have an old school project, the fourth in the University of Colorado PES graduate program. It’s a simple enough project. I2C communications with a little sensor. The program has a few features to trigger at a certain cold temperature and also have an error condition when comms are dead (the state I encountered when I used all of my own documentation and no leads).<br /></p>
+
+<p>I didn’t have much left to go off of to debug what I had before at demo time
+and this is terrible. I’ve lost some of the knowledge that I worked for in not
+documenting, because memory is frail.<br /></p>
+
+<p>The goal of this project is to deliver a diff and checkin for my git repo for
+this class project. The changes should be enough to get me able to:</p>
+
+<ul>
+  <li>Debug the sensor with the bus-pirate</li>
+  <li>Use the firmware I wrote to watch the sensor</li>
+  <li>Maybe try to re-demo by cooling the sensor.</li>
+</ul>
+
+<h3 id="existing-documentation">Existing documentation</h3>
+
+<p>You can see the old edits on my github from Fall 2019. There are some details,
+such as some of the buspirate commands that I used in debugging,
+but let’s just say there’s not enough. What did I need to know to get things
+working?</p>
+
+<ul>
+  <li>The wiring for the bus-pirate
+    <ul>
+      <li>I had to look in my notebook and datasheet to remember the alert pin.</li>
+    </ul>
+  </li>
+  <li>The wiring for the FRDM board</li>
+  <li>Noting how to handle using one exclusively-or the other I2C master from the
+FRDM board or the buspirate when debugging, but how to use the buspirate as
+a sniffer</li>
+  <li>What’s the I2C rate?</li>
+  <li>What are the pins on the FRDM board? I don’t have my case marked and even if
+I did, what if another “user” wanted to use this firmware? They’d be forced
+to read the same documentation I did…</li>
+</ul>
+
+<h2 id="diving-in">Diving in</h2>
+
+<p>Let</p>
+:ET
