@@ -28,7 +28,8 @@ twitter_username: spizellaArborea
 github_username:  ko0i 
 
 # Build settings
-theme: minima
+#theme: minima
+remote_theme: thelehhman/texture
 plugins:
   - jekyll-feed
 
