@@ -40,18 +40,19 @@ avatar: assets/images/avatar.jpg
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://chipchirp.digital" # the base hostname & protocol for your site
 
-# Social settings
-# Make sure to include the full url including protocol, e.g. https://github.com/chrisbobbe
-twitter_url: twitter.com/spizellaArborea
-facebook_url: https://www.facebook.com/Patrick.James.Harrington 
-googleplus_url:
-instagram_url:
+# Build settings
+theme: minima
+#remote_theme: thelehhman/texture
+plugins:
+  #  - jekyll-feed
 linkedin_url: https://www.linkedin.com/in/patrick-harrington-8290bb82/
 github_url: https://github.com/KO0I
-stackoverflow_url:
+facebook_url: https://www.facebook.com/Patrick.James.Harrington 
+twitter_url: twitter.com/spizellaArborea
 pinterest_url:
 slack_url:
-dribbble_url:
+stackoverflow_url:
+instagram_url:
 
 # Google Analytics Tracking ID goes here:
 google_analytics:
