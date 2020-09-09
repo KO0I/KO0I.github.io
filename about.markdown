@@ -19,5 +19,5 @@ Links: <br>
 తి [Github][my-github]
 
 
-[my-resume]: assets/resume.pdf
+[my-resume]: {{ site.url }}/download/resume.pdf
 [my-github]: https://github.com/KO0I
