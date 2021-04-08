@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>openEMS, ADS on multiple systems | ChipChirp</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="openEMS, ADS on multiple systems" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Many Tools, Many Contexts" />
+<meta property="og:description" content="Many Tools, Many Contexts" />
+<link rel="canonical" href="http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html" />
+<meta property="og:url" content="http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html" />
+<meta property="og:site_name" content="ChipChirp" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-08T15:39:23-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="openEMS, ADS on multiple systems" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html","headline":"openEMS, ADS on multiple systems","dateModified":"2020-09-08T15:39:23-06:00","datePublished":"2020-09-08T15:39:23-06:00","description":"Many Tools, Many Contexts","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ChipChirp" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">ChipChirp</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/links/">Links</a><a class="page-link" href="/reading-list/">Reading List</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">openEMS, ADS on multiple systems</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-09-08T15:39:23-06:00" itemprop="datePublished">Sep 8, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="many-tools-many-contexts">Many Tools, Many Contexts</h1>
+
+<p>Here’s some of what is being used, or has been used</p>
+<ul>
+  <li>Remcom XFDTD (Linux install)</li>
+  <li>Keysight EMPRO (Win10)</li>
+  <li>Keysight ADS (Win10)</li>
+  <li>openEMS (both Win10 and Linux)</li>
+  <li>meep (both Win10 and Linux)</li>
+  <li>Altium (Win10) – learning</li>
+  <li>KiCAD (Linux) – I have stalled on using this</li>
+  <li>openSCAD (Linux and maybe Windows) – for when the other CAD tools are too
+much to bear</li>
+</ul>
+
+<p>I have RemCom running in the Linux Context. I would prefer to use openEMS in
+mostly the Linux context, but oh well, using both will be a learning experience! I will add links in future posts to resolve issues with specific tooling combinations.</p>
+
+<p>I need to mount my Windows disk on my Linux side. That has no bad effects and
+I have done it before on older machines such as my older ThinkPad laptops.</p>
+
+<p>I would also <em>like</em> to use Windows seamlessly in the Linux context. Wine has
+been a long-time struggle with some cases working wonderfully and others
+failing to even install.</p>
+
+<p>Booting the disk image virtually, using raw data options, etc. can achieve the
+data-sharing aspect nicely, but this provokes Microsoft’s licensing to
+re-start and that would be a hassle since I must retain dual-boot.</p>
+
+<p>Xen has been a very curious option that I focused on for a bit too long, but I have chosen to avoid it because of the
+complexity involved, and again I’m not sure if my in-place Arch Linux install
+would be screwed up becoming the dom0 or how to deal with the network bridge
+aspect, let alone hardware. It seems like a fun project for something other
+than the machine I have mostly configured happily. Besides, my study is of
+FDTD methods, not entirely a matter of playing with computers, but there’s a
+lot of little issues behind getting each piece of software to run and to
+become competent enough with them to troubleshoot them.</p>
+
+<h2 id="shared-data">Shared Data</h2>
+
+<p>A quick IT aside! I have Linux and Windows dual-boot on separate disks.</p>
+
+<h3 id="mount-windows-on-linux">Mount Windows on Linux</h3>
+
+<p>I used cfdisk to find the partition UUID for my two partitions on Windows. One
+is the Main Disk, which is formatted as NTFS, and I might not want to always have it mounted. The other
+is the shared data volume, which is exFAT as it is better supported than NTFS
+on Linux. I used this information to create entries in my fstab, but I chose
+to keep them commented out for now.</p>
+
+<p>Right now I’ll mount the drives on the Linux side on a need-as-used basis, or
+see how often I access the Windows stuff from the Linux side.</p>
+
+<h1 id="i-might-need-to-use-ads-in-both-a-windows-and-linux-context">I might need to use ADS in both a Windows and Linux context</h1>
+
+<p>ADS is software from Keysight that does circuit analysis. It uses <a href="https://ptolemy.berkely.edu">Ptolemy</a> and Keysight offers various interesting simulator extensions in line with the heterogenous systems intent of the project, such as thermal analysis. This interesting engine, combined with other quirks of proprietary software, made running this on Linux a hard time the last time I tried to run ADS post-install on a Linux machine.</p>
+
+<h2 id="ads-on-linux">ADS on Linux</h2>
+
+<p>ADS installs without a hitch in Windows 10. I remember having trouble before
+in Linux… I will take another swing at it!</p>
+
+<p>So I downloaded the tar from Keysight and rand the SETUP.SH script as root.
+Everything lives in /usr/local/ADSxxxx. Under bin I run ads and find several
+things are missing. The file “ads” is a script that turns around executes actual
+dynamic executables. I note the first one that is complained about and look at
+what is linked to it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ldd menv_exe | grep 'not found'
+</code></pre></div></div>
+
+<p>And I note the missing items. libicui18n.so.51 is not found for example.
+Looking under:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/lib/icu 
+</code></pre></div></div>
+
+<p>But I also know of:</p>
+
+<p>/usr/local/ADSxxxx/lib/linux_x86_64/libicui18n.so.51.3</p>
+
+<p>This is sort of familiar, but I remember there were problems even once I got
+ldd to recognize the /usr/local location. I will revisit this later, but for now, it runs in Windows, so I will run ADS in Windows.</p>
+
+<h2 id="ads-on-windows">ADS on Windows</h2>
+
+<p>Installation is easy.</p>
+
+<h1 id="i-might-need-to-use-meep-in-both-a-windows-and-linux-context">I might need to use meep in both a Windows and Linux context</h1>
+
+<p>I’ve used <a href="https://meep.readthedocs.io/en/latest">meep</a> a bit on Linux previously, so using it again here is exciting.
+I am not sure how it will be used in Windows yet.</p>
+
+<p>It has been so long since I have used this tool,
+that the interface to this tool is different than before. I don’t mind, I’ve
+been trying to get more Python into my life.</p>
+
+<p>This open-source software imports just GDSII files…</p>
+
+<p>Random con: hard to search for items around meep without getting weird
+results.</p>
+
+<h2 id="meep-on-linux">meep on Linux</h2>
+
+<p>Installed with a desired package manager. Simple enough.</p>
+
+<h2 id="meep-on-windows">meep on Windows</h2>
+
+<p>WSL … could be a headache but if I can get to the point where I’m running
+Jupyter notebooks in Windows 10 I’ll be basically able to do the same thing
+and share it readily.</p>
+
+<h1 id="i-might-need-to-use-openems-in-both-a-windows-and-linux-context">I might need to use openEMS in both a Windows and Linux context</h1>
+
+<p>openEMS seems to be most suited for a Linux-only environment, but I have WSL
+on my Windows boot! I can share my openEMS data/scratch and run on Linux or
+Windows and share that data. So, this seems easy enough.</p>
+
+<p>For my self: what other software can be used seamlessly in Linux v. Windows?</p>
+
+<p>First: run through the tutorial in the first environment (my case, Linux):
+<a href="https://openems.de/index.php/Tutorial:_First_Steps.html">Tutorial</a></p>
+
+<h2 id="openems-on-linux">openEMS on Linux</h2>
+
+<p>Pretty much followed the guide to the letter. I had to run
+addpath(“/usr/share/CSXCAD/matlab”) and addpath(“/usr/share/openEMS/matlab”)
+at startup. I might want to create a standard script. I needed to install
+appcsxcad separately.</p>
+
+<p>Using the notch tutorial, I created a little m file. I realized that I can
+output STL, so if things get real bad, I can use openSCAD to have things
+imported, but there are a few items that need to exist. This will be discussed
+in the future.</p>
+
+<h2 id="openems-on-wsl">openEMS on WSL</h2>
+
+<p>There are some quirks to getting octave to be happy! Links coming soon…</p>
+
+  </div><a class="u-url" href="/none/2020/09/08/openEMS_windows_vs_WSL.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">ChipChirp</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">ChipChirp</li><li><a class="u-email" href="mailto:ko0i@pm.me">ko0i@pm.me</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ko0i"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ko0i</span></a></li><li><a href="https://www.twitter.com/spizellaArborea"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">spizellaArborea</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Beep Beep Beep</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

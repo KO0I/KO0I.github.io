@@ -1,1 +1,1250 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-06-28T13:39:22-06:00</updated><id>/feed.xml</id><title type="html">ChipChirp</title><subtitle>Beep</subtitle><entry><title type="html">A test</title><link href="/none/2020/06/27/firstPost.html" rel="alternate" type="text/html" title="A test" /><published>2020-06-27T13:39:23-06:00</published><updated>2020-06-27T13:39:23-06:00</updated><id>/none/2020/06/27/firstPost</id><content type="html" xml:base="/none/2020/06/27/firstPost.html">&lt;p&gt;Just saying hello&lt;/p&gt;</content><author><name></name></author><summary type="html">Just saying hello</summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-07T20:41:50-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ChipChirp</title><subtitle>Beep Beep Beep</subtitle><entry><title type="html">A Simple Process for Designing Practical Objects in OpenSCAD</title><link href="http://localhost:4000/modeling,/3d-printing,/functionalprint/2021/04/07/openscad-design-tutorial.html" rel="alternate" type="text/html" title="A Simple Process for Designing Practical Objects in OpenSCAD" /><published>2021-04-07T00:00:00-06:00</published><updated>2021-04-07T00:00:00-06:00</updated><id>http://localhost:4000/modeling,/3d-printing,/functionalprint/2021/04/07/openscad-design-tutorial</id><content type="html" xml:base="http://localhost:4000/modeling,/3d-printing,/functionalprint/2021/04/07/openscad-design-tutorial.html">&lt;h1 id=&quot;3d-printing-practical-items-overview-of-a-process&quot;&gt;3D Printing Practical Items, Overview of A Process&lt;/h1&gt;
+
+&lt;p&gt;I’ve been using OpenSCAD to create things to 3D-print for years now, and it
+can be a simple and fulfilling process to build up something useful from simple
+geometric primitives.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;www.openscad.org&quot;&gt;OpenSCAD&lt;/a&gt; is a “programmer’s CAD” where the models are written up in text, a bit like a program, and
+rendered as needed. There are a variety of geometric primitives available to
+the user that can be built up into more complicated modules. It allows for natural
+parameterization and I strongly prefer the simplicity of it to GUI-driven tools like AutoCAD, largely because by making the right choices&lt;/p&gt;
+
+&lt;p&gt;This post will cover:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gathering requirements for an object&lt;/li&gt;
+  &lt;li&gt;Making a sketch&lt;/li&gt;
+  &lt;li&gt;Rough Arrangement in Space&lt;/li&gt;
+  &lt;li&gt;Identifying critical dimensions&lt;/li&gt;
+  &lt;li&gt;Breaking down the model into smaller and smaller parts&lt;/li&gt;
+  &lt;li&gt;Writing up the OpenSCAD model&lt;/li&gt;
+  &lt;li&gt;Basic Testing in OpenSCAD&lt;/li&gt;
+  &lt;li&gt;Printing and testing in the Real World&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;gathering-requirements&quot;&gt;Gathering Requirements&lt;/h2&gt;
+
+&lt;p&gt;So there’s a bunch of things in the shower area that could be hung up. I’m
+talking razors and a brush. There are four razors and two brushes, both a bit
+different.&lt;/p&gt;
+
+&lt;p&gt;I want to use command strips to affix a holder or holders to a part of the shower, and then
+have it so that razors can be placed onto C-shaped grabbers instead of being
+scattered about the shower taking up precious space. I want to size the inner diameter to roughly
+correspond to each razor. It would be ideal to have it be snug, but not
+requiring force to bend the plastic back and forth.&lt;/p&gt;
+
+&lt;p&gt;If I decided to have all of them on a common backing I would have to consider
+grouping the razors together in some way. However, since each razor and brush
+is a little different, it will be easier to print a holder per item.&lt;/p&gt;
+
+&lt;p&gt;In my humble opinion, when creating practical objects that need to fit nicely,
+it’s nicer to work towards a simple, parameterized core that can be adapted for as
+many of the cases as possible. This is partly because I’m lazy and mostly
+because wasting filament is bad. If I needed to have a common backing I’d
+probably go through and make some prototype for the fitted sections so that
+the material needed for a common backing would not be wasted in multiple
+attempts.&lt;/p&gt;
+
+&lt;h2 id=&quot;making-a-sketch&quot;&gt;Making a Sketch&lt;/h2&gt;
+
+&lt;p&gt;Try drawing a rough image of the constituent elements and get thinking about
+how things will come together. Do not worry about how you would code it up or get clever at this point, just draw a few things and see what comes up.&lt;/p&gt;
+
+&lt;p&gt;I first drew a common backing, and spaced the holders evenly. If there was a common backing, it would be importand that the razor holders are far enough apart so that
+the razors don’t bump into one another. There are other thoughts that come up
+when sketching, such as that the holders can’t be too tall since
+most of the razors have a varied shape along the length, and the inner diameter and possibly the
+shape in the middle has to be reasonable enough to meet the snugness
+requirement.&lt;/p&gt;
+
+&lt;p&gt;The process of drawing is helpful to quickly remove the vaguaries of a
+purely mental picture, and it allows you to start asking focused questions about the design in question.&lt;/p&gt;
+
+&lt;p&gt;It is also generally cheaper and faster to tinker on paper than it is with a long string of failed physical prototypes.&lt;/p&gt;
+
+&lt;h2 id=&quot;rough-arrangement-in-space&quot;&gt;Rough Arrangement in Space&lt;/h2&gt;
+
+&lt;p&gt;If possible, arranging the objects or other prototype items is able to help
+provide additional insights. For one, gnolling the items in question revealed that
+the razors each have a bit of a height offset. If the common backing was
+preferred, it might be nice to try to align the business ends of the razors to
+be at the same height, this would mean the clamps would be higer and lower
+along the common backing, or noting that seperate holders would have to be
+placed at various heights.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/openscad_gnoll.png&quot; alt=&quot;Razors and Brushes&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The combination of a sketch and manipulating the objects is valuable to test
+assumptions and work out important details.&lt;/p&gt;
+
+&lt;h2 id=&quot;identifying-critical-dimensions&quot;&gt;Identifying critical dimensions&lt;/h2&gt;
+
+&lt;p&gt;After creating a sketch, I was able to identify some dimensions that were
+important and that I would have to measure out.&lt;/p&gt;
+
+&lt;p&gt;So the dimensions I noted as being important are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The specific diameter of the razors&lt;/li&gt;
+  &lt;li&gt;The minimum gap between any two razors (be equal to the span of the
+longest razor)&lt;/li&gt;
+  &lt;li&gt;The “height” of the holders&lt;/li&gt;
+  &lt;li&gt;The “height” of the brush-holder&lt;/li&gt;
+  &lt;li&gt;The dimensions of command strips&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are other dimensions to think about, such as the per-user gap considered
+earlier.&lt;/p&gt;
+
+&lt;p&gt;There’s also the possible dimesnions of a
+chamfer on the inner part of the holders, which could have an angle that I
+would like to match up with the razors of my roommate that have a “V” shape
+that connects to the business end.&lt;/p&gt;
+
+&lt;p&gt;There’s also the thickness of the holder parts themselves, but when it comes
+to these various elements, there’s a frugality to limiting the material used
+to accomplish the task to be balanced against a need for ruggedness for long-term use. Each holder has to take a static force of the weight of the razor, which is probably trivial. But if the user is trying to force a large razor into a smaller razor slot, how beefy should the C-clamp connect to the backing that is to go up against the wall?&lt;/p&gt;
+
+&lt;p&gt;For a design that is likely to have to deal with a heavy static loads (i.e a sledgehammer) or has to deal with dynamic loading, the object might need to have a shape that allows more a more complete connection. Strength is proportional to the areas that intersect.&lt;/p&gt;
+
+&lt;p&gt;If in the process of sussing out these critical dimensions, feel free to
+redraw the sketch with any new details. It is generally quicker to sketch it
+than to put things together in OpenSCAD, and it helps to make any mistakes
+very obvious if there’s a rough image in mind when going on to create the model.&lt;/p&gt;
+
+&lt;h2 id=&quot;breaking-up-the-model-into-smaller-parts&quot;&gt;Breaking up the model into smaller parts&lt;/h2&gt;
+
+&lt;p&gt;I determined I could break down the design into three different parts,
+possibly four.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The backing&lt;/li&gt;
+  &lt;li&gt;The C-shaped holders for a razor&lt;/li&gt;
+  &lt;li&gt;A spoon-shape for the round scrubbing brush&lt;/li&gt;
+  &lt;li&gt;Possibly: a unique holder for the shaving cream brush&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The holders for the four razors will all be derived from the same module. The holder for the brush
+might be shorter in height and so there’s a possibility I’ll do something
+different for that, but it will be similar to the other parts, so perhaps I
+can get away with using the razor module with some different parameters.&lt;/p&gt;
+
+&lt;p&gt;We could try to have all the clamps go onto a single backing, but for the sake
+of simplicity, I’ll be creating independent holders with their own backings
+rather than all the holders on one backing.&lt;/p&gt;
+
+&lt;h2 id=&quot;writing-up-the-openscad-model&quot;&gt;Writing up the OpenSCAD model&lt;/h2&gt;
+
+&lt;p&gt;Now that we know what the final product will look like, have an idea of what
+success looks like, and we know some important values, I am ready to code up
+the smaller parts.&lt;/p&gt;
+
+&lt;h3 id=&quot;backing-and-hull&quot;&gt;Backing and hull()&lt;/h3&gt;
+
+&lt;p&gt;Let’s start with the backing. It will be rectangular, but I want the edge to
+not be sharp. To make the bevel, I can use the hull() function. A simple
+way to describe what the hull() function does is to imagine that it
+takes in whatever objects and covers them all in shrink-wrap. The result is a
+single object whose outer boundaries are defined by the objects involved.&lt;/p&gt;
+
+&lt;p&gt;In the below snippet, points are defined that are the distance equal to the
+width of the command strip sticky tape. opencad can iterate through a list of
+points with a for-loop.&lt;/p&gt;
+
+&lt;p&gt;At those points, I have half-spheres
+centered with some radius and use the hull() function to tie it all together.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;corner_points&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdstrip_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;global_fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;half_sphere&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// default radius of 2mm&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;diam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;difference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sphere&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;global_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;cube&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;backing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;hull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half_sphere&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+  
+&lt;span class=&quot;n&quot;&gt;backing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;corner_points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The hull function with a bunch of half-sphere creates the following flat-backed object that is free of sharp edges!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/openscad_backing.png&quot; alt=&quot;A flat-backed, rounded edge square&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;holder&quot;&gt;Holder&lt;/h3&gt;
+
+&lt;p&gt;To make a C-shaped section, we can use a for-loop to rotate an object some
+radius from the center. This allows us to define the opening in terms of
+degrees. If we used a cube() form that went the full 360 degrees, then we
+would have a cylinder with a cylindrical hole. Again, to avoid sharp edges,
+the form that will be dragged around in space will be a capsule, which is a
+cylinder with spheres at the end.&lt;/p&gt;
+
+&lt;p&gt;To create the C-shape, we rotate the object and then have it be translated out
+by the radius as provided by the argument&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;capsule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;hull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sphere&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;global_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sphere&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;global_fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thickness&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;degrees&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;220&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;max_i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;degrees&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;capsule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thickness&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;capsule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;clamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The above snippet will let you make a pill-shaped object and then to turn that
+into a C-shaped clamp.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/openscad_clamp.png&quot; alt=&quot;Basic clamp&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;bringing-it-together&quot;&gt;Bringing it together&lt;/h3&gt;
+
+&lt;p&gt;We can now combine the backing and the clamp. However, we have a problem if we
+just try to have the backing be the clamp radius away from the center of the
+C-clamp. What we can do is consider the degrees argument that we send to the
+clamp, divide it by two, and then do our operations:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;razor_holder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thickness&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;degrees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;backing_points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;backing_h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+
+      &lt;span class=&quot;n&quot;&gt;clamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thickness&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thickness&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;degrees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;degrees&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backing_h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;backing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backing_points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;backing_h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;razor_holder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;220&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;corner_points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here’s a happy rendering of a razor-holder able to hold one razor that’s 10mm in
+diameter at the point where we want it to be held.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/openscad_razor_holder.png&quot; alt=&quot;Finished Razor Holder&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Before printing, a quick check can be done. Since the diameters of the various
+razors and brushes were mesured, we can put in a cylinder after the
+razor_holder() call and see what actually will fit in the holder.&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;highly&lt;/em&gt; 
+reccommend a little bit of checking with some of those previously measured
+critical dimensions. The first argument to our function was originally not exactly the
+inner radius, as the body of rotation has its own thickness, so the available
+space is the radius minus the thickness of our holder. That’s why the clamp()
+called in razor_holder() takes the radius argument and subtracts the thickness argument.&lt;/p&gt;
+
+&lt;p&gt;In more complicated
+models the various operations can result in errors of various sorts that a
+quick check such as this can expose. With parameterization you can tweak
+yourself out of these error situations, but use judgement on refactoring a
+model if the tweaking process is cumbersome or confusing. If you start to
+internalize the dialing-in process with the test, then you might as well just
+fold that into the model, yeah? But if it’s a single-purpose item or an artsy
+piece that doesn’t require re-use and adjustment, then don’t break your back
+trying to make the model beautifully and intuitively parameterized.&lt;/p&gt;
+
+&lt;p&gt;Also in more complicated models, where there are many critital dimensions,
+having a more complete set of “dummy” parts or as a whole separate module not
+intended to be printed can
+be added to the preview (but not rendered) to check if the requirements are
+met or if more changes are needed. This can be helpful to also spot unusual
+coupling where adjusting one thing causes “surprise” changes somewhere else.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cm&quot;&gt;/* A simple test, for OpenSCAD objects */&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cylinder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/openscad_razor_holder_verified.png&quot; alt=&quot;Finished Razor Holder&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If the output doesn’t look right, but a few adjustments of the input
+parameters get you there, but if the item in question is going to be re-used
+a lot, then it might be worth revisiting the model so that
+the inputs aren’t belying a surprise or two. For example, we could have the
+radius argument be summed with the thickness (radius of the C-shaped clamp) so
+the input for the clamp radius is truly the clamp radius.&lt;/p&gt;
+
+&lt;p&gt;Since I’m happy with this output knowing that it will match a razor, it’s time to render (hotkey F6) and then export the
+rendering to an STL (hotkey F7). Rendering takes a while because of the 
+way we’ve created multiple hull objects and iterated over them in a for-loop.
+You can adjust the step size per degree (as long as the maximum number of
+iterations is also updated) to create a lower “resolution”, or go the other
+way and increase the number of iterations and lower the rotation associated
+with each step to create a higher resolution volume of rotation.&lt;/p&gt;
+
+&lt;p&gt;In prusaslicer, we can use Place on Face (hotkey F) and select the backing as
+“face-down” for printing.&lt;/p&gt;
+
+&lt;p&gt;Fire away with the desired material and a low-ish infill (and potentially enjoy
+the little problems that come upkwith 3D printing anything in general). The
+result matching the white-bodied razor is shown below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/openscad_razor_holder_irl.png&quot; alt=&quot;Finished Razor Holder IRL&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I can now create holders for most of the razors and brushes, with the
+exception of the other brush with a round shape (not pictured above). For that I can have a disk
+(cylinder) “minus” a sphere where the radius is equal to the radius of the
+brush body. It would a bit like a simple spoon shape, and then combine that to the backing with perhaps a rectangular arrangement of points since it’s 6cm across.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;The process for creating a practical object can be a bit iterative and
+frustrating, but each step can be figured out
+incrementally to produce the final model. By first prototyping with
+sketches, you can work out some important dimensions or constraints to work
+with. If you can do stuff in physical space you can arrange objects, trace
+outlines, and make measurements of things as you have arranged them.&lt;/p&gt;
+
+&lt;p&gt;After getting a sense of what the final end piece is, break down the model
+into smaller modules and work out each of them in turn. Once the elements are
+built up, bring these elements together.&lt;/p&gt;
+
+&lt;p&gt;If the small parts are more or less where they need to be, then the
+integration step can be smoother than trying to design and integrate many
+different parts all at the same time.&lt;/p&gt;
+
+&lt;p&gt;Once the model has been made, a few
+final checks can easily be done with “dummy” models representing critial
+dimensions. This might be one object like the cylinder-check for this object,
+or it can be a whole virtual jig.&lt;/p&gt;
+
+&lt;p&gt;If the final checks and tweaks look good, then it’s on to printing the
+object(s).
+Happy designing and printing!&lt;/p&gt;</content><author><name></name></author><category term="modeling," /><category term="3D-Printing," /><category term="functionalprint" /><summary type="html">3D Printing Practical Items, Overview of A Process</summary></entry><entry><title type="html">openEMS, ADS on multiple systems</title><link href="http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html" rel="alternate" type="text/html" title="openEMS, ADS on multiple systems" /><published>2020-09-08T15:39:23-06:00</published><updated>2020-09-08T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL</id><content type="html" xml:base="http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html">&lt;h1 id=&quot;many-tools-many-contexts&quot;&gt;Many Tools, Many Contexts&lt;/h1&gt;
+
+&lt;p&gt;Here’s some of what is being used, or has been used&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Remcom XFDTD (Linux install)&lt;/li&gt;
+  &lt;li&gt;Keysight EMPRO (Win10)&lt;/li&gt;
+  &lt;li&gt;Keysight ADS (Win10)&lt;/li&gt;
+  &lt;li&gt;openEMS (both Win10 and Linux)&lt;/li&gt;
+  &lt;li&gt;meep (both Win10 and Linux)&lt;/li&gt;
+  &lt;li&gt;Altium (Win10) – learning&lt;/li&gt;
+  &lt;li&gt;KiCAD (Linux) – I have stalled on using this&lt;/li&gt;
+  &lt;li&gt;openSCAD (Linux and maybe Windows) – for when the other CAD tools are too
+much to bear&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I have RemCom running in the Linux Context. I would prefer to use openEMS in
+mostly the Linux context, but oh well, using both will be a learning experience! I will add links in future posts to resolve issues with specific tooling combinations.&lt;/p&gt;
+
+&lt;p&gt;I need to mount my Windows disk on my Linux side. That has no bad effects and
+I have done it before on older machines such as my older ThinkPad laptops.&lt;/p&gt;
+
+&lt;p&gt;I would also &lt;em&gt;like&lt;/em&gt; to use Windows seamlessly in the Linux context. Wine has
+been a long-time struggle with some cases working wonderfully and others
+failing to even install.&lt;/p&gt;
+
+&lt;p&gt;Booting the disk image virtually, using raw data options, etc. can achieve the
+data-sharing aspect nicely, but this provokes Microsoft’s licensing to
+re-start and that would be a hassle since I must retain dual-boot.&lt;/p&gt;
+
+&lt;p&gt;Xen has been a very curious option that I focused on for a bit too long, but I have chosen to avoid it because of the
+complexity involved, and again I’m not sure if my in-place Arch Linux install
+would be screwed up becoming the dom0 or how to deal with the network bridge
+aspect, let alone hardware. It seems like a fun project for something other
+than the machine I have mostly configured happily. Besides, my study is of
+FDTD methods, not entirely a matter of playing with computers, but there’s a
+lot of little issues behind getting each piece of software to run and to
+become competent enough with them to troubleshoot them.&lt;/p&gt;
+
+&lt;h2 id=&quot;shared-data&quot;&gt;Shared Data&lt;/h2&gt;
+
+&lt;p&gt;A quick IT aside! I have Linux and Windows dual-boot on separate disks.&lt;/p&gt;
+
+&lt;h3 id=&quot;mount-windows-on-linux&quot;&gt;Mount Windows on Linux&lt;/h3&gt;
+
+&lt;p&gt;I used cfdisk to find the partition UUID for my two partitions on Windows. One
+is the Main Disk, which is formatted as NTFS, and I might not want to always have it mounted. The other
+is the shared data volume, which is exFAT as it is better supported than NTFS
+on Linux. I used this information to create entries in my fstab, but I chose
+to keep them commented out for now.&lt;/p&gt;
+
+&lt;p&gt;Right now I’ll mount the drives on the Linux side on a need-as-used basis, or
+see how often I access the Windows stuff from the Linux side.&lt;/p&gt;
+
+&lt;h1 id=&quot;i-might-need-to-use-ads-in-both-a-windows-and-linux-context&quot;&gt;I might need to use ADS in both a Windows and Linux context&lt;/h1&gt;
+
+&lt;p&gt;ADS is software from Keysight that does circuit analysis. It uses &lt;a href=&quot;https://ptolemy.berkely.edu&quot;&gt;Ptolemy&lt;/a&gt; and Keysight offers various interesting simulator extensions in line with the heterogenous systems intent of the project, such as thermal analysis. This interesting engine, combined with other quirks of proprietary software, made running this on Linux a hard time the last time I tried to run ADS post-install on a Linux machine.&lt;/p&gt;
+
+&lt;h2 id=&quot;ads-on-linux&quot;&gt;ADS on Linux&lt;/h2&gt;
+
+&lt;p&gt;ADS installs without a hitch in Windows 10. I remember having trouble before
+in Linux… I will take another swing at it!&lt;/p&gt;
+
+&lt;p&gt;So I downloaded the tar from Keysight and rand the SETUP.SH script as root.
+Everything lives in /usr/local/ADSxxxx. Under bin I run ads and find several
+things are missing. The file “ads” is a script that turns around executes actual
+dynamic executables. I note the first one that is complained about and look at
+what is linked to it:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ldd menv_exe | grep 'not found'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And I note the missing items. libicui18n.so.51 is not found for example.
+Looking under:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/lib/icu 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But I also know of:&lt;/p&gt;
+
+&lt;p&gt;/usr/local/ADSxxxx/lib/linux_x86_64/libicui18n.so.51.3&lt;/p&gt;
+
+&lt;p&gt;This is sort of familiar, but I remember there were problems even once I got
+ldd to recognize the /usr/local location. I will revisit this later, but for now, it runs in Windows, so I will run ADS in Windows.&lt;/p&gt;
+
+&lt;h2 id=&quot;ads-on-windows&quot;&gt;ADS on Windows&lt;/h2&gt;
+
+&lt;p&gt;Installation is easy.&lt;/p&gt;
+
+&lt;h1 id=&quot;i-might-need-to-use-meep-in-both-a-windows-and-linux-context&quot;&gt;I might need to use meep in both a Windows and Linux context&lt;/h1&gt;
+
+&lt;p&gt;I’ve used &lt;a href=&quot;https://meep.readthedocs.io/en/latest&quot;&gt;meep&lt;/a&gt; a bit on Linux previously, so using it again here is exciting.
+I am not sure how it will be used in Windows yet.&lt;/p&gt;
+
+&lt;p&gt;It has been so long since I have used this tool,
+that the interface to this tool is different than before. I don’t mind, I’ve
+been trying to get more Python into my life.&lt;/p&gt;
+
+&lt;p&gt;This open-source software imports just GDSII files…&lt;/p&gt;
+
+&lt;p&gt;Random con: hard to search for items around meep without getting weird
+results.&lt;/p&gt;
+
+&lt;h2 id=&quot;meep-on-linux&quot;&gt;meep on Linux&lt;/h2&gt;
+
+&lt;p&gt;Installed with a desired package manager. Simple enough.&lt;/p&gt;
+
+&lt;h2 id=&quot;meep-on-windows&quot;&gt;meep on Windows&lt;/h2&gt;
+
+&lt;p&gt;WSL … could be a headache but if I can get to the point where I’m running
+Jupyter notebooks in Windows 10 I’ll be basically able to do the same thing
+and share it readily.&lt;/p&gt;
+
+&lt;h1 id=&quot;i-might-need-to-use-openems-in-both-a-windows-and-linux-context&quot;&gt;I might need to use openEMS in both a Windows and Linux context&lt;/h1&gt;
+
+&lt;p&gt;openEMS seems to be most suited for a Linux-only environment, but I have WSL
+on my Windows boot! I can share my openEMS data/scratch and run on Linux or
+Windows and share that data. So, this seems easy enough.&lt;/p&gt;
+
+&lt;p&gt;For my self: what other software can be used seamlessly in Linux v. Windows?&lt;/p&gt;
+
+&lt;p&gt;First: run through the tutorial in the first environment (my case, Linux):
+&lt;a href=&quot;https://openems.de/index.php/Tutorial:_First_Steps.html&quot;&gt;Tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;openems-on-linux&quot;&gt;openEMS on Linux&lt;/h2&gt;
+
+&lt;p&gt;Pretty much followed the guide to the letter. I had to run
+addpath(“/usr/share/CSXCAD/matlab”) and addpath(“/usr/share/openEMS/matlab”)
+at startup. I might want to create a standard script. I needed to install
+appcsxcad separately.&lt;/p&gt;
+
+&lt;p&gt;Using the notch tutorial, I created a little m file. I realized that I can
+output STL, so if things get real bad, I can use openSCAD to have things
+imported, but there are a few items that need to exist. This will be discussed
+in the future.&lt;/p&gt;
+
+&lt;h2 id=&quot;openems-on-wsl&quot;&gt;openEMS on WSL&lt;/h2&gt;
+
+&lt;p&gt;There are some quirks to getting octave to be happy! Links coming soon…&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">Many Tools, Many Contexts</summary></entry><entry><title type="html">Migrating to an SSD</title><link href="http://localhost:4000/none/2020/09/08/Migrating_Windows10.html" rel="alternate" type="text/html" title="Migrating to an SSD" /><published>2020-09-08T15:39:23-06:00</published><updated>2020-09-08T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/09/08/Migrating_Windows10</id><content type="html" xml:base="http://localhost:4000/none/2020/09/08/Migrating_Windows10.html">&lt;h1 id=&quot;the-problem&quot;&gt;The Problem&lt;/h1&gt;
+
+&lt;p&gt;Platter drives are slow. Windows is bulky. The two combined is very
+frustraing! Especially knowing that the Linux side has an SSD and the
+performance difference speaks for itself.&lt;/p&gt;
+
+&lt;p&gt;So I bought another SSD that’s about half the size of the Linux install. I
+will try two approaches:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Using the “Recovery Drive” Process&lt;/li&gt;
+  &lt;li&gt;Using the “Fresh Install” Procedure&lt;/li&gt;
+  &lt;li&gt;Using a brutal “Lol dd go brrrr” Procedure in Linux&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The second procedure is solid and I won’t even bother to discuss it, but I was curious
+to try the recovery drive and to share my experience. I’m discouraged from
+taking this path because I’ve already installed things and set up Windows 10
+to my preference. I could repeat it, but I wanted to explore the other options
+today.&lt;/p&gt;
+
+&lt;p&gt;My HDD is large and originally intended for holding data and being part of swap. My shiny new SDD
+is 1TB and the original install has a footprint a little over 2Tb. I expect
+the route to fail because the target disk is smaller than the originating
+disk! However, the total space used by the Windows install is a mere 159Gb, so
+it should have room. But let’s see what happens anyway…&lt;/p&gt;
+
+&lt;p&gt;The third procedure is out because resizing the disk to be smaller before
+transferring it could do something weird in windows. Iunno, I’m just not sure
+I want to risk bricking the original drive, then migrating a broken thing.&lt;/p&gt;
+
+&lt;h2 id=&quot;oops&quot;&gt;Oops&lt;/h2&gt;
+
+&lt;p&gt;I started by creating a partition on my master
+backup external drive and, well, then it formatted the entire drive rather than the partition I thought it would work on.&lt;/p&gt;
+
+&lt;p&gt;This isn’t &lt;em&gt;too&lt;/em&gt; big of a loss since it’s mostly filled with old snapshots of things that are
+otherwise partially backed up by other means (Dropbox for data, Github for code, older snapshots on another disk, etc). The biggest headache is that I inadvertently lost a dying disk’s data. I might cover recovery from frail hardware in a future post since I will have to repeat that now that I have lost the contents.&lt;/p&gt;
+
+&lt;p&gt;As a way to address this all not working due to the possibility that a smaller
+target is a no-go, I have a small flash drive with Win10 on it that
+should work to install it to the new SSD, and then I can just mount the old C:
+directory.&lt;/p&gt;
+
+&lt;h1 id=&quot;recovery-disk&quot;&gt;Recovery Disk&lt;/h1&gt;
+
+&lt;p&gt;Like I said, commit an entire disk for this, not just a bit partition. I hit
+Windows and searched for “recovery drive” and went through the wizard. Before
+this I deleted or otherwise migrated data I did not need from C: to another
+location, and ran the defragmentation utility.&lt;/p&gt;
+
+&lt;h1 id=&quot;installation-attempt-1&quot;&gt;Installation Attempt 1:&lt;/h1&gt;
+
+&lt;p&gt;I don’t want to go full Amelia Bedilia on any more disks today, especially now that my main backup
+disk has been steamrolled by the Recovery Drive utility.&lt;/p&gt;
+
+&lt;p&gt;So, the Linux SSD (2Tb), the data disk (4Tb), and the old Windows disk (4Tb)
+should be physically disconnected during the install with either Windows-centric reinstall method. I’ll also
+take a moment to upgrade the labeling.&lt;/p&gt;
+
+&lt;h1 id=&quot;too-smol&quot;&gt;Too Smol&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/z6UsChl.jpeg&quot; alt=&quot;Too Smol&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok it looks like I was right. The destination drive was too large. Let’s do
+the fresh install route&lt;/p&gt;
+
+&lt;h1 id=&quot;fresh-install&quot;&gt;Fresh Install&lt;/h1&gt;
+
+&lt;p&gt;So the fresh install is very zippy thanks to the new SSD.&lt;/p&gt;
+
+&lt;p&gt;I remember from the previous time that the install would prefer the Legacy mode and override the UEFI settings to
+make that happen. I will have to do a conversion from Legacy to UEFI mode if this happened again.&lt;/p&gt;
+
+&lt;p&gt;I also remember having to repeatedly refuse the Microsoft login to force the
+local user issue (NO I will NOT create a M$ account and use it! Nope!).
+Fortunately, because of the unusual broadcom driver I have on this machine, I
+don’t have internet is the truth when going through the install. Continuing
+with “limited” setup takes me to the local user creation. I enter my name and
+proceed. I should have all this in the HDD’s Downloads folder if it didn’t
+already get migrated.&lt;/p&gt;
+
+&lt;h2 id=&quot;convert-to-gpt&quot;&gt;Convert to GPT&lt;/h2&gt;
+
+&lt;p&gt;Alright let’s peek at the disks; disk 0 is the Windows OS Disk:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;diskpart
+list disk
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Under “Gpt” there is not an asterisk. Ok, so make sure external disks are
+unplugged and so run:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mbr2gpt /convert /allowfullOS
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Using Diskpart again, I see a mark for GPT. Nice. Let’s reboot, and change up
+the BIOS to be UEFI mode again.&lt;/p&gt;
+
+&lt;p&gt;After a reboot, my Linux install is ok, I can see the other GPT Windows boot
+location.&lt;/p&gt;
+
+&lt;h1 id=&quot;migration-of-data-from-hdd-to-sdd&quot;&gt;Migration of data from HDD to SDD&lt;/h1&gt;
+
+&lt;p&gt;There are a few options for this:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;In new install, copy stuff over from old one and re-run installers,
+drivers, etc.&lt;/li&gt;
+  &lt;li&gt;Use system restore in some clever way?&lt;/li&gt;
+  &lt;li&gt;Use a brute force copy of all files (might not work well with programs,
+registry entries, etc)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I think I want to try the brute copy, using Linux. If it goes badly I’ll have
+the good source and I can re-try.&lt;/p&gt;
+
+&lt;h2 id=&quot;clonezilla&quot;&gt;Clonezilla&lt;/h2&gt;
+
+&lt;p&gt;I used Clonezilla’s         part_to_local_part
+function to clone my shrunken old Windows partition to the new Windows
+partition on the SSD.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;[2]&quot;&gt;Clonezilla Screenshot&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, after this and a large sync operation, I do the reboot of fate.&lt;/p&gt;
+
+&lt;h2 id=&quot;post-reboot&quot;&gt;Post-reboot:&lt;/h2&gt;
+
+&lt;p&gt;Let’s see what works or not. After rebooting from the new disk with a copy of
+the old data, the screen
+goes black. This is not good…&lt;/p&gt;
+
+&lt;p&gt;After waiting for a few minutes, I see some graphical elements like a mouse cursor. I’m not sure
+what’s going on at this point. I see a flicker of the accent color of the old
+machine but it’s not working.&lt;/p&gt;
+
+&lt;p&gt;I boot from the old install and its ok. After shrinking maybe I can create a recovery
+disk that will work this time around? Alternatively, I need to copy the first
+partition as well with clonezilla. In the old Windows 10 install, using Disk
+Management I see that the System Reserved portion is the same on both the old
+and new disks. So, after I create a new recovery drive, I will try to clone
+the first partition.&lt;/p&gt;
+
+&lt;p&gt;I get the same black screen after using clone.&lt;/p&gt;
+
+&lt;h2 id=&quot;reset-this-pc&quot;&gt;Reset this PC&lt;/h2&gt;
+
+&lt;p&gt;Trying a keep-files cloud download re-install of Windows 10… but unable to
+download because … DRIVER!&lt;/p&gt;
+
+&lt;p&gt;OMG. I have to get into the command line to run the Broadcom installer. I
+won’t bother with this. I’ll try to use the flash drive again to do an
+in-place reinstall. That is, using “Keep my files” and see what happens with
+that. Nope that’s only if Windows has booted. Let’s try repair with command
+line.&lt;/p&gt;
+
+&lt;p&gt;Ok, I found the driver installer under my old install just fine, but I cannot run it due to a compatibility
+issue. Amazing.&lt;/p&gt;
+
+&lt;p&gt;I restart again and get into safe mode after getting to that option. I first get: sihost.exe - System Warning “Unknown Hard Error”,
+but I seem to get in? I try to spin up explorer.exe but the screen is
+flickering. I escape it with         shutdown /r /t 0&lt;/p&gt;
+
+&lt;p&gt;I don’t think safe mode will be much of an answer.&lt;/p&gt;
+
+&lt;p&gt;It’s seriously weird behavior, but I did just clone things in a direct way. I wonder if I can improve things if I remove the other
+disk &lt;em&gt;which is cloned&lt;/em&gt;. So I reboot with that disk literally not connected on
+SATA. I bet it will still be hosed. At this rate I’m sure I’m going to have
+to do a clean installation again. 
+Now it cycles forever. I bet its pointing to the old disk and since it can’t
+find it, it doesn’t limp to the login screen.&lt;/p&gt;
+
+&lt;p&gt;After reading around I found &lt;a href=&quot;https://www.tenforums.com/installation-upgrade/52837-moving-recreating-efi-partition.html&quot;&gt;This
+post&lt;/a&gt;
+covering usage of bcdboot. I tried it, but the new EFI was not functional.&lt;/p&gt;
+
+&lt;h1 id=&quot;giving-up--fresh-install&quot;&gt;Giving up – Fresh Install&lt;/h1&gt;
+
+&lt;p&gt;I went to bed, and the next morning I decided to do a fresh install and then
+migrate things over. I used the flash drive to install windows and now I’m
+watching it all come alive. Sadly, I’ll need to reinstall a lot of stuff that
+I’d accumulated over time:&lt;/p&gt;
+
+&lt;p&gt;Music software&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reason – incl. disk-free patch&lt;/li&gt;
+  &lt;li&gt;FL Studio&lt;/li&gt;
+  &lt;li&gt;Ableton&lt;/li&gt;
+  &lt;li&gt;Paulstretch&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;School software&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;WSL with Ubuntu&lt;/li&gt;
+  &lt;li&gt;Arduino&lt;/li&gt;
+  &lt;li&gt;Altium&lt;/li&gt;
+  &lt;li&gt;Mathematica&lt;/li&gt;
+  &lt;li&gt;Octave under WSL&lt;/li&gt;
+  &lt;li&gt;Matlab&lt;/li&gt;
+  &lt;li&gt;ADS/Empro&lt;/li&gt;
+  &lt;li&gt;Remcom EDS&lt;/li&gt;
+  &lt;li&gt;FEKO&lt;/li&gt;
+  &lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So thankfully I moved a bunch of these installers over to another location, so
+that will speed some things up. A bunch of drivers should be in there too.&lt;/p&gt;
+
+&lt;p&gt;I then used Powershell (as admin) to enable WSL:         Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux&lt;/p&gt;
+
+&lt;p&gt;I then went and copied drivers. I skipped the pre-existing files.&lt;/p&gt;
+
+&lt;h1 id=&quot;final-thoughts&quot;&gt;Final thoughts:&lt;/h1&gt;
+
+&lt;p&gt;I still don’t like Windows…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://i.imgur.com/XdKViCp.mp4&quot;&gt;Life be like&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">The Problem</summary></entry><entry><title type="html">Setup of Octave</title><link href="http://localhost:4000/none/2020/09/08/WSL_Octave.html" rel="alternate" type="text/html" title="Setup of Octave" /><published>2020-09-08T15:39:23-06:00</published><updated>2020-09-08T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/09/08/WSL_Octave</id><content type="html" xml:base="http://localhost:4000/none/2020/09/08/WSL_Octave.html">&lt;p&gt;binutils&lt;/p&gt;
+
+&lt;p&gt;dnschneid/crouton’s “Fix error while loading shared libraries:
+libQt5Core.so.5”&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">binutils</summary></entry><entry><title type="html">Some Thoughts on Documentation</title><link href="http://localhost:4000/2020/07/26/NotesConsolidation.html" rel="alternate" type="text/html" title="Some Thoughts on Documentation" /><published>2020-07-26T00:00:00-06:00</published><updated>2020-07-26T00:00:00-06:00</updated><id>http://localhost:4000/2020/07/26/NotesConsolidation</id><content type="html" xml:base="http://localhost:4000/2020/07/26/NotesConsolidation.html">&lt;h2 id=&quot;gathering-thoughts&quot;&gt;Gathering Thoughts&lt;/h2&gt;
+
+&lt;p&gt;When I do creative work, I need to keep track of a lot of things: I need
+to track what I’ve been told, I need to remember questions I want to ask
+and ask before I are forced to make assumptions, I need to know where
+I’m at, what the end looks like, and what being stuck or moving looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Last month I began and failed to post about a prior school project’s
+documentation before starting an independent study. Work continued to escalate,as I am working in a design role, and I am new to most of it. So I’m not seeing a pattern of struggling to get momentum on things, and worse, it’s hard to pick back up or determine what I did later on. No, a cool video demonstrating the working project doesn’t help enough…&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Both graduate school and my new work roles have pushed me to re-evaluate the
+tools that I use to manage my time and the information I’m trying to wrangle.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+The set of skills I’m struggling to develop further
+involves: documentation, planning, and I’d guess I’d call it project
+awareness or maybe proprioception.&lt;/p&gt;
+
+&lt;p&gt;It’s exciting but also challenging me to try to think about a block and answer
+questions and come up with bug-fixes under pressure. In the years of prior work, I have been doing digital design where I’m trying to find bugs before there’s a lot of pressure on the designer(s) and cost to deploy the bug-fixes. In many ways it’s the opposite set of pressures and I’m still trying to adapt to it.&lt;/p&gt;
+
+&lt;p&gt;Part of what feels acutely overwhelming are the number of interactions I have
+to keep track of, and the importance of defining simple, intelligible
+boundaries between blocks so jobs are clear-cut and new features don’t require
+modifying a zillion blocks. I am reminded of the concept taught in PES: to have
+low coupling and high cohesion.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Now with a summer independent study deep underway in a state of disorganization, I have been struggling to get momentum due to a few nuisansome issues with tooling and, honestly,
+perfectionism. Work has also demanded a lot of time, and frankly there is
+disorganization there as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This blog post is to sort of consider the various tools for taking notes and consider what seems to work, how things have been used, and maybe how to pull things all together.&lt;/p&gt;
+
+&lt;h2 id=&quot;goal-a-system&quot;&gt;Goal: A system&lt;/h2&gt;
+
+&lt;p&gt;The goal of all this is to try and work out a consistent system to use to
+gather thoughts, process notes, distill things down.&lt;/p&gt;
+
+&lt;h2 id=&quot;notes-consolidation&quot;&gt;Notes Consolidation&lt;/h2&gt;
+
+&lt;p&gt;It’s an even on my Outlook calendar at work. The idea is that every week I
+pull together the prior week’s work, and try to prepare for the next week
+ahead. The goal is to think about to set my next work morning up for a quick
+settle in by: (1) gathering up a summary of where I was so I don’t have to
+review too many notes, (2) reminding me of things that I was debugging, (3) give me confidence that what I’m workig on is the right thing.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+As time has gone on I have not maintained this practice and it is time to
+revive it. I can’t keep everything in my head.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+So what would notes consolidation look like? Where am I keeping my notes? What
+tools have I used in the past, which do I like, and which will I use in the
+future as I do “notes consolidation?”&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Let’s begin with the must-haves of such a “system”:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Must be usable for either school or work.&lt;/li&gt;
+  &lt;li&gt;Must allow me to use copious amounts of paper if needed, but not
+necessarily of the nice notebook&lt;/li&gt;
+  &lt;li&gt;Must eventually be searchable in some way&lt;/li&gt;
+  &lt;li&gt;Should incorporate automatic accountability (recording when something was
+complete)&lt;/li&gt;
+  &lt;li&gt;Must not take ages and ages to accumulate and compile, etc.&lt;/li&gt;
+  &lt;li&gt;Must be associated with my devices so I’m bothered with a banner and a
+buzz to tell me to get to x, y, or z. It works for appointments, so use
+them for breaking things up.&lt;/li&gt;
+  &lt;li&gt;Must be sharable in some way&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Tools that I have used:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Overleaf&lt;/li&gt;
+  &lt;li&gt;Github&lt;/li&gt;
+  &lt;li&gt;Dropbox&lt;/li&gt;
+  &lt;li&gt;Outlook/Gmail
+    &lt;ul&gt;
+      &lt;li&gt;email&lt;/li&gt;
+      &lt;li&gt;calendar&lt;/li&gt;
+      &lt;li&gt;both offer task stuff… but they are exclusive to each other still&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Google Docs&lt;/li&gt;
+  &lt;li&gt;Confluence&lt;/li&gt;
+  &lt;li&gt;suckless dmenu adapted to be a todo list (on
+&lt;a href=&quot;https://github.com/KO0I/scripts/blob/master/todo&quot;&gt;github&lt;/a&gt;)
+    &lt;ul&gt;
+      &lt;li&gt;I really like this option because I can add a time when a task was
+added, and mark the time it was completed in the completed file, thereby
+measuring how long tasks took.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Paper: &lt;a href=&quot;https://www.poketo.com/collections/planners/products/concept-planner-plum&quot;&gt;Poketo Concept Planner&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Some notebook for class/hobby/project thoughts. Graph or dot ruled usually&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Tools for sharing I could use:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;This website?&lt;/li&gt;
+  &lt;li&gt;OneNote (ew microsoft)&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;college-note-taking&quot;&gt;College Note-Taking&lt;/h2&gt;
+
+&lt;p&gt;College lectures are dense, unless the professor is bungling hard. So the
+lectures are jam-packed with essential information. Taking notes in a college
+class is an art unto itself that I mastered, but it’s also not too hard
+considering how organized most of these presentations are.&lt;/p&gt;
+
+&lt;p&gt;Consider the hundreds of times that a certain required course, some
+long-bemoanded pre-req that has been taught regularly. Think about how standardized elements of the course must be. How many times it’s been organized again and again. So to take notes during such a lecture means that the material isn’t likely to be full of digressions.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Gradaute school is an interesting environment where a lot more organization
+work is put on the student. Either as a part of their work as TA’s or in
+working on their projects. The more advanced the study, the less guidance
+there is. There will not be a simple set of YouTube tutorial videos covering breaking topics. Self-directed learning at a high-school level is not so bad on account of the sheer abundance of information there is for that level of education. There’s plenty for undergrad, but as topics get more advanced, the paywalls appear and more and more is bound up in papers rather than snappy videos.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+So more than ever, self-directed note taking and gathering has taken on an
+importance not only to get information about a subject from interactions with
+professors, etc. but also work out schedule, expectations, and other
+project-management items. In undergrad the goalposts were fixed but in grad
+school there is room for discussion. It is more important than ever to both
+advocate for oneself but also to be organized.&lt;/p&gt;
+
+&lt;h2 id=&quot;too-many-notes&quot;&gt;Too Many Notes&lt;/h2&gt;
+
+&lt;p&gt;At work, every word from my boss is not from on high. I often focus on some
+detail and he goes on, and I lose track. It breaks the rhythm worse if I don’t
+ask for a pause, and it would be bad to constantly halt conversation to slowly
+soak in implications or catch that interesting edge case or questionable thing
+quickly.&lt;/p&gt;</content><author><name></name></author><summary type="html">Gathering Thoughts</summary></entry><entry><title type="html">Starting Directions For This Blog</title><link href="http://localhost:4000/none/2020/06/28/directions.html" rel="alternate" type="text/html" title="Starting Directions For This Blog" /><published>2020-06-28T15:39:23-06:00</published><updated>2020-06-28T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/06/28/directions</id><content type="html" xml:base="http://localhost:4000/none/2020/06/28/directions.html">&lt;h1 id=&quot;i-have-reached-the-build-your-own-website-stage-of-covid-19-quarantine&quot;&gt;I have reached the “build your own website” stage of COVID-19 quarantine&lt;/h1&gt;
+
+&lt;p&gt;This github pages and jekyll business is quite slick so far! I have held onto
+this cute domain name for a few years and just could not get started on it.&lt;/p&gt;
+
+&lt;p&gt;My partner helpfully suggested that I go with a blog style, which is probably
+a little more organic and suitable for my whole way of doing things.&lt;/p&gt;
+
+&lt;p&gt;Some ideas that I want to play with on this humble site of mine:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Hobbyist tech projects
+    &lt;ul&gt;
+      &lt;li&gt;Ham radio and wireless
+        &lt;ul&gt;
+          &lt;li&gt;Antenna Modeling and Design&lt;/li&gt;
+          &lt;li&gt;Radio Astronomy&lt;/li&gt;
+          &lt;li&gt;Homebrew equiprment&lt;/li&gt;
+          &lt;li&gt;Not contesting. Blegh!&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Automation and robotics
+        &lt;ul&gt;
+          &lt;li&gt;RepRap&lt;/li&gt;
+          &lt;li&gt;Gardening&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Verilog&lt;/li&gt;
+      &lt;li&gt;Embedded C&lt;/li&gt;
+      &lt;li&gt;DSP&lt;/li&gt;
+      &lt;li&gt;Open-Source software&lt;/li&gt;
+      &lt;li&gt;Electromagnetics Simulation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Weather&lt;/li&gt;
+  &lt;li&gt;Music
+    &lt;ul&gt;
+      &lt;li&gt;Sampling&lt;/li&gt;
+      &lt;li&gt;Processing Effects&lt;/li&gt;
+      &lt;li&gt;Digital Synthesis&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Documentation for troubleshooting, prior projects&lt;/li&gt;
+  &lt;li&gt;Interactive data plots
+    &lt;ul&gt;
+      &lt;li&gt;Maybe integrate fun things such as: &lt;a href=&quot;https://mvdwoord.github.io/tools/2017/02/04/Notebook_in_gist_in_jekyll.html&quot;&gt;Jupyter Notebooks&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Talk about habits, er… lifehacks
+    &lt;ul&gt;
+      &lt;li&gt;Documentation has been on my mind a lot lately…&lt;/li&gt;
+      &lt;li&gt;Omotenashi&lt;/li&gt;
+      &lt;li&gt;Organizing Thoughts and Planning&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pictures of cool places&lt;/li&gt;
+  &lt;li&gt;Links to useful resources&lt;/li&gt;
+  &lt;li&gt;Rabbit holes of various sorts&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, it seems that I have many directions I want to take this, and many of them
+are open-ended. I suppose if you know me at all, you can expect it to be scattered.&lt;br /&gt;
+My hope is to get into making some kind of little post every now and again on something that I found interesting or useful.&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">I have reached the “build your own website” stage of COVID-19 quarantine</summary></entry><entry><title type="html">A test</title><link href="http://localhost:4000/none/2020/06/27/firstPost.html" rel="alternate" type="text/html" title="A test" /><published>2020-06-27T13:39:23-06:00</published><updated>2020-06-27T13:39:23-06:00</updated><id>http://localhost:4000/none/2020/06/27/firstPost</id><content type="html" xml:base="http://localhost:4000/none/2020/06/27/firstPost.html">&lt;p&gt;Just saying hello&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">Just saying hello</summary></entry><entry><title type="html">Elements Reference</title><link href="http://localhost:4000/2018/01/12/elements.html" rel="alternate" type="text/html" title="Elements Reference" /><published>2018-01-12T00:00:00-07:00</published><updated>2018-01-12T00:00:00-07:00</updated><id>http://localhost:4000/2018/01/12/elements</id><content type="html" xml:base="http://localhost:4000/2018/01/12/elements.html">&lt;!-- Text stuff --&gt;
+&lt;h2&gt;Text&lt;/h2&gt;
+&lt;p&gt;This is &lt;b&gt;bold&lt;/b&gt; and this is &lt;strong&gt;strong&lt;/strong&gt;. This is &lt;i&gt;italic&lt;/i&gt; and this is &lt;em&gt;emphasized&lt;/em&gt;.
+	This is &lt;sup&gt;superscript&lt;/sup&gt; text and this is &lt;sub&gt;subscript&lt;/sub&gt; text.
+	This is &lt;u&gt;underlined&lt;/u&gt; and this is code: &lt;code&gt;for (;;) { ... }&lt;/code&gt;.
+	Finally, this is a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+	&lt;hr /&gt;
+	&lt;h2&gt;Heading Level 2&lt;/h2&gt;
+	&lt;h3&gt;Heading Level 3&lt;/h3&gt;
+	&lt;hr /&gt;
+	&lt;header&gt;
+		&lt;h2&gt;Heading with a Subtitle&lt;/h2&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet nullam id egestas urna aliquam&lt;/p&gt;
+	&lt;/header&gt;
+	&lt;p&gt;Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.&lt;/p&gt;
+	&lt;hr /&gt;
+	
+	&lt;!-- Lists --&gt;
+	&lt;h2&gt;Lists&lt;/h2&gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;6u 12u$(small)&quot;&gt;
+			
+			&lt;h3&gt;Unordered&lt;/h3&gt;
+			&lt;ul&gt;
+				&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
+				&lt;li&gt;Sagittis lorem eleifend.&lt;/li&gt;
+				&lt;li&gt;Felis feugiat dolore viverra.&lt;/li&gt;
+				&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
+			&lt;/ul&gt;
+			
+			&lt;h3&gt;Icons&lt;/h3&gt;
+			&lt;ul class=&quot;icons&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-envelope&quot;&gt;&lt;span class=&quot;label&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-r fa-envelope&quot;&gt;&lt;span class=&quot;label&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-user&quot;&gt;&lt;span class=&quot;label&quot;&gt;Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-r fa-user&quot;&gt;&lt;span class=&quot;label&quot;&gt;Instagram&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-b fa-github&quot;&gt;&lt;span class=&quot;label&quot;&gt;Github&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-b fa-github-alt&quot;&gt;&lt;span class=&quot;label&quot;&gt;Dribbble&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			
+		&lt;/div&gt;
+		&lt;div class=&quot;6u$ 12u$(small)&quot;&gt;
+			
+			&lt;h3&gt;Ordered&lt;/h3&gt;
+			&lt;ol&gt;
+				&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
+				&lt;li&gt;Etiam vel felis at viverra.&lt;/li&gt;
+				&lt;li&gt;Felis enim feugiat magna.&lt;/li&gt;
+				&lt;li&gt;Etiam vel felis nullam.&lt;/li&gt;
+				&lt;li&gt;Felis enim et tempus.&lt;/li&gt;
+			&lt;/ol&gt;
+		
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;h3&gt;Definition&lt;/h3&gt;
+	&lt;dl&gt;
+		&lt;dt&gt;Item 1&lt;/dt&gt;
+		&lt;dd&gt;
+			&lt;p&gt;Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.&lt;/p&gt;
+		&lt;/dd&gt;
+		&lt;dt&gt;Item 2&lt;/dt&gt;
+		&lt;dd&gt;
+			&lt;p&gt;Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.&lt;/p&gt;
+		&lt;/dd&gt;
+		&lt;dt&gt;Item 3&lt;/dt&gt;
+		&lt;dd&gt;
+			&lt;p&gt;Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.&lt;/p&gt;
+		&lt;/dd&gt;
+	&lt;/dl&gt;
+	
+	&lt;h3&gt;Button&lt;/h3&gt;
+		&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button&lt;/a&gt;
+		&lt;a href=&quot;#&quot; class=&quot;button icon fa-search&quot;&gt;Icon&lt;/a&gt;
+	
+	&lt;hr /&gt;
+	
+	&lt;!-- Blockquote --&gt;
+	&lt;h2&gt;Blockquote&lt;/h2&gt;
+	&lt;blockquote&gt;Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis.&lt;/blockquote&gt;
+	
+	&lt;hr /&gt;
+	
+	&lt;!-- Table --&gt;
+	&lt;h2&gt;Table&lt;/h2&gt;
+	&lt;div class=&quot;table-wrapper&quot;&gt;
+		&lt;table&gt;
+			&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th&gt;Name&lt;/th&gt;
+					&lt;th&gt;Description&lt;/th&gt;
+					&lt;th&gt;Price&lt;/th&gt;
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+			&lt;tbody&gt;
+				&lt;tr&gt;
+					&lt;td&gt;Item 1&lt;/td&gt;
+					&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
+					&lt;td&gt;29.99&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;Item 2&lt;/td&gt;
+					&lt;td&gt;Vis ac commodo adipiscing arcu aliquet.&lt;/td&gt;
+					&lt;td&gt;19.99&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;Item 3&lt;/td&gt;
+					&lt;td&gt; Morbi faucibus arcu accumsan lorem.&lt;/td&gt;
+					&lt;td&gt;29.99&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;Item 4&lt;/td&gt;
+					&lt;td&gt;Vitae integer tempus condimentum.&lt;/td&gt;
+					&lt;td&gt;19.99&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;Item 5&lt;/td&gt;
+					&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
+					&lt;td&gt;29.99&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tbody&gt;
+			&lt;tfoot&gt;
+				&lt;tr&gt;
+					&lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;
+					&lt;td&gt;100.00&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tfoot&gt;
+		&lt;/table&gt;
+	&lt;/div&gt;
+	
+	&lt;hr /&gt;
+	
+	&lt;!-- Form --&gt;
+	&lt;h2&gt;Form&lt;/h2&gt;
+	
+	&lt;form method=&quot;post&quot; action=&quot;#&quot;&gt;
+		&lt;div class=&quot;row uniform&quot;&gt;
+			&lt;div class=&quot;6u 12u$(xsmall)&quot;&gt;
+				&lt;input type=&quot;text&quot; name=&quot;demo-name&quot; id=&quot;demo-name&quot; value=&quot;&quot; placeholder=&quot;Name&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;6u$ 12u$(xsmall)&quot;&gt;
+				&lt;input type=&quot;email&quot; name=&quot;demo-email&quot; id=&quot;demo-email&quot; value=&quot;&quot; placeholder=&quot;Email&quot; /&gt;
+			&lt;/div&gt;
+			&lt;!-- Break --&gt;
+			&lt;div class=&quot;12u$&quot;&gt;
+				&lt;div class=&quot;select-wrapper&quot;&gt;
+					&lt;select name=&quot;demo-category&quot; id=&quot;demo-category&quot;&gt;
+						&lt;option value=&quot;&quot;&gt;- Category -&lt;/option&gt;
+						&lt;option value=&quot;1&quot;&gt;Manufacturing&lt;/option&gt;
+						&lt;option value=&quot;1&quot;&gt;Shipping&lt;/option&gt;
+						&lt;option value=&quot;1&quot;&gt;Administration&lt;/option&gt;
+						&lt;option value=&quot;1&quot;&gt;Human Resources&lt;/option&gt;
+					&lt;/select&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;!-- Break --&gt;
+			&lt;div class=&quot;4u 12u$(small)&quot;&gt;
+				&lt;input type=&quot;radio&quot; id=&quot;demo-priority-low&quot; name=&quot;demo-priority&quot; checked&gt;
+				&lt;label for=&quot;demo-priority-low&quot;&gt;Low&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;4u 12u$(small)&quot;&gt;
+				&lt;input type=&quot;radio&quot; id=&quot;demo-priority-normal&quot; name=&quot;demo-priority&quot;&gt;
+				&lt;label for=&quot;demo-priority-normal&quot;&gt;Normal&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;4u$ 12u$(small)&quot;&gt;
+				&lt;input type=&quot;radio&quot; id=&quot;demo-priority-high&quot; name=&quot;demo-priority&quot;&gt;
+				&lt;label for=&quot;demo-priority-high&quot;&gt;High&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;!-- Break --&gt;
+			&lt;div class=&quot;6u 12u$(small)&quot;&gt;
+				&lt;input type=&quot;checkbox&quot; id=&quot;demo-copy&quot; name=&quot;demo-copy&quot;&gt;
+				&lt;label for=&quot;demo-copy&quot;&gt;Email me a copy&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;6u$ 12u$(small)&quot;&gt;
+				&lt;input type=&quot;checkbox&quot; id=&quot;demo-human&quot; name=&quot;demo-human&quot; checked&gt;
+				&lt;label for=&quot;demo-human&quot;&gt;I am a human&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;!-- Break --&gt;
+			&lt;div class=&quot;12u$&quot;&gt;
+				&lt;textarea name=&quot;demo-message&quot; id=&quot;demo-message&quot; placeholder=&quot;Enter your message&quot; rows=&quot;6&quot;&gt;&lt;/textarea&gt;
+			&lt;/div&gt;
+			&lt;!-- Break --&gt;
+			&lt;div class=&quot;12u$&quot;&gt;
+				&lt;div class=&quot;actions&quot;&gt;
+					&lt;input type=&quot;submit&quot; value=&quot;Send Message&quot; class=&quot;special&quot; /&gt;
+					&lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+	
+	&lt;hr /&gt;
+	
+	&lt;!-- Image --&gt;
+	&lt;h2&gt;Image&lt;/h2&gt;
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;4u 12u$(mobile)&quot;&gt;
+      &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic02.jpg&quot; alt=&quot;Ipsum Feugiat&quot; /&gt;&lt;/a&gt;
+        &lt;header&gt;
+          &lt;h3&gt;Ipsum Feugiat&lt;/h3&gt;
+        &lt;/header&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic03.jpg&quot; alt=&quot;Rhoncus Semper&quot; /&gt;&lt;/a&gt;
+        &lt;header&gt;
+          &lt;h3&gt;Rhoncus Semper&lt;/h3&gt;
+        &lt;/header&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;4u 12u$(mobile)&quot;&gt;
+      &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic04.jpg&quot; alt=&quot;Magna Nullam&quot; /&gt;&lt;/a&gt;
+        &lt;header&gt;
+          &lt;h3&gt;Magna Nullam&lt;/h3&gt;
+        &lt;/header&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic05.jpg&quot; alt=&quot;Natoque Vitae&quot; /&gt;&lt;/a&gt;
+        &lt;header&gt;
+          &lt;h3&gt;Natoque Vitae&lt;/h3&gt;
+        &lt;/header&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;4u$ 12u$(mobile)&quot;&gt;
+      &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic06.jpg&quot; alt=&quot;Dolor Penatibus&quot; /&gt;&lt;/a&gt;
+        &lt;header&gt;
+          &lt;h3&gt;Dolor Penatibus&lt;/h3&gt;
+        &lt;/header&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic07.jpg&quot; alt=&quot;Orci Convallis&quot; /&gt;&lt;/a&gt;
+        &lt;header&gt;
+          &lt;h3&gt;Orci Convallis&lt;/h3&gt;
+        &lt;/header&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+	
+	&lt;h3&gt;Left &amp;amp; Right&lt;/h3&gt;
+	&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/assets/images/pic03.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.&lt;/p&gt;
+	&lt;p&gt;&lt;span class=&quot;image right&quot;&gt;&lt;img src=&quot;/assets/images/pic02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.&lt;/p&gt;
+	
+	&lt;hr /&gt;
+	
+	&lt;!-- Preformatted Code --&gt;
+	&lt;h2&gt;Preformatted&lt;/h2&gt;
+	&lt;pre&gt;&lt;code&gt;i = 0;
+
+while (!deck.isInOrder()) {
+	print 'Iteration ' + i;
+	deck.shuffle();
+	i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Text This is bold and this is strong. This is italic and this is emphasized. This is superscript text and this is subscript text. This is underlined and this is code: for (;;) { ... }. Finally, this is a link. Heading Level 2 Heading Level 3 Heading with a Subtitle Lorem ipsum dolor sit amet nullam id egestas urna aliquam Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan. Lists Unordered Dolor pulvinar etiam. Sagittis lorem eleifend. Felis feugiat dolore viverra. Dolor pulvinar etiam. Icons Twitter Twitter Facebook Instagram Github Dribbble Ordered Dolor pulvinar etiam. Etiam vel felis at viverra. Felis enim feugiat magna. Etiam vel felis nullam. Felis enim et tempus. Definition Item 1 Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Item 2 Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Item 3 Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Button Button Icon Blockquote Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis. Table Name Description Price Item 1 Ante turpis integer aliquet porttitor. 29.99 Item 2 Vis ac commodo adipiscing arcu aliquet. 19.99 Item 3 Morbi faucibus arcu accumsan lorem. 29.99 Item 4 Vitae integer tempus condimentum. 19.99 Item 5 Ante turpis integer aliquet porttitor. 29.99 100.00 Form - Category - Manufacturing Shipping Administration Human Resources Low Normal High Email me a copy I am a human Image Ipsum Feugiat Rhoncus Semper Magna Nullam Natoque Vitae Dolor Penatibus Orci Convallis Left &amp;amp; Right Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis. Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis. Preformatted i = 0; while (!deck.isInOrder()) { print 'Iteration ' + i; deck.shuffle(); i++; } print 'It took ' + i + ' iterations to sort the deck.';</summary></entry></feed>

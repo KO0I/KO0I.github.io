@@ -41,7 +41,7 @@ transferring it could do something weird in windows. Iunno, I'm just not sure
 I want to risk bricking the original drive, then migrating a broken thing.
 
 
-##Oops
+## Oops
 
 I started by creating a partition on my master
 backup external drive and, well, then it formatted the entire drive rather than the partition I thought it would work on. 
@@ -72,7 +72,7 @@ take a moment to upgrade the labeling.
 
 # Too Smol
 
-[Too Smol][1]
+![Too Smol][1]
 
 Ok it looks like I was right. The destination drive was too large. Let's do
 the fresh install route
@@ -130,7 +130,7 @@ I used Clonezilla's         part_to_local_part
 function to clone my shrunken old Windows partition to the new Windows
 partition on the SSD.
 
-[Clonezilla Screenshot][2]
+[Clonezilla Screenshot]([2])
 
 
 So, after this and a large sync operation, I do the reboot of fate. 
