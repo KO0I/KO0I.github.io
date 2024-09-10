@@ -8,7 +8,7 @@ Some things I've read or am reading:
 ---
 
 * *The Dispossessed* by Ursula K. Le Guin
-* *The Minitry of the Future by Kim Stanley Robinson
+* *The Minitry of the Future* by Kim Stanley Robinson
 
 * *The (Mis)Behavior of Markets* by Mandelbrot and Hudson
 
