@@ -1,0 +1,77 @@
+I"�<h1 id="why">Why?</h1>
+
+<p>I’m getting tired of streaming services when I have media on my machine that
+I’d like to stream. Having things gathered up allows for a more reliable
+source for the media. I also wanted to have a uniform experience across
+devices accessing my own personal media library.</p>
+
+<p>Finally, I wanted the option to extend access to my media library in the
+future in a way that is at once secure but also not overly cumbersome for
+friends trying to just watch a movie or whatever. This external access is an aspirational goal
+for the future.</p>
+
+<h2 id="problems-with-the-old-way-vlc">Problems with the old way: VLC</h2>
+
+<p>Previously I would use VLC to stream video to other devices. 
+VLC can supposedly stream to Chromecasts via choosing it as the Renderer
+output in VLC. However, there are specific codec requirements for the
+Chromecast and there’s the option to use something like
+<a href="github.com/petrkotek/chromecastize">Chromecastize</a> to attempt to convert the
+library in advance to stream more quickly. Streaming on the go can be
+time-intensive and who wants to bother looking up ffmpeg errors when the
+script invariably encounters some media that requires intervention to continue
+conversion.</p>
+
+<h1 id="the-alternative-jellyfin">The Alternative: Jellyfin</h1>
+
+<p><a href="www.jellyfin.org">Jellyfin</a> is an open-source way to access media on a
+network. It’s a service that basically does the same thing that Plex does
+without the extras.</p>
+
+<p>There are ways to get it to work over the internet, but
+this is not interesting to me. This post is intended to briefly address the
+little troubles I ran into along the way getting this program working on a
+LAN.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>I won’t bore you with installation details, apart to say that allowing network access
+is important. I’m new to Jellyfin, so it also took me a slightly embarassing
+amount of time to realize that network settings aren’t under settings per se
+but under “Dashboard”.</p>
+
+<p>I also wanted to say that this service does not require your router to be set
+up in UPNP (Universal Plug and Play), which is good! I had put off exploring
+this for some time because I was under the impression that the router had to
+be in some configuration I consider undesirable. This is not the case! Yay!</p>
+
+<h2 id="network-configuration">Network Configuration</h2>
+
+<p>I had to make sure my windows machine (the media server running Jellyfin) believed the network was a Private network. I had previously set it to public. Oops!</p>
+
+<p>Similarly, on Linux, any firewall settings had to allow for connections over
+the port chosen for the Jellyfin connection.</p>
+
+<p>On the server side, filtering can be enabled. I think this it could be a good
+idea to whitelist a number of known “safe” devices, especially if I ever do
+decide to open things up to the wider internet.</p>
+
+<h2 id="quirks-on-iphone">Quirks on iPhone</h2>
+
+<p>Android is well-supported but iPhone appears to not be able to cast to the
+Chromecast when it is running Jellyfin as a connected device.</p>
+
+<p>This barely matters as the Android Jellyfin app is able to connect to the
+Jellyfin server and one only has to use the Chromecast remote for media
+control.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>After working out quirks, the system is quite nice for accessing my personal
+library without having to use an ineffecient option like copying the files
+over (i.e. Dropbox or external drives) or using software which can feel
+inconsistent (VLC, ffmpeg, and all the rest of the myriad details of video encoding/conversion).</p>
+
+<p>I am hosting a movie night tonight and we shall see how smoothly the user
+experience is then.</p>
+:ET

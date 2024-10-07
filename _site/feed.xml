@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-07T20:41:50-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ChipChirp</title><subtitle>Beep Beep Beep</subtitle><entry><title type="html">A Simple Process for Designing Practical Objects in OpenSCAD</title><link href="http://localhost:4000/modeling,/3d-printing,/functionalprint/2021/04/07/openscad-design-tutorial.html" rel="alternate" type="text/html" title="A Simple Process for Designing Practical Objects in OpenSCAD" /><published>2021-04-07T00:00:00-06:00</published><updated>2021-04-07T00:00:00-06:00</updated><id>http://localhost:4000/modeling,/3d-printing,/functionalprint/2021/04/07/openscad-design-tutorial</id><content type="html" xml:base="http://localhost:4000/modeling,/3d-printing,/functionalprint/2021/04/07/openscad-design-tutorial.html">&lt;h1 id=&quot;3d-printing-practical-items-overview-of-a-process&quot;&gt;3D Printing Practical Items, Overview of A Process&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ChipChirp</title>
+    <description>Audio and oddware</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 06 Oct 2024 22:13:22 -0600</pubDate>
+    <lastBuildDate>Sun, 06 Oct 2024 22:13:22 -0600</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Some notes on using Jellyfin</title>
+        <description>&lt;h1 id=&quot;why&quot;&gt;Why?&lt;/h1&gt;
+
+&lt;p&gt;I’m getting tired of streaming services when I have media on my machine that
+I’d like to stream. Having things gathered up allows for a more reliable
+source for the media. I also wanted to have a uniform experience across
+devices accessing my own personal media library.&lt;/p&gt;
+
+&lt;p&gt;Finally, I wanted the option to extend access to my media library in the
+future in a way that is at once secure but also not overly cumbersome for
+friends trying to just watch a movie or whatever. This external access is an aspirational goal
+for the future.&lt;/p&gt;
+
+&lt;h2 id=&quot;problems-with-the-old-way-vlc&quot;&gt;Problems with the old way: VLC&lt;/h2&gt;
+
+&lt;p&gt;Previously I would use VLC to stream video to other devices. 
+VLC can supposedly stream to Chromecasts via choosing it as the Renderer
+output in VLC. However, there are specific codec requirements for the
+Chromecast and there’s the option to use something like
+&lt;a href=&quot;github.com/petrkotek/chromecastize&quot;&gt;Chromecastize&lt;/a&gt; to attempt to convert the
+library in advance to stream more quickly. Streaming on the go can be
+time-intensive and who wants to bother looking up ffmpeg errors when the
+script invariably encounters some media that requires intervention to continue
+conversion.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-alternative-jellyfin&quot;&gt;The Alternative: Jellyfin&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;www.jellyfin.org&quot;&gt;Jellyfin&lt;/a&gt; is an open-source way to access media on a
+network. It’s a service that basically does the same thing that Plex does
+without the extras.&lt;/p&gt;
+
+&lt;p&gt;There are ways to get it to work over the internet, but
+this is not interesting to me. This post is intended to briefly address the
+little troubles I ran into along the way getting this program working on a
+LAN.&lt;/p&gt;
+
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+
+&lt;p&gt;I won’t bore you with installation details, apart to say that allowing network access
+is important. I’m new to Jellyfin, so it also took me a slightly embarassing
+amount of time to realize that network settings aren’t under settings per se
+but under “Dashboard”.&lt;/p&gt;
+
+&lt;p&gt;I also wanted to say that this service does not require your router to be set
+up in UPNP (Universal Plug and Play), which is good! I had put off exploring
+this for some time because I was under the impression that the router had to
+be in some configuration I consider undesirable. This is not the case! Yay!&lt;/p&gt;
+
+&lt;h2 id=&quot;network-configuration&quot;&gt;Network Configuration&lt;/h2&gt;
+
+&lt;p&gt;I had to make sure my windows machine (the media server running Jellyfin) believed the network was a Private network. I had previously set it to public. Oops!&lt;/p&gt;
+
+&lt;p&gt;Similarly, on Linux, any firewall settings had to allow for connections over
+the port chosen for the Jellyfin connection.&lt;/p&gt;
+
+&lt;p&gt;On the server side, filtering can be enabled. I think this it could be a good
+idea to whitelist a number of known “safe” devices, especially if I ever do
+decide to open things up to the wider internet.&lt;/p&gt;
+
+&lt;h2 id=&quot;quirks-on-iphone&quot;&gt;Quirks on iPhone&lt;/h2&gt;
+
+&lt;p&gt;Android is well-supported but iPhone appears to not be able to cast to the
+Chromecast when it is running Jellyfin as a connected device.&lt;/p&gt;
+
+&lt;p&gt;This barely matters as the Android Jellyfin app is able to connect to the
+Jellyfin server and one only has to use the Chromecast remote for media
+control.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;After working out quirks, the system is quite nice for accessing my personal
+library without having to use an ineffecient option like copying the files
+over (i.e. Dropbox or external drives) or using software which can feel
+inconsistent (VLC, ffmpeg, and all the rest of the myriad details of video encoding/conversion).&lt;/p&gt;
+
+&lt;p&gt;I am hosting a movie night tonight and we shall see how smoothly the user
+experience is then.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Feb 2023 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/</link>
+        <guid isPermaLink="true">http://localhost:4000/</guid>
+        
+        
+        <category>streaming,</category>
+        
+        <category>network</category>
+        
+        <category>storage,</category>
+        
+      </item>
+    
+      <item>
+        <title>A Simple Process for Designing Practical Objects in OpenSCAD</title>
+        <description>&lt;h1 id=&quot;3d-printing-practical-items-overview-of-a-process&quot;&gt;3D Printing Practical Items, Overview of A Process&lt;/h1&gt;
 
 &lt;p&gt;I’ve been using OpenSCAD to create things to 3D-print for years now, and it
 can be a simple and fulfilling process to build up something useful from simple
@@ -423,144 +528,40 @@ or it can be a whole virtual jig.&lt;/p&gt;
 
 &lt;p&gt;If the final checks and tweaks look good, then it’s on to printing the
 object(s).
-Happy designing and printing!&lt;/p&gt;</content><author><name></name></author><category term="modeling," /><category term="3D-Printing," /><category term="functionalprint" /><summary type="html">3D Printing Practical Items, Overview of A Process</summary></entry><entry><title type="html">openEMS, ADS on multiple systems</title><link href="http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html" rel="alternate" type="text/html" title="openEMS, ADS on multiple systems" /><published>2020-09-08T15:39:23-06:00</published><updated>2020-09-08T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL</id><content type="html" xml:base="http://localhost:4000/none/2020/09/08/openEMS_windows_vs_WSL.html">&lt;h1 id=&quot;many-tools-many-contexts&quot;&gt;Many Tools, Many Contexts&lt;/h1&gt;
+Happy designing and printing!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 07 Apr 2021 00:00:00 -0600</pubDate>
+        <link>http://localhost:4000/</link>
+        <guid isPermaLink="true">http://localhost:4000/</guid>
+        
+        
+        <category>modeling,</category>
+        
+        <category>3D-Printing,</category>
+        
+        <category>functionalprint</category>
+        
+      </item>
+    
+      <item>
+        <title>Setup of Octave</title>
+        <description>&lt;p&gt;binutils&lt;/p&gt;
 
-&lt;p&gt;Here’s some of what is being used, or has been used&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Remcom XFDTD (Linux install)&lt;/li&gt;
-  &lt;li&gt;Keysight EMPRO (Win10)&lt;/li&gt;
-  &lt;li&gt;Keysight ADS (Win10)&lt;/li&gt;
-  &lt;li&gt;openEMS (both Win10 and Linux)&lt;/li&gt;
-  &lt;li&gt;meep (both Win10 and Linux)&lt;/li&gt;
-  &lt;li&gt;Altium (Win10) – learning&lt;/li&gt;
-  &lt;li&gt;KiCAD (Linux) – I have stalled on using this&lt;/li&gt;
-  &lt;li&gt;openSCAD (Linux and maybe Windows) – for when the other CAD tools are too
-much to bear&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I have RemCom running in the Linux Context. I would prefer to use openEMS in
-mostly the Linux context, but oh well, using both will be a learning experience! I will add links in future posts to resolve issues with specific tooling combinations.&lt;/p&gt;
-
-&lt;p&gt;I need to mount my Windows disk on my Linux side. That has no bad effects and
-I have done it before on older machines such as my older ThinkPad laptops.&lt;/p&gt;
-
-&lt;p&gt;I would also &lt;em&gt;like&lt;/em&gt; to use Windows seamlessly in the Linux context. Wine has
-been a long-time struggle with some cases working wonderfully and others
-failing to even install.&lt;/p&gt;
-
-&lt;p&gt;Booting the disk image virtually, using raw data options, etc. can achieve the
-data-sharing aspect nicely, but this provokes Microsoft’s licensing to
-re-start and that would be a hassle since I must retain dual-boot.&lt;/p&gt;
-
-&lt;p&gt;Xen has been a very curious option that I focused on for a bit too long, but I have chosen to avoid it because of the
-complexity involved, and again I’m not sure if my in-place Arch Linux install
-would be screwed up becoming the dom0 or how to deal with the network bridge
-aspect, let alone hardware. It seems like a fun project for something other
-than the machine I have mostly configured happily. Besides, my study is of
-FDTD methods, not entirely a matter of playing with computers, but there’s a
-lot of little issues behind getting each piece of software to run and to
-become competent enough with them to troubleshoot them.&lt;/p&gt;
-
-&lt;h2 id=&quot;shared-data&quot;&gt;Shared Data&lt;/h2&gt;
-
-&lt;p&gt;A quick IT aside! I have Linux and Windows dual-boot on separate disks.&lt;/p&gt;
-
-&lt;h3 id=&quot;mount-windows-on-linux&quot;&gt;Mount Windows on Linux&lt;/h3&gt;
-
-&lt;p&gt;I used cfdisk to find the partition UUID for my two partitions on Windows. One
-is the Main Disk, which is formatted as NTFS, and I might not want to always have it mounted. The other
-is the shared data volume, which is exFAT as it is better supported than NTFS
-on Linux. I used this information to create entries in my fstab, but I chose
-to keep them commented out for now.&lt;/p&gt;
-
-&lt;p&gt;Right now I’ll mount the drives on the Linux side on a need-as-used basis, or
-see how often I access the Windows stuff from the Linux side.&lt;/p&gt;
-
-&lt;h1 id=&quot;i-might-need-to-use-ads-in-both-a-windows-and-linux-context&quot;&gt;I might need to use ADS in both a Windows and Linux context&lt;/h1&gt;
-
-&lt;p&gt;ADS is software from Keysight that does circuit analysis. It uses &lt;a href=&quot;https://ptolemy.berkely.edu&quot;&gt;Ptolemy&lt;/a&gt; and Keysight offers various interesting simulator extensions in line with the heterogenous systems intent of the project, such as thermal analysis. This interesting engine, combined with other quirks of proprietary software, made running this on Linux a hard time the last time I tried to run ADS post-install on a Linux machine.&lt;/p&gt;
-
-&lt;h2 id=&quot;ads-on-linux&quot;&gt;ADS on Linux&lt;/h2&gt;
-
-&lt;p&gt;ADS installs without a hitch in Windows 10. I remember having trouble before
-in Linux… I will take another swing at it!&lt;/p&gt;
-
-&lt;p&gt;So I downloaded the tar from Keysight and rand the SETUP.SH script as root.
-Everything lives in /usr/local/ADSxxxx. Under bin I run ads and find several
-things are missing. The file “ads” is a script that turns around executes actual
-dynamic executables. I note the first one that is complained about and look at
-what is linked to it:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ldd menv_exe | grep 'not found'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And I note the missing items. libicui18n.so.51 is not found for example.
-Looking under:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/lib/icu 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;But I also know of:&lt;/p&gt;
-
-&lt;p&gt;/usr/local/ADSxxxx/lib/linux_x86_64/libicui18n.so.51.3&lt;/p&gt;
-
-&lt;p&gt;This is sort of familiar, but I remember there were problems even once I got
-ldd to recognize the /usr/local location. I will revisit this later, but for now, it runs in Windows, so I will run ADS in Windows.&lt;/p&gt;
-
-&lt;h2 id=&quot;ads-on-windows&quot;&gt;ADS on Windows&lt;/h2&gt;
-
-&lt;p&gt;Installation is easy.&lt;/p&gt;
-
-&lt;h1 id=&quot;i-might-need-to-use-meep-in-both-a-windows-and-linux-context&quot;&gt;I might need to use meep in both a Windows and Linux context&lt;/h1&gt;
-
-&lt;p&gt;I’ve used &lt;a href=&quot;https://meep.readthedocs.io/en/latest&quot;&gt;meep&lt;/a&gt; a bit on Linux previously, so using it again here is exciting.
-I am not sure how it will be used in Windows yet.&lt;/p&gt;
-
-&lt;p&gt;It has been so long since I have used this tool,
-that the interface to this tool is different than before. I don’t mind, I’ve
-been trying to get more Python into my life.&lt;/p&gt;
-
-&lt;p&gt;This open-source software imports just GDSII files…&lt;/p&gt;
-
-&lt;p&gt;Random con: hard to search for items around meep without getting weird
-results.&lt;/p&gt;
-
-&lt;h2 id=&quot;meep-on-linux&quot;&gt;meep on Linux&lt;/h2&gt;
-
-&lt;p&gt;Installed with a desired package manager. Simple enough.&lt;/p&gt;
-
-&lt;h2 id=&quot;meep-on-windows&quot;&gt;meep on Windows&lt;/h2&gt;
-
-&lt;p&gt;WSL … could be a headache but if I can get to the point where I’m running
-Jupyter notebooks in Windows 10 I’ll be basically able to do the same thing
-and share it readily.&lt;/p&gt;
-
-&lt;h1 id=&quot;i-might-need-to-use-openems-in-both-a-windows-and-linux-context&quot;&gt;I might need to use openEMS in both a Windows and Linux context&lt;/h1&gt;
-
-&lt;p&gt;openEMS seems to be most suited for a Linux-only environment, but I have WSL
-on my Windows boot! I can share my openEMS data/scratch and run on Linux or
-Windows and share that data. So, this seems easy enough.&lt;/p&gt;
-
-&lt;p&gt;For my self: what other software can be used seamlessly in Linux v. Windows?&lt;/p&gt;
-
-&lt;p&gt;First: run through the tutorial in the first environment (my case, Linux):
-&lt;a href=&quot;https://openems.de/index.php/Tutorial:_First_Steps.html&quot;&gt;Tutorial&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;openems-on-linux&quot;&gt;openEMS on Linux&lt;/h2&gt;
-
-&lt;p&gt;Pretty much followed the guide to the letter. I had to run
-addpath(“/usr/share/CSXCAD/matlab”) and addpath(“/usr/share/openEMS/matlab”)
-at startup. I might want to create a standard script. I needed to install
-appcsxcad separately.&lt;/p&gt;
-
-&lt;p&gt;Using the notch tutorial, I created a little m file. I realized that I can
-output STL, so if things get real bad, I can use openSCAD to have things
-imported, but there are a few items that need to exist. This will be discussed
-in the future.&lt;/p&gt;
-
-&lt;h2 id=&quot;openems-on-wsl&quot;&gt;openEMS on WSL&lt;/h2&gt;
-
-&lt;p&gt;There are some quirks to getting octave to be happy! Links coming soon…&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">Many Tools, Many Contexts</summary></entry><entry><title type="html">Migrating to an SSD</title><link href="http://localhost:4000/none/2020/09/08/Migrating_Windows10.html" rel="alternate" type="text/html" title="Migrating to an SSD" /><published>2020-09-08T15:39:23-06:00</published><updated>2020-09-08T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/09/08/Migrating_Windows10</id><content type="html" xml:base="http://localhost:4000/none/2020/09/08/Migrating_Windows10.html">&lt;h1 id=&quot;the-problem&quot;&gt;The Problem&lt;/h1&gt;
+&lt;p&gt;dnschneid/crouton’s “Fix error while loading shared libraries:
+libQt5Core.so.5”&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Sep 2020 15:39:23 -0600</pubDate>
+        <link>http://localhost:4000/</link>
+        <guid isPermaLink="true">http://localhost:4000/</guid>
+        
+        
+        <category>none</category>
+        
+      </item>
+    
+      <item>
+        <title>Migrating to an SSD</title>
+        <description>&lt;h1 id=&quot;the-problem&quot;&gt;The Problem&lt;/h1&gt;
 
 &lt;p&gt;Platter drives are slow. Windows is bulky. The two combined is very
 frustraing! Especially knowing that the Linux side has an SSD and the
@@ -777,10 +778,171 @@ that will speed some things up. A bunch of drivers should be in there too.&lt;/p
 
 &lt;p&gt;I still don’t like Windows…&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://i.imgur.com/XdKViCp.mp4&quot;&gt;Life be like&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">The Problem</summary></entry><entry><title type="html">Setup of Octave</title><link href="http://localhost:4000/none/2020/09/08/WSL_Octave.html" rel="alternate" type="text/html" title="Setup of Octave" /><published>2020-09-08T15:39:23-06:00</published><updated>2020-09-08T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/09/08/WSL_Octave</id><content type="html" xml:base="http://localhost:4000/none/2020/09/08/WSL_Octave.html">&lt;p&gt;binutils&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://i.imgur.com/XdKViCp.mp4&quot;&gt;Life be like&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;dnschneid/crouton’s “Fix error while loading shared libraries:
-libQt5Core.so.5”&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">binutils</summary></entry><entry><title type="html">Some Thoughts on Documentation</title><link href="http://localhost:4000/2020/07/26/NotesConsolidation.html" rel="alternate" type="text/html" title="Some Thoughts on Documentation" /><published>2020-07-26T00:00:00-06:00</published><updated>2020-07-26T00:00:00-06:00</updated><id>http://localhost:4000/2020/07/26/NotesConsolidation</id><content type="html" xml:base="http://localhost:4000/2020/07/26/NotesConsolidation.html">&lt;h2 id=&quot;gathering-thoughts&quot;&gt;Gathering Thoughts&lt;/h2&gt;
+</description>
+        <pubDate>Tue, 08 Sep 2020 15:39:23 -0600</pubDate>
+        <link>http://localhost:4000/</link>
+        <guid isPermaLink="true">http://localhost:4000/</guid>
+        
+        
+        <category>none</category>
+        
+      </item>
+    
+      <item>
+        <title>openEMS, ADS on multiple systems</title>
+        <description>&lt;h1 id=&quot;many-tools-many-contexts&quot;&gt;Many Tools, Many Contexts&lt;/h1&gt;
+
+&lt;p&gt;Here’s some of what is being used, or has been used&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Remcom XFDTD (Linux install)&lt;/li&gt;
+  &lt;li&gt;Keysight EMPRO (Win10)&lt;/li&gt;
+  &lt;li&gt;Keysight ADS (Win10)&lt;/li&gt;
+  &lt;li&gt;openEMS (both Win10 and Linux)&lt;/li&gt;
+  &lt;li&gt;meep (both Win10 and Linux)&lt;/li&gt;
+  &lt;li&gt;Altium (Win10) – learning&lt;/li&gt;
+  &lt;li&gt;KiCAD (Linux) – I have stalled on using this&lt;/li&gt;
+  &lt;li&gt;openSCAD (Linux and maybe Windows) – for when the other CAD tools are too
+much to bear&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I have RemCom running in the Linux Context. I would prefer to use openEMS in
+mostly the Linux context, but oh well, using both will be a learning experience! I will add links in future posts to resolve issues with specific tooling combinations.&lt;/p&gt;
+
+&lt;p&gt;I need to mount my Windows disk on my Linux side. That has no bad effects and
+I have done it before on older machines such as my older ThinkPad laptops.&lt;/p&gt;
+
+&lt;p&gt;I would also &lt;em&gt;like&lt;/em&gt; to use Windows seamlessly in the Linux context. Wine has
+been a long-time struggle with some cases working wonderfully and others
+failing to even install.&lt;/p&gt;
+
+&lt;p&gt;Booting the disk image virtually, using raw data options, etc. can achieve the
+data-sharing aspect nicely, but this provokes Microsoft’s licensing to
+re-start and that would be a hassle since I must retain dual-boot.&lt;/p&gt;
+
+&lt;p&gt;Xen has been a very curious option that I focused on for a bit too long, but I have chosen to avoid it because of the
+complexity involved, and again I’m not sure if my in-place Arch Linux install
+would be screwed up becoming the dom0 or how to deal with the network bridge
+aspect, let alone hardware. It seems like a fun project for something other
+than the machine I have mostly configured happily. Besides, my study is of
+FDTD methods, not entirely a matter of playing with computers, but there’s a
+lot of little issues behind getting each piece of software to run and to
+become competent enough with them to troubleshoot them.&lt;/p&gt;
+
+&lt;h2 id=&quot;shared-data&quot;&gt;Shared Data&lt;/h2&gt;
+
+&lt;p&gt;A quick IT aside! I have Linux and Windows dual-boot on separate disks.&lt;/p&gt;
+
+&lt;h3 id=&quot;mount-windows-on-linux&quot;&gt;Mount Windows on Linux&lt;/h3&gt;
+
+&lt;p&gt;I used cfdisk to find the partition UUID for my two partitions on Windows. One
+is the Main Disk, which is formatted as NTFS, and I might not want to always have it mounted. The other
+is the shared data volume, which is exFAT as it is better supported than NTFS
+on Linux. I used this information to create entries in my fstab, but I chose
+to keep them commented out for now.&lt;/p&gt;
+
+&lt;p&gt;Right now I’ll mount the drives on the Linux side on a need-as-used basis, or
+see how often I access the Windows stuff from the Linux side.&lt;/p&gt;
+
+&lt;h1 id=&quot;i-might-need-to-use-ads-in-both-a-windows-and-linux-context&quot;&gt;I might need to use ADS in both a Windows and Linux context&lt;/h1&gt;
+
+&lt;p&gt;ADS is software from Keysight that does circuit analysis. It uses &lt;a href=&quot;https://ptolemy.berkely.edu&quot;&gt;Ptolemy&lt;/a&gt; and Keysight offers various interesting simulator extensions in line with the heterogenous systems intent of the project, such as thermal analysis. This interesting engine, combined with other quirks of proprietary software, made running this on Linux a hard time the last time I tried to run ADS post-install on a Linux machine.&lt;/p&gt;
+
+&lt;h2 id=&quot;ads-on-linux&quot;&gt;ADS on Linux&lt;/h2&gt;
+
+&lt;p&gt;ADS installs without a hitch in Windows 10. I remember having trouble before
+in Linux… I will take another swing at it!&lt;/p&gt;
+
+&lt;p&gt;So I downloaded the tar from Keysight and rand the SETUP.SH script as root.
+Everything lives in /usr/local/ADSxxxx. Under bin I run ads and find several
+things are missing. The file “ads” is a script that turns around executes actual
+dynamic executables. I note the first one that is complained about and look at
+what is linked to it:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ldd menv_exe | grep &apos;not found&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And I note the missing items. libicui18n.so.51 is not found for example.
+Looking under:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/lib/icu 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But I also know of:&lt;/p&gt;
+
+&lt;p&gt;/usr/local/ADSxxxx/lib/linux_x86_64/libicui18n.so.51.3&lt;/p&gt;
+
+&lt;p&gt;This is sort of familiar, but I remember there were problems even once I got
+ldd to recognize the /usr/local location. I will revisit this later, but for now, it runs in Windows, so I will run ADS in Windows.&lt;/p&gt;
+
+&lt;h2 id=&quot;ads-on-windows&quot;&gt;ADS on Windows&lt;/h2&gt;
+
+&lt;p&gt;Installation is easy.&lt;/p&gt;
+
+&lt;h1 id=&quot;i-might-need-to-use-meep-in-both-a-windows-and-linux-context&quot;&gt;I might need to use meep in both a Windows and Linux context&lt;/h1&gt;
+
+&lt;p&gt;I’ve used &lt;a href=&quot;https://meep.readthedocs.io/en/latest&quot;&gt;meep&lt;/a&gt; a bit on Linux previously, so using it again here is exciting.
+I am not sure how it will be used in Windows yet.&lt;/p&gt;
+
+&lt;p&gt;It has been so long since I have used this tool,
+that the interface to this tool is different than before. I don’t mind, I’ve
+been trying to get more Python into my life.&lt;/p&gt;
+
+&lt;p&gt;This open-source software imports just GDSII files…&lt;/p&gt;
+
+&lt;p&gt;Random con: hard to search for items around meep without getting weird
+results.&lt;/p&gt;
+
+&lt;h2 id=&quot;meep-on-linux&quot;&gt;meep on Linux&lt;/h2&gt;
+
+&lt;p&gt;Installed with a desired package manager. Simple enough.&lt;/p&gt;
+
+&lt;h2 id=&quot;meep-on-windows&quot;&gt;meep on Windows&lt;/h2&gt;
+
+&lt;p&gt;WSL … could be a headache but if I can get to the point where I’m running
+Jupyter notebooks in Windows 10 I’ll be basically able to do the same thing
+and share it readily.&lt;/p&gt;
+
+&lt;h1 id=&quot;i-might-need-to-use-openems-in-both-a-windows-and-linux-context&quot;&gt;I might need to use openEMS in both a Windows and Linux context&lt;/h1&gt;
+
+&lt;p&gt;openEMS seems to be most suited for a Linux-only environment, but I have WSL
+on my Windows boot! I can share my openEMS data/scratch and run on Linux or
+Windows and share that data. So, this seems easy enough.&lt;/p&gt;
+
+&lt;p&gt;For my self: what other software can be used seamlessly in Linux v. Windows?&lt;/p&gt;
+
+&lt;p&gt;First: run through the tutorial in the first environment (my case, Linux):
+&lt;a href=&quot;https://openems.de/index.php/Tutorial:_First_Steps.html&quot;&gt;Tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;openems-on-linux&quot;&gt;openEMS on Linux&lt;/h2&gt;
+
+&lt;p&gt;Pretty much followed the guide to the letter. I had to run
+addpath(“/usr/share/CSXCAD/matlab”) and addpath(“/usr/share/openEMS/matlab”)
+at startup. I might want to create a standard script. I needed to install
+appcsxcad separately.&lt;/p&gt;
+
+&lt;p&gt;Using the notch tutorial, I created a little m file. I realized that I can
+output STL, so if things get real bad, I can use openSCAD to have things
+imported, but there are a few items that need to exist. This will be discussed
+in the future.&lt;/p&gt;
+
+&lt;h2 id=&quot;openems-on-wsl&quot;&gt;openEMS on WSL&lt;/h2&gt;
+
+&lt;p&gt;There are some quirks to getting octave to be happy! Links coming soon…&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Sep 2020 15:39:23 -0600</pubDate>
+        <link>http://localhost:4000/</link>
+        <guid isPermaLink="true">http://localhost:4000/</guid>
+        
+        
+        <category>none</category>
+        
+      </item>
+    
+      <item>
+        <title>Some Thoughts on Documentation</title>
+        <description>&lt;h2 id=&quot;gathering-thoughts&quot;&gt;Gathering Thoughts&lt;/h2&gt;
 
 &lt;p&gt;When I do creative work, I need to keep track of a lot of things: I need
 to track what I’ve been told, I need to remember questions I want to ask
@@ -926,7 +1088,19 @@ advocate for oneself but also to be organized.&lt;/p&gt;
 detail and he goes on, and I lose track. It breaks the rhythm worse if I don’t
 ask for a pause, and it would be bad to constantly halt conversation to slowly
 soak in implications or catch that interesting edge case or questionable thing
-quickly.&lt;/p&gt;</content><author><name></name></author><summary type="html">Gathering Thoughts</summary></entry><entry><title type="html">Starting Directions For This Blog</title><link href="http://localhost:4000/none/2020/06/28/directions.html" rel="alternate" type="text/html" title="Starting Directions For This Blog" /><published>2020-06-28T15:39:23-06:00</published><updated>2020-06-28T15:39:23-06:00</updated><id>http://localhost:4000/none/2020/06/28/directions</id><content type="html" xml:base="http://localhost:4000/none/2020/06/28/directions.html">&lt;h1 id=&quot;i-have-reached-the-build-your-own-website-stage-of-covid-19-quarantine&quot;&gt;I have reached the “build your own website” stage of COVID-19 quarantine&lt;/h1&gt;
+quickly.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 26 Jul 2020 00:00:00 -0600</pubDate>
+        <link>http://localhost:4000/</link>
+        <guid isPermaLink="true">http://localhost:4000/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Starting Directions For This Blog</title>
+        <description>&lt;h1 id=&quot;i-have-reached-the-build-your-own-website-stage-of-covid-19-quarantine&quot;&gt;I have reached the “build your own website” stage of COVID-19 quarantine&lt;/h1&gt;
 
 &lt;p&gt;This github pages and jekyll business is quite slick so far! I have held onto
 this cute domain name for a few years and just could not get started on it.&lt;/p&gt;
@@ -991,260 +1165,17 @@ a little more organic and suitable for my whole way of doing things.&lt;/p&gt;
 
 &lt;p&gt;So, it seems that I have many directions I want to take this, and many of them
 are open-ended. I suppose if you know me at all, you can expect it to be scattered.&lt;br /&gt;
-My hope is to get into making some kind of little post every now and again on something that I found interesting or useful.&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">I have reached the “build your own website” stage of COVID-19 quarantine</summary></entry><entry><title type="html">A test</title><link href="http://localhost:4000/none/2020/06/27/firstPost.html" rel="alternate" type="text/html" title="A test" /><published>2020-06-27T13:39:23-06:00</published><updated>2020-06-27T13:39:23-06:00</updated><id>http://localhost:4000/none/2020/06/27/firstPost</id><content type="html" xml:base="http://localhost:4000/none/2020/06/27/firstPost.html">&lt;p&gt;Just saying hello&lt;/p&gt;</content><author><name></name></author><category term="none" /><summary type="html">Just saying hello</summary></entry><entry><title type="html">Elements Reference</title><link href="http://localhost:4000/2018/01/12/elements.html" rel="alternate" type="text/html" title="Elements Reference" /><published>2018-01-12T00:00:00-07:00</published><updated>2018-01-12T00:00:00-07:00</updated><id>http://localhost:4000/2018/01/12/elements</id><content type="html" xml:base="http://localhost:4000/2018/01/12/elements.html">&lt;!-- Text stuff --&gt;
-&lt;h2&gt;Text&lt;/h2&gt;
-&lt;p&gt;This is &lt;b&gt;bold&lt;/b&gt; and this is &lt;strong&gt;strong&lt;/strong&gt;. This is &lt;i&gt;italic&lt;/i&gt; and this is &lt;em&gt;emphasized&lt;/em&gt;.
-	This is &lt;sup&gt;superscript&lt;/sup&gt; text and this is &lt;sub&gt;subscript&lt;/sub&gt; text.
-	This is &lt;u&gt;underlined&lt;/u&gt; and this is code: &lt;code&gt;for (;;) { ... }&lt;/code&gt;.
-	Finally, this is a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
-	&lt;hr /&gt;
-	&lt;h2&gt;Heading Level 2&lt;/h2&gt;
-	&lt;h3&gt;Heading Level 3&lt;/h3&gt;
-	&lt;hr /&gt;
-	&lt;header&gt;
-		&lt;h2&gt;Heading with a Subtitle&lt;/h2&gt;
-		&lt;p&gt;Lorem ipsum dolor sit amet nullam id egestas urna aliquam&lt;/p&gt;
-	&lt;/header&gt;
-	&lt;p&gt;Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.&lt;/p&gt;
-	&lt;hr /&gt;
-	
-	&lt;!-- Lists --&gt;
-	&lt;h2&gt;Lists&lt;/h2&gt;
-	&lt;div class=&quot;row&quot;&gt;
-		&lt;div class=&quot;6u 12u$(small)&quot;&gt;
-			
-			&lt;h3&gt;Unordered&lt;/h3&gt;
-			&lt;ul&gt;
-				&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
-				&lt;li&gt;Sagittis lorem eleifend.&lt;/li&gt;
-				&lt;li&gt;Felis feugiat dolore viverra.&lt;/li&gt;
-				&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
-			&lt;/ul&gt;
-			
-			&lt;h3&gt;Icons&lt;/h3&gt;
-			&lt;ul class=&quot;icons&quot;&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-envelope&quot;&gt;&lt;span class=&quot;label&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-r fa-envelope&quot;&gt;&lt;span class=&quot;label&quot;&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon fa-user&quot;&gt;&lt;span class=&quot;label&quot;&gt;Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-r fa-user&quot;&gt;&lt;span class=&quot;label&quot;&gt;Instagram&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-b fa-github&quot;&gt;&lt;span class=&quot;label&quot;&gt;Github&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;icon-b fa-github-alt&quot;&gt;&lt;span class=&quot;label&quot;&gt;Dribbble&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-			
-		&lt;/div&gt;
-		&lt;div class=&quot;6u$ 12u$(small)&quot;&gt;
-			
-			&lt;h3&gt;Ordered&lt;/h3&gt;
-			&lt;ol&gt;
-				&lt;li&gt;Dolor pulvinar etiam.&lt;/li&gt;
-				&lt;li&gt;Etiam vel felis at viverra.&lt;/li&gt;
-				&lt;li&gt;Felis enim feugiat magna.&lt;/li&gt;
-				&lt;li&gt;Etiam vel felis nullam.&lt;/li&gt;
-				&lt;li&gt;Felis enim et tempus.&lt;/li&gt;
-			&lt;/ol&gt;
-		
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;h3&gt;Definition&lt;/h3&gt;
-	&lt;dl&gt;
-		&lt;dt&gt;Item 1&lt;/dt&gt;
-		&lt;dd&gt;
-			&lt;p&gt;Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.&lt;/p&gt;
-		&lt;/dd&gt;
-		&lt;dt&gt;Item 2&lt;/dt&gt;
-		&lt;dd&gt;
-			&lt;p&gt;Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.&lt;/p&gt;
-		&lt;/dd&gt;
-		&lt;dt&gt;Item 3&lt;/dt&gt;
-		&lt;dd&gt;
-			&lt;p&gt;Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.&lt;/p&gt;
-		&lt;/dd&gt;
-	&lt;/dl&gt;
-	
-	&lt;h3&gt;Button&lt;/h3&gt;
-		&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button&lt;/a&gt;
-		&lt;a href=&quot;#&quot; class=&quot;button icon fa-search&quot;&gt;Icon&lt;/a&gt;
-	
-	&lt;hr /&gt;
-	
-	&lt;!-- Blockquote --&gt;
-	&lt;h2&gt;Blockquote&lt;/h2&gt;
-	&lt;blockquote&gt;Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis.&lt;/blockquote&gt;
-	
-	&lt;hr /&gt;
-	
-	&lt;!-- Table --&gt;
-	&lt;h2&gt;Table&lt;/h2&gt;
-	&lt;div class=&quot;table-wrapper&quot;&gt;
-		&lt;table&gt;
-			&lt;thead&gt;
-				&lt;tr&gt;
-					&lt;th&gt;Name&lt;/th&gt;
-					&lt;th&gt;Description&lt;/th&gt;
-					&lt;th&gt;Price&lt;/th&gt;
-				&lt;/tr&gt;
-			&lt;/thead&gt;
-			&lt;tbody&gt;
-				&lt;tr&gt;
-					&lt;td&gt;Item 1&lt;/td&gt;
-					&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
-					&lt;td&gt;29.99&lt;/td&gt;
-				&lt;/tr&gt;
-				&lt;tr&gt;
-					&lt;td&gt;Item 2&lt;/td&gt;
-					&lt;td&gt;Vis ac commodo adipiscing arcu aliquet.&lt;/td&gt;
-					&lt;td&gt;19.99&lt;/td&gt;
-				&lt;/tr&gt;
-				&lt;tr&gt;
-					&lt;td&gt;Item 3&lt;/td&gt;
-					&lt;td&gt; Morbi faucibus arcu accumsan lorem.&lt;/td&gt;
-					&lt;td&gt;29.99&lt;/td&gt;
-				&lt;/tr&gt;
-				&lt;tr&gt;
-					&lt;td&gt;Item 4&lt;/td&gt;
-					&lt;td&gt;Vitae integer tempus condimentum.&lt;/td&gt;
-					&lt;td&gt;19.99&lt;/td&gt;
-				&lt;/tr&gt;
-				&lt;tr&gt;
-					&lt;td&gt;Item 5&lt;/td&gt;
-					&lt;td&gt;Ante turpis integer aliquet porttitor.&lt;/td&gt;
-					&lt;td&gt;29.99&lt;/td&gt;
-				&lt;/tr&gt;
-			&lt;/tbody&gt;
-			&lt;tfoot&gt;
-				&lt;tr&gt;
-					&lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;
-					&lt;td&gt;100.00&lt;/td&gt;
-				&lt;/tr&gt;
-			&lt;/tfoot&gt;
-		&lt;/table&gt;
-	&lt;/div&gt;
-	
-	&lt;hr /&gt;
-	
-	&lt;!-- Form --&gt;
-	&lt;h2&gt;Form&lt;/h2&gt;
-	
-	&lt;form method=&quot;post&quot; action=&quot;#&quot;&gt;
-		&lt;div class=&quot;row uniform&quot;&gt;
-			&lt;div class=&quot;6u 12u$(xsmall)&quot;&gt;
-				&lt;input type=&quot;text&quot; name=&quot;demo-name&quot; id=&quot;demo-name&quot; value=&quot;&quot; placeholder=&quot;Name&quot; /&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;6u$ 12u$(xsmall)&quot;&gt;
-				&lt;input type=&quot;email&quot; name=&quot;demo-email&quot; id=&quot;demo-email&quot; value=&quot;&quot; placeholder=&quot;Email&quot; /&gt;
-			&lt;/div&gt;
-			&lt;!-- Break --&gt;
-			&lt;div class=&quot;12u$&quot;&gt;
-				&lt;div class=&quot;select-wrapper&quot;&gt;
-					&lt;select name=&quot;demo-category&quot; id=&quot;demo-category&quot;&gt;
-						&lt;option value=&quot;&quot;&gt;- Category -&lt;/option&gt;
-						&lt;option value=&quot;1&quot;&gt;Manufacturing&lt;/option&gt;
-						&lt;option value=&quot;1&quot;&gt;Shipping&lt;/option&gt;
-						&lt;option value=&quot;1&quot;&gt;Administration&lt;/option&gt;
-						&lt;option value=&quot;1&quot;&gt;Human Resources&lt;/option&gt;
-					&lt;/select&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;!-- Break --&gt;
-			&lt;div class=&quot;4u 12u$(small)&quot;&gt;
-				&lt;input type=&quot;radio&quot; id=&quot;demo-priority-low&quot; name=&quot;demo-priority&quot; checked&gt;
-				&lt;label for=&quot;demo-priority-low&quot;&gt;Low&lt;/label&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;4u 12u$(small)&quot;&gt;
-				&lt;input type=&quot;radio&quot; id=&quot;demo-priority-normal&quot; name=&quot;demo-priority&quot;&gt;
-				&lt;label for=&quot;demo-priority-normal&quot;&gt;Normal&lt;/label&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;4u$ 12u$(small)&quot;&gt;
-				&lt;input type=&quot;radio&quot; id=&quot;demo-priority-high&quot; name=&quot;demo-priority&quot;&gt;
-				&lt;label for=&quot;demo-priority-high&quot;&gt;High&lt;/label&gt;
-			&lt;/div&gt;
-			&lt;!-- Break --&gt;
-			&lt;div class=&quot;6u 12u$(small)&quot;&gt;
-				&lt;input type=&quot;checkbox&quot; id=&quot;demo-copy&quot; name=&quot;demo-copy&quot;&gt;
-				&lt;label for=&quot;demo-copy&quot;&gt;Email me a copy&lt;/label&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;6u$ 12u$(small)&quot;&gt;
-				&lt;input type=&quot;checkbox&quot; id=&quot;demo-human&quot; name=&quot;demo-human&quot; checked&gt;
-				&lt;label for=&quot;demo-human&quot;&gt;I am a human&lt;/label&gt;
-			&lt;/div&gt;
-			&lt;!-- Break --&gt;
-			&lt;div class=&quot;12u$&quot;&gt;
-				&lt;textarea name=&quot;demo-message&quot; id=&quot;demo-message&quot; placeholder=&quot;Enter your message&quot; rows=&quot;6&quot;&gt;&lt;/textarea&gt;
-			&lt;/div&gt;
-			&lt;!-- Break --&gt;
-			&lt;div class=&quot;12u$&quot;&gt;
-				&lt;div class=&quot;actions&quot;&gt;
-					&lt;input type=&quot;submit&quot; value=&quot;Send Message&quot; class=&quot;special&quot; /&gt;
-					&lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/form&gt;
-	
-	&lt;hr /&gt;
-	
-	&lt;!-- Image --&gt;
-	&lt;h2&gt;Image&lt;/h2&gt;
+My hope is to get into making some kind of little post every now and again on something that I found interesting or useful.&lt;/p&gt;
 
-	&lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;4u 12u$(mobile)&quot;&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic02.jpg&quot; alt=&quot;Ipsum Feugiat&quot; /&gt;&lt;/a&gt;
-        &lt;header&gt;
-          &lt;h3&gt;Ipsum Feugiat&lt;/h3&gt;
-        &lt;/header&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic03.jpg&quot; alt=&quot;Rhoncus Semper&quot; /&gt;&lt;/a&gt;
-        &lt;header&gt;
-          &lt;h3&gt;Rhoncus Semper&lt;/h3&gt;
-        &lt;/header&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;4u 12u$(mobile)&quot;&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic04.jpg&quot; alt=&quot;Magna Nullam&quot; /&gt;&lt;/a&gt;
-        &lt;header&gt;
-          &lt;h3&gt;Magna Nullam&lt;/h3&gt;
-        &lt;/header&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic05.jpg&quot; alt=&quot;Natoque Vitae&quot; /&gt;&lt;/a&gt;
-        &lt;header&gt;
-          &lt;h3&gt;Natoque Vitae&lt;/h3&gt;
-        &lt;/header&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;4u$ 12u$(mobile)&quot;&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic06.jpg&quot; alt=&quot;Dolor Penatibus&quot; /&gt;&lt;/a&gt;
-        &lt;header&gt;
-          &lt;h3&gt;Dolor Penatibus&lt;/h3&gt;
-        &lt;/header&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;a href=&quot;#&quot; class=&quot;image fit&quot;&gt;&lt;img src=&quot;/assets/images/pic07.jpg&quot; alt=&quot;Orci Convallis&quot; /&gt;&lt;/a&gt;
-        &lt;header&gt;
-          &lt;h3&gt;Orci Convallis&lt;/h3&gt;
-        &lt;/header&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-	
-	&lt;h3&gt;Left &amp;amp; Right&lt;/h3&gt;
-	&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/assets/images/pic03.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.&lt;/p&gt;
-	&lt;p&gt;&lt;span class=&quot;image right&quot;&gt;&lt;img src=&quot;/assets/images/pic02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.&lt;/p&gt;
-	
-	&lt;hr /&gt;
-	
-	&lt;!-- Preformatted Code --&gt;
-	&lt;h2&gt;Preformatted&lt;/h2&gt;
-	&lt;pre&gt;&lt;code&gt;i = 0;
-
-while (!deck.isInOrder()) {
-	print 'Iteration ' + i;
-	deck.shuffle();
-	i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Text This is bold and this is strong. This is italic and this is emphasized. This is superscript text and this is subscript text. This is underlined and this is code: for (;;) { ... }. Finally, this is a link. Heading Level 2 Heading Level 3 Heading with a Subtitle Lorem ipsum dolor sit amet nullam id egestas urna aliquam Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan. Lists Unordered Dolor pulvinar etiam. Sagittis lorem eleifend. Felis feugiat dolore viverra. Dolor pulvinar etiam. Icons Twitter Twitter Facebook Instagram Github Dribbble Ordered Dolor pulvinar etiam. Etiam vel felis at viverra. Felis enim feugiat magna. Etiam vel felis nullam. Felis enim et tempus. Definition Item 1 Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Item 2 Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Item 3 Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Button Button Icon Blockquote Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis. Table Name Description Price Item 1 Ante turpis integer aliquet porttitor. 29.99 Item 2 Vis ac commodo adipiscing arcu aliquet. 19.99 Item 3 Morbi faucibus arcu accumsan lorem. 29.99 Item 4 Vitae integer tempus condimentum. 19.99 Item 5 Ante turpis integer aliquet porttitor. 29.99 100.00 Form - Category - Manufacturing Shipping Administration Human Resources Low Normal High Email me a copy I am a human Image Ipsum Feugiat Rhoncus Semper Magna Nullam Natoque Vitae Dolor Penatibus Orci Convallis Left &amp;amp; Right Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis. Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis. Preformatted i = 0; while (!deck.isInOrder()) { print 'Iteration ' + i; deck.shuffle(); i++; } print 'It took ' + i + ' iterations to sort the deck.';</summary></entry></feed>
+</description>
+        <pubDate>Sun, 28 Jun 2020 15:39:23 -0600</pubDate>
+        <link>http://localhost:4000/</link>
+        <guid isPermaLink="true">http://localhost:4000/</guid>
+        
+        
+        <category>none</category>
+        
+      </item>
+    
+  </channel>
+</rss>
