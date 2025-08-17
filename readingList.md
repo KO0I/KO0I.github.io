@@ -4,13 +4,12 @@ title: Reading List
 permalink: /reading-list/
 ---
 
-Some fun things I've read or am reading:
+Some things I've read or am reading:
 ---
 
 * *The Dispossessed* by Ursula K. Le Guin
-* *The Moon is a Harsh Mistress* by Robert Heinlein
+* *The Minitry of the Future* by Kim Stanley Robinson
 
-* *Reminiscences Of A Stock Operator* by Edwin Lefevre
 * *The (Mis)Behavior of Markets* by Mandelbrot and Hudson
 
 Reference books:

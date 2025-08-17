@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Getting into Max/MSP"
+categories: music, programming 
+---
+
+# Some Background
+
+On the advice of my advisor noting a "well fortified" set of classes taken so far, I am taking a class this semester in a different area from my normal electrical engineering classes. The class covers Max/MSP, a visual programming environment for audio and video processing. I am more interested in the audio side, but all of it is technically DSP and a great way to keep certain bits of my signal knowledge sharp.
+
+It has been refreshing but also really challenging because I'm not so used to visual programming languages. I have even had a bit of an unhappy experience with LabView, preferring the TCL and python scripting directly over GPIB.
+
+## Early impressions
+
+I've been quite surprised with the struggles I've had with MIDI early on. Seems to be a lot of tooling that has replicated functionality. I think this will be the start of a series of posts covering certain areas like MIDI and so on.
+
+I'm not sure if this means the user libraries are more interesting or potentially more frustrating to use as a result of the DIY-everything mentality this program seems to enable.
+
+I have only been taking this class for a few months so I have yet to see all that is offered, but I wanted to post about things I have been up to.
+
+I made some attempts to make a basic "Hello world" external object, but I have some things to learn before I get that working. I am spoiled by developing so much code on Linux!
+
+## Until Next Time
+
+Gonna get into jitter a lot more this week. I want to try and get my simple additive synth working with a bit more MIDI stuff and maybe get the MIDI to show in the live step sequencer that comes with the Live tooling. I think that will be one of my posts later on, as I want to make a "standard" MIDI file and input patcher to re-use for other synths and such.
+
+Max/MSP is a quirky visual programming language, but the potential with MIDI has me excited to connect some of my older gear (like my Arduino granular synth that I made in undergrad).
