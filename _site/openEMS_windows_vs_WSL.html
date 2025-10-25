@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>openEMS, ADS on multiple systems</title>
+  <meta name='description' content='𓏞 Audio, oddware, and more'>
+
+  <link rel="canonical" href="http://localhost:4000/openEMS_windows_vs_WSL">
+  <link rel="alternate" type="application/rss+xml" title=" Chip☄&lt;br&gt;Chirp" href="/feed.xml">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="openEMS, ADS on multiple systems –  Chip☄<br>Chirp">
+  <meta name="twitter:description" content="Many Tools, Many Contexts
+">
+  <meta name="twitter:image:src" content="">
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="openEMS, ADS on multiple systems –  Chip☄<br>Chirp">
+  <meta property="og:description" content="Many Tools, Many Contexts
+">
+  <meta property="og:image" content="">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  
+
+  
+
+<!-- begin header -->
+<header class="header ">
+  <div class="container">
+    <div class="row">
+      <div class="header__inner col col-12">
+
+      <div class="logo">
+        <a class="logo__link" href="/">
+        
+           Chip☄<br>Chirp
+        
+        </a>
+      </div>
+
+      <div class="menu-overlay">
+        <nav class="main-nav">
+          <div class="main-nav__box">
+            <div class="nav__icon-close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="nav-grid">
+              <div class="nav-grid__item">
+                <h2 class="nav-grid__title">Menu</h2>
+                <div class="mobile-nav">
+                  <ul class="nav__list list-reset">
+  
+  <li class="nav__item">
+    <a href="/" class="nav__link">Home</a>
+  </li>
+  
+  <li class="nav__item">
+    <a href="/about/" class="nav__link">About Me</a>
+  </li>
+  
+</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="navigation">
+        <div class="top-nav">
+          <ul class="nav__list list-reset">
+  
+  <li class="nav__item">
+    <a href="/" class="nav__link">Home</a>
+  </li>
+  
+  <li class="nav__item">
+    <a href="/about/" class="nav__link">About Me</a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <i class="nav__icon nav__icon-menu fa-solid fa-bars"></i>
+        <div class="search-button">
+          <i class="nav__icon nav__icon-search fa-solid fa-magnifying-glass"></i>
+          <span>Search</span>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+<!-- begin search -->
+<div class="search">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="search__box">
+          <div class="search__group">
+            <div class="search__close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Type to search...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row search-results-list" id="js-results-container"></div>
+  </div>
+
+</div>
+<!-- end search -->
+
+  <!-- begin content -->
+  <main class="content" aria-label="Content">
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+
+          <div class="post__meta">
+            <span class="post__minutes">
+              
+              
+                5 min read
+              
+              <time class="post__date"
+                datetime="2020-09-08T15:39:23-06:00">Sep 8, 2020</time>
+            </span>
+          </div>
+
+          <h2 class="post__title">openEMS, ADS on multiple systems</h2>
+
+          <div class="post__bottom">
+
+            <div class="post__author">
+              <a href="/about/" aria-label="Amber Harrington"><img class="post__author-image"
+                  src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+            </div>
+
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Amber Harrington</a>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__content">
+      <h1 id="many-tools-many-contexts">Many Tools, Many Contexts</h1>
+
+<p>Here’s some of what is being used, or has been used</p>
+<ul>
+  <li>Remcom XFDTD (Linux install)</li>
+  <li>Keysight EMPRO (Win10)</li>
+  <li>Keysight ADS (Win10)</li>
+  <li>openEMS (both Win10 and Linux)</li>
+  <li>meep (both Win10 and Linux)</li>
+  <li>Altium (Win10) – learning</li>
+  <li>KiCAD (Linux) – I have stalled on using this</li>
+  <li>openSCAD (Linux and maybe Windows) – for when the other CAD tools are too
+much to bear</li>
+</ul>
+
+<p>I have RemCom running in the Linux Context. I would prefer to use openEMS in
+mostly the Linux context, but oh well, using both will be a learning experience! I will add links in future posts to resolve issues with specific tooling combinations.</p>
+
+<p>I need to mount my Windows disk on my Linux side. That has no bad effects and
+I have done it before on older machines such as my older ThinkPad laptops.</p>
+
+<p>I would also <em>like</em> to use Windows seamlessly in the Linux context. Wine has
+been a long-time struggle with some cases working wonderfully and others
+failing to even install.</p>
+
+<p>Booting the disk image virtually, using raw data options, etc. can achieve the
+data-sharing aspect nicely, but this provokes Microsoft’s licensing to
+re-start and that would be a hassle since I must retain dual-boot.</p>
+
+<p>Xen has been a very curious option that I focused on for a bit too long, but I have chosen to avoid it because of the
+complexity involved, and again I’m not sure if my in-place Arch Linux install
+would be screwed up becoming the dom0 or how to deal with the network bridge
+aspect, let alone hardware. It seems like a fun project for something other
+than the machine I have mostly configured happily. Besides, my study is of
+FDTD methods, not entirely a matter of playing with computers, but there’s a
+lot of little issues behind getting each piece of software to run and to
+become competent enough with them to troubleshoot them.</p>
+
+<h2 id="shared-data">Shared Data</h2>
+
+<p>A quick IT aside! I have Linux and Windows dual-boot on separate disks.</p>
+
+<h3 id="mount-windows-on-linux">Mount Windows on Linux</h3>
+
+<p>I used cfdisk to find the partition UUID for my two partitions on Windows. One
+is the Main Disk, which is formatted as NTFS, and I might not want to always have it mounted. The other
+is the shared data volume, which is exFAT as it is better supported than NTFS
+on Linux. I used this information to create entries in my fstab, but I chose
+to keep them commented out for now.</p>
+
+<p>Right now I’ll mount the drives on the Linux side on a need-as-used basis, or
+see how often I access the Windows stuff from the Linux side.</p>
+
+<h1 id="i-might-need-to-use-ads-in-both-a-windows-and-linux-context">I might need to use ADS in both a Windows and Linux context</h1>
+
+<p>ADS is software from Keysight that does circuit analysis. It uses <a href="https://ptolemy.berkely.edu">Ptolemy</a> and Keysight offers various interesting simulator extensions in line with the heterogenous systems intent of the project, such as thermal analysis. This interesting engine, combined with other quirks of proprietary software, made running this on Linux a hard time the last time I tried to run ADS post-install on a Linux machine.</p>
+
+<h2 id="ads-on-linux">ADS on Linux</h2>
+
+<p>ADS installs without a hitch in Windows 10. I remember having trouble before
+in Linux… I will take another swing at it!</p>
+
+<p>So I downloaded the tar from Keysight and rand the SETUP.SH script as root.
+Everything lives in /usr/local/ADSxxxx. Under bin I run ads and find several
+things are missing. The file “ads” is a script that turns around executes actual
+dynamic executables. I note the first one that is complained about and look at
+what is linked to it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ldd menv_exe | grep 'not found'
+</code></pre></div></div>
+
+<p>And I note the missing items. libicui18n.so.51 is not found for example.
+Looking under:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/lib/icu 
+</code></pre></div></div>
+
+<p>But I also know of:</p>
+
+<p>/usr/local/ADSxxxx/lib/linux_x86_64/libicui18n.so.51.3</p>
+
+<p>This is sort of familiar, but I remember there were problems even once I got
+ldd to recognize the /usr/local location. I will revisit this later, but for now, it runs in Windows, so I will run ADS in Windows.</p>
+
+<h2 id="ads-on-windows">ADS on Windows</h2>
+
+<p>Installation is easy.</p>
+
+<h1 id="i-might-need-to-use-meep-in-both-a-windows-and-linux-context">I might need to use meep in both a Windows and Linux context</h1>
+
+<p>I’ve used <a href="https://meep.readthedocs.io/en/latest">meep</a> a bit on Linux previously, so using it again here is exciting.
+I am not sure how it will be used in Windows yet.</p>
+
+<p>It has been so long since I have used this tool,
+that the interface to this tool is different than before. I don’t mind, I’ve
+been trying to get more Python into my life.</p>
+
+<p>This open-source software imports just GDSII files…</p>
+
+<p>Random con: hard to search for items around meep without getting weird
+results.</p>
+
+<h2 id="meep-on-linux">meep on Linux</h2>
+
+<p>Installed with a desired package manager. Simple enough.</p>
+
+<h2 id="meep-on-windows">meep on Windows</h2>
+
+<p>WSL … could be a headache but if I can get to the point where I’m running
+Jupyter notebooks in Windows 10 I’ll be basically able to do the same thing
+and share it readily.</p>
+
+<h1 id="i-might-need-to-use-openems-in-both-a-windows-and-linux-context">I might need to use openEMS in both a Windows and Linux context</h1>
+
+<p>openEMS seems to be most suited for a Linux-only environment, but I have WSL
+on my Windows boot! I can share my openEMS data/scratch and run on Linux or
+Windows and share that data. So, this seems easy enough.</p>
+
+<p>For my self: what other software can be used seamlessly in Linux v. Windows?</p>
+
+<p>First: run through the tutorial in the first environment (my case, Linux):
+<a href="https://openems.de/index.php/Tutorial:_First_Steps.html">Tutorial</a></p>
+
+<h2 id="openems-on-linux">openEMS on Linux</h2>
+
+<p>Pretty much followed the guide to the letter. I had to run
+addpath(“/usr/share/CSXCAD/matlab”) and addpath(“/usr/share/openEMS/matlab”)
+at startup. I might want to create a standard script. I needed to install
+appcsxcad separately.</p>
+
+<p>Using the notch tutorial, I created a little m file. I realized that I can
+output STL, so if things get real bad, I can use openSCAD to have things
+imported, but there are a few items that need to exist. This will be discussed
+in the future.</p>
+
+<h2 id="openems-on-wsl">openEMS on WSL</h2>
+
+<p>There are some quirks to getting octave to be happy! Links coming soon…</p>
+
+    </div>
+
+    <div class="post__share">
+      <div class="share__list">
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/openEMS_windows_vs_WSL" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-square-facebook"></i></a>
+
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=openEMS,%20ADS%20on%20multiple%20systems&url=http://localhost:4000/openEMS_windows_vs_WSL" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/openEMS_windows_vs_WSL&amp;media=http://localhost:4000&amp;description=openEMS,%20ADS%20on%20multiple%20systems" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
+      </div>
+    </div>
+
+    <div class="post__navigation">
+      
+      <a class="prev" href="/NotesConsolidation">
+        <img class="post__nav-image lazy" data-src="" alt="Some Thoughts on Documentation">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__prev"><i class="fa-solid fa-arrow-left"></i> Prev Post</div>
+          <h4 class="post__nav__title">Some Thoughts on Documentation</h4>
+        </div>
+      </a>
+      
+      
+      <a class="next" href="/Migrating_Windows10">
+        <img class="post__nav-image lazy" data-src="" alt="Migrating to an SSD">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__next">Next Post <i class="fa-solid fa-arrow-right"></i></div>
+          <h4 class="post__nav__title">Migrating to an SSD</h4>
+        </div>
+      </a>
+      
+    </div>
+
+  </article>
+</div>
+<!-- end post -->
+
+
+
+
+
+
+
+<div class="container">
+  <div class="related-posts ">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">You may also like</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </main>
+  <!-- end content -->
+
+  <div class="top" title="Top"><i class="fa-solid fa-chevron-up"></i></div>
+  <!-- begin footer-widgets -->
+<section class="footer-widgets">
+  <div class="container">
+    <div class="row">
+      <div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-recent">
+
+    <div class="widget__head">
+      <h3 class="widget__title">Latest Posts</h3>
+    </div>
+
+    
+    <div class="recent-posts">
+      
+      <a class="recent-posts__image" href="/max-01"><img class="lazy" data-src="/images/20.jpg" alt="Getting into Max/MSP"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+            
+              2 min read
+            
+          </span>
+          <time class="article__date"
+            datetime="2024-10-22T00:00:00-06:00">Oct 22, 2024</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/max-01">Getting into Max/MSP</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Amber Harrington"><img class="article__author-image lazy" data-src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Amber Harrington</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+            
+              3 min read
+            
+          </span>
+          <time class="article__date"
+            datetime="2023-02-20T00:00:00-07:00">Feb 20, 2023</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/jellyfin">Some notes on using Jellyfin</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Amber Harrington"><img class="article__author-image lazy" data-src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Amber Harrington</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+      
+<div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-tag-cloud">
+    <div class="widget__head">
+      <h3 class="widget__title">Explore Tags</h3>
+    </div>
+    <div class="tag__cloud">
+    
+    
+      <a href="/tags/?tag=music">music</a>
+    
+      <a href="/tags/?tag=programming">programming</a>
+    
+    </div>
+  </div>
+</div>
+
+      
+<div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-subscribe">
+    <div class="widget__head">
+      <h3 class="widget__title">Get Interesting News</h3>
+    </div>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
+    <form class="subscribe-form validate"
+      action="#" method="POST"
+      id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
+      <div class="subscribe-group">
+        <div class="subscribe-group-top">
+          <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+          <input class="subscribe-email required email" id="mce-EMAIL" type="text" name="EMAIL" placeholder="Email Address">
+          <button class="subscribe-button button button--primary" id="membedded-subscribe" type="submit" name="subscribe">Join</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+<!-- end footer-widgets -->
+
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+      <div class="footer__inner">
+        <div class="copyright">2025 &copy; <a href="/"> Chip☄<br>Chirp</a>. Crafted & Designed by <a href="https://jekyllthemes.io/developers/artem-sheludko">Artem Sheludko</a>.</div>
+        
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://bsky.app/sesheta" target="_blank" rel="noopener" aria-label="Bluesky link"><i class="fa-brands fa-bluesky"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://ioc.exchange/@chipchirp" target="_blank" rel="noopener" aria-label="Mastodon link"><i class="fa-brands fa-mastodon"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram link"><i class="fa-brands fa-instagram"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Youtube link"><i class="fa-brands fa-youtube"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com" target="_blank" rel="noopener" aria-label="Github link"><i class="fa-brands fa-github"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://vimeo.com/" target="_blank" rel="noopener" aria-label="Vimeo link"><i class="fa-brands fa-vimeo-v"></i></a>
+    </li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+  <script src="/js/scripts.js"></script>
+<script src="/js/common.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById("js-search-input"),
+    resultsContainer: document.getElementById("js-results-container"),
+    json: "/search.json",
+    searchResultTemplate: '{article}',
+    noResultsText: '<li class="no-results"><h3>No results found</h3></li>'
+  });
+  var base_url = "",
+    pagination_next_url = base_url + "/page2",
+    pagination_next_page_number = "",
+    pagination_available_pages_number = "";
+</script>
+</body>
+
+</html>

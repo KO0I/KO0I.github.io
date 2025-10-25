@@ -1,78 +1,13 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: ChipChirp
-email: amber@chipchirp.digital
-description: >- # this means to ignore newlines until "baseurl:"
-  Beep Beep Beep
-baseurl: "" # the subpath of your site, e.g. /blog
-url : ""
-#url: "https://chipchirp.digital" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: spizellaArborea
-github_username:  ko0i 
-author: "Amber Harrington"
-#logo: '/images/logo.png'
-
-# Build settings
-#theme: minima
-#theme: Norlin
-#remote_theme: thelehhman/texture
-#plugins:
-#  - jekyll-feed
-
-    #defaults:
-    #  scope:
-    #    path: "asserts/resume.pdf"
-    #    values:
-    #    image: false
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# -------------------------------------
-# Nav Settings
-
-#menu-settings:
-#  menu-items:
+#-------------------------------
+# General Site Settings
+baseurl: "" # The subpath of your site, e.g. /blog
+url: "" # The base hostname & protocol for your site, e.g. http://example.com
 
 
 #-------------------------------
 # Build settings
 markdown: kramdown
-permalink: /
+permalink: /:title
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -80,18 +15,15 @@ plugins:
 paginate: 8
 paginate_path: "/page/:num"
 
-# Posts Path
+# Pages Path
 defaults:
   - scope:
       path: '_pages'
-      #path: '_posts'
-      values:
+    values:
       permalink: /:basename:output_ext
 
 include:
   - _pages
-  - _posts
 
 sass:
-  sass_dir: _sass
   style: compressed

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Getting into Max/MSP</title>
+  <meta name='description' content='𓏞 Audio, oddware, and more'>
+
+  <link rel="canonical" href="http://localhost:4000/max-01">
+  <link rel="alternate" type="application/rss+xml" title=" Chip☄&lt;br&gt;Chirp" href="/feed.xml">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Getting into Max/MSP –  Chip☄<br>Chirp">
+  <meta name="twitter:description" content="Some Background
+">
+  <meta name="twitter:image:src" content="http://localhost:4000/images/20.jpg">
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="Getting into Max/MSP –  Chip☄<br>Chirp">
+  <meta property="og:description" content="Some Background
+">
+  <meta property="og:image" content="http://localhost:4000/images/20.jpg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  
+
+  
+
+<!-- begin header -->
+<header class="header ">
+  <div class="container">
+    <div class="row">
+      <div class="header__inner col col-12">
+
+      <div class="logo">
+        <a class="logo__link" href="/">
+        
+           Chip☄<br>Chirp
+        
+        </a>
+      </div>
+
+      <div class="menu-overlay">
+        <nav class="main-nav">
+          <div class="main-nav__box">
+            <div class="nav__icon-close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="nav-grid">
+              <div class="nav-grid__item">
+                <h2 class="nav-grid__title">Menu</h2>
+                <div class="mobile-nav">
+                  <ul class="nav__list list-reset">
+  
+  <li class="nav__item">
+    <a href="/" class="nav__link">Home</a>
+  </li>
+  
+  <li class="nav__item">
+    <a href="/about/" class="nav__link">About Me</a>
+  </li>
+  
+</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="navigation">
+        <div class="top-nav">
+          <ul class="nav__list list-reset">
+  
+  <li class="nav__item">
+    <a href="/" class="nav__link">Home</a>
+  </li>
+  
+  <li class="nav__item">
+    <a href="/about/" class="nav__link">About Me</a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <i class="nav__icon nav__icon-menu fa-solid fa-bars"></i>
+        <div class="search-button">
+          <i class="nav__icon nav__icon-search fa-solid fa-magnifying-glass"></i>
+          <span>Search</span>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+<!-- begin search -->
+<div class="search">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="search__box">
+          <div class="search__group">
+            <div class="search__close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Type to search...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row search-results-list" id="js-results-container"></div>
+  </div>
+
+</div>
+<!-- end search -->
+
+  <!-- begin content -->
+  <main class="content" aria-label="Content">
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col col-6 col-t-12">
+        <div class="image-box">
+          <img class="post-image lazy" data-src="/images/20.jpg" alt="Getting into Max/MSP">
+        </div>
+      </div>
+      
+
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+
+          <div class="post__meta">
+            <span class="post__minutes">
+              
+              
+                2 min read
+              
+              <time class="post__date"
+                datetime="2024-10-22T00:00:00-06:00">Oct 22, 2024</time>
+            </span>
+          </div>
+
+          <h2 class="post__title">Getting into Max/MSP</h2>
+
+          <div class="post__bottom">
+
+            <div class="post__author">
+              <a href="/about/" aria-label="Amber Harrington"><img class="post__author-image"
+                  src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+            </div>
+
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Amber Harrington</a>
+              
+              <span>in</span>
+              <span class="post-tags">
+                
+                <a href="/tags/?tag=music" class="post__tag">music</a>
+                
+                <a href="/tags/?tag=programming" class="post__tag">programming</a>
+                
+              </span>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__content">
+      <h1 id="some-background">Some Background</h1>
+
+<p>On the advice of my advisor noting a “well fortified” set of classes taken so far, I am taking a class this semester in a different area from my normal electrical engineering classes. The class covers Max/MSP, a visual programming environment for audio and video processing. I am more interested in the audio side, but all of it is technically DSP and a great way to keep certain bits of my signal knowledge sharp.</p>
+
+<p>It has been refreshing but also really challenging because I’m not so used to visual programming languages. I have even had a bit of an unhappy experience with LabView, preferring the TCL and python scripting directly over GPIB.</p>
+
+<h2 id="early-impressions">Early impressions</h2>
+
+<p>I’ve been quite surprised with the struggles I’ve had with MIDI early on. Seems to be a lot of tooling that has replicated functionality. I think this will be the start of a series of posts covering certain areas like MIDI and so on.</p>
+
+<p>I’m not sure if this means the user libraries are more interesting or potentially more frustrating to use as a result of the DIY-everything mentality this program seems to enable.</p>
+
+<p>I have only been taking this class for a few months so I have yet to see all that is offered, but I wanted to post about things I have been up to.</p>
+
+<p>I made some attempts to make a basic “Hello world” external object, but I have some things to learn before I get that working. I am spoiled by developing so much code on Linux!</p>
+
+<h2 id="until-next-time">Until Next Time</h2>
+
+<p>Gonna get into jitter a lot more this week. I want to try and get my simple additive synth working with a bit more MIDI stuff and maybe get the MIDI to show in the live step sequencer that comes with the Live tooling. I think that will be one of my posts later on, as I want to make a “standard” MIDI file and input patcher to re-use for other synths and such.</p>
+
+<p>Max/MSP is a quirky visual programming language, but the potential with MIDI has me excited to connect some of my older gear (like my Arduino granular synth that I made in undergrad).</p>
+
+    </div>
+
+    <div class="post__share">
+      <div class="share__list">
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/max-01" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-square-facebook"></i></a>
+
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Getting%20into%20Max/MSP&url=http://localhost:4000/max-01" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/max-01&amp;media=http://localhost:4000/images/20.jpg&amp;description=Getting%20into%20Max/MSP" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
+      </div>
+    </div>
+
+    <div class="post__navigation">
+      
+      <a class="prev" href="/jellyfin">
+        <img class="post__nav-image lazy" data-src="" alt="Some notes on using Jellyfin">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__prev"><i class="fa-solid fa-arrow-left"></i> Prev Post</div>
+          <h4 class="post__nav__title">Some notes on using Jellyfin</h4>
+        </div>
+      </a>
+      
+      
+    </div>
+
+  </article>
+</div>
+<!-- end post -->
+
+
+
+
+
+
+
+<div class="container">
+  <div class="related-posts ">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">You may also like</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </main>
+  <!-- end content -->
+
+  <div class="top" title="Top"><i class="fa-solid fa-chevron-up"></i></div>
+  <!-- begin footer-widgets -->
+<section class="footer-widgets">
+  <div class="container">
+    <div class="row">
+      <div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-recent">
+
+    <div class="widget__head">
+      <h3 class="widget__title">Latest Posts</h3>
+    </div>
+
+    
+    <div class="recent-posts">
+      
+      <a class="recent-posts__image" href="/max-01"><img class="lazy" data-src="/images/20.jpg" alt="Getting into Max/MSP"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+            
+              2 min read
+            
+          </span>
+          <time class="article__date"
+            datetime="2024-10-22T00:00:00-06:00">Oct 22, 2024</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/max-01">Getting into Max/MSP</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Amber Harrington"><img class="article__author-image lazy" data-src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Amber Harrington</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+            
+              3 min read
+            
+          </span>
+          <time class="article__date"
+            datetime="2023-02-20T00:00:00-07:00">Feb 20, 2023</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/jellyfin">Some notes on using Jellyfin</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Amber Harrington"><img class="article__author-image lazy" data-src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Amber Harrington</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+      
+<div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-tag-cloud">
+    <div class="widget__head">
+      <h3 class="widget__title">Explore Tags</h3>
+    </div>
+    <div class="tag__cloud">
+    
+    
+      <a href="/tags/?tag=music">music</a>
+    
+      <a href="/tags/?tag=programming">programming</a>
+    
+    </div>
+  </div>
+</div>
+
+      
+<div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-subscribe">
+    <div class="widget__head">
+      <h3 class="widget__title">Get Interesting News</h3>
+    </div>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
+    <form class="subscribe-form validate"
+      action="#" method="POST"
+      id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
+      <div class="subscribe-group">
+        <div class="subscribe-group-top">
+          <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+          <input class="subscribe-email required email" id="mce-EMAIL" type="text" name="EMAIL" placeholder="Email Address">
+          <button class="subscribe-button button button--primary" id="membedded-subscribe" type="submit" name="subscribe">Join</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+<!-- end footer-widgets -->
+
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+      <div class="footer__inner">
+        <div class="copyright">2025 &copy; <a href="/"> Chip☄<br>Chirp</a>. Crafted & Designed by <a href="https://jekyllthemes.io/developers/artem-sheludko">Artem Sheludko</a>.</div>
+        
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://bsky.app/sesheta" target="_blank" rel="noopener" aria-label="Bluesky link"><i class="fa-brands fa-bluesky"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://ioc.exchange/@chipchirp" target="_blank" rel="noopener" aria-label="Mastodon link"><i class="fa-brands fa-mastodon"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram link"><i class="fa-brands fa-instagram"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Youtube link"><i class="fa-brands fa-youtube"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com" target="_blank" rel="noopener" aria-label="Github link"><i class="fa-brands fa-github"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://vimeo.com/" target="_blank" rel="noopener" aria-label="Vimeo link"><i class="fa-brands fa-vimeo-v"></i></a>
+    </li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+  <script src="/js/scripts.js"></script>
+<script src="/js/common.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById("js-search-input"),
+    resultsContainer: document.getElementById("js-results-container"),
+    json: "/search.json",
+    searchResultTemplate: '{article}',
+    noResultsText: '<li class="no-results"><h3>No results found</h3></li>'
+  });
+  var base_url = "",
+    pagination_next_url = base_url + "/page2",
+    pagination_next_page_number = "",
+    pagination_available_pages_number = "";
+</script>
+</body>
+
+</html>

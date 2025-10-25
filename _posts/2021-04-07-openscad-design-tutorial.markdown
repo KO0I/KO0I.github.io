@@ -2,6 +2,7 @@
 layout: post
 title: "A Simple Process for Designing Practical Objects in OpenSCAD"
 categories: modeling, 3D-Printing, functionalprint
+image:  'images/04.jpg'
 ---
 
 # 3D Printing Practical Items, Overview of A Process
