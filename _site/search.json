@@ -4,16 +4,16 @@
       "title"    : "Getting into Max/MSP",
       "category" : "",
       "tags"     : "music and programming",
-      "url"      : "/max-01",
+      "url"      : "//max-01",
       "date"     : "Oct 22, 2024",
-      "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><a class='article__image' href='/max-01'> <img src='/images/20.jpg' alt='Getting into Max/MSP'> </a><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>2 min read <time class='article__date' datetime='2024-10-22T00:00:00-06:00'>Oct 22, 2024</time> </span> </div><h2 class='article__title'>Getting into Max/MSP</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a><span> in </span> <span class='article-tags'> <a href='/tags/?tag=music' class='article__tag'>music</a>  <a href='/tags/?tag=programming' class='article__tag'>programming</a> </span></div></div></div></div></div>"
+      "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><a class='article__image' href='/max-01'> <img src='/images/20.jpg' alt='Getting into Max/MSP'> </a><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>2 min read <time class='article__date' datetime='2024-10-22T00:00:00-06:00'>Oct 22, 2024</time> </span> </div><h2 class='article__title'>Getting into Max/MSP</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a><span> in </span> <span class='article-tags'> <a href='//tags/?tag=music' class='article__tag'>music</a>  <a href='//tags/?tag=programming' class='article__tag'>programming</a> </span></div></div></div></div></div>"
     } ,
   
     {
       "title"    : "Some notes on using Jellyfin",
       "category" : "",
       "tags"     : "",
-      "url"      : "/jellyfin",
+      "url"      : "//jellyfin",
       "date"     : "Feb 20, 2023",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>3 min read <time class='article__date' datetime='2023-02-20T00:00:00-07:00'>Feb 20, 2023</time> </span> </div><h2 class='article__title'>Some notes on using Jellyfin</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a></div></div></div></div></div>"
     } ,
@@ -22,7 +22,7 @@
       "title"    : "A Simple Process for Designing Practical Objects in OpenSCAD",
       "category" : "",
       "tags"     : "",
-      "url"      : "/openscad-design-tutorial",
+      "url"      : "//openscad-design-tutorial",
       "date"     : "Apr 7, 2021",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><a class='article__image' href='/openscad-design-tutorial'> <img src='/images/04.jpg' alt='A Simple Process for Designing Practical Objects in OpenSCAD'> </a><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>17 min read <time class='article__date' datetime='2021-04-07T00:00:00-06:00'>Apr 7, 2021</time> </span> </div><h2 class='article__title'>A Simple Process for Designing Practical Objects in OpenSCAD</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a></div></div></div></div></div>"
     } ,
@@ -31,7 +31,7 @@
       "title"    : "Setup of Octave",
       "category" : "",
       "tags"     : "",
-      "url"      : "/WSL_Octave",
+      "url"      : "//WSL_Octave",
       "date"     : "Sep 8, 2020",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>1 min read <time class='article__date' datetime='2020-09-08T15:39:23-06:00'>Sep 8, 2020</time> </span> </div><h2 class='article__title'>Setup of Octave</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a></div></div></div></div></div>"
     } ,
@@ -40,7 +40,7 @@
       "title"    : "Migrating to an SSD",
       "category" : "",
       "tags"     : "",
-      "url"      : "/Migrating_Windows10",
+      "url"      : "//Migrating_Windows10",
       "date"     : "Sep 8, 2020",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>8 min read <time class='article__date' datetime='2020-09-08T15:39:23-06:00'>Sep 8, 2020</time> </span> </div><h2 class='article__title'>Migrating to an SSD</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a></div></div></div></div></div>"
     } ,
@@ -49,7 +49,7 @@
       "title"    : "openEMS, ADS on multiple systems",
       "category" : "",
       "tags"     : "",
-      "url"      : "/openEMS_windows_vs_WSL",
+      "url"      : "//openEMS_windows_vs_WSL",
       "date"     : "Sep 8, 2020",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>5 min read <time class='article__date' datetime='2020-09-08T15:39:23-06:00'>Sep 8, 2020</time> </span> </div><h2 class='article__title'>openEMS, ADS on multiple systems</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a></div></div></div></div></div>"
     } ,
@@ -58,7 +58,7 @@
       "title"    : "Some Thoughts on Documentation",
       "category" : "",
       "tags"     : "",
-      "url"      : "/NotesConsolidation",
+      "url"      : "//NotesConsolidation",
       "date"     : "Jul 26, 2020",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>6 min read <time class='article__date' datetime='2020-07-26T00:00:00-06:00'>Jul 26, 2020</time> </span> </div><h2 class='article__title'>Some Thoughts on Documentation</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a></div></div></div></div></div>"
     } ,
@@ -67,7 +67,7 @@
       "title"    : "Starting Directions For This Blog",
       "category" : "",
       "tags"     : "",
-      "url"      : "/directions",
+      "url"      : "//directions",
       "date"     : "Jun 28, 2020",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 grid__post animate'> <div class='article__inner'><a class='article__image' href='/directions'> <img src='/images/06.jpg' alt='Starting Directions For This Blog'> </a><div class='article__content'> <div class='article__meta'> <span class='article__minutes'>1 min read <time class='article__date' datetime='2020-06-28T15:39:23-06:00'>Jun 28, 2020</time> </span> </div><h2 class='article__title'>Starting Directions For This Blog</h2> <p class='article__excerpt'></p><div class='article__bottom'><div class='article__author'> <a href='/about/' aria-label='Amber Harrington'><img class='article__author-image' src='/images/15.jpg' alt='Amber Harrington's Picture'></a> </div><div class='article__bottom-meta'><a href='/about/' class='article__author-link'>Amber Harrington</a></div></div></div></div></div>"
     } 
