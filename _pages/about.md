@@ -2,7 +2,7 @@
 layout: page
 title: About Me
 permalink: /about/
-image: 'images/15.jpg'
+image: 'images/10.jpg'
 ---
 
 Hi! I'm Amber!<br>
