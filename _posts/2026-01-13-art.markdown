@@ -1,0 +1,69 @@
+---
+layout: post
+title: "Art, An Antidote for Burnout"
+image: '/images/03.jpg'
+categories: art, music, healing, dada 
+---
+
+# Some Background
+
+I have been deeply grateful for the chance to work in the world of ASIC design and verification. But, while a mentally challenging career can be satisfying, after over years with the same employer, I encountered a spell of deep, accumulating fatigue that hampered my creative and executive capacities alike. Burnout is rarely due to just the employee or the employer. I will not go into the specific conditions that contributed to my condition, only relfect on the things that I had control of that I can change in future cases of similar stresses and demands.
+
+There are many terms for this type of professional exhaustion, but for this little post I will refer to it as "burnout." I won't bother to define it here given the abundance of resources elsewhere online, but what I will write about is my personal experience, which may be of interest if you relate to descending into the dullness that is the extended weariness of falling apart inside.
+
+## What Went Wrong
+
+I went wrong in a few ways, at least three, actually: I stubbornly doubled down or comitted more than I had available to give, I did not give myself proper breaks to consolidate myself, and I had neither outlet nor community to support my mental health. I was not investing in any of these areas while slipping into burnout, which only made matters worse. Bailing on people because you're too tired and cranky is a devestating move, but it can make so much sense in those moments of frustrated expiry. Doing this can lead to eventually only barely recovering on work matters at the expense of both frienship and sleep.
+
+### Doubling Down
+
+First of all, I was in denial about the matter when the first signs of problems arose. I had a habit of "doubling down" and comitting more time and energy to digesting problems. I let my job creep into my personal life as a reserve for both near-PG-time and during less urgent times. It became a buffer that I became too willing to eat into in order to "keep up," but in the long run it eroded my ability to plan honestly, be consistent, and in the end, even catch my breath or heal proper.
+
+This priority-disorienting over exertion in my personal time is probably tempting to many early-career engineers. After all, a late night or two in university was usually enough to overcome things in university-scale projects. 
+
+But what doubling down in the professional world fails to account for is the infinite nature of available engineering work. It also made it so that as I went between urgent tech-debt cleanup to the urgency of the next (delayed from the start) project, I was already quite harried. I was not good at reading the office vibe as to when urgency was low, only when the urgency was high. This is a personal skill issue.
+
+Anyway, ignoring signs and pressing on can be a good move once in a while, but relying on just forcing yourself to endure will eventually backfire. One needs to listen to their body and mind.
+
+### No Breaks, You Break!
+
+I had health issues in the past five years that have consumed a lot of my PTO and resulted in a variety of leaves. As a transgender woman, I had to contend with the stress of work on top of my health insurance denying me on the majority of procedures, all of which were important. Beyond just the stressors of these matters alone, recovery is not like a vacation.
+
+Like, I hate that I even have to write it down, but I had encountered an occasional hint that my recovery periods after surgeries were like vacations, so to those sorts: convalescence is not the same as recreation!
+
+I am grateful for having the ability to only go into some medical debt and pay down much of that using my salary, despite the health insurance foibles. I am grateful for the outcomes of my gender-affirming and other medical procedures, as the consequences of going without would be miserable.
+
+But my goodness, not taking a vacation for years to just allow my mind to get bored or meditate was dulling me. Especially with my health taking a turn to being bed-bound a fair bit in the past few years. I needed more outside time in general, but I found myself with less of that available because burnout means lower efficiency. Lower efficiency means more instances of doing work in those marginal times around other life things like what is supposed to be one's leisure time. I found myself having boring dreams of being at work, and then waking up needing to go to the office.
+
+### Hobbies & Community
+
+Some people have an annoying habit of using the word "community" when describing demographics, but the concept is anything quite to simple and trite. 
+
+Humans are social animals, even introverts or socially awkward people. More alone-time than one finds comfortable is very damaging for a person.
+Having hobbies and things you like to do alone is essential, but I have personally found it more enjoyable to share in doing my hobbies with friends. Anything from doodling with a single friend to being with a small group making noise music, creating along with others while occasionally chatting throughout is crucial.
+
+# Getting Out Of The Pit
+
+I can only speak for myself, but I found that my best bet to recover from my overall state called thus far called "burnout" has been to address the previous sections in one way or another:
+
+If you have read this far, dear reader, you will know that your hobbies and notion of an ideal community will vary from my own. 
+Anyway, first find things that you enjoy doing that do not remind you of work, things that you would work on if money did not exist and you had nothing but time. This can be hard to imagine, as burnout eventually makes it hard to dream of anything but coping. Second, find ways to do those creative things with others. 
+
+If you're too exhausted to get into hobby-things, then you can skip that and go straight to touching grass. No sarcasm, getting out into nature is excellent medicine for a fraying mind. I am personally a fan of camping, but even a modest hike and a good sit in a quiet part of wilderness has a special quality for me that I can only enthusiastically recommend to any tired tech worker too fried to imagine what a fun time looks like for them. 
+Following this is live music or seeing art in one form or another, but I encourage you to try not to spend too much money; instead seek weird local shows that are cheap or free. Go find a scene that is rchly full of less-famous artists you enjoy, find a dancefloor, and when you do find a dancefloor: keep the cellphone out of your hands while you dance! 
+Going with friends is nice, but you can also just chat with people around you and make friends that way. The same applies to going to an art museum. 
+Things like hiking and dancing are also "sneaky" forms of exercise, but a fried person might have troubles with being able to brute-force a habit like gym if their work-life is collapsing and they cannot dream. So a further take-away is increase physical activity, but you gotta make it comfortable for you and most importantly, fun enough that you will want to do it without having to force yourself through it.
+
+While being in nature and consuming art are good, I found that I needed to create things with other people to really feel more grounded and confident. Shared, low-stakes hobby projects can help rejuvenate those precious work-related skills without it feeling like work. The key is to find things that do not feel like work at all, and to give yourself permission to have a break if something tedious is making you not enjoy it as much. I think creating with others allows for mutual accountability and for me it was essential for my own complicated social isolation issues.
+
+# Until Next Time
+
+The goal of this post is not to suggest ways to overcome burnout in order to become a good little work contributor again, but to discuss what I did that made me feel less dead inside after I burned out. These are just some observations that I think helped me restore my reserve rather than another way to double the rate of reserve being comitted to work. 
+
+The work will always be there, but you won't. So be careful to avoid what I did by gradually committing more to work than to the fundamental things that make a life worth living. It is quite clear that going down that road is demoralizing and may require an extended leave to begin to recover from. Never work yourself to the point of exhaustion! Humans are not machines but the old saying about maintanence applies to minds as well as machinery: "*If you do not schedule maintanence, then it shall be scheduled for you.*"
+
+Rest is always valid. Recreation is always essential. You are not a machine, but if you work yourself stupid, corporations have little reason to not dispose of you like a broken machine.
+
+I cannot claim that I am fully recovered from burnout, but the thesis here is *making art with friends and comitting to spending more time outside my home/office/lab has been good*. Good enough that I wanted to write a little post about it while engaging in other silly digital creative endeavors.
+
+Be in good health

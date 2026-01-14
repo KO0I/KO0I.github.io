@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Migrating to an SSD</title>
+  <meta name='description' content='𓏞 Audio, oddware, and more'>
+
+  <link rel="canonical" href="http://localhost:4000/Migrating_Windows10">
+  <link rel="alternate" type="application/rss+xml" title=" Chip☄&lt;br&gt;Chirp" href="/feed.xml">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Migrating to an SSD –  Chip☄<br>Chirp">
+  <meta name="twitter:description" content="The Problem
+">
+  <meta name="twitter:image:src" content="">
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="Migrating to an SSD –  Chip☄<br>Chirp">
+  <meta property="og:description" content="The Problem
+">
+  <meta property="og:image" content="">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  
+
+  
+
+<!-- begin header -->
+<header class="header ">
+  <div class="container">
+    <div class="row">
+      <div class="header__inner col col-12">
+
+      <div class="logo">
+        <a class="logo__link" href="//">
+        
+           Chip☄<br>Chirp
+        
+        </a>
+      </div>
+
+      <div class="menu-overlay">
+        <nav class="main-nav">
+          <div class="main-nav__box">
+            <div class="nav__icon-close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="nav-grid">
+              <div class="nav-grid__item">
+                <h2 class="nav-grid__title">Menu</h2>
+                <div class="mobile-nav">
+                  <ul class="nav__list list-reset">
+  
+  <li class="nav__item">
+    <a href="/" class="nav__link">Home</a>
+  </li>
+  
+  <li class="nav__item">
+    <a href="/about/" class="nav__link">About Me</a>
+  </li>
+  
+</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="navigation">
+        <div class="top-nav">
+          <ul class="nav__list list-reset">
+  
+  <li class="nav__item">
+    <a href="/" class="nav__link">Home</a>
+  </li>
+  
+  <li class="nav__item">
+    <a href="/about/" class="nav__link">About Me</a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <i class="nav__icon nav__icon-menu fa-solid fa-bars"></i>
+        <div class="search-button">
+          <i class="nav__icon nav__icon-search fa-solid fa-magnifying-glass"></i>
+          <span>Search</span>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+<!-- begin search -->
+<div class="search">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="search__box">
+          <div class="search__group">
+            <div class="search__close">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <label for="js-search-input" class="screen-reader-text">Search for Blog</label>
+            <input type="text" id="js-search-input" class="search__text" autocomplete="off" placeholder="Type to search...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row search-results-list" id="js-results-container"></div>
+  </div>
+
+</div>
+<!-- end search -->
+
+  <!-- begin content -->
+  <main class="content" aria-label="Content">
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+
+          <div class="post__meta">
+            <span class="post__minutes">
+              
+              
+                8 min read
+              
+              <time class="post__date"
+                datetime="2020-09-08T15:39:23-06:00">Sep 8, 2020</time>
+            </span>
+          </div>
+
+          <h2 class="post__title">Migrating to an SSD</h2>
+
+          <div class="post__bottom">
+
+            <div class="post__author">
+              <a href="/about/" aria-label="Amber Harrington"><img class="post__author-image"
+                  src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+            </div>
+
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Amber Harrington</a>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+
+    <div class="post__content">
+      <h1 id="the-problem">The Problem</h1>
+
+<p>Platter drives are slow. Windows is bulky. The two combined is very
+frustraing! Especially knowing that the Linux side has an SSD and the
+performance difference speaks for itself.</p>
+
+<p>So I bought another SSD that’s about half the size of the Linux install. I
+will try two approaches:</p>
+
+<ol>
+  <li>Using the “Recovery Drive” Process</li>
+  <li>Using the “Fresh Install” Procedure</li>
+  <li>Using a brutal “Lol dd go brrrr” Procedure in Linux</li>
+</ol>
+
+<p>The second procedure is solid and I won’t even bother to discuss it, but I was curious
+to try the recovery drive and to share my experience. I’m discouraged from
+taking this path because I’ve already installed things and set up Windows 10
+to my preference. I could repeat it, but I wanted to explore the other options
+today.</p>
+
+<p>My HDD is large and originally intended for holding data and being part of swap. My shiny new SDD
+is 1TB and the original install has a footprint a little over 2Tb. I expect
+the route to fail because the target disk is smaller than the originating
+disk! However, the total space used by the Windows install is a mere 159Gb, so
+it should have room. But let’s see what happens anyway…</p>
+
+<p>The third procedure is out because resizing the disk to be smaller before
+transferring it could do something weird in windows. Iunno, I’m just not sure
+I want to risk bricking the original drive, then migrating a broken thing.</p>
+
+<h2 id="oops">Oops</h2>
+
+<p>I started by creating a partition on my master
+backup external drive and, well, then it formatted the entire drive rather than the partition I thought it would work on.</p>
+
+<p>This isn’t <em>too</em> big of a loss since it’s mostly filled with old snapshots of things that are
+otherwise partially backed up by other means (Dropbox for data, Github for code, older snapshots on another disk, etc). The biggest headache is that I inadvertently lost a dying disk’s data. I might cover recovery from frail hardware in a future post since I will have to repeat that now that I have lost the contents.</p>
+
+<p>As a way to address this all not working due to the possibility that a smaller
+target is a no-go, I have a small flash drive with Win10 on it that
+should work to install it to the new SSD, and then I can just mount the old C:
+directory.</p>
+
+<h1 id="recovery-disk">Recovery Disk</h1>
+
+<p>Like I said, commit an entire disk for this, not just a bit partition. I hit
+Windows and searched for “recovery drive” and went through the wizard. Before
+this I deleted or otherwise migrated data I did not need from C: to another
+location, and ran the defragmentation utility.</p>
+
+<h1 id="installation-attempt-1">Installation Attempt 1:</h1>
+
+<p>I don’t want to go full Amelia Bedilia on any more disks today, especially now that my main backup
+disk has been steamrolled by the Recovery Drive utility.</p>
+
+<p>So, the Linux SSD (2Tb), the data disk (4Tb), and the old Windows disk (4Tb)
+should be physically disconnected during the install with either Windows-centric reinstall method. I’ll also
+take a moment to upgrade the labeling.</p>
+
+<h1 id="too-smol">Too Smol</h1>
+
+<p><img src="https://i.imgur.com/z6UsChl.jpeg" alt="Too Smol" /></p>
+
+<p>Ok it looks like I was right. The destination drive was too large. Let’s do
+the fresh install route</p>
+
+<h1 id="fresh-install">Fresh Install</h1>
+
+<p>So the fresh install is very zippy thanks to the new SSD.</p>
+
+<p>I remember from the previous time that the install would prefer the Legacy mode and override the UEFI settings to
+make that happen. I will have to do a conversion from Legacy to UEFI mode if this happened again.</p>
+
+<p>I also remember having to repeatedly refuse the Microsoft login to force the
+local user issue (NO I will NOT create a M$ account and use it! Nope!).
+Fortunately, because of the unusual broadcom driver I have on this machine, I
+don’t have internet is the truth when going through the install. Continuing
+with “limited” setup takes me to the local user creation. I enter my name and
+proceed. I should have all this in the HDD’s Downloads folder if it didn’t
+already get migrated.</p>
+
+<h2 id="convert-to-gpt">Convert to GPT</h2>
+
+<p>Alright let’s peek at the disks; disk 0 is the Windows OS Disk:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>diskpart
+list disk
+</code></pre></div></div>
+
+<p>Under “Gpt” there is not an asterisk. Ok, so make sure external disks are
+unplugged and so run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mbr2gpt /convert /allowfullOS
+</code></pre></div></div>
+
+<p>Using Diskpart again, I see a mark for GPT. Nice. Let’s reboot, and change up
+the BIOS to be UEFI mode again.</p>
+
+<p>After a reboot, my Linux install is ok, I can see the other GPT Windows boot
+location.</p>
+
+<h1 id="migration-of-data-from-hdd-to-sdd">Migration of data from HDD to SDD</h1>
+
+<p>There are a few options for this:</p>
+
+<ol>
+  <li>In new install, copy stuff over from old one and re-run installers,
+drivers, etc.</li>
+  <li>Use system restore in some clever way?</li>
+  <li>Use a brute force copy of all files (might not work well with programs,
+registry entries, etc)</li>
+</ol>
+
+<p>I think I want to try the brute copy, using Linux. If it goes badly I’ll have
+the good source and I can re-try.</p>
+
+<h2 id="clonezilla">Clonezilla</h2>
+
+<p>I used Clonezilla’s         part_to_local_part
+function to clone my shrunken old Windows partition to the new Windows
+partition on the SSD.</p>
+
+<p><a href="[2]">Clonezilla Screenshot</a></p>
+
+<p>So, after this and a large sync operation, I do the reboot of fate.</p>
+
+<h2 id="post-reboot">Post-reboot:</h2>
+
+<p>Let’s see what works or not. After rebooting from the new disk with a copy of
+the old data, the screen
+goes black. This is not good…</p>
+
+<p>After waiting for a few minutes, I see some graphical elements like a mouse cursor. I’m not sure
+what’s going on at this point. I see a flicker of the accent color of the old
+machine but it’s not working.</p>
+
+<p>I boot from the old install and its ok. After shrinking maybe I can create a recovery
+disk that will work this time around? Alternatively, I need to copy the first
+partition as well with clonezilla. In the old Windows 10 install, using Disk
+Management I see that the System Reserved portion is the same on both the old
+and new disks. So, after I create a new recovery drive, I will try to clone
+the first partition.</p>
+
+<p>I get the same black screen after using clone.</p>
+
+<h2 id="reset-this-pc">Reset this PC</h2>
+
+<p>Trying a keep-files cloud download re-install of Windows 10… but unable to
+download because … DRIVER!</p>
+
+<p>OMG. I have to get into the command line to run the Broadcom installer. I
+won’t bother with this. I’ll try to use the flash drive again to do an
+in-place reinstall. That is, using “Keep my files” and see what happens with
+that. Nope that’s only if Windows has booted. Let’s try repair with command
+line.</p>
+
+<p>Ok, I found the driver installer under my old install just fine, but I cannot run it due to a compatibility
+issue. Amazing.</p>
+
+<p>I restart again and get into safe mode after getting to that option. I first get: sihost.exe - System Warning “Unknown Hard Error”,
+but I seem to get in? I try to spin up explorer.exe but the screen is
+flickering. I escape it with         shutdown /r /t 0</p>
+
+<p>I don’t think safe mode will be much of an answer.</p>
+
+<p>It’s seriously weird behavior, but I did just clone things in a direct way. I wonder if I can improve things if I remove the other
+disk <em>which is cloned</em>. So I reboot with that disk literally not connected on
+SATA. I bet it will still be hosed. At this rate I’m sure I’m going to have
+to do a clean installation again. 
+Now it cycles forever. I bet its pointing to the old disk and since it can’t
+find it, it doesn’t limp to the login screen.</p>
+
+<p>After reading around I found <a href="https://www.tenforums.com/installation-upgrade/52837-moving-recreating-efi-partition.html">This
+post</a>
+covering usage of bcdboot. I tried it, but the new EFI was not functional.</p>
+
+<h1 id="giving-up--fresh-install">Giving up – Fresh Install</h1>
+
+<p>I went to bed, and the next morning I decided to do a fresh install and then
+migrate things over. I used the flash drive to install windows and now I’m
+watching it all come alive. Sadly, I’ll need to reinstall a lot of stuff that
+I’d accumulated over time:</p>
+
+<p>Music software</p>
+<ul>
+  <li>Reason – incl. disk-free patch</li>
+  <li>FL Studio</li>
+  <li>Ableton</li>
+  <li>Paulstretch</li>
+</ul>
+
+<p>School software</p>
+<ul>
+  <li>WSL with Ubuntu</li>
+  <li>Arduino</li>
+  <li>Altium</li>
+  <li>Mathematica</li>
+  <li>Octave under WSL</li>
+  <li>Matlab</li>
+  <li>ADS/Empro</li>
+  <li>Remcom EDS</li>
+  <li>FEKO</li>
+  <li>etc.</li>
+</ul>
+
+<p>So thankfully I moved a bunch of these installers over to another location, so
+that will speed some things up. A bunch of drivers should be in there too.</p>
+
+<p>I then used Powershell (as admin) to enable WSL:         Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</p>
+
+<p>I then went and copied drivers. I skipped the pre-existing files.</p>
+
+<h1 id="final-thoughts">Final thoughts:</h1>
+
+<p>I still don’t like Windows…</p>
+
+<p><a href="https://i.imgur.com/XdKViCp.mp4">Life be like</a></p>
+
+
+    </div>
+
+    <div class="post__share">
+      <div class="share__list">
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000//Migrating_Windows10" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="fa-brands fa-square-facebook"></i></a>
+
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Migrating%20to%20an%20SSD&url=http://localhost:4000//Migrating_Windows10" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/Migrating_Windows10&amp;media=http://localhost:4000/&amp;description=Migrating%20to%20an%20SSD" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="fa-brands fa-pinterest"></i></a>
+      </div>
+    </div>
+
+    <div class="post__navigation">
+      
+      <a class="prev" href="/openEMS_windows_vs_WSL">
+        <img class="post__nav-image lazy" data-src="" alt="openEMS, ADS on multiple systems">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__prev"><i class="fa-solid fa-arrow-left"></i> Prev Post</div>
+          <h4 class="post__nav__title">openEMS, ADS on multiple systems</h4>
+        </div>
+      </a>
+      
+      
+      <a class="next" href="/WSL_Octave">
+        <img class="post__nav-image lazy" data-src="" alt="Setup of Octave">
+        <div class="post__nav-box">
+          <div class="post__nav post__nav__next">Next Post <i class="fa-solid fa-arrow-right"></i></div>
+          <h4 class="post__nav__title">Setup of Octave</h4>
+        </div>
+      </a>
+      
+    </div>
+
+  </article>
+</div>
+<!-- end post -->
+
+
+
+
+
+
+
+<div class="container">
+  <div class="related-posts ">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">You may also like</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+            
+            
+
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </main>
+  <!-- end content -->
+
+  <div class="top" title="Top"><i class="fa-solid fa-chevron-up"></i></div>
+  <!-- begin footer-widgets -->
+<section class="footer-widgets">
+  <div class="container">
+    <div class="row">
+      <div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-recent">
+
+    <div class="widget__head">
+      <h3 class="widget__title">Latest Posts</h3>
+    </div>
+
+    
+    <div class="recent-posts">
+      
+      <a class="recent-posts__image" href="/max-01"><img class="lazy" data-src="/images/20.jpg" alt="Getting into Max/MSP"></a>
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+            
+              2 min read
+            
+          </span>
+          <time class="article__date"
+            datetime="2024-10-22T00:00:00-06:00">Oct 22, 2024</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/max-01">Getting into Max/MSP</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Amber Harrington"><img class="article__author-image lazy" data-src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Amber Harrington</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recent-posts">
+      
+      <div class="recent-posts__content">
+        <div class="article__meta">
+          <span class="article__minutes">
+            
+            
+              3 min read
+            
+          </span>
+          <time class="article__date"
+            datetime="2023-02-20T00:00:00-07:00">Feb 20, 2023</time>
+        </div>
+        <h4 class="recent-posts__title"><a href="/jellyfin">Some notes on using Jellyfin</a></h4>
+        <div class="article__bottom">
+          <div class="article__author">
+            <a href="/about/" aria-label="Amber Harrington"><img class="article__author-image lazy" data-src="/images/15.jpg" alt="Amber Harrington's Picture"></a>
+          </div>
+          <div class="article__bottom-meta">
+            <a href="/about/" class="article__author-link">Amber Harrington</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+      
+<div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-tag-cloud">
+    <div class="widget__head">
+      <h3 class="widget__title">Explore Tags</h3>
+    </div>
+    <div class="tag__cloud">
+    
+    
+      <a href="//tags/?tag=music">music</a>
+    
+      <a href="//tags/?tag=programming">programming</a>
+    
+    </div>
+  </div>
+</div>
+
+      
+<div class="col col-4 col-d-6 col-t-12">
+  <div class="widget widget-subscribe">
+    <div class="widget__head">
+      <h3 class="widget__title">Get Interesting News</h3>
+    </div>
+    <p class="subscribe-subtitle">Subscribe to our newsletter and we’ll send you the emails of latest posts.</p>
+    <form class="subscribe-form validate"
+      action="#" method="POST"
+      id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
+      <div class="subscribe-group">
+        <div class="subscribe-group-top">
+          <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+          <input class="subscribe-email required email" id="mce-EMAIL" type="text" name="EMAIL" placeholder="Email Address">
+          <button class="subscribe-button button button--primary" id="membedded-subscribe" type="submit" name="subscribe">Join</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+<!-- end footer-widgets -->
+
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+      <div class="footer__inner">
+        <div class="copyright">2025 &copy; <a href="/"> Chip☄<br>Chirp</a>. Crafted & Designed by <a href="https://jekyllthemes.io/developers/artem-sheludko">Artem Sheludko</a>.</div>
+        
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://bsky.app/sesheta" target="_blank" rel="noopener" aria-label="Bluesky link"><i class="fa-brands fa-bluesky"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://ioc.exchange/@chipchirp" target="_blank" rel="noopener" aria-label="Mastodon link"><i class="fa-brands fa-mastodon"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram link"><i class="fa-brands fa-instagram"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Youtube link"><i class="fa-brands fa-youtube"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com" target="_blank" rel="noopener" aria-label="Github link"><i class="fa-brands fa-github"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://vimeo.com/" target="_blank" rel="noopener" aria-label="Vimeo link"><i class="fa-brands fa-vimeo-v"></i></a>
+    </li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+  <script src="/js/scripts.js"></script>
+<script src="/js/common.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById("js-search-input"),
+    resultsContainer: document.getElementById("js-results-container"),
+    json: "/search.json",
+    searchResultTemplate: '{article}',
+    noResultsText: '<li class="no-results"><h3>No results found</h3></li>'
+  });
+  var base_url = "",
+    pagination_next_url = base_url + "/page2",
+    pagination_next_page_number = "",
+    pagination_available_pages_number = "";
+</script>
+</body>
+
+</html>

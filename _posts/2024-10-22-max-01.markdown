@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Getting into Max/MSP"
-categories: music, programming 
+image:  '/images/20.jpg'
+tags:   [music, programming]
 ---
 
 # Some Background

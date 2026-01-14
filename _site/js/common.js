@@ -101,9 +101,37 @@ document.addEventListener("DOMContentLoaded", function() {
   // =====================
   // Load More Posts
   // =====================
-  var load_posts_button = document.querySelector('.load-more-posts');
+  var load_posts_button=document.querySelector(".load-more-posts");
 
-  load_posts_button&&load_posts_button.addEventListener("click",function(e){e.preventDefault();var o=document.querySelector(".load-more-section"),e=pagination_next_url.split("/page")[0]+"/page/"+pagination_next_page_number+"/";fetch(e).then(function(e){if(e.ok)return e.text()}).then(function(e){var n=document.createElement("div");n.innerHTML=e;for(var t=document.querySelector(".grid"),a=n.querySelectorAll(".grid__post"),i=0;i<a.length;i++)t.appendChild(a.item(i));new LazyLoad({elements_selector:".lazy"});pagination_next_page_number++,pagination_next_page_number>pagination_available_pages_number&&(o.style.display="none")})});
+  load_posts_button&&load_posts_button.addEventListener("click",function(e){e.preventDefault();var t=load_posts_button.textContent;load_posts_button.classList.add("button--loading"),load_posts_button.textContent="Loading";var o=document.querySelector(".load-more-section"),n=pagination_next_url.split("/page")[0]+"/page/"+pagination_next_page_number+"/";fetch(n).then(function(e){if(e.ok)return e.text()}).then(function(e){var n=document.createElement("div");n.innerHTML=e;for(var a=document.querySelector(".grid"),i=n.querySelectorAll(".grid__post"),l=0;l<i.length;l++)a.appendChild(i.item(l));new LazyLoad({elements_selector:".lazy"}),pagination_next_page_number++,pagination_next_page_number>pagination_available_pages_number&&(o.style.display="none")}).finally(function(){load_posts_button.classList.remove("button--loading"),load_posts_button.textContent=t})});
+
+
+  /* =======================
+  // Copy Code Button
+  ======================= */
+  document.querySelectorAll('.post__content pre.highlight, .page__content pre.highlight')
+  .forEach(function (pre) {
+    const button = document.createElement('button');
+    const copyText = 'Copy';
+    button.type = 'button';
+    button.ariaLabel = 'Copy code to clipboard';
+    button.innerText = copyText;
+    button.addEventListener('click', function () {
+      let code = pre.querySelector('code').innerText;
+      try {
+        code = code.trimEnd();
+      } catch (e) {
+        code = code.trim();
+      }
+      navigator.clipboard.writeText(code);
+      button.innerText = 'Copied!';
+      setTimeout(function () {
+        button.blur();
+        button.innerText = copyText;
+      }, 2e3);
+    });
+    pre.appendChild(button);
+  });
 
 
   /* =======================

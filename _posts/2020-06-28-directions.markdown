@@ -3,6 +3,7 @@ layout: post
 title:  "Starting Directions For This Blog"
 date:   2020-06-28 14:39:23 -0700
 categories: none
+image: 'images/06.jpg'
 ---
 
 # I have reached the "build your own website" stage of COVID-19 quarantine
