@@ -2,7 +2,7 @@
 layout: post
 title: "What is a Noise Complaint?"
 image: '/images/kefel_glitch.png'
-categories: dada, musique-concrète, community, art, music
+categories: dada,musique-concrete,community,art,music
 ---
 
 # What is a Noise Complaint?
@@ -70,6 +70,7 @@ Make art, and please consider making art with others. If you are about to fuss a
 
 Exercising one's creative capacities, regardless of current level of skill, is a special experience and like the best things in life, it can be done for free. Use less AI.
 
--# Photo Credit: Original photograph taken by Hussein Kefel on June 23, 2008
+*Photo Credit:* Original photograph taken by Hussein Kefel on June 23, 2008
+
 
 
