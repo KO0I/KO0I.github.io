@@ -28,6 +28,6 @@ Here's an entry you can add to `post.html` if you don't already have something f
 
 # Until Next Time
 
-Image of the result below, no bad site in sight!
-![The happy result](/images/happy_result_2026_01_14.jpg)
+See result below, no bad site in sight!
+
 
