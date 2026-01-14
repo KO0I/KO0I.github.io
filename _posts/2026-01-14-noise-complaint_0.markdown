@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What is a Noise Complaint?"
-image: '/images/kefel_gltich.jpg'
+image: '/images/kefel_glitch.jpg'
 categories: dada, musique-concrète, community, art, music
 ---
 
@@ -71,3 +71,4 @@ Make art, and please consider making art with others. If you are about to fuss a
 Exercising one's creative capacities, regardless of current level of skill, is a special experience and like the best things in life, it can be done for free. Use less AI.
 
 -# Photo Credit: Original photograph taken by Hussein Kefel on June 23, 2008
+
