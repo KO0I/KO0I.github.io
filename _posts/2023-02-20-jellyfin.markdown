@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Some notes on using Jellyfin"
-image: "/images/cranchiidae_average.png"
+image: '/images/cranchiidae_average.png'
 categories: streaming, network storage, 
 ---
 
