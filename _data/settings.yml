@@ -22,8 +22,8 @@ menu-settings:
       url: '/about/'
       #- title: 'Contact Me'
       #url: '/contact/'
-    #- title: 'Reading'
-    #  url: '/reading_list/'
+    - title: 'Reading'
+      url: '/reading_list/'
 
 
 #-------------------------------
@@ -37,15 +37,15 @@ author:
 # Hero Settings
 hero:
   title: Amber Harrington<br>𓏞
-  description:  Making noises & stuff.
+  description:  Making dreamy textures and live glitch music as en_somnia.☄ <br>Experienced digital design and verification engineer with an abundance of C firmware experience.
   image: '/images/06.jpg'
 
 
 #-------------------------------
 # Contact Settings
 contact:
-  email: your@email.com # Add your email for contact form
-  description: Norlin comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want. # Add a description of your form
+  email: sesheta@chipchirp.digital # Add your email for contact form
+  description: I will not send you spam # Add a description of your form
 
 # NOTE
 # Norlin theme comes with a contact form built-in. You can use this form with Formspree (https://formspree.io/) service and get up to 50 submissions for free. Also, you can easily switch to another service if you want.
@@ -80,6 +80,6 @@ google-analytics: # Add your identifier. For example UA-99631805-1.
 
 #-------------------------------
 # Newsletter
-mailchimp: enable # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
+mailchimp: #enable # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
 mailchimp-identifier: # Add your MailChimp form identifier. For example - gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp
 mailchimp-button-text: Join
