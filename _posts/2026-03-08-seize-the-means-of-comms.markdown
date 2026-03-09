@@ -7,7 +7,7 @@ categories: meshnet,meshtastic,radio,diy,security
 
 Following is a presentation I gave recently at [DC720](https://https://dc720.org/) for their March meetup.
 
-[Download the PDF version of the presentation slides:](downloads/Meshnet_Beamer.pdf)
+[Download the PDF version of the presentation slides:](download/Meshnet_Beamer.pdf)
 
 # Seize the Means of Communication
 **DC720: Meshtastic for Emergency Communications**  
