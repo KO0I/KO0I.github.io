@@ -1,10 +1,10 @@
---
+---
 layout: post
 title: "Use Less AI"
 date:   2026-03-20 10:39:23 -0700
 image: 'images/11.jpg' 
 categories: AI, LLM, art, creativity, politics, DIY
---
+---
 
 # Overview
 
