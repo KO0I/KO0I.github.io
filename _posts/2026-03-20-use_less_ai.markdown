@@ -51,7 +51,7 @@ There remains a real temptation to use LLMs though! It's because they can outper
 Leaning more into the nature of the technology exposes a user to the risks. Technology are like drugs, and drugs are technology. We can become addicted to drugs and technology for psychological reasons, such as the convenience or other relief provided. This is to highlight the need to respect the way technology can impact a person's health, skills, and social connection.
 
 
-## "AI" Makes Compliant & Alienated User
+## "AI" Makes the User Compliant with Owner Interests
 
 We are already talking more like the bots.[^fsu]
 
@@ -69,12 +69,26 @@ Of course, this hyper-compliance leads to a major weakness of trying to use LLMs
 
 So don't lose your voice or your style. Make bad art, write noxious fanfiction like an amateur: because it will be more satisfying and *yours* in a way the soft-serve slop can't approach.
 
+## "AI" Alienates the User
+
+Using LLMs can suck you into a vortex of your own madness at an ever-acellerating rate. Other people in a person's life give essential feedback. If a person becomes addicted to using an LLM, it can displace social interaction. This is because if a person gets more comfortable in their personalized bubble with a chatbot, then they may feel there is little point in engaging with challenging social situations with new people.
+
+When ChatGPT updated its model to version 5 and became less sycophantic, users complained earnestly about the change. To them, it was a pretty deep loss to have the machine seem less unconditionally sympathetic to users. The apparent ease of socialization with a sycophant can be addictive to a lonely person, but like a high-control environment that explicitly alienates victims from friends and family, "AI" is doing this implicitly by merely being a digital soothsayer. In this way a company can become a person's only interface with a form of parasocialization; a user becomes dependent on a company for all needs which were once met by a community.
+
+Obviously, horrible people using the tools won't get the needed forms of pushback to change their behavior. Users who are awful people are more likely to be flattered for being assholes. For the case of more well-adjusted people, "AI" can jeapordize hard-earned social skills just as much as it can rob a user of other skills as discussed in the previous section.
+
+It can be understandable why desperate, isolated, and impoverished people may turn to "AI" as a therapist, but the consequences of this can be disastrous both for the user's mental health but also their social health. 
+
+The companies that made these large language models are coming for your social capital.
+
 
 # Why Not Be A Hardliner?
 
 So I clearly do not have a bright and cheery view of LLMs. Why am I not advocating for "use **NO** AI?" you may wonder? Using no LLMs whatsoever is a mighty fine goal actually, and if you choose that, that's cool. Humans have made do without them for all time until now.
 
-The reason that I say "use less" instead of "use none" is because I am easily exhausted by overly strict ways of doing things, and I am not sore for excuses to cut people off. Maybe it's the way I grew up in an impossibly strict and suffocating home environment, but I can't find myself readily signing up for black-and-white thinking after therapy. So I am wary of all-or-nothing propositions, especially ones where the expectation is to not engage with anyone who uses any LLMs. This seems ripe conditions for witch-hunt behavior where the accusation of using an LLM can cause a person to say, be added to a blocklist or other digital blowback.
+The reason that I say "use less" instead of "use none" is partly because the problem is more about who owns these tools, how they are forcing it on users, and because I am easily exhausted by overly dogmatic ways of doing things; further, I am not sore for excuses to cut people off. 
+
+Maybe it's the way I grew up in an impossibly strict and suffocating, religious home environment, but I can't find myself readily signing up for black-and-white thinking after so much growth and therapy. I am wary of all-or-nothing propositions, especially ones where the expectation is to say, not engage with anyone who uses any LLMs in any case. This seems ripe conditions for witch-hunt behavior where the accusation of using an LLM can cause a person to say, be added to a blocklist or other social blowback. My goal is to get more people to use less "AI" or to abstain entirely, so it seems a bit important not to immediately banish people who are slipping out of community. That's some real gross punish-the-vulnerable energy.
 
 I also think that black-white thinking has its own way of smothering curiosity and nuance. Even though I think the people who staunchly refuse LLMs are doing a good thing for themselves, I do not think that using an LLM in a certain way and in certain cases makes-or-breaks a person's character for life. Even if a person was addicted to LLM-to-Brain use, anyone can change their mind. If someone uses less AI by way of being predomantly reliant on their own, a  Brain-sometimes-to-LLM approahc, or even swears off it for themselves, then use of an LLM *at all* doesn't seem like the point of no respect.
 
@@ -109,11 +123,12 @@ The problem is the dominating mindset of the wealthiest humans and their insatia
 In no order, some of the things that a person who uses less AI will tend to do:
 
 - If You Use LLMs At All, Be A Brain-to-LLM User[^mit]
-- Use a Smaller or Purpose-Fit Model
+- Use less by way of a Smaller or Purpose-Fit Models
 - Use a Private Model -- avoid the cloud
 - If Possible, Use Exclusively Your own Material to Train an LLM
-- Don't Trust LLM Outputs As Being The Ground Truth[^forbes_2025][^psychbot]
+- Don't Trust LLM Outputs As Being The Ground Truth[^forbes_2025]^,[^psychbot]
 - Don't Re-prompt/Re-run or Use Carelessly
+- Don't Try To Use LLMs for Socializating ("AI" companies are not your friend!)
 - Always Be Able To Make Progress When the "AI" Servers Shut Down Or Get Unaffordable[^dulling]
 - When you use "AI," You Can Lose Around A Fifth Of Your Effort[^metr]
 
