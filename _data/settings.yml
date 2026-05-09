@@ -36,8 +36,9 @@ author:
 #-------------------------------
 # Hero Settings
 hero:
-  title: Amber Harrington<br>𓏞
-  description:  Making dreamy textures and live glitch music as en_somnia.☄ <br>Experienced digital design and verification engineer with an abundance of C firmware experience.
+  title: 𓇶<br>Amber Harrington
+#<br>𓏞
+  description:  Making dreamy textures and live glitch music as en_somnia. 𓏞<br>Experienced digital design and verification engineer with an abundance of C firmware experience.<br>Amateur digital artist (GNU Image Manipulation Program, imagemagick, openSCAD)
   image: '/images/06.jpg'
 
 
