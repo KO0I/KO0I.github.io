@@ -23,7 +23,7 @@ menu-settings:
       #- title: 'Contact Me'
       #url: '/contact/'
     - title: 'Reading'
-      url: '/reading_list/'
+      url: '/reading-list/'
 
 
 #-------------------------------
@@ -45,7 +45,7 @@ hero:
 #-------------------------------
 # Contact Settings
 contact:
-  email: sesheta@chipchirp.digital # Add your email for contact form
+  email: complaints@chipchirp.digital # Add your email for contact form
   description: I will not send you spam # Add a description of your form
 
 # NOTE
@@ -81,6 +81,6 @@ google-analytics: # Add your identifier. For example UA-99631805-1.
 
 #-------------------------------
 # Newsletter
-mailchimp: #enable # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
-mailchimp-identifier: # Add your MailChimp form identifier. For example - gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp
+mailchimp: enable # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
+mailchimp-identifier: http://eepurl.com/mfK5x1jGBk # Add your MailChimp form identifier. For example - gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp
 mailchimp-button-text: Join
