@@ -27,3 +27,5 @@ include:
 
 sass:
   style: compressed
+
+mastodon: "https://ioc.exchange/@chipchirp"
