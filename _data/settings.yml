@@ -56,7 +56,7 @@ contact:
 # Footer section
 social:
 - {icon: "fa-brands fa-bluesky", name: "Bluesky", link: "https://bsky.app/profile/sesheta.chipchirp.digital"}
-- {icon: "fa-brands fa-mastodon", name: "Mastodon", link: "https://ioc.exchange/@chipchirp"}
+- {icon: "fa-brands fa-mastodon", name: "Mastodon", link: "https://ioc.exchange/@chipchirp", rel: "me"}
 #- {icon: "fa-brands fa-facebook-f", name: "Facebook", link: "https://facebook.com"}
 #- {icon: "fa-brands fa-dribbble", name: "Dribbble", link: "https://dribbble.com"}
 - {icon: "fa-brands fa-instagram", name: "Instagram", link: "https://instagram.com/en_somnia_music"}
