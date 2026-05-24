@@ -63,7 +63,7 @@ social:
 #- {icon: "fa-brands fa-pinterest", name: "Pinterest", link: "https://pinterest.com"}
 - {icon: "fa-brands fa-youtube", name: "Youtube", link: "https://youtube.com/@chipchirp_en_somnia"}
 - {icon: "fa-brands fa-github", name: "Github", link: "https://github.com/KO0I"}
-#- {icon: "fa-brands fa-vimeo-v", name: "Vimeo", link: "https://vimeo.com/"}
+- {icon: "fa-brands fa-vimeo-v", name: "Vimeo", link: "https://vimeo.com/sesheta"}
 - {icon: "fa-solid fa-rss", name: "powRSS", link: "https://powrss.com/"}
 
 # Example of adding a new link to the footer - {icon: "fa-brands fa-mastodon", name: "Mastodon", link: "https://mastodon.social/"}
