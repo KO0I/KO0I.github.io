@@ -3,6 +3,7 @@ layout: post
 title: "Test"
 categories: math, test
 image: 'images/10.jpg'
+mathjax: true
 ---
 
 # Normal Text
