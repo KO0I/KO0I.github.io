@@ -11,9 +11,12 @@ image: 'images/10.jpg'
 Triple backticks crashes something and page DNE
 
 ## Math Text attempt with two dollar symbols
+Looks magnificent in github... but this is supposed to render on jekyll!
 
+```math
 General form of the cosine function:
   $$\cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots$$
+```math
 
 
 
