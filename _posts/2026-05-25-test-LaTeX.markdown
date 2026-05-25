@@ -5,8 +5,14 @@ categories: math
 published: true
 ---
 
+
 This is a \LaTeX\ example
 
 \emph{This} is italic text
 
-Here’s an equation: $E = mc^2$
+Here’s an equation: 
+\begin{equation}
+\begin{aligned}
+$$E = mc^2$$
+\end{aligned}
+\end{equation}
