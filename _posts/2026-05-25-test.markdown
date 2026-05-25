@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "Sample LaTeX Math"
+title: "Test"
 categories: math, test
-published: true
+image: 'images/10.jpg'
 ---
 
+# Normal Text
 
 foo
 
