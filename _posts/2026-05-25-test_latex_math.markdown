@@ -15,7 +15,7 @@ Here’s an equation:
 ```math
 \begin{equation}
 \begin{aligned}
-  E = mc^2$$
+  E = mc^2
 \end{aligned}
 \end{equation}
 ```math
