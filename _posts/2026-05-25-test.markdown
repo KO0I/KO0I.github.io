@@ -7,5 +7,13 @@ image: 'images/10.jpg'
 
 # Normal Text
 
-foo
+## Tried and fail: three backticks
+Triple backticks crashes something and page DNE
+
+## Math Text attempt with two dollar symbols
+
+General form of the cosine function:
+  $$\cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots$$
+
+
 
