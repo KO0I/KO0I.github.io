@@ -7,13 +7,7 @@ image: 'images/10.jpg'
 
 # Normal Text
 
-## Tried and fail: three backticks
-Triple backticks crashes something and page DNE
 
-General form of the cosine function:
-```math
-  \cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots
-```math
 
 ## Math Text attempt with two dollar symbols
 Looks magnificent in github... but this is supposed to render on jekyll!
@@ -23,5 +17,11 @@ General form of the cosine function:
   $$\cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots$$
 
 
+## Tried and fail: three backticks
+Triple backticks crashes something and page DNE
 
+General form of the cosine function:
+```math
+  \cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots
+```math
 
