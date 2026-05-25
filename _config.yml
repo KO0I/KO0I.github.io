@@ -7,12 +7,14 @@ url: "https://chipchirp.digital" # The base hostname & protocol for your site, e
 #-------------------------------
 # Build settings
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
 permalink: /:title
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-mathjax
+  - jekyll-mermaid
 
 paginate: 8
 paginate_path: "/page/:num"
