@@ -10,9 +10,8 @@ image: 'images/10.jpg'
 ## Tried and fail: three backticks
 Triple backticks crashes something and page DNE
 
-
-```math
 General form of the cosine function:
+```math
   \cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots
 ```math
 
