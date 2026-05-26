@@ -40,7 +40,7 @@ General form of the cosine function:
 
 Moving on with the subject of extending my site. I would also like to be able to visually represent certain mathematical
 concepts visually. $$\LaTeX$$ genuinely sucks at circuits, timing
-diagrams, and state machines. 
+diagrams, and state machines. So, *mathjax* is not enough for what I might discuss and document.
 
 ## State Machines/Directed Graphs
 
@@ -50,14 +50,25 @@ Since they're just a specific flavor of directed graph, state machines also coun
 
 In my previous job I used Visio, and I rather strongly disliked it, so here's a Mermaid plot for a state machine:
 
+### vim sidenote:
+
+At first, the following rendered as rounded rectangles. To fix this in vim, I
+selected the text and:
+
+```
+s/\%V[()]/&&/g
+```
+
+to double-up `(` and `)` to change the graph style:
+
 <pre class="mermaid">
 graph TD
-    RESET --> A(Idle)
-    A(Idle) --> B(Fetch)
-    B --> C(Decode)
-    C --> D(Execute)
-    D --> E(Writeback)
-    E --> A(Idle)
+    RESET((RESET)) --> A((Idle))
+    A((Idle)) --> B((Fetch))
+    B --> C((Decode))
+    C --> D((Execute))
+    D --> E((Writeback))
+    E --> A((Idle))
 </pre>
 
 ## Timing Diagrams
