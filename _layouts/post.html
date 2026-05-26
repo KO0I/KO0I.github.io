@@ -26,6 +26,13 @@ layout: default
 {% endif %}
 
 {% if page.wavedrom %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
+<script>
+  window.addEventListener("load", function () {
+    WaveDrom.ProcessAll();
+  });
+</script>
 {% endif %}
 
 <div class="post-head">
@@ -45,8 +52,10 @@ layout: default
           <div class="post__meta">
             <span class="post__minutes">
               {% assign words = page.content | number_of_words %}
+              {% if words < 300 %}
+                shorter than a skeet (bsky) 
               {% if words < 360 %}
-                1 min read
+                just a glance
               {% else %}
                 {{ words | divided_by:180 }} min read
               {% endif %}

@@ -78,3 +78,12 @@ being printed.
 
 This [particular repo](https://github.com/MaximilianKoestler/markdown-wavedrom/blob/main/README.md) is of
 interest for this purpose. 
+
+<script type="WaveDrom">
+{ signal: [
+  { name: "clk",  wave: "p......." },
+  { name: "req",  wave: "0.1..0.." },
+  { name: "ack",  wave: "0..1.0.." },
+  { name: "data", wave: "x.345x..", data: ["A", "B", "C"] }
+]}
+</script>
