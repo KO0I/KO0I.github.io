@@ -2,6 +2,17 @@
 layout: default
 ---
 
+{% if page.mathjax %}
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+
+
 <div class="post-head">
   <div class="container">
     <div class="row">
