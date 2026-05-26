@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Trying To Render Math Symbols"
-categories: math, 
+categories: math, wavedrom, timing, state
 image: 'images/10.jpg'
 mathjax: true
 mermaid: true
