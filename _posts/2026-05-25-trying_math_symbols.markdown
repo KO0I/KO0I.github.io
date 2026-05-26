@@ -12,7 +12,7 @@ I have a lot of notes in \LaTeX, so I figure that sooner or later I would need t
 
 I struggled enough with the matter that I figured maybe it was worth typing a bit about it.
 
-## Math Text attempt with two dollar symbols
+## Math Text attempt with `$$`
 
 Looked magnificent in github, but this is supposed to render on jekyll! I tried mirroring a tutorial exactly not accounting for a nuance.
 
