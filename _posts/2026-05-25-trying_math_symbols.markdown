@@ -4,6 +4,8 @@ title: "Trying To Render Math Symbols"
 categories: math, 
 image: 'images/10.jpg'
 mathjax: true
+mermaid: true
+wavedrom: true
 ---
 
 # Motivation
@@ -43,6 +45,8 @@ diagrams, and state machines.
 ## State Machines/Directed Graphs
 
 State machines come up all the time in digital logic.
+
+Since they're just a specific flavor of directed graph, state machines also count as being on-topic.
 
 In my previous job I used Visio, and I rather strongly disliked it, so here's a Mermaid plot for a state machine:
 

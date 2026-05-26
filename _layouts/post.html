@@ -14,6 +14,19 @@ layout: default
 <script async src="js/mathjax/es5/tex-chtml.js"></script>
 {% endif %}
 
+{% if page.mermaid %}
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark"
+  });
+</script>
+{% endif %}
+
+{% if page.wavedrom %}
+{% endif %}
 
 <div class="post-head">
   <div class="container">
