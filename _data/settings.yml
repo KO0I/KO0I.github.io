@@ -55,16 +55,14 @@ contact:
 #-------------------------------
 # Footer section
 social:
+- {icon: "fa-brands fa-linktree", name: "Linktree", link: "https://linktr.ee/sesheta"}
 - {icon: "fa-brands fa-bluesky", name: "Bluesky", link: "https://bsky.app/profile/sesheta.chipchirp.digital"}
 - {icon: "fa-brands fa-mastodon", name: "Mastodon", link: "https://ioc.exchange/@chipchirp", rel: "me"}
-#- {icon: "fa-brands fa-facebook-f", name: "Facebook", link: "https://facebook.com"}
-#- {icon: "fa-brands fa-dribbble", name: "Dribbble", link: "https://dribbble.com"}
 - {icon: "fa-brands fa-instagram", name: "Instagram", link: "https://instagram.com/en_somnia_music"}
-#- {icon: "fa-brands fa-pinterest", name: "Pinterest", link: "https://pinterest.com"}
 - {icon: "fa-brands fa-youtube", name: "Youtube", link: "https://youtube.com/@chipchirp_en_somnia"}
 - {icon: "fa-brands fa-github", name: "Github", link: "https://github.com/KO0I"}
 - {icon: "fa-brands fa-vimeo-v", name: "Vimeo", link: "https://vimeo.com/sesheta"}
-- {icon: "fa-solid fa-rss", name: "powRSS", link: "https://powrss.com/"}
+- {icon: "fa-solid fa-powrss", name: "powRSS", link: "https://powrss.com/"}
 
 # Example of adding a new link to the footer - {icon: "fa-brands fa-mastodon", name: "Mastodon", link: "https://mastodon.social/"}
 # Other icons can be found at https://fontawesome.com/icons
@@ -74,6 +72,7 @@ social:
 # Comment Section (Disqus)
 #disqus-identifier: anvodstudio-demo # Add your shortname for Disqus Comment. For example anvodstudio-demo
 
+# oh fuck no comments sound like a horrible idea
 
 #-------------------------------
 # Google Analytics
@@ -82,6 +81,7 @@ google-analytics: # Add your identifier. For example UA-99631805-1.
 
 #-------------------------------
 # Newsletter
+# TODO NOT WORKING AT THIS TIME
 mailchimp: enable # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
 mailchimp-identifier: http://eepurl.com/mfK5x1jGBk # Add your MailChimp form identifier. For example - gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp
 mailchimp-button-text: Join

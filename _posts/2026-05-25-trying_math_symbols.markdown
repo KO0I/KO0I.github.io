@@ -77,7 +77,9 @@ I also draw up and look at timing relationships, and it frankly sucks a lot to e
 being printed.
 
 This [particular repo](https://github.com/MaximilianKoestler/markdown-wavedrom/blob/main/README.md) is of
-interest for this purpose. 
+interest for this purpose. But something tells me that it won't work
+because Jekyll served on github's stuff probably would not allow me to run
+some python ... ah I'll try it anyway.
 
 <script type="WaveDrom">
 { signal: [
@@ -88,4 +90,11 @@ interest for this purpose.
 ]}
 </script>
 
-Something should have been posted
+Something should have been posted. The fact not, well, maybe I can look at
+[this next
+example](https://maximiliankoestler.github.io/markdown-wavedrom-mkdocs-example/)
+uses mkdocs and it looks very nice, but it would make for islands on my site.
+
+Perhaps this would make sense for a self-contained project, but I'd like
+to have wavedrom content visible alongside $$\LaTeX$$ equations and
+mermaid diagrams.
