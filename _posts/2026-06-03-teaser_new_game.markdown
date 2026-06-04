@@ -3,7 +3,6 @@ layout: post
 title: "Teasing A Game Concept"
 categories: modeling, flight, space, rasdFastWalkerLeague
 image:  'images/Animation.gif'
-publised: true
 ---
 
 # Motivation
