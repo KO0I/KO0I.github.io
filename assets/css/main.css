@@ -7,6 +7,7 @@
 @font-face {
   font-family: "Marain";
   src: url("{{ '/assets/fonts/Marain.ttf' | relative_url }}") format("truetype");
+  src: url("{{ '/assets/fonts/marain.woff' | relative_url }}") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
