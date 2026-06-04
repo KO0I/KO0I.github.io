@@ -5,10 +5,12 @@ categories: modeling, flight, space, rasdFastWalkerLeague
 image:  'images/Animation.gif'
 ---
 
-# Motivation
+# Motivation 
 I have had this game idea bouncing around in my head for a long time. Expressive movement, open-world, low-res to permit a lot of speed, and a variety of celestial objects to zip in and around.
 
 Set in some post-scarcity civilization, the suit is nigh-invincible.
+
+<span class="marain"> rabin pren <span>
 
 ## Surface Details:
 Thanks to [Loren Schmidt](https://bsky.app/profile/lorenschmidt.bsky.social) for the inspiration for a lovely raytracing style that I found more accessible than tumbling headlong into fancy, GUI-intensive tooling.
