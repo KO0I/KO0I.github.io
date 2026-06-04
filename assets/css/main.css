@@ -14,7 +14,7 @@
 }
 
 .marain {
-  font-family: "Marain", sans-serif;
+  font-family: "Marain", sans-serif !important;
   font-size: 1.4em;
 }
 
