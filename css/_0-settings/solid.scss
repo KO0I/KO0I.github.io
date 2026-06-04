@@ -18,6 +18,21 @@
       format("truetype");
 }
 
+@font-face {
+  font-family: "Marain";
+  src:
+    url("/assets/fonts/marain.woff") format("woff"),
+    url("/assets/fonts/Marain.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.marain,
+.marain * {
+  font-family: "Marain" !important;
+}
+
 .fas,
 .fa-solid {
   font-weight: 900; }
