@@ -31,3 +31,5 @@ More to come soon when I am struck with inspiration:
 ![Third person perspective of the player in their gelsuit](images/gelsuit_ringworld.png)
 
 <span class="marain"> oole </span>
+
+![White Dwarf Simulation](images/Animation_white_dwarf.gif)
