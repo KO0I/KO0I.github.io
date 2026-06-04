@@ -12,6 +12,11 @@
   font-display: swap;
 }
 
+.marain {
+  font-family: "Marain", sans-serif;
+  font-size: 1.4em;
+}
+
 @keyframes glitch {
   0%   { text-shadow: 1px 0 0 #f00, -1px 0 0 #0ff; }
   20%  { text-shadow: -1px 0 0 #f00, 1px 0 0 #0ff; }
