@@ -1,0 +1,23 @@
+.glitch {
+  position: relative;
+  display: inline-block;
+  animation: glitch 1.4s steps(20, end) infinite;
+}
+
+@font-face {
+  font-family: "Marain";
+  src: url("/assets/fonts/Marain.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@keyframes glitch {
+  0%   { text-shadow: 1px 0 0 #f00, -1px 0 0 #0ff; }
+  20%  { text-shadow: -1px 0 0 #f00, 1px 0 0 #0ff; }
+  40%  { text-shadow: 2px 0 0 #0f0, -2px 0 0 #f0f; }
+  60%  { text-shadow: -2px 0 0 #0f0, 2px 0 0 #f0f; }
+  80%  { text-shadow: 3px 0 0 #f00, -3px 0 0 #0ff; }
+  100% { text-shadow: 0 0 0 #000, 0 0 0 #000; }
+}
+
