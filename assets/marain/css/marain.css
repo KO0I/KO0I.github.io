@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Marain";
+  src:
+    url("../fonts/marain.woff") format("woff"),
+    url("../fonts/Marain-Punct.ttf") format("truetype");
+  font-display: swap;
+}
+
+.marain-page {
+  color: #e8e3d7;
+  background: #101014;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  line-height: 1.55;
+}
+
+.marain-page h1,
+.marain-page h2 {
+  color: #f3efe4;
+}
+
+.marain {
+  font-family: "Marain", serif;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+.marain-page input,
+.marain-page textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #181820;
+  color: #f3efe4;
+  border: 1px solid #4b4b5f;
+  border-radius: 0.35rem;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+}
+
+.marain-page input:focus,
+.marain-page textarea:focus {
+  outline: 2px solid #a98cff;
+  border-color: #a98cff;
+}
+
+#dictsearch {
+  max-width: 20em;
+}
+
+#glosscontainer {
+  min-height: 8em;
+}
+
+#marainfield {
+  display: none;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#dictpos {
+  display: none;
+  font-style: italic;
+}
+
+#dictroman {
+  font-weight: bold;
+}
+
+.posgloss {
+  font-variant: small-caps;
+  color: #cdbdff;
+}
+
+#translation,
+#excontainer {
+  display: none;
+}
+
+.marain-page table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.marain-page td {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+#alphabet {
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+#alphabet td {
+  padding: 0.4em;
+}
+
+.marain-page a {
+  cursor: pointer;
+  color: #9fc7ff;
+}
+
+.marain-page a:hover,
+.marain-page a.hover {
+  text-decoration: underline;
+}
+
+#dictionary {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #15151c;
+  border: 1px solid #2f2f3b;
+  border-radius: 0.6rem;
+}
+
+#dictmarain {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+#dictdef {
+  color: #f3efe4;
+}
+
+@media (max-width: 800px) {
+  .marain-tool-table,
+  .marain-tool-table tbody,
+  .marain-tool-table tr,
+  .marain-tool-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .marain-page {
+    padding: 1rem 0.75rem 3rem;
+  }
+
+  #dictmarain {
+    font-size: 2rem;
+  }
+}

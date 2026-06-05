@@ -24,6 +24,8 @@ menu-settings:
       #url: '/contact/'
     - title: 'Reading'
       url: '/reading-list/'
+    - title: 'Marain Dictionary'
+      url: '/marain/'
 
 
 #-------------------------------
