@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Marain <span class="marain">(marain)<span>
+title: Marain
 permalink: /marain/
+hero_title_html: '<span class="marain">marain</span><br>Dictionary'
 ---
 
 <link rel="stylesheet" href="{{ '/assets/marain/css/marain.css' | relative_url }}">
