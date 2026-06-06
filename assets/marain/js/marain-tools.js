@@ -994,7 +994,7 @@ function updateEnglishToMarain() {
     return;
   }
 
-  var input = $field.val();
+  var input =String($field.val() || "").toLowerCase();
   var result = englishToMarain(input);
 
   if ($("#englishMarainRoman").length) {
