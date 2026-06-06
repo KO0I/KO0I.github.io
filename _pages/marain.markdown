@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Marain
+title: Marain <span class="marain">(marain)<span>
 permalink: /marain/
 ---
 
