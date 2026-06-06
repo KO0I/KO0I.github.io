@@ -15,9 +15,10 @@
       <div class="logo">
         <a class="logo__link" href="{{ site.baseurl }}/">
         {% if site.data.settings.logo %}
-          <img class="logo__image" src="{{ site.data.settings.logo | relative_url }}" alt="{{ site.data.settings.title }}">
+          <img class="logo__image" src="{{ site.data.settings.logo |
+          relative_url }}" alt="{{ site.data.settings.simpletitle }}">
         {% else %}
-          {{ site.data.settings.title }}
+          {{ site.data.settings.simpletitle }}
         {% endif %}
         </a>
       </div>
