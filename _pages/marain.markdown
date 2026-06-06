@@ -16,8 +16,38 @@ permalink: /marain/
 
 <div class="marain-page">
 
+<div id="english-to-marain" class="dictionary-panel">
+  <h2>English → Marain</h2>
+
   <p>
-    Look up Marain words using romanization.
+    Enter English words. Known dictionary words will be converted into Marain.
+  </p>
+
+  <label for="englishfield">English words</label>
+
+  <input
+    type="text"
+    maxlength="144"
+    id="englishfield"
+    autocomplete="off"
+    autocorrect="on"
+    autocapitalize="off"
+    spellcheck="true"
+    placeholder="spaceship culture speak">
+
+  <div class="translation-result">
+    <h3>Marain (Romanised)</h3>
+    <div id="englishMarainRoman" class="roman-output"></div>
+
+    <h3>Marain</h3>
+    <div id="englishMarainGlyphs" class="marain marain-output"></div>
+
+    <div id="englishMarainNotes" class="translation-notes"></div>
+  </div>
+</div>
+
+  <p>
+    Look up Marain words 
   </p>
 
   <div id="dictionary">
