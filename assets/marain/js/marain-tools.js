@@ -1052,6 +1052,29 @@ function updateEnglishToMarain() {
     var $glyph = $("#glyphfield");
     var $bits = $("#bitstringfield");
     var $dictsearch = $("#dictsearch");
+    var $englishfield = $("#englishfield");
+
+    if ($dictsearch.length) {
+      $dictsearch.on("input paste", function () {
+        setDict(this.value);
+      });
+    
+      if ($dictsearch.val()) {
+        setDict($dictsearch.val());
+      } else {
+        setDict("pren");
+      }
+    }
+    
+    if ($englishfield.length) {
+      $englishfield.on("input paste", function () {
+        updateEnglishToMarain();
+      });
+    
+      if ($englishfield.val()) {
+        updateEnglishToMarain();
+      }
+    }
 
     /*
      * Full romanization/converter page
@@ -1133,6 +1156,8 @@ function updateEnglishToMarain() {
         }
       }
     }
+
+
   });
 
   /*
