@@ -995,16 +995,7 @@ function updateEnglishToMarain() {
   }
 
   var input = $field.val();
-
-   /*
-   * Sanitizing: Force lowercase in the visible input field too.
-   */
-  if ($field.val() !== input) {
-    $field.val(input);
-  }
-
   var result = englishToMarain(input);
-
 
   if ($("#englishMarainRoman").length) {
     $("#englishMarainRoman").text(result.roman);
