@@ -798,6 +798,230 @@
   }
 
   /*
+ * English → Marain reverse dictionary lookup
+ * =============================================================
+ */
+
+function normalizeEnglishWord(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/^[^a-z0-9']+|[^a-z0-9']+$/g, "")
+    .trim();
+}
+
+function entryEnglishTerms(entry) {
+  var terms = [];
+
+  if (!entry) {
+    return terms;
+  }
+
+  /*
+   * Optional preferred field for future dict.js entries:
+   *
+   * "pren": {
+   *   gloss: "spaceship",
+   *   pos: "noun",
+   *   def: "spaceship",
+   *   en: ["spaceship", "ship", "vessel"]
+   * }
+   */
+  if (entry.en) {
+    if (Array.isArray(entry.en)) {
+      terms = terms.concat(entry.en);
+    } else {
+      terms.push(entry.en);
+    }
+  }
+
+  if (entry.def) {
+    terms.push(entry.def);
+  }
+
+  if (entry.gloss) {
+    terms.push(entry.gloss);
+  }
+
+  /*
+   * Split loose definitions like:
+   *   "spaceship, vessel"
+   *   "to speak; speech"
+   *   "ride[v]"
+   */
+  var expanded = [];
+
+  terms.forEach(function (term) {
+    String(term || "")
+      .toLowerCase()
+      .replace(/\[[^\]]*\]/g, "")
+      .split(/[,;/()]+/)
+      .forEach(function (piece) {
+        piece = piece.trim();
+        if (piece) {
+          expanded.push(piece);
+        }
+      });
+  });
+
+  return expanded;
+}
+
+function scoreEnglishMatch(word, entry) {
+  word = normalizeEnglishWord(word);
+
+  if (!word || !entry) {
+    return 0;
+  }
+
+  var terms = entryEnglishTerms(entry);
+  var best = 0;
+
+  terms.forEach(function (term) {
+    term = normalizeEnglishWord(term);
+
+    if (!term) {
+      return;
+    }
+
+    if (term === word) {
+      best = Math.max(best, 100);
+      return;
+    }
+
+    /*
+     * Allows "ship" to match "spaceship" weakly, but exact matches win.
+     */
+    if (term.indexOf(word) !== -1 || word.indexOf(term) !== -1) {
+      best = Math.max(best, 40);
+      return;
+    }
+
+    /*
+     * Allows one-word lookup inside short definitions.
+     */
+    var words = term.split(/\s+/);
+    if (words.indexOf(word) !== -1) {
+      best = Math.max(best, 60);
+    }
+  });
+
+  return best;
+}
+
+function findMarainByEnglish(word) {
+  var d = getDict();
+  var bestKey = null;
+  var bestEntry = null;
+  var bestScore = 0;
+
+  Object.keys(d).forEach(function (key) {
+    var entry = d[key];
+    var score = scoreEnglishMatch(word, entry);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestKey = key;
+      bestEntry = entry;
+    }
+  });
+
+  if (!bestKey) {
+    return null;
+  }
+
+  return {
+    marain: bestKey,
+    roman: tdMToRom(bestKey),
+    entry: bestEntry,
+    score: bestScore
+  };
+}
+
+function tokenizeEnglishInput(s) {
+  s = String(s || "");
+
+  /*
+   * Keeps whitespace and punctuation, so:
+   *   "spaceship, culture."
+   * does not become a gross mashed string.
+   */
+  return s.match(/[A-Za-z0-9']+|\s+|[^\sA-Za-z0-9']+/g) || [];
+}
+
+function englishToMarain(s) {
+  var tokens = tokenizeEnglishInput(s);
+  var roman = "";
+  var glyphs = "";
+  var missing = [];
+
+  tokens.forEach(function (token) {
+    if (/^\s+$/.test(token)) {
+      roman += token;
+      glyphs += token;
+      return;
+    }
+
+    if (/^[^A-Za-z0-9']+$/.test(token)) {
+      roman += token;
+      glyphs += token;
+      return;
+    }
+
+    var clean = normalizeEnglishWord(token);
+    var found = findMarainByEnglish(clean);
+
+    if (found) {
+      roman += found.roman;
+      glyphs += found.marain;
+    } else {
+      roman += "[" + token + "?]";
+      glyphs += "[" + token + "?]";
+      missing.push(token);
+    }
+  });
+
+  return {
+    roman: roman.trim(),
+    glyphs: glyphs.trim(),
+    missing: missing
+  };
+}
+
+function updateEnglishToMarain() {
+  var $field = $("#englishfield");
+
+  if (!$field.length) {
+    return;
+  }
+
+  var input = $field.val();
+  var result = englishToMarain(input);
+
+  if ($("#englishMarainRoman").length) {
+    $("#englishMarainRoman").text(result.roman);
+  }
+
+  if ($("#englishMarainGlyphs").length) {
+    $("#englishMarainGlyphs").text(result.glyphs);
+  }
+
+  if ($("#englishMarainNotes").length) {
+    if (result.missing.length) {
+      $("#englishMarainNotes").html(
+        "No entries for: " +
+          result.missing
+            .map(function (word) {
+              return '<span class="missing-word">' + escapeHTML(word) + "</span>";
+            })
+            .join(", ")
+      );
+    } else {
+      $("#englishMarainNotes").empty();
+    }
+  }
+}
+
+  /*
    * URL handling
    * =============================================================
    */

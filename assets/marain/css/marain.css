@@ -139,4 +139,46 @@
   #dictmarain {
     font-size: 2rem;
   }
+} 
+
+.dictionary-panel,
+#english-to-marain {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #15151c;
+  border: 1px solid #2f2f3b;
+  border-radius: 0.6rem;
+}
+
+.translation-result {
+  margin-top: 1rem;
+}
+
+.translation-result h3 {
+  margin-bottom: 0.35rem;
+  color: #d8c7ff;
+}
+
+.roman-output,
+.marain-output {
+  min-height: 2.25rem;
+  padding: 0.75rem;
+  background: #101014;
+  border: 1px solid #2f2f3b;
+  border-radius: 0.4rem;
+}
+
+.marain-output {
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+.translation-notes {
+  margin-top: 0.75rem;
+  color: #b8b2c8;
+  font-size: 0.95rem;
+}
+
+.translation-notes .missing-word {
+  color: #ffb4b4;
 }
