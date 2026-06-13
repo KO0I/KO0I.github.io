@@ -5,10 +5,17 @@ categories: modeling, flight, space, rasdFastWalkerLeague
 image:  'images/Animation.gif'
 ---
 
+# Playtest 
+_Round 1 Starting June 13, 2026_
+[Check it out](https://chipchirp.itch.io/rasd-fastwalker-league)
+Targeted towards Linux users for now. If you are on Windows, the game should run in WSL 2 in a distro of your choice. 
+Considerable effort has been (and will be) put into making the game chock-full of soft graphics. So if it doesn't work well, it will be a priority to imrove.
+
+
 # Motivation 
 I have had this game idea bouncing around in my head for a long time. Expressive movement, open-world, low-res to permit a lot of speed, and a variety of celestial objects to zip in and around.
 
-Set in some post-scarcity civilization, the suit is nigh-invincible.
+Set in some post-scarcity civilization, the suit is invincible. 
 
 <span class="marain"> rabin pren <span>
 
