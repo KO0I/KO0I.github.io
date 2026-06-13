@@ -6,8 +6,12 @@ image:  'images/Animation.gif'
 ---
 
 # Playtest 
+
+
 _Round 1 Starting June 13, 2026_
-[Check it out](https://chipchirp.itch.io/rasd-fastwalker-league)
+
+
+[Check it out here!](https://chipchirp.itch.io/rasd-fastwalker-league)
 Targeted towards Linux users for now. If you are on Windows, the game should run in WSL 2 in a distro of your choice. 
 Considerable effort has been (and will be) put into making the game chock-full of soft graphics. So if it doesn't work well, it will be a priority to imrove.
 
