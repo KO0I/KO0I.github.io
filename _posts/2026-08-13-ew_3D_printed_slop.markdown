@@ -27,7 +27,7 @@ I say this to clarify that I don't wanna sound like some sort of snob like as th
 
 My issue is when this hobby is combined with the hustle mindset; it just becomes instantly disgusting to me.
 
-Well, imagine my nausea given that a troubling number of people have lost the plot so thoroughly that instead of using the marvelous machine to spare them occasional inconveniences of replacing an expensive part by replicating it, they run these things ragged like a factory. 
+Well, imagine my nausea given that a troubling number of people have lost the plot so thoroughly that instead of using the marvelous machine to spare them occasional inconveniences of replacing an expensive part by replicating it, they run these things ragged. 
 
 Where I see a replicator, some folks see a factory. 
 
