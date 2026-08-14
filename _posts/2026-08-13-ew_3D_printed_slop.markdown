@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Word 3D Printed Objects For Sale"
+title: "A Word On 3D Printed Objects For Sale"
 categories: opinion, reprap, 3D-printing 
 image: 'images/520.jpg'
 mathjax: false
