@@ -10,7 +10,7 @@ published: true
 
 A little over 10 years ago, I got into Reprap because I was intrigued with possibility of a machine that could print most of its own components. A self-replicating factory still sounds like a cool idea.
 
-I was intrigued with the possibility of being able to replace any random component in my car or some other context where replacement plastic parts would be the same quality, but cost many orders and magnitude.
+I was intrigued with the possibility of being able to replace any random component in my car or some other context where replacement plastic parts would be the same quality, but cost an order of magnitude more.
 
 I have grown to enjoy 3D modeling, and now have a fair bit of experience with openscad. I am learning Blender very slowly.
 
