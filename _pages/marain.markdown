@@ -17,44 +17,27 @@ permalink: /marain/
 # Marain Dictionary
 
 ## Marain - Latin Symbol table:
-| Latin | Marain |
-|:-----:|:------:|
-| A | <span class="marain">a</span> |
-| B | <span class="marain">b</span> |
-| C | <span class="marain">c</span> |
-| D | <span class="marain">d</span> |
-| E | <span class="marain">e</span> |
-| F | <span class="marain">f</span> |
-| G | <span class="marain">g</span> |
-| H | <span class="marain">h</span> |
-| I | <span class="marain">i</span> |
-| J | <span class="marain">j</span> |
-| K | <span class="marain">k</span> |
-| L | <span class="marain">l</span> |
-| M | <span class="marain">m</span> |
-| N | <span class="marain">n</span> |
-| O | <span class="marain">o</span> |
-| P | <span class="marain">p</span> |
-| Q | <span class="marain">q</span> |
-| R | <span class="marain">r</span> |
-| S | <span class="marain">s</span> |
-| T | <span class="marain">t</span> |
-| U | <span class="marain">u</span> |
-| V | <span class="marain">v</span> |
-| W | <span class="marain">w</span> |
-| X | <span class="marain">x</span> |
-| Y | <span class="marain">y</span> |
-| Z | <span class="marain">z</span> |
-| 0 | <span class="marain">0</span> |
-| 1 | <span class="marain">1</span> |
-| 2 | <span class="marain">2</span> |
-| 3 | <span class="marain">3</span> |
-| 4 | <span class="marain">4</span> |
-| 5 | <span class="marain">5</span> |
-| 6 | <span class="marain">6</span> |
-| 7 | <span class="marain">7</span> |
-| 8 | <span class="marain">8</span> |
-| 9 | <span class="marain">9</span> |
+
+| Latin | Marain | Latin | Marain |
+|:-----:|:------:|:-----:|:------:|
+| A | <span class="marain">a</span> | S | <span class="marain">s</span> |
+| B | <span class="marain">b</span> | T | <span class="marain">t</span> |
+| C | <span class="marain">c</span> | U | <span class="marain">u</span> |
+| D | <span class="marain">d</span> | V | <span class="marain">v</span> |
+| E | <span class="marain">e</span> | W | <span class="marain">w</span> |
+| F | <span class="marain">f</span> | X | <span class="marain">x</span> |
+| G | <span class="marain">g</span> | Y | <span class="marain">y</span> |
+| H | <span class="marain">h</span> | Z | <span class="marain">z</span> |
+| I | <span class="marain">i</span> | 0 | <span class="marain">0</span> |
+| J | <span class="marain">j</span> | 1 | <span class="marain">1</span> |
+| K | <span class="marain">k</span> | 2 | <span class="marain">2</span> |
+| L | <span class="marain">l</span> | 3 | <span class="marain">3</span> |
+| M | <span class="marain">m</span> | 4 | <span class="marain">4</span> |
+| N | <span class="marain">n</span> | 5 | <span class="marain">5</span> |
+| O | <span class="marain">o</span> | 6 | <span class="marain">6</span> |
+| P | <span class="marain">p</span> | 7 | <span class="marain">7</span> |
+| Q | <span class="marain">q</span> | 8 | <span class="marain">8</span> |
+| R | <span class="marain">r</span> | 9 | <span class="marain">9</span> |
 
 ## Translation
 
