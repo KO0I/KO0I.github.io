@@ -1,0 +1,31 @@
+{
+  "defaultTimeline": "culture",
+  "timelines": [
+    {
+      "id": "culture",
+      "label": "Culture",
+      "kind": "trunk",
+      "source": "/assets/data/culture-history.json",
+      "color": "#8fd8ff",
+      "description": "Culture chronology based closely on The Culture Wiki's unofficial Timeline compilation."
+    },
+    {
+      "id": "ulterior",
+      "label": "Ulterior",
+      "kind": "branch",
+      "parent": "culture",
+      "source": "/assets/data/ulterior-history.json",
+      "color": "#44ee77",
+      "description": "Known Ulterior, Zetetic Elench, Peace Faction, and later Gzilt history branching from the Culture in the 4th century CE."
+    },
+    {
+      "id": "dance-party",
+      "label": "Everlasting Dance Party",
+      "kind": "branch",
+      "parent": "culture",
+      "source": "/assets/data/dance-party-history.json",
+      "color": "#ff77ee",
+      "description": "Fan-created Everlasting Dance Party chronology. Set forkYear to attach it to the Culture trunk."
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "title": "Ulterior / Elench / Gzilt History",
+  "subtitle": "Known history of Culture splinter groups and related Gzilt history, branching from the Culture chronology.",
+  "calendar": "Common Era (CE), where year 1 corresponds to year 1 in the Gregorian calendar used on Earth today.",
+  "parent": "culture",
+  "forkYear": 350,
+  "forkLabel": "c. 4th century CE — Zetetic Elench split from the Culture",
+  "sourcePage": {
+    "title": "Ulterior | The Culture Wiki | Fandom",
+    "url": "https://theculture.fandom.com/wiki/Ulterior"
+  },
+  "eras": [
+    {
+      "name": "Ulterior Emergence",
+      "wallpaper": "https://apod.nasa.gov/apod/fap/image/1307/hoag_hubble_1521.jpg",
+      "wallpaperAlt": "Hoag's Object, a nearly perfect ring galaxy imaged by Hubble",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 28,
+      "wallpaperCredit": "R. Lucas (STScI/AURA), Hubble Heritage Team, NASA",
+      "wallpaperSource": "APOD — Hoag's Object",
+      "wallpaperSourceUrl": "https://apod.nasa.gov/apod/ap130728.html",
+      "wallpaperApodKey": "hoag"
+    },
+    {
+      "name": "Ulterior Schisms",
+      "wallpaper": "https://apod.nasa.gov/apod/fap/image/2602/CasA_nircam_1024.jpg",
+      "wallpaperAlt": "Cassiopeia A supernova remnant seen by the James Webb Space Telescope",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 330,
+      "wallpaperCredit": "NASA, ESA, CSA, STScI; D. Milisavljevic (Purdue), T. Temim (Princeton), I. De Looze (Ghent)",
+      "wallpaperSource": "APOD — Cassiopeia A",
+      "wallpaperSourceUrl": "https://apod.nasa.gov/apod/ap260206.html",
+      "wallpaperApodKey": "cassa"
+    },
+    {
+      "name": "Ulterior",
+      "wallpaper": "https://apod.nasa.gov/apod/fap/image/1307/hoag_hubble_1521.jpg",
+      "wallpaperAlt": "Hoag's Object, a nearly perfect ring galaxy imaged by Hubble",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 198,
+      "wallpaperCredit": "R. Lucas (STScI/AURA), Hubble Heritage Team, NASA",
+      "wallpaperSource": "APOD — Hoag's Object",
+      "wallpaperSourceUrl": "https://apod.nasa.gov/apod/ap130728.html",
+      "wallpaperApodKey": "hoag"
+    },
+    {
+      "name": "Gzilt",
+      "wallpaper": "https://apod.nasa.gov/apod/fap/image/2209/CarinaCliffs_Webb_2000.jpg",
+      "wallpaperAlt": "The Carina Cliffs in NGC 3324 imaged by the James Webb Space Telescope",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 24,
+      "wallpaperCredit": "NASA, ESA, CSA, STScI",
+      "wallpaperSource": "APOD — Carina Cliffs",
+      "wallpaperSourceUrl": "https://apod.nasa.gov/apod/ap220905.html",
+      "wallpaperApodKey": "carina"
+    }
+  ],
+  "sources": {
+    "culture-wiki-ulterior": {
+      "work": "The Culture Wiki",
+      "locator": "Ulterior — term popular toward the 19th century CE; known members include Peace Faction and Zetetic Elench",
+      "url": "https://theculture.fandom.com/wiki/Ulterior"
+    },
+    "culture-wiki-problem-child": {
+      "work": "The Culture Wiki",
+      "locator": "Problem Child — left Contact and the Culture proper, then joined the Ulterior; last contact about 1500 years before the Excession era",
+      "url": "https://theculture.fandom.com/wiki/Problem_Child"
+    },
+    "culture-wiki-zetetic-elench": {
+      "work": "The Culture Wiki",
+      "locator": "Zetetic Elench — split from the Culture around the 4th century CE",
+      "url": "https://theculture.fandom.com/wiki/Zetetic_Elench"
+    },
+    "culture-wiki-gzilt": {
+      "work": "The Culture Wiki",
+      "locator": "Gzilt — present at the Culture founding, almost joined, later Sublimed",
+      "url": "https://theculture.fandom.com/wiki/Gzilt"
+    },
+    "excession-3-2": {
+      "work": "Excession",
+      "locator": "chapter 3.2"
+    },
+    "hydrogen-sonata-5": {
+      "work": "The Hydrogen Sonata",
+      "locator": "chapter 5"
+    },
+    "consider-phlebas-war-briefly": {
+      "work": "Consider Phlebas",
+      "locator": "\"The war, briefly\""
+    }
+  },
+  "events": [
+    {
+      "id": "elench-split",
+      "startYear": 350,
+      "date": "c. 4th century CE",
+      "era": "Ulterior Emergence",
+      "title": "the Zetetic Elench split from the Culture",
+      "description": "Noted to have occurred 1500 years before c. 19th century CE.",
+      "dating": "inferred",
+      "importance": "major",
+      "sources": [
+        "excession-3-2",
+        "culture-wiki-zetetic-elench"
+      ],
+      "tags": [
+        "Zetetic Elench"
+      ],
+      "detailImage": "https://apod.nasa.gov/apod/fap/image/1307/hoag_hubble_1521.jpg",
+      "detailImageAlt": "Hoag's Object, a nearly perfect ring galaxy imaged by Hubble",
+      "detailImageHue": 42,
+      "detailImageCredit": "R. Lucas (STScI/AURA), Hubble Heritage Team, NASA",
+      "detailImageSource": "APOD — Hoag's Object",
+      "detailImageSourceUrl": "https://apod.nasa.gov/apod/ap130728.html",
+      "detailImageApodKey": "hoag"
+    },
+    {
+      "id": "problem-child-joins-ulterior",
+      "startYear": 375,
+      "date": "c. 4th century CE",
+      "era": "Ulterior Emergence",
+      "title": "GCU Problem Child leaves the Culture proper and joins the Ulterior",
+      "description": "Described from the Excession-era perspective as having happened about fifteen hundred years earlier.",
+      "dating": "inferred",
+      "importance": "major",
+      "sources": [
+        "culture-wiki-problem-child"
+      ],
+      "tags": [
+        "Ulterior",
+        "Problem Child"
+      ],
+      "detailImage": "https://apod.nasa.gov/apod/fap/image/1307/hoag_hubble_1521.jpg",
+      "detailImageAlt": "Hoag's Object, a nearly perfect ring galaxy imaged by Hubble",
+      "detailImageHue": 84,
+      "detailImageCredit": "R. Lucas (STScI/AURA), Hubble Heritage Team, NASA",
+      "detailImageSource": "APOD — Hoag's Object",
+      "detailImageSourceUrl": "https://apod.nasa.gov/apod/ap130728.html",
+      "detailImageApodKey": "hoag"
+    },
+    {
+      "id": "peace-faction-split",
+      "startYear": 1310,
+      "date": "1310 CE",
+      "era": "Ulterior Schisms",
+      "title": "Peace Faction splits from the Culture",
+      "description": "",
+      "dating": "explicit",
+      "importance": "major",
+      "sources": [
+        "consider-phlebas-war-briefly",
+        "culture-wiki-ulterior"
+      ],
+      "tags": [
+        "Peace Faction"
+      ],
+      "detailImage": "https://apod.nasa.gov/apod/fap/image/2602/CasA_nircam_1024.jpg",
+      "detailImageAlt": "Cassiopeia A supernova remnant seen by the James Webb Space Telescope",
+      "detailImageHue": 58,
+      "detailImageCredit": "NASA, ESA, CSA, STScI; D. Milisavljevic (Purdue), T. Temim (Princeton), I. De Looze (Ghent)",
+      "detailImageSource": "APOD — Cassiopeia A",
+      "detailImageSourceUrl": "https://apod.nasa.gov/apod/ap260206.html",
+      "detailImageApodKey": "cassa"
+    },
+    {
+      "id": "ulterior-name-popular",
+      "startYear": 1875,
+      "date": "c. 19th century CE",
+      "era": "Ulterior",
+      "title": "the term “Ulterior” becomes popular for the Culture’s splinter groups",
+      "description": "The Culture Wiki notes that the collective name became popular toward the 19th century CE.",
+      "dating": "inferred",
+      "importance": "normal",
+      "sources": [
+        "culture-wiki-ulterior"
+      ],
+      "tags": [
+        "Ulterior",
+        "Zetetic Elench",
+        "Peace Faction"
+      ],
+      "detailImage": "https://apod.nasa.gov/apod/fap/image/1307/hoag_hubble_1521.jpg",
+      "detailImageAlt": "Hoag's Object, a nearly perfect ring galaxy imaged by Hubble",
+      "detailImageHue": 126,
+      "detailImageCredit": "R. Lucas (STScI/AURA), Hubble Heritage Team, NASA",
+      "detailImageSource": "APOD — Hoag's Object",
+      "detailImageSourceUrl": "https://apod.nasa.gov/apod/ap130728.html",
+      "detailImageApodKey": "hoag"
+    },
+    {
+      "id": "gzilt-sublimation",
+      "startYear": 2350,
+      "date": "c. 24th century CE",
+      "era": "Gzilt",
+      "title": "Gzilt Sublimation event",
+      "description": "The Idiran-Culture War is 1000 years in the past.",
+      "dating": "inferred",
+      "importance": "major",
+      "sources": [
+        "hydrogen-sonata-5",
+        "culture-wiki-gzilt"
+      ],
+      "tags": [
+        "Gzilt",
+        "Sublimation"
+      ],
+      "detailImage": "https://apod.nasa.gov/apod/fap/image/1111/butterfly2_hst_3017.jpg",
+      "detailImageAlt": "The Butterfly Nebula NGC 6302, a bipolar planetary nebula imaged by Hubble",
+      "detailImageHue": 14,
+      "detailImageCredit": "NASA, ESA, and the Hubble SM4 ERO Team",
+      "detailImageSource": "APOD — The Butterfly Nebula",
+      "detailImageSourceUrl": "https://apod.nasa.gov/apod/ap111113.html",
+      "detailImageApodKey": "butterfly"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+---
+layout: default
+title: Culture History
+permalink: /culture-history/
+---
+
+<link rel="stylesheet" href="{{ '/css/culture-timeline.css' | relative_url }}">
+
+<section
+  class="culture-history"
+  id="culture-history"
+  data-manifest="{{ '/assets/data/culture-timelines.json' | relative_url }}"
+  data-source="{{ '/assets/data/culture-history.json' | relative_url }}"
+  aria-labelledby="culture-history-title"
+>
+  <div class="culture-wallpaper-stage" id="culture-wallpaper-stage" aria-hidden="true">
+    <div class="culture-wallpaper-stage__layers" id="culture-wallpaper-layers"></div>
+    <div class="culture-wallpaper-stage__veil"></div>
+    <div class="culture-wallpaper-stage__label">
+      <span>ERA</span>
+      <strong id="culture-wallpaper-era">Deep History</strong>
+    </div>
+  </div>
+
+  <div class="culture-history__masthead">
+    <p class="culture-history__eyebrow">THE CULTURE · COMMON ERA CHRONOLOGY</p>
+    <h1 id="culture-history-title">A History of the Culture</h1>
+    <p class="culture-history__intro">
+      This page is an interactive rendering of the unofficial chronology compiled by The Culture Wiki.
+      Dates marked with a hollow point are reconstructed from relative statements rather than directly dated.
+    </p>
+
+    <p class="culture-history__source">
+      Source: <a href="https://theculture.fandom.com/wiki/Timeline" target="_blank" rel="noopener noreferrer">Timeline — The Culture Wiki (Fandom)</a>.
+      The source describes itself as an unofficial timeline and advises care when using the compilation.
+    </p>
+
+    <div class="culture-history__legend" aria-label="Dating legend">
+      <span><i class="legend-dot legend-dot--explicit" aria-hidden="true"></i> explicit / calendar date</span>
+      <span><i class="legend-dot legend-dot--inferred" aria-hidden="true"></i> inferred / approximate</span>
+      <span><i class="legend-dot legend-dot--local" aria-hidden="true"></i> local calendar</span>
+    </div>
+  </div>
+
+  <nav class="culture-branch-nav" id="culture-branch-nav" aria-label="Timeline branch">
+    <div class="culture-branch-nav__choices" id="culture-timeline-choices"></div>
+    <p class="culture-branch-nav__summary" id="culture-timeline-summary" aria-live="polite"></p>
+  </nav>
+
+  <form class="culture-controls" id="culture-controls" role="search">
+    <label class="culture-control culture-control--search">
+      <span>Search chronology</span>
+      <input id="culture-search" type="search" placeholder="Schar's World, Zakalwe, Masaq'…" autocomplete="off">
+    </label>
+
+    <label class="culture-control">
+      <span>Era</span>
+      <select id="culture-era">
+        <option value="">All eras</option>
+      </select>
+    </label>
+
+    <label class="culture-control">
+      <span>Source</span>
+      <select id="culture-source">
+        <option value="">All works</option>
+      </select>
+    </label>
+
+    <label class="culture-control">
+      <span>Dating</span>
+      <select id="culture-dating">
+        <option value="">All dates</option>
+        <option value="explicit">Explicit</option>
+        <option value="inferred">Inferred</option>
+        <option value="local-calendar">Local calendar</option>
+      </select>
+    </label>
+
+    <button type="button" class="culture-reset" id="culture-reset">Reset</button>
+  </form>
+
+  <div class="culture-resultsbar">
+    <p id="culture-results" aria-live="polite">Loading chronology…</p>
+    <p class="culture-resultsbar__hint">Choose a trunk or branch without leaving the page · the selected rail stays centered · scroll for era wallpapers · hover for event artwork · click/tap for sources</p>
+  </div>
+
+  <div class="culture-timeline" id="culture-timeline" role="list" aria-busy="true"></div>
+
+  <noscript>
+    <p class="culture-error">This chronology is rendered from JSON and requires JavaScript.</p>
+  </noscript>
+</section>
+
+<script src="{{ '/js/culture-timeline.js' | relative_url }}" defer></script>

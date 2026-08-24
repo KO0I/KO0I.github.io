@@ -1,0 +1,44 @@
+{
+  "title": "Everlasting Dance Party",
+  "subtitle": "A fan-created branch from the Culture chronology.",
+  "calendar": "Common Era (CE); year 1 corresponds to year 1 of the Gregorian calendar.",
+  "parent": "culture",
+  "forkYear": 1949,
+  "forkLabel": "1949 CE — Everlasting Dance Party forms from <REDACTED>",
+  "eras": [
+    {
+      "name": "Everlasting Dance Party",
+      "wallpaper": "https://apod.nasa.gov/apod/image/1608/MeteorM31_hemmerich_1948.jpg",
+      "wallpaperAlt": "A meteor streaking in front of the Andromeda Galaxy",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 0,
+      "wallpaperCredit": "Fritz Helmut Hemmerich",
+      "wallpaperSource": "APOD — Meteor before Galaxy",
+      "wallpaperSourceUrl": "https://apod.nasa.gov/apod/ap160817.html"
+    }
+  ],
+  "sources": {
+    "apod-meteor-before-galaxy": {
+      "work": "Astronomy Picture of the Day",
+      "locator": "2016 August 17 — Meteor before Galaxy",
+      "url": "https://apod.nasa.gov/apod/ap160817.html"
+    }
+  },
+  "events": [
+    {
+  "id": "dance-party-joins-ulterior",
+  "startYear": 1970,
+  "date": "1970 CE",
+  "era": "Everlasting Dance Party",
+  "title": "Everlasting Dance Party joins Ulterior",
+  "description": "Everlasting Dance Party joins the Culture Ulterior.",
+  "dating": "explicit",
+  "importance": "major",
+  "sources": [],
+  "tags": [
+    "Everlasting Dance Party",
+    "Ulterior"
+  ]
+}
+  ]
+}
