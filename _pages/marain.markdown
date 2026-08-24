@@ -14,7 +14,7 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/alpha.js' | relative_url }}"></script>
 <script src="{{ '/assets/marain/js/marain-tools.js' | relative_url }}"></script>
 
-# Marain Dictionary <span class="marain">marain</span>
+# <span class="marain">marain</span>
 
 ## Marain - Latin Symbol table:
 
