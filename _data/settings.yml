@@ -24,6 +24,8 @@ menu-settings:
       url: '/reading-list/'
     - title: 'Marain Dictionary'
       url: '/marain/'
+    - title: 'Culture History'
+      url: '/culture-history/'
 
 
 #-------------------------------
@@ -70,7 +72,6 @@ social:
 
 #-------------------------------
 # Comment Section (Disqus)
-#disqus-identifier: anvodstudio-demo # Add your shortname for Disqus Comment. For example anvodstudio-demo
 
 # oh fuck no comments sound like a horrible idea
 
