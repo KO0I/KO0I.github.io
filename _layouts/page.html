@@ -7,7 +7,9 @@ layout: default
 <section class="hero">
   <div class="hero__inner">
     <div class="hero__image">
-      <img class="lazy" data-src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      <img class="lazy"
+           data-src="{{ page.image | relative_url }}"
+           alt="{{ page.title | strip_html | escape }}">
     </div>
     <div class="hero__content">
       <h1 class="hero__title">{{ page.title }}</h1>
