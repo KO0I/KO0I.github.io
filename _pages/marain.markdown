@@ -1,7 +1,7 @@
 ---
 layout: page
 #hero_title: Marain <span class="marain">(marain)</span>
-title: Marain <span class="marain">(marain)</span>
+title: Marain
 marain_title: "(marain)"
 permalink: /marain/
 ---
@@ -14,7 +14,7 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/alpha.js' | relative_url }}"></script>
 <script src="{{ '/assets/marain/js/marain-tools.js' | relative_url }}"></script>
 
-# Marain Dictionary
+# Marain Dictionary <span class="marain">marain</span>
 
 ## Marain - Latin Symbol table:
 
