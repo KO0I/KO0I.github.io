@@ -9,6 +9,7 @@
   --culture-accent: #9bd7ea;
   --ulterior-accent: #a6ef9b;
   --danceparty-accent: #e79bea;
+  --squidfriends-accent: #30b3fe;
 
   /* Text variants are derived from the identity accents.  Keep the accents
    * saturated for rails/borders; mix them toward the page text for readable
@@ -16,6 +17,7 @@
   --culture-accent-text: color-mix(in srgb, var(--culture-accent) 68%, var(--culture-text));
   --ulterior-accent-text: color-mix(in srgb, var(--ulterior-accent) 68%, var(--culture-text));
   --danceparty-accent-text: color-mix(in srgb, var(--danceparty-accent) 68%, var(--culture-text));
+  --squidfriends-accent-text: color-mix(in srgb, var(--squidfriends-accent) 68%, var(--culture-text));
 
   --active-timeline-accent: var(--culture-accent);
   --active-timeline-text: var(--culture-accent-text);
@@ -33,6 +35,10 @@
   background: rgba(6, 8, 12, .55);
   border-radius: 18px;
   overflow: visible;
+}
+
+.culture-branch-nav__summary {
+  display: none;
 }
 
 .culture-history *,
@@ -688,6 +694,10 @@
   --active-timeline-text: var(--danceparty-accent-text);
 }
 
+.culture-history[data-focus-timeline="squid-friends"] {
+  --active-timeline-accent: var(--squidfriends-accent);
+  --active-timeline-text: var(--squidfriends-accent-text);
+}
 .culture-branch-choice[data-timeline="culture"],
 .culture-secondary-rail[data-timeline="culture"] {
   --timeline-color: var(--culture-accent);
@@ -704,6 +714,12 @@
 .culture-secondary-rail[data-timeline="dance-party"] {
   --timeline-color: var(--danceparty-accent);
   --timeline-text-color: var(--danceparty-accent-text);
+}
+
+.culture-branch-choice[data-timeline="squid-friends"],
+.culture-secondary-rail[data-timeline="squid-friends"] {
+  --timeline-color: var(--squidfriends-accent);
+  --timeline-text-color: var(--squidfriends-accent-text);
 }
 
 /* -------------------------------------------------------------------------
@@ -969,4 +985,24 @@
   color: var(--active-timeline-accent);
   text-decoration: underline;
   text-underline-offset: .16em;
+}
+/* Markdown page masthead alignment */
+.culture-history__masthead {
+  text-align: center;
+}
+
+.culture-history__title,
+.culture-history__masthead h1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.culture-history__intro,
+.culture-history__source {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.culture-history__legend {
+  justify-content: center;
 }

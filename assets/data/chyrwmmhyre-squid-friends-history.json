@@ -1,0 +1,146 @@
+{
+  "title": "Squid-Friends / Ch'yrwmmhyre History",
+  "subtitle": "Fan chronology of the Decapodis Sepiidi-charm (Ch'yrwmmhyre) of NGC 188 FTS 252.",
+  "calendar": "Common Era (CE), where year 1 corresponds to year 1 in the Gregorian calendar used on Earth today.",
+  "parent": "culture",
+  "forkYear": -1200,
+  "forkLabel": "1200 BCE — Ch'yrwmmhyre interstellar era begins",
+  "eras": [
+    {
+      "name": "Interstellar Beginnings",
+      "wallpaper": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Caldwell_1.jpg",
+      "wallpaperAlt": "Caldwell 1 (NGC 188), the Polarissima open cluster",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 0,
+      "wallpaperCredit": "NASA, ESA and L. Dressel (STScI); processing: Gladys Kober",
+      "wallpaperSource": "Wikimedia Commons — Caldwell 1",
+      "wallpaperSourceUrl": "https://commons.wikimedia.org/wiki/File:Caldwell_1.jpg"
+    },
+    {
+      "name": "Infra-space Age",
+      "wallpaper": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Caldwell_1.jpg",
+      "wallpaperAlt": "Caldwell 1 (NGC 188), the Polarissima open cluster",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 32,
+      "wallpaperCredit": "NASA, ESA and L. Dressel (STScI); processing: Gladys Kober",
+      "wallpaperSource": "Wikimedia Commons — Caldwell 1",
+      "wallpaperSourceUrl": "https://commons.wikimedia.org/wiki/File:Caldwell_1.jpg"
+    },
+    {
+      "name": "Involved / Ulterior",
+      "wallpaper": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Caldwell_1.jpg",
+      "wallpaperAlt": "Caldwell 1 (NGC 188), the Polarissima open cluster",
+      "wallpaperPosition": "center center",
+      "wallpaperHue": 300,
+      "wallpaperCredit": "NASA, ESA and L. Dressel (STScI); processing: Gladys Kober",
+      "wallpaperSource": "Wikimedia Commons — Caldwell 1",
+      "wallpaperSourceUrl": "https://commons.wikimedia.org/wiki/File:Caldwell_1.jpg"
+    }
+  ],
+  "sources": {
+    "supplied-chyrwmmhyre-chronology": {
+      "work": "Supplied chronology",
+      "locator": "Squid-Friends / Ch'yrwmmhyre branch notes"
+    },
+    "culture-wiki-timeline": {
+      "work": "The Culture Wiki",
+      "locator": "Timeline — Idiran–Culture War dates",
+      "url": "https://theculture.fandom.com/wiki/Timeline"
+    }
+  },
+  "events": [
+    {
+      "id": "chyrwmmhyre-interstellar-civilization",
+      "startYear": -1200,
+      "date": "1200 BCE",
+      "era": "Interstellar Beginnings",
+      "title": "the Ch'yrwmmhyre begin an interstellar civilization",
+      "description": "The Decapodis Sepiidi-charm (Ch'yrwmmhyre), originating in the NGC 188 FTS 252 system, begin sustained interstellar civilization. Their aquatic technological origins and isolation high above the Galactic plane make later development unusually difficult.",
+      "dating": "explicit",
+      "importance": "major",
+      "sources": [
+        "supplied-chyrwmmhyre-chronology"
+      ],
+      "tags": [
+        "Ch'yrwmmhyre",
+        "Decapodis Sepiidi-charm",
+        "NGC 188",
+        "FTS 252"
+      ]
+    },
+    {
+      "id": "chyrwmmhyre-not-involved-idiran-war",
+      "startYear": 1327,
+      "endYear": 1375,
+      "date": "1327–1375 CE",
+      "era": "Interstellar Beginnings",
+      "title": "the Ch'yrwmmhyre remain outside the Involved during the Idiran–Culture War",
+      "description": "They are an interstellar civilization by this period but are not counted among the Involved during the war.",
+      "dating": "explicit",
+      "importance": "normal",
+      "sources": [
+        "supplied-chyrwmmhyre-chronology",
+        "culture-wiki-timeline"
+      ],
+      "tags": [
+        "Ch'yrwmmhyre",
+        "Idiran–Culture War",
+        "Involved"
+      ]
+    },
+    {
+      "id": "chyrwmmhyre-infraspace-ships",
+      "startYear": 1650,
+      "date": "1650 CE",
+      "era": "Infra-space Age",
+      "title": "first to-plane ships enter service using near-exclusive infra-space travel",
+      "description": "A major propulsion breakthrough gives Ch'yrwmmhyre vessels practical to-plane capability based almost entirely on infra-space.",
+      "dating": "explicit",
+      "importance": "major",
+      "sources": [
+        "supplied-chyrwmmhyre-chronology"
+      ],
+      "tags": [
+        "Ch'yrwmmhyre",
+        "infra-space",
+        "to-plane ships",
+        "FTL"
+      ]
+    },
+    {
+      "id": "chyrwmmhyre-become-involved",
+      "startYear": 1700,
+      "date": "1700 CE",
+      "era": "Involved / Ulterior",
+      "title": "the Ch'yrwmmhyre become an Involved civilization",
+      "description": "Further travel breakthroughs finally overcome much of the isolation imposed by their location and technological history, allowing them to operate at the level of the Galactic Involved.",
+      "dating": "explicit",
+      "importance": "major",
+      "sources": [
+        "supplied-chyrwmmhyre-chronology"
+      ],
+      "tags": [
+        "Ch'yrwmmhyre",
+        "Involved"
+      ]
+    },
+    {
+      "id": "chyrwmmhyre-join-ulterior",
+      "startYear": 1811,
+      "date": "1811 CE",
+      "era": "Involved / Ulterior",
+      "title": "the Ch'yrwmmhyre join the Culture's Ulterior from outside the Culture",
+      "description": "They become the first externally originating civilization in this chronology to join the Culture's Ulterior rather than arising as a splinter from the Culture proper.",
+      "dating": "explicit",
+      "importance": "major",
+      "sources": [
+        "supplied-chyrwmmhyre-chronology"
+      ],
+      "tags": [
+        "Ch'yrwmmhyre",
+        "Ulterior",
+        "Culture"
+      ]
+    }
+  ]
+}

@@ -26,6 +26,15 @@
       "source": "/assets/data/dance-party-history.json",
       "color": "#ff77ee",
       "description": "Fan-created Everlasting Dance Party chronology. Set forkYear to attach it to the Culture trunk."
+    },
+    {
+      "id": "chyrwmmhyre",
+      "label": "Ch'yrwmmhyre",
+      "kind": "branch",
+      "parent": "culture",
+      "source": "/assets/data/chyrwmmhyre-squid-friends-history.json",
+      "description": "Fan-created chronology for the Decapodis Sepiidi-charm (Ch'yrwmmhyre), entering interstellar history in 1200 BCE and later joining the Culture's Ulterior externally in 1811 CE.",
+      "color": "#f0b36e"
     }
   ]
 }
