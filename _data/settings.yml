@@ -26,6 +26,8 @@ menu-settings:
       url: '/marain/'
     - title: 'Culture History'
       url: '/culture-history/'
+    - title: 'XPM Workbench'
+      url: '/tools/serializable-pixel-art/'
 
 
 #-------------------------------
