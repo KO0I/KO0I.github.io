@@ -25,9 +25,9 @@ Recently I have been getting into developing a flying/space exploration game in 
 ### Professional Links:
 
 
-𓊒 [Resume][my-resume]<br>
-𓊒 [Github][my-github]<br>
-𓊒 [LinkedIn][my-linkedin]
+<font color="purple">𓊒</font> [Resume][my-resume]<br>
+<font color="teal">𓊒</font> [Github][my-github]<br>
+<font color="lighblue">𓊒</font> [LinkedIn][my-linkedin]
 
 
 
