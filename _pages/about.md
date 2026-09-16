@@ -4,7 +4,6 @@ title: About Me
 permalink: /about/
 image: 'images/10.jpg'
 ---
-<link rel=“stylesheet” href=“{{ ‘/assets/marain/css/marain.css’ | relative_url }}”>
 
 ## Hi! I'm Amber!
 
