@@ -31,18 +31,13 @@ understand such a conversation as we are having now?"_
 
 # Motivation
 
+The meaning of words shifts over time. This is inevitable and good when it’s organic. Young people make new slang and working people make new jargon, and sometimes, language institutions follow along formalizing the public habits which they are always doomed to observe despite their airs of authority.
 
+The meaning of words is a profoundly important thing. Their meaning may shift beneath the same use, or in different context. So it is worthwhile to notice when there is a trend for certain words to become overloaded with meaning, as this is particularly useful for the powerful.
 
-## 
+As the quote by Orwell goes, eliminating words eliminates nuance. If one word covers all manner of meanings, it is harder to express oneself.
 
+## The Etymology
 
-## Math Text attempt with `$$`
-
-Looked magnificent in github, but this is supposed to render on jekyll! I tried mirroring a tutorial exactly not accounting for a nuance.
-
-The problem seemed to be that wherever I tried to pull in mathjax wasn't being used in the posts. But even though `$$` eventually worked, I do not want to be pulling in stuff over NPM, that's a smell, and I don't need the absolute newest version of mathjax.
-
-General form of the cosine function:
-  $$\cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots$$
-
+The word positive started as a legal term of art in the fourtheenth century meaning “decreed.” [The linked source](https://www.etymonline.com/word/positive) claims the use of the word in a mathematical context was not until 1704.
 
