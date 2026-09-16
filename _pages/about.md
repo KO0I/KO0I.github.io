@@ -24,7 +24,7 @@ Recently I have been getting into developing a flying/space exploration game in 
 
 ### Professional Links:
 
-
+<link rel=“stylesheet” href=“{{ ‘/assets/marain/css/marain.css’ | relative_url }}”>
 <font color=“purple”>𓊒</font> [Resume][my-resume]<br>
 <font color=“teal”>𓊒</font> [Github][my-github]
 <font color=“lightblue”>𓊒</font> [LinkedIn][my-linkedin]
