@@ -22,6 +22,8 @@ menu-settings:
       #url: '/contact/'
     - title: 'Reading'
       url: '/reading-list/'
+    #- title: 'Videos' # TODO just link to YouTube
+    #  url: '/videos/'
     - title: 'Tools'
       url: '/tools/'
 
@@ -38,7 +40,7 @@ author:
 hero:
   title: 𓇶<br>Amber Harrington
 #<br>𓏞
-  description:  Making dreamy textures and live glitch music as en_somnia. 𓏞<br>Experienced digital design and verification engineer with an abundance of C firmware experience.<br>Amateur digital artist (GNU Image Manipulation Program, imagemagick, openSCAD. Engineering is art with an application.)
+  description:  Making dreamy textures and live glitch music as [en_somnia](https://soundcloud.com/en_somnia). 𓏞<br>Experienced digital design and verification engineer with an abundance of C firmware experience.<br>Amateur digital artist (GNU Image Manipulation Program, imagemagick, openSCAD. Engineering is art with an application.)
   image: '/images/06.jpg'
 
 

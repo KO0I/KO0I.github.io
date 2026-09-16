@@ -10,7 +10,7 @@ permalink: /tools/
 # <span class="marain">lasoeter skatsa</span>
 *Laysoeter,*   *v.* to play (as in a videogame)
 
-*skatsa,*   *n.* writing tool (from pen to IDE)
+*Skatsa,*   *n.* writing tool (from pen to IDE)
 
 ---
 
@@ -21,12 +21,19 @@ Shaky Browser Prototype [here](/rasd-fastwalker-league/)
 **Special Thanks to [Loren Shmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer
 approach with overhangs**
 
-## Tooling
-### [X Pixmap WorkBench](/tools/serializable-pixel-art) Special thanks to [Tea Reggi](https://reggi.com)
-### [Planetary Climate Lab]()
-!### [Planet Tool]()
-!### [Nebula Tool]()
+# <font color="pink"> Tooling</font>
+#### <font color="red" size=14>𓆝</font> [X Pixmap WorkBench](/tools/serializable-pixel-art) 
+*(Special thanks to [Tea Reggi](https://reggi.com) for making and sharing the original workbench)*
 
-## Lore
-### [Marain Dictionary](/marain/)
-### [Culture Ulterior Timeline](/culture-history/)
+####  <font color="orange" size=14>𓐍</font> [Planetary Climate Lab]()
+
+#### <font color="lightblue" size=14>𓇸︁</font> [Planet Tool]()
+
+#### <font color="magenta" size=14>𓏲</font> [Nebula Tool]()
+
+#  <font color="lightblue">Lore</font>
+#### <font color="teal" size=12>𓍰</font> [Marain Dictionary](/marain/)
+#### <font color="green" size=14>𓆱</font> [Culture Ulterior Timeline](/culture-history/)
+
+#### <span class="marain">HYLIG GUHNAYMERE ANONG</span>
+

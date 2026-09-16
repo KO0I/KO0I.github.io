@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Progress:"
+date: 2026-06-13
+tags:   [rasdFastwalkerLeague, bluesky]
+bsky_uri: at://did:plc:co5a6hz2j6p5flyejvkc4aaf/app.bsky.feed.post/3mo6hoyk6gc2i
+---
+
+Progress:
+[youtu.be/vB6nAdHVyOQ](https://youtu.be/vB6nAdHVyOQ)
+\#indiegamedev #spacesim #multiplayer #rasdFastwalkerLeague
+
+[View on Bluesky](https://bsky.app/profile/sesheta.chipchirp.digital/post/3mo6hoyk6gc2i)
