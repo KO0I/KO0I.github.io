@@ -1,6 +1,8 @@
 ---
 layout: page
-title: Marain <span class="marain">(marain)<span>
+#hero_title: Marain <span class="marain">(marain)</span>
+title: Marain
+marain_title: "(marain)"
 permalink: /marain/
 ---
 
@@ -12,7 +14,32 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/alpha.js' | relative_url }}"></script>
 <script src="{{ '/assets/marain/js/marain-tools.js' | relative_url }}"></script>
 
-# Marain Dictionary
+# <span class="marain">marain</span>
+
+## Marain - Latin Symbol table:
+
+| Latin | Marain | Latin | Marain |
+|:-----:|:------:|:-----:|:------:|
+| A | <span class="marain">a</span> | S | <span class="marain">s</span> |
+| B | <span class="marain">b</span> | T | <span class="marain">t</span> |
+| C | <span class="marain">c</span> | U | <span class="marain">u</span> |
+| D | <span class="marain">d</span> | V | <span class="marain">v</span> |
+| E | <span class="marain">e</span> | W | <span class="marain">w</span> |
+| F | <span class="marain">f</span> | X | <span class="marain">x</span> |
+| G | <span class="marain">g</span> | Y | <span class="marain">y</span> |
+| H | <span class="marain">h</span> | Z | <span class="marain">z</span> |
+| I | <span class="marain">i</span> | 0 | <span class="marain">0</span> |
+| J | <span class="marain">j</span> | 1 | <span class="marain">1</span> |
+| K | <span class="marain">k</span> | 2 | <span class="marain">2</span> |
+| L | <span class="marain">l</span> | 3 | <span class="marain">3</span> |
+| M | <span class="marain">m</span> | 4 | <span class="marain">4</span> |
+| N | <span class="marain">n</span> | 5 | <span class="marain">5</span> |
+| O | <span class="marain">o</span> | 6 | <span class="marain">6</span> |
+| P | <span class="marain">p</span> | 7 | <span class="marain">7</span> |
+| Q | <span class="marain">q</span> | 8 | <span class="marain">8</span> |
+| R | <span class="marain">r</span> | 9 | <span class="marain">9</span> |
+
+## Translation
 
 <div class="marain-page">
 

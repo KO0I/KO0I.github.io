@@ -1,0 +1,3 @@
+[submodule "tools/serializable-pixel-art"]
+	path = tools/serializable-pixel-art
+	url = https://github.com/KO0I/serializable-pixel-art

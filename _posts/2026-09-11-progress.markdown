@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Progress!"
+image:  '/images/bsky/3mva74jbc3k2d-thumb.webp'
+date: 2026-09-11
+tags:   [rasdFastwalkerLeague, bluesky]
+bsky_uri: at://did:plc:co5a6hz2j6p5flyejvkc4aaf/app.bsky.feed.post/3mva74jbc3k2d
+---
+
+Progress! #rasdFastwalkerLeague
+
+Thanks [@lorenschmidt.bsky.social](https://bsky.app/profile/did:plc:n4v3w2lmcptvczaspsyanfhy) for the brilliant talk covering this in her talk: [youtu.be/FaLUhh_Vfmk](https://youtu.be/FaLUhh_Vfmk)
+
+![User imitating the heightmap generation of loren Schmidt ](/images/bsky/3mva74jbc3k2d-1.jpg)
+
+[View on Bluesky](https://bsky.app/profile/sesheta.chipchirp.digital/post/3mva74jbc3k2d)

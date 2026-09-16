@@ -35,6 +35,23 @@ layout: default
 </script>
 {% endif %}
 
+{% if page.pdf %}
+<div class="pdf-container">
+  <iframe
+    class="pdf-viewer{% if page.pdf.invert %} pdf-inverted{% endif %}"
+    src="{{ page.pdf.src | relative_url }}"
+    style="
+      height: {{ page.pdf.height | default: '92vh' }};
+      min-height: {{ page.pdf.min_height | default: '700px' }};
+    ">
+  </iframe>
+</div>
+
+<p class="pdf-direct-link">
+  <a href="{{ page.pdf.src | relative_url }}">Open PDF directly</a>
+</p>
+{% endif %}
+
 <div class="post-head">
   <div class="container">
     <div class="row">

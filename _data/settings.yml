@@ -22,8 +22,10 @@ menu-settings:
       #url: '/contact/'
     - title: 'Reading'
       url: '/reading-list/'
-    - title: 'Marain Dictionary'
-      url: '/marain/'
+    #- title: 'Videos' # TODO just link to YouTube
+    #  url: '/videos/'
+    - title: 'Tools'
+      url: '/tools/'
 
 
 #-------------------------------
@@ -70,18 +72,17 @@ social:
 
 #-------------------------------
 # Comment Section (Disqus)
-#disqus-identifier: anvodstudio-demo # Add your shortname for Disqus Comment. For example anvodstudio-demo
 
 # oh fuck no comments sound like a horrible idea
 
 #-------------------------------
 # Google Analytics
-google-analytics: # Add your identifier. For example UA-99631805-1.
+google-analytics: G-6NJMFM3MWS # Add your identifier. For example UA-99631805-1.
 
 
 #-------------------------------
 # Newsletter
 # TODO NOT WORKING AT THIS TIME
 mailchimp: enable # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
-mailchimp-identifier: http://eepurl.com/mfK5x1jGBk # Add your MailChimp form identifier. For example - gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp
+mailchimp-identifier: digital.us14.list-manage.com/subscribe?u=e08288a408c35f671e06e973c&id=82bde3558d
 mailchimp-button-text: Join

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "A Word 3D Printed Objects For Sale"
+title: "A Word On 3D Printed Objects For Sale"
 categories: opinion, reprap, 3D-printing 
-image: 'images/520.jpg'
+image: 'images/519.jpg'
 mathjax: false
 mermaid: false
 published: true
@@ -10,7 +10,7 @@ published: true
 
 A little over 10 years ago, I got into Reprap because I was intrigued with possibility of a machine that could print most of its own components. A self-replicating factory still sounds like a cool idea.
 
-I was intrigued with the possibility of being able to replace any random component in my car or some other context where replacement plastic parts would be the same quality, but cost many orders and magnitude.
+I was intrigued with the possibility of being able to replace any random component in my car or some other context where replacement plastic parts would be the same quality, but cost an order of magnitude more.
 
 I have grown to enjoy 3D modeling, and now have a fair bit of experience with openscad. I am learning Blender very slowly.
 
@@ -27,7 +27,7 @@ I say this to clarify that I don't wanna sound like some sort of snob like as th
 
 My issue is when this hobby is combined with the hustle mindset; it just becomes instantly disgusting to me.
 
-Well, imagine my nausea given that a troubling number of people have lost the plot so thoroughly that instead of using the marvelous machine to spare them occasional inconveniences of replacing an expensive part by replicating it, they run these things ragged like a factory. 
+Well, imagine my nausea given that a troubling number of people have lost the plot so thoroughly that instead of using the marvelous machine to spare them occasional inconveniences of replacing an expensive part by replicating it, they run these things ragged. 
 
 Where I see a replicator, some folks see a factory. 
 
