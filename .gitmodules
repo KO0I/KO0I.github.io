@@ -1,3 +1,9 @@
 [submodule "tools/serializable-pixel-art"]
 	path = tools/serializable-pixel-art
 	url = https://github.com/KO0I/serializable-pixel-art
+[submodule "tools/rfl-nebula-workbench"]
+	path = tools/rfl-nebula-workbench
+	url = https://github.com/KO0I/rfl-nebula-workbench
+[submodule "tools/rfl-climate-workbench"]
+	path = tools/rfl-climate-workbench
+	url = https://github.com/KO0I/rfl-climate-workbench
