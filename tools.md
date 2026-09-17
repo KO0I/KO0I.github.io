@@ -29,6 +29,8 @@ approach with overhangs**
 
 #### <font color="magenta" size=14>𓏲</font> [Nebula Workbench](/tools/rfl-nebula-workbench/dist)
 
+*(Based heavily on [Don Juan Javier's Nebula Gen](https://donjuanjavier.itch.io/nebula-gen))*
+
 #  <font color="lightblue">Lore</font>
 #### <font color="teal" size=12>𓍰</font> [Marain Dictionary](/marain/)
 #### <font color="green" size=14>𓆱</font> [Culture Ulterior Timeline](/culture-history/)
