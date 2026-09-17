@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Marain";
   src:
-    url("../fonts/marain.woff") format("woff"),
-    url("../fonts/Marain-Punct.ttf") format("truetype");
+    url("../../fonts/marain.woff") format("woff"),
+    url("../../fonts/Marain.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -182,3 +182,20 @@
 .translation-notes .missing-word {
   color: #ffb4b4;
 }
+
+
+/* Phrase assistant: keep placeholders and punctuation in a readable text font. */
+.marain-unknown, .marain-punctuation { font-family: system-ui, sans-serif; }
+.marain-unknown { color: #ffbd8f; font-weight: 700; }
+.marain-examples { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.marain-page button { background: #28223b; color: #f3efe4; border: 1px solid #8771af; border-radius: .35rem; padding: .5rem .7rem; cursor: pointer; font: inherit; }
+.marain-page button:focus-visible, .marain-page summary:focus-visible { outline: 2px solid #c3a7ff; outline-offset: 3px; }
+.marain-page button:hover { background: #3d3156; }
+#marainPhraseCopy { margin-top: .65rem; }
+.marain-interpretation { margin-top: 1rem; }
+.marain-page summary { cursor: pointer; font-weight: 600; color: #e1d4ff; }
+.marain-table-scroll { overflow-x: auto; margin-top: .7rem; }
+.marain-page th { text-align: left; padding: .5em; }
+.marain-page td, .marain-page th { border-bottom: 1px solid #454152; }
+.marain-page .roman-output, .marain-page .marain-output { overflow-wrap: anywhere; white-space: pre-wrap; }
+.marain-page code { color: inherit; background: #25212e; }
