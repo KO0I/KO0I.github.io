@@ -16,13 +16,15 @@ permalink: /tools/
 
 # Space Exploration Game
 
+#### <font color="aqua">𒾫</font> [Game Roadmap](/roadmap/)
+
 Shaky Browser Prototype [here](/rasd-fastwalker-league/)
 
 **Special Thanks to [Loren Shmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer
 approach with overhangs**
 
 # <font color="pink"> Tooling</font>
-#### <font color="red" size=14>𓆝</font> [X Pixmap WorkBench](/tools/serializable-pixel-art) 
+#### <font color="red" size=14>𓆝</font> [X-PixMap WorkBench](/tools/serializable-pixel-art) 
 *(Special thanks to [Tea Reggi](https://reggi.com) for making and sharing the original workbench)*
 
 ####  <font color="orange" size=14>𓐍</font> [Planetary Climate Workbench](/tools/rfl-climate-workbench/dist)
