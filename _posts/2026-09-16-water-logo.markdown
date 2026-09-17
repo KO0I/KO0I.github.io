@@ -1,7 +1,7 @@
 --- 
 layout: post
-title: “A New Logo”
-image:  ‘/images/logo.gif’
+title: "A New Logo"
+image:  '/images/logo.gif'
 tags:   [rasdFastwalkerLeague,logo, xpmWorkbench]
 ---
 
