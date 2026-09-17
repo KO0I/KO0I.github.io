@@ -1,0 +1,12 @@
+.roadmap__toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin: 1rem 0 2rem; }
+.roadmap__toolbar button { font: inherit; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: .35rem; padding: .4rem .8rem; cursor: pointer; }
+.roadmap__toolbar button:disabled { opacity: .6; cursor: wait; }
+.roadmap__toolbar [role="status"] { font-size: .85em; }
+.roadmap__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1rem; padding: 0; list-style: none; }
+.roadmap__card { min-width: 0; margin: 0; padding: 1rem; border: 1px solid currentColor; border-radius: .5rem; overflow-wrap: anywhere; }
+.roadmap__card h3 { font-size: 1.05em; margin: 0 0 .6rem; }
+.roadmap__meta { display: flex; flex-wrap: wrap; gap: .4rem; font-size: .8em; }
+.roadmap__tag { border: 1px solid currentColor; border-radius: .25rem; padding: .15rem .4rem; }
+.roadmap__card details { margin-top: .7rem; }
+.roadmap__card summary { cursor: pointer; }
+.roadmap__description { white-space: pre-wrap; font-size: .9em; margin-top: .5rem; }
