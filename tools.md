@@ -25,9 +25,9 @@ approach with overhangs**
 #### <font color="red" size=14>𓆝</font> [X Pixmap WorkBench](/tools/serializable-pixel-art) 
 *(Special thanks to [Tea Reggi](https://reggi.com) for making and sharing the original workbench)*
 
-####  <font color="orange" size=14>𓐍</font> [Planetary Climate Workbench](/tools/rfl-climate-workbench)
+####  <font color="orange" size=14>𓐍</font> [Planetary Climate Workbench](/tools/rfl-climate-workbench/dist)
 
-#### <font color="magenta" size=14>𓏲</font> [Nebula Workbench](/tools/rfl-nebula-workbench)
+#### <font color="magenta" size=14>𓏲</font> [Nebula Workbench](/tools/rfl-nebula-workbench/dist)
 
 #  <font color="lightblue">Lore</font>
 #### <font color="teal" size=12>𓍰</font> [Marain Dictionary](/marain/)
