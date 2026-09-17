@@ -13,6 +13,10 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/sentences.js' | relative_url }}"></script>
 <script src="{{ '/assets/marain/js/alpha.js' | relative_url }}"></script>
 <script src="{{ '/assets/marain/js/marain-tools.js' | relative_url }}"></script>
+<script src="{{ '/assets/marain/js/phrase-translator.js' | relative_url }}"></script>
+<script src="{{ '/assets/marain/js/phrase-ui.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/marain/js/marain-display.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/marain/js/marain-tabs.js' | relative_url }}" defer></script>
 
 # <span class="marain">marain</span>
 
@@ -43,8 +47,63 @@ permalink: /marain/
 
 <div class="marain-page">
 
+<section id="phrase-translator" class="dictionary-panel" aria-labelledby="phrase-heading">
+  <h2 id="phrase-heading">English phrases → Marain</h2>
+  <p>Build a draft from known words and patterns in the community lessons. Unknown or ambiguous vocabulary stays visible as <code>&lt;??&gt;</code>. A complete word match does not guarantee a correct translation.</p>
+  <label for="marainPhraseInput">English phrase</label>
+  <textarea id="marainPhraseInput" rows="3" maxlength="2000" placeholder="I give a flower to you." aria-describedby="phrase-help"></textarea>
+  <p id="phrase-help" class="translation-notes">Try a short statement, a “do you…?” question, or “I have…”. “You” is singular; “they” is plural. Unsupported structures receive word and phrase matches.</p>
+  <div class="marain-examples" aria-label="Examples">
+    <button type="button" data-marain-example="I speak Marain.">I speak Marain</button>
+    <button type="button" data-marain-example="I have a flower.">I have a flower</button>
+    <button type="button" data-marain-example="Do you speak Marain?">Do you speak Marain?</button>
+    <button type="button" data-marain-example="I give a flower to you.">I give a flower to you</button>
+    <button type="button" data-marain-example="I eat pizza.">Try an unknown word</button>
+  </div>
+  <div class="translation-result" aria-live="polite" aria-atomic="true">
+    <p id="marainPhraseStatus" class="translation-notes"></p>
+    <h3>Marain (Romanised)</h3>
+    <div id="marainPhraseRoman" class="roman-output"></div>
+    <h3>Marain</h3>
+    <div id="marainPhraseGlyphs" class="marain-output" aria-label="Marain glyphs"></div>
+  </div>
+  <button type="button" id="marainPhraseCopy">Copy Romanised text</button>
+  <details class="marain-interpretation">
+    <summary>Matches and grammar used</summary>
+    <div id="marainPhraseDetails" class="translation-notes"></div>
+    <div class="marain-table-scroll">
+      <table><thead><tr><th>English</th><th>Marain</th><th>Interpretation</th></tr></thead><tbody id="marainPhraseMatches"></tbody></table>
+    </div>
+  </details>
+  <p class="translation-notes">This is a limited community-conlang assistant. Text stays in your browser.</p>
+  <noscript><p>Enable JavaScript to use the phrase assistant. The grammar notes below remain available.</p></noscript>
+</section>
+
+<details class="dictionary-panel marain-rules">
+  <summary>Grammar recovered from the lessons</summary>
+  <p>These rules describe the supplied community lessons. They are not presented as a complete grammar established by Iain M. Banks.</p>
+  <div class="marain-table-scroll">
+    <table>
+      <thead><tr><th>Function</th><th>Rule</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Subject</td><td>-uh; -yuh after a vowel</td><td>ra → ra'yuh</td></tr>
+        <tr><td>Object</td><td>-va</td><td>marayn → maraynva</td></tr>
+        <tr><td>Recipient</td><td>-vihl</td><td>ge → gevihl</td></tr>
+        <tr><td>Origin / location / companion</td><td>-sa / -li / -ye</td><td>prenli: in a spaceship</td></tr>
+        <tr><td>Possession</td><td>yesayn + thing.NOM + holder.COM</td><td>yesayn lomra'yuh ra'ye</td></tr>
+        <tr><td>Yes/no question</td><td>hanggra + clause</td><td>hanggra kabo geyuh maraynva</td></tr>
+        <tr><td>Verb → noun</td><td>-i after a consonant; -wi after a vowel</td><td>nadeki; kabowi</td></tr>
+        <tr><td>Number</td><td>Base eight; number + dam + noun</td><td>dosa dam uprayheva</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Cases carry grammatical roles. The assistant uses a consistent subject–verb–object order, while lesson examples also use other orders. Bare verbs do not establish English tense, aspect, or number agreement. Negation scope, complex clauses, and adjective agreement remain incomplete.</p>
+  <p><a href="{{ '/assets/marain/lesson-rules.md' | relative_url }}">Full rules, evidence, and vocabulary audit</a></p>
+</details>
+
+
 <div id="english-to-marain" class="dictionary-panel">
-  <h2>English → Marain</h2>
+  <h2>English word lookup</h2>
 
   <p>
     Enter English words. Known dictionary words will be converted into Marain.

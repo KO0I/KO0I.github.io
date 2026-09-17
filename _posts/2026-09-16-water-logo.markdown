@@ -1,8 +1,8 @@
---- 
+---
 layout: post
 title: "A New Logo"
-image:  '/images/logo.gif'
-tags:   [rasdFastwalkerLeague,logo, xpmWorkbench]
+categories: graphics
+image:  'images/logo.gif'
 ---
 
-A new logo from within the XPM Workbench.
+A new logo created from within the XPM Workbench.
