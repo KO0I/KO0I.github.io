@@ -3,6 +3,7 @@ layout: page
 marain_title: "laysoeter skatsa"
 title: Tools
 permalink: /tools/
+image: '/images/surf.png'
 ---
 
 <link rel="stylesheet" href="{{ '/assets/marain/css/marain.css' | relative_url }}">
