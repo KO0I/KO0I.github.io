@@ -98,7 +98,7 @@ permalink: /marain/
     </table>
   </div>
   <p>Cases carry grammatical roles. The assistant uses a consistent subject–verb–object order, while lesson examples also use other orders. Bare verbs do not establish English tense, aspect, or number agreement. Negation scope, complex clauses, and adjective agreement remain incomplete.</p>
-  <p><a href="{{ '/assets/marain/lesson-rules.md' | relative_url }}">Full rules, evidence, and vocabulary audit</a></p>
+  <p><a href="{{ '/lesson-rules/' | relative_url }}">Full rules, evidence, and vocabulary audit</a></p>
 </details>
 
 
