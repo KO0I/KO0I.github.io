@@ -3,7 +3,7 @@
      Injects a speaker button after the romanised Marain result
      (#marainPhraseRoman) on the /marain/ page and speaks its
      contents aloud with a Welsh voice: Web Speech API first,
-     ResponsiveVoice "Welsh Male" as fallback.
+     ResponsiveVoice "Welsh Female" as fallback.
      ============================================================ -->
 <style>
 #marain-speak-btn {
@@ -95,7 +95,7 @@
     }
 
     function speakWithResponsiveVoice(text) {
-      responsiveVoice.speak(text, "Welsh Male", {
+      responsiveVoice.speak(text, "Welsh Female", {
         onend: function () { markSpeaking(false); },
         onerror: function () { markSpeaking(false); }
       });
