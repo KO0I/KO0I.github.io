@@ -1,20 +1,18 @@
-/* Dictionary is the default. Move existing DOM nodes to preserve input and listeners. */
+/* Phrase is the default. Move existing DOM nodes to preserve input and listeners. */
 (function () {
   'use strict';
   function init() {
     const root = document.querySelector('.marain-page');
     if (!root || root.querySelector('[data-marain-tabs]')) return;
-    const dictionary = root.querySelector('#dictionary');
     const phrases = root.querySelector('#phrase-translator');
-    // Leave the existing page usable if the phrase update has not been installed.
-    if (!dictionary || !phrases) return;
     const words = root.querySelector('#english-to-marain');
+    // Leave the existing page usable if the expected sections are missing.
+    if (!phrases || !words) return;
     const rules = root.querySelector('.marain-rules');
-    const introduction = dictionary.previousElementSibling;
     // Jekyll renders the Markdown symbol table outside .marain-page.
     // Search only within this page's containing element and match its heading.
     const alphabetHeading = Array.from(root.parentElement.querySelectorAll('h2, h3'))
-      .find(heading => /marain\s*[-–—]?\s*latin\s+symbol\s+table/i.test(heading.textContent));
+      .find(heading => /marain\s*[-\u2013\u2014]?\s*latin\s+symbol\s+table/i.test(heading.textContent));
     let alphabetContent = null;
     if (alphabetHeading) {
       const next = alphabetHeading.nextElementSibling;
@@ -27,7 +25,7 @@
     list.setAttribute('role', 'tablist');
     list.setAttribute('aria-label', 'Marain tools');
     const panels = [], tabs = [];
-    ['Dictionary', 'Phrases', 'Alphabet'].forEach((name, i) => {
+    ['Phrases', 'Dictionary', 'Alphabet'].forEach((name, i) => {
       const slug = name.toLowerCase();
       const tab = document.createElement('button');
       tab.type = 'button';
@@ -61,14 +59,10 @@
       });
       if (focus) tabs[index].focus();
     }
-    if (introduction && introduction.tagName === 'P' &&
-        /^Look up Marain words\s*$/i.test(introduction.textContent.trim())) {
-      panels[0].append(introduction);
-    }
-    panels[0].append(dictionary);
-    if (words) panels[0].append(words);
-    panels[1].append(phrases);
-    if (rules) panels[1].append(rules);
+    // Panel order: Phrases, Dictionary (English -> Marain lookup), Alphabet.
+    panels[0].append(phrases);
+    if (rules) panels[0].append(rules);
+    panels[1].append(words);
     if (alphabetHeading && alphabetContent) {
       const scroll = document.createElement('div');
       scroll.className = 'marain-alphabet-scroll';

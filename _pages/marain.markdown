@@ -103,7 +103,7 @@ permalink: /marain/
 
 
 <div id="english-to-marain" class="dictionary-panel">
-  <h2>English word lookup</h2>
+  <h2>English to Marain</h2>
 
   <p>
     Enter English words. Known dictionary words will be converted into Marain.
@@ -132,38 +132,6 @@ permalink: /marain/
   </div>
 </div>
 
-  <p>
-    Look up Marain words 
-  </p>
 
-  <div id="dictionary">
-    <h2>Dictionary</h2>
-
-    <label for="dictsearch">Search romanized Marain</label>
-
-    <input
-      type="text"
-      maxlength="32"
-      id="dictsearch"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="pren">
-
-    <div class="dictionary-result">
-      <div class="marain" id="dictmarain">pren</div>
-
-      <div>
-        <span id="dictroman">pren</span>
-        <span id="ipa">/<span class="ipa" id="dictipa">prɛn</span>/</span>
-        <span id="dictpos">noun</span>
-      </div>
-
-      <p id="dictdef">spaceship</p>
-    </div>
-
-    <div id="seealso"></div>
-  </div>
 
 </div>
