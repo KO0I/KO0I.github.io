@@ -1,0 +1,26 @@
+---
+layout: page
+title: Game Roadmap
+permalink: /roadmap/
+---
+
+<link rel="stylesheet" href="{{ '/assets/roadmap/roadmap.css' | relative_url }}">
+<div class="roadmap" data-roadmap data-board="f0B5vTRf">
+  <p>Goals, work in progress, and completed features for Rasd Fastwalker League and its workbenches.</p>
+  <p><a href="https://trello.com/b/f0B5vTRf/rasd-fastwalker-league-feature-roadmap">Open the full board on Trello</a> to edit tasks or share feedback.</p>
+  <div class="roadmap__toolbar">
+    <button type="button" data-roadmap-refresh hidden>Refresh</button>
+    <span data-roadmap-status role="status">Saved roadmap. Enable JavaScript for live updates.</span>
+  </div>
+  <div data-roadmap-lists>
+    {% for list in site.data.trello_roadmap.lists %}
+    <section>
+      <h2>{{ list.name | escape }}</h2>
+      <ul>{% for card in list.cards %}
+        <li><a href="{{ card.url | escape }}">{{ card.title | escape }}</a></li>
+      {% endfor %}</ul>
+    </section>
+    {% endfor %}
+  </div>
+</div>
+<script defer src="{{ '/assets/roadmap/roadmap.js' | relative_url }}"></script>
