@@ -40,8 +40,6 @@ out" the gas giants in the end)*
 
 #  <font color="lightblue">Lore</font>
 
-*(Based heavily on [Don Juan Javier's Nebula Gen](https://donjuanjavier.itch.io/nebula-gen))*
-
 #### <font color="teal" size=12>𓍰</font> [Marain Dictionary](/marain/)
 
 *(Mirror and extension of [The original Marain dictionary](https://marain-tools.netlify.app/))*
