@@ -102,6 +102,15 @@
       markSpeaking(true);
     }
 
+    /* The ResponsiveVoice script loads asynchronously; wait for it
+       instead of falling back to the default voice on first click. */
+    var RV_WAIT_MS = 100, RV_MAX_ATTEMPTS = 50; /* up to ~5 s */
+    function speakWithResponsiveVoiceWhenReady(text, attempt) {
+      if (typeof responsiveVoice !== "undefined") { speakWithResponsiveVoice(text); return; }
+      if (attempt >= RV_MAX_ATTEMPTS) { speakWithLocalVoice(text); return; }
+      setTimeout(function () { speakWithResponsiveVoiceWhenReady(text, attempt + 1); }, RV_WAIT_MS);
+    }
+
     btn.addEventListener("click", function () {
       /* Click again to stop */
       if ("speechSynthesis" in window && speechSynthesis.speaking) {
@@ -120,8 +129,7 @@
         if (typeof responsiveVoice !== "undefined") {
           speakWithResponsiveVoice(text);
         } else if ("speechSynthesis" in window) {
-          /* Last resort: default voice, still tagged as Welsh */
-          speakWithLocalVoice(text);
+          speakWithResponsiveVoiceWhenReady(text, 0);
         } else {
           markSpeaking(false);
           btn.title = "Speech is not supported in this browser";
