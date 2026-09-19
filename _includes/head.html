@@ -6,8 +6,10 @@
   <title>
   {% if page.simpletitle %}
     {{ page.simpletitle | strip_html | strip_newlines | escape }}
+  {% elsif page.url == "/" %}
+    {{ site.data.settings.linktitle | default: site.data.settings.simpletitle | escape }}
   {% else %}
-    {{ site.data.settings.simpletitle | default: "CHIPCHIRP" | escape }}
+    {{ page.title }} – {{ site.data.settings.linktitle | default: site.data.settings.simpletitle | escape }}
   {% endif %}
 </title>
   <meta name='description' content='{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}'>
