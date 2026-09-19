@@ -1,12 +1,12 @@
 <!-- ============================================================
-     Marain pronunciation button (drop-in include)
-     Injects a speaker button after the romanised Marain result
-     (#marainPhraseRoman) on the /marain/ page and speaks its
-     contents aloud with a Welsh voice: Web Speech API first,
-     ResponsiveVoice "Welsh Female" as fallback.
+     Marain pronunciation buttons (drop-in include)
+     Injects a speaker button after each romanised Marain output
+     (#marainPhraseRoman on Phrases, #englishMarainRoman on
+     Dictionary) and speaks its contents aloud with a Welsh voice:
+     Web Speech API first, ResponsiveVoice "Welsh Female" as fallback.
      ============================================================ -->
 <style>
-#marain-speak-btn {
+.marain-speak-btn {
   margin-top: 8px;
   font-size: 15px;
   cursor: pointer;
@@ -17,9 +17,9 @@
   padding: 6px 12px;
   transition: background .2s ease, transform .1s ease;
 }
-#marain-speak-btn:hover { background: #3d3d46; }
-#marain-speak-btn:active { transform: scale(0.97); }
-#marain-speak-btn.speaking { background: #1f7a4d; border-color: #2ea36a; }
+.marain-speak-btn:hover { background: #3d3d46; }
+.marain-speak-btn:active { transform: scale(0.97); }
+.marain-speak-btn.speaking { background: #1f7a4d; border-color: #2ea36a; }
 </style>
 <script>
 (function () {
@@ -36,15 +36,6 @@
   }
 
   ready(function () {
-    var box = document.getElementById("marainPhraseRoman");
-    if (!box) { return; }  /* only pages with the Marain result box */
-
-    var btn = document.createElement("button");
-    btn.type = "button";
-    btn.id = "marain-speak-btn";
-    btn.innerHTML = "<span aria-hidden=\"true\">&#x1F50A;</span> Speak";
-    btn.setAttribute("aria-label", "Speak the Marain result aloud in Welsh");
-    box.parentNode.insertBefore(btn, box.nextSibling);
 
     /* ResponsiveVoice fallback loader (only fetched when needed) */
     var rvRequested = false;
@@ -76,65 +67,87 @@
       return null;
     }
 
-    function markSpeaking(on) {
+    function markSpeaking(btn, on) {
       btn.classList.toggle("speaking", on);
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     }
 
-    function speakWithLocalVoice(text) {
+    function speakWithLocalVoice(btn, text) {
       var u = new SpeechSynthesisUtterance(text);
       var v = welshVoice();
       if (v) { u.voice = v; }
       u.lang = "cy-GB";
       u.rate = 0.9;
-      u.onend = function () { markSpeaking(false); };
-      u.onerror = function () { markSpeaking(false); };
+      u.onend = function () { markSpeaking(btn, false); };
+      u.onerror = function () { markSpeaking(btn, false); };
       speechSynthesis.cancel();
       speechSynthesis.speak(u);
-      markSpeaking(true);
+      markSpeaking(btn, true);
     }
 
-    function speakWithResponsiveVoice(text) {
+    function speakWithResponsiveVoice(btn, text) {
       responsiveVoice.speak(text, "Welsh Female", {
-        onend: function () { markSpeaking(false); },
-        onerror: function () { markSpeaking(false); }
+        onend: function () { markSpeaking(btn, false); },
+        onerror: function () { markSpeaking(btn, false); }
       });
-      markSpeaking(true);
+      markSpeaking(btn, true);
     }
 
     /* The ResponsiveVoice script loads asynchronously; wait for it
        instead of falling back to the default voice on first click. */
     var RV_WAIT_MS = 100, RV_MAX_ATTEMPTS = 50; /* up to ~5 s */
-    function speakWithResponsiveVoiceWhenReady(text, attempt) {
-      if (typeof responsiveVoice !== "undefined") { speakWithResponsiveVoice(text); return; }
-      if (attempt >= RV_MAX_ATTEMPTS) { speakWithLocalVoice(text); return; }
-      setTimeout(function () { speakWithResponsiveVoiceWhenReady(text, attempt + 1); }, RV_WAIT_MS);
+    function speakWithResponsiveVoiceWhenReady(btn, text, attempt) {
+      if (typeof responsiveVoice !== "undefined") { speakWithResponsiveVoice(btn, text); return; }
+      if (attempt >= RV_MAX_ATTEMPTS) { speakWithLocalVoice(btn, text); return; }
+      setTimeout(function () { speakWithResponsiveVoiceWhenReady(btn, text, attempt + 1); }, RV_WAIT_MS);
     }
 
-    btn.addEventListener("click", function () {
-      /* Click again to stop */
-      if ("speechSynthesis" in window && speechSynthesis.speaking) {
-        speechSynthesis.cancel();
-        if (typeof responsiveVoice !== "undefined") { responsiveVoice.cancel(); }
-        markSpeaking(false);
-        return;
-      }
-      var text = (box.textContent || "").replace(/\s+/g, " ").trim();
-      if (!text) { return; }
+    function stopAll(btn) {
+      if ("speechSynthesis" in window) { speechSynthesis.cancel(); }
+      if (typeof responsiveVoice !== "undefined") { responsiveVoice.cancel(); }
+      document.querySelectorAll(".marain-speak-btn.speaking").forEach(function (b) {
+        b.classList.remove("speaking");
+        b.setAttribute("aria-pressed", "false");
+      });
+    }
 
-      if ("speechSynthesis" in window && welshVoice()) {
-        speakWithLocalVoice(text);
-      } else {
-        ensureResponsiveVoice();
-        if (typeof responsiveVoice !== "undefined") {
-          speakWithResponsiveVoice(text);
-        } else if ("speechSynthesis" in window) {
-          speakWithResponsiveVoiceWhenReady(text, 0);
-        } else {
-          markSpeaking(false);
-          btn.title = "Speech is not supported in this browser";
+    function attachSpeakButton(box) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "marain-speak-btn";
+      btn.innerHTML = "<span aria-hidden=\"true\">&#x1F50A;</span> Speak";
+      btn.setAttribute("aria-label", "Speak this Marain result aloud in Welsh");
+      box.parentNode.insertBefore(btn, box.nextSibling);
+
+      btn.addEventListener("click", function () {
+        /* Click again to stop */
+        if ("speechSynthesis" in window && speechSynthesis.speaking) {
+          stopAll(btn);
+          return;
         }
-      }
+        var text = (box.textContent || "").replace(/\s+/g, " ").trim();
+        if (!text) { return; }
+
+        if ("speechSynthesis" in window && welshVoice()) {
+          speakWithLocalVoice(btn, text);
+        } else {
+          ensureResponsiveVoice();
+          if (typeof responsiveVoice !== "undefined") {
+            speakWithResponsiveVoice(btn, text);
+          } else if ("speechSynthesis" in window) {
+            speakWithResponsiveVoiceWhenReady(btn, text, 0);
+          } else {
+            markSpeaking(btn, false);
+            btn.title = "Speech is not supported in this browser";
+          }
+        }
+      });
+    }
+
+    /* Buttons after each romanised Marain output on the page */
+    ["marainPhraseRoman", "englishMarainRoman"].forEach(function (id) {
+      var box = document.getElementById(id);
+      if (box) { attachSpeakButton(box); }
     });
   });
 })();
