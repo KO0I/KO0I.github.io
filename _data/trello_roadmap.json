@@ -77,6 +77,14 @@
         {
           "title": "Climate tool",
           "url": "https://trello.com/c/P8terVXC"
+        },
+        {
+          "title": "Update language stuff",
+          "url": "https://trello.com/c/V2biBnTJ"
+        },
+        {
+          "title": "Voice TTS",
+          "url": "https://trello.com/c/ReW5dQYH"
         }
       ]
     },
@@ -110,6 +118,40 @@
         {
           "title": "Performance omgs",
           "url": "https://trello.com/c/EAToKArk"
+        },
+        {
+          "title": "water under bad",
+          "url": "https://trello.com/c/alcw182M"
+        }
+      ]
+    },
+    {
+      "name": "Controller Support",
+      "cards": [
+        {
+          "title": "Playstation controller(s)",
+          "url": "https://trello.com/c/i9bDgqmt"
+        },
+        {
+          "title": "Glyph packs",
+          "url": "https://trello.com/c/iQyXxNio"
+        },
+        {
+          "title": "Steamdeck test",
+          "url": "https://trello.com/c/f18NEcIe"
+        }
+      ]
+    },
+    {
+      "name": "Notes",
+      "cards": [
+        {
+          "title": "JSON for hiearchy",
+          "url": "https://trello.com/c/qE1uTKJ1"
+        },
+        {
+          "title": "JSON defaults to float, ugh",
+          "url": "https://trello.com/c/uPKoHAE4"
         }
       ]
     }
