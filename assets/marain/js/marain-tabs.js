@@ -5,6 +5,7 @@
     const root = document.querySelector('.marain-page');
     if (!root || root.querySelector('[data-marain-tabs]')) return;
     const phrases = root.querySelector('#phrase-translator');
+    const converter = root.querySelector('#base-conversion');
     const words = root.querySelector('#english-to-marain');
     // Leave the existing page usable if the expected sections are missing.
     if (!phrases || !words) return;
@@ -25,8 +26,8 @@
     list.setAttribute('role', 'tablist');
     list.setAttribute('aria-label', 'Marain tools');
     const panels = [], tabs = [];
-    ['Phrases', 'Dictionary', 'Alphabet'].forEach((name, i) => {
-      const slug = name.toLowerCase();
+    ['Phrases', 'Dictionary', 'Alphabet', 'Base conversion'].forEach((name, i) => {
+      const slug = name.toLowerCase().replace(/ /g, '-');
       const tab = document.createElement('button');
       tab.type = 'button';
       tab.id = 'marain-tab-' + slug;
@@ -73,6 +74,7 @@
       message.textContent = 'The symbol table could not be located on this page.';
       panels[2].append(message);
     }
+    if (converter) panels[3].append(converter);
     const style = document.createElement('style');
     style.textContent = `
       .marain-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin:0 0 1rem; border-bottom:1px solid #595165; padding-bottom:.65rem; }

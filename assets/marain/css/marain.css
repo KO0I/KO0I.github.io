@@ -199,3 +199,11 @@
 .marain-page td, .marain-page th { border-bottom: 1px solid #454152; }
 .marain-page .roman-output, .marain-page .marain-output { overflow-wrap: anywhere; white-space: pre-wrap; }
 .marain-page code { color: inherit; background: #25212e; }
+
+/* Base-nine converter: the zero key is displayed using Marain glyph 9. */
+#base-conversion { margin-top: 0; }
+#base-conversion label { display: block; margin-top: 1rem; font-weight: 600; }
+#base-conversion input { margin-top: .4rem; }
+#base-conversion input.marain { font-family: "Marain", serif; font-size: 2rem; }
+#base-conversion output { overflow-wrap: anywhere; }
+#base-error { color: #ffb4b4; min-height: 1.5em; }
