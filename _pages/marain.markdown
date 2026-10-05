@@ -53,9 +53,9 @@ permalink: /marain/
 <p>Enter a nonnegative whole number in either box. Decimal uses base 10; Marain uses base 9. In the Marain box, both 0 and 9 mean zero and display as glyph 9.</p>
 <label for="decimal-number">Decimal (base 10)</label>
 <input id="decimal-number" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="0" aria-describedby="base-error">
-<label for="marain-number">Marain (base 9)</label>
+<label for="marain-number">Actual Marain base-9 number</label>
 <input id="marain-number" class="marain" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="9" aria-describedby="base-error marain-readable">
-<p id="marain-readable">Marain digit keys: <output id="marain-keys">9</output></p>
+<p id="marain-readable">Marain digit keys: <output id="marain-keys">0</output></p>
 <p id="base-error" role="status" aria-live="polite"></p>
 <p>Example: typing <code>8090919</code> displays <code>8999919</code>, reads as base-9 <code>8000010</code>, and converts to decimal <code>4251537</code>.</p>
 </section>

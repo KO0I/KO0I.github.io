@@ -46,7 +46,7 @@ if (!document.getElementById('base-conversion')) return;
       target.value = ''; keys.textContent = ''; return;
     }
     target.value = convert(value);
-    keys.textContent = marain.value;
+    keys.textContent = marain.value.replace(/9/g, '0');
   }
   decimal.addEventListener('input', () => update(decimal, marain, decimalToMarain));
   marain.addEventListener('input', () => update(marain, decimal, marainToDecimal));
