@@ -49,8 +49,8 @@ permalink: /marain/
 <div class="marain-page">
 
 <section id="base-conversion" class="dictionary-panel" aria-labelledby="base-heading">
-<h2 id="base-heading">Decimal ↔ Marain</h2>
-<p>Enter a nonnegative whole number in either box. Decimal uses base 10; Marain uses base 9. In the Marain box, both 0 and 9 mean zero and display as glyph 9.</p>
+<h2 id="base-heading">Decimal ↔ Nonary</h2>
+<p>Enter a nonnegative whole number in either box. Decimal uses base 10; Marain uses base 9, also known as nonary. In the Marain box, both 0 and 9 mean zero and display as glyph 9.</p>
 <label for="decimal-number">Decimal (base 10)</label>
 <input id="decimal-number" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="0" aria-describedby="base-error">
 <label for="marain-number">Actual Marain base-9 number</label>
