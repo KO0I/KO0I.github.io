@@ -37,6 +37,8 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Allow runner to assemble the generated site
+        run: sudo chown "$(id -u):$(id -g)" _site
       - name: Read and verify only the private browser artifact
         env:
           RFL_ARTIFACTS_TOKEN: ${{ secrets.RFL_ARTIFACTS_TOKEN }}
