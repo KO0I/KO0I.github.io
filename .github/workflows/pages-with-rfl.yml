@@ -1,0 +1,80 @@
+name: Pages with private RFL browser artifact
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Validate the full site on the runner; upload and deploy nothing
+        type: boolean
+        required: true
+        default: true
+      rfl_artifact_id:
+        description: Exact private artifact ID; blank reuses the currently deployed RFL version
+        type: string
+        default: ''
+permissions: {}
+concurrency:
+  group: pages-with-rfl
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/master' && (github.event_name == 'workflow_dispatch' || vars.RFL_PAGES_ENABLED == 'true')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: rfl-artifact-read
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+          submodules: recursive
+      - name: Validate receiver without credentials
+        run: python3 -m unittest discover -s .github/scripts -p 'test_*.py' -v
+      - name: Build the existing Jekyll site using the Pages toolchain
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Allow runner to assemble the generated site
+        run: |
+          sudo chown "$(id -u):$(id -g)" _site
+          cp CNAME _site/CNAME
+      - name: Read and verify only the private browser artifact
+        env:
+          RFL_ARTIFACTS_TOKEN: ${{ secrets.RFL_ARTIFACTS_TOKEN }}
+          RFL_ARTIFACT_ID: ${{ inputs.rfl_artifact_id }}
+          RFL_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: python3 .github/scripts/receive_rfl.py
+      - name: Check assembled site
+        run: |
+          test -s _site/index.html
+          test -s _site/rfl/index.html
+          test -s _site/rfl/version.json
+          test -s _site/rfl/deployment.json
+          test "$(cat CNAME)" = "$(cat _site/CNAME)"
+          test ! -e _site/.github
+          test ! -e _site/.git
+          echo 'Full site assembled. No private checkout; Interiors excluded.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload the complete site only when deployment is enabled
+        if: ${{ vars.RFL_PAGES_ENABLED == 'true' && (github.event_name == 'push' || !inputs.dry_run) }}
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: _site/
+          retention-days: 1
+  deploy:
+    needs: build
+    if: ${{ vars.RFL_PAGES_ENABLED == 'true' && (github.event_name == 'push' || !inputs.dry_run) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the complete site
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
