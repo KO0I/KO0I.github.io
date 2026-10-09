@@ -3,46 +3,25 @@ layout: default
 title: Tags
 permalink: /tags/
 ---
-{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% assign tag_words = site_tags | split:',' | sort %}
-
-{% for item in (0..site.tags.size) %}{% unless forloop.last %}
-{% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-
-<div class="tags is-hidden" id="{{ this_word | downcase | url_decode }}">
-
-  <div class="container">
-    <div class="row">
-      <div class="col col-12">
-        <div class="archive-box">
-          <span class="archive-meta">{{ site.tags[this_word].size }} {% if site.tags[this_word].size < 2 %}post {% else %}posts{% endif %} tagged</span>
-          <h1 class="archive-title">{{ this_word }}</h1>
-        </div>
-      </div>
+<div class="container">
+  <div class="archive-box"><h1 class="archive-title">Tags</h1></div>
+  <nav class="tag-index tag__cloud" aria-label="Post tags">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+      <a href="#tag-{{ tag[0] | url_encode | url_encode }}">{{ tag[0] | escape }}</a>
+    {% endfor %}
+  </nav>
+  {% for tag in sorted_tags %}
+  <section class="tags" id="tag-{{ tag[0] | url_encode }}">
+    <div class="archive-box">
+      <span class="archive-meta">{{ tag[1].size }} {% if tag[1].size == 1 %}post{% else %}posts{% endif %} tagged</span>
+      <h2 class="archive-title">{{ tag[0] | escape }}</h2>
     </div>
-  </div>
-
-  <div class="container animate">
-    <div class="row">
-      {% for post in site.tags[this_word] %}
-        {% if post.title != null %}
-         {% include article-content.html %}
-        {% endif %}
+    <ul class="archive-list">
+      {% for post in tag[1] %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time></li>
       {% endfor %}
-    </div>
-  </div>
-
+    </ul>
+  </section>
+  {% endfor %}
 </div>
-
-{% endunless %}
-{% endfor %}
-
-<script>
-  var tag_name = decodeURIComponent(window.location.search.split('=')[1]);
-  if (tag_name) {
-    var el = document.getElementById(tag_name);
-    if (el) {
-      el.classList.remove("is-hidden");
-    }
-  }
-</script>

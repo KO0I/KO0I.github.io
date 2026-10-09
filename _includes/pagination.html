@@ -1,13 +1,15 @@
+{% if paginator.total_pages > 1 %}
 <div class="container">
   <div class="row">
-    <div class="col col-12 load-more">
-      {% assign postCount = site.posts | size %}
-      {% assign postsCovered = site.paginate | plus:offset %}
-      {% if postsCovered < postCount %}
-      <div class="load-more-section">
-        <button class="load-more-posts button button--middle">Load More</button>
-      </div>
+    <nav class="col col-12 load-more load-more-section pagination" aria-label="Post pagination">
+      {% if paginator.previous_page %}
+        <a class="button button--middle" href="{{ paginator.previous_page_path | relative_url }}" rel="prev">Newer posts</a>
       {% endif %}
-    </div>
+      <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+        <a class="button button--middle" href="{{ paginator.next_page_path | relative_url }}" rel="next">Older posts</a>
+      {% endif %}
+    </nav>
   </div>
 </div>
+{% endif %}

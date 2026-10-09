@@ -8,7 +8,7 @@
     {% for post in site.posts limit:2 %}
     <div class="recent-posts">
       {% if post.image %}
-      <a class="recent-posts__image" href="{{ post.url | relative_url }}"><img class="lazy" data-src="{{ post.image | relative_url }}" alt="{{ post.title }}"></a>
+      <a class="recent-posts__image" href="{{ post.url | relative_url }}"><img loading="lazy" decoding="async" src="{{ post.image | relative_url }}" alt="{{ post.title | strip_html | escape }}"></a>
       {% endif %}
       <div class="recent-posts__content">
         <div class="article__meta">
@@ -26,7 +26,7 @@
         <h4 class="recent-posts__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
         <div class="article__bottom">
           <div class="article__author">
-            <a href="{{ '/about/' | relative_url }}" aria-label="{{ site.data.settings.author.name }}"><img class="article__author-image lazy" data-src="{{ site.data.settings.author.avatar | relative_url }}" alt="{{ site.data.settings.author.name }}'s Picture"></a>
+            <a href="{{ '/about/' | relative_url }}" aria-label="{{ site.data.settings.author.name }}"><img loading="lazy" decoding="async" class="article__author-image" src="{{ site.data.settings.author.avatar | relative_url }}" alt="{{ site.data.settings.author.name }}'s Picture"></a>
           </div>
           <div class="article__bottom-meta">
             <a href="{{ '/about/' | relative_url }}" class="article__author-link">{{ site.data.settings.author.name }}</a>

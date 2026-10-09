@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"
 {% include head.html %}
-
-<body>
-  {% if site.data.settings.google-analytics %}
+{% assign site_kind = 'core' %}
+{% if page.interactive or page.analytics or page.marain_tts or page.url == '/marain/' or page.url == '/culture-history/' or page.url == '/roadmap/' %}
+  {% assign site_kind = 'interactive' %}
+{% endif %}
+<body id="top" data-site-kind="{{ site_kind }}">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% if page.analytics and site.data.settings.google-analytics %}
     {% include google-analytics.html %}
   {% endif %}
-
   {% include header.html %}
-
-  <!-- begin content -->
-  <main class="content" aria-label="Content">
+  <main id="main-content" class="content" aria-label="Content">
     {{ content }}
   </main>
-  <!-- end content -->
-
-  <div class="top" title="Top"><i class="fa-solid fa-chevron-up"></i></div>
+  <a class="top is-active" href="#top" aria-label="Back to top" title="Top"><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></a>
   {% include footer.html %}
   {% include javascripts.html %}
-  {% include marain-tts.html %}
-  <script src="https://cdn.responsivevoice.org/sdk/latest/responsivevoice.js"></script>
-<script>
-responsiveVoice.init({
-    "apiKey": "E6uGOXry"
-});
-</script>
+  {% if page.url == '/marain/' or page.marain_tts %}
+    {% include marain-tts.html %}
+  {% endif %}
 </body>
-
 </html>

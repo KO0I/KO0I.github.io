@@ -3,7 +3,7 @@
 <section class="hero">
   <div class="hero__inner">
     <div class="hero__image">
-      <img class="lazy" data-src="{{ site.data.settings.hero.image | relative_url }}" alt="{{ site.data.settings.hero.title }}">
+      <img loading="eager" fetchpriority="high" decoding="async" src="{{ site.data.settings.hero.image | relative_url }}" alt="{{ site.data.settings.hero.title | strip_html | escape }}">
     </div>
     <div class="hero__content">
       {% if site.data.settings.hero.title %}

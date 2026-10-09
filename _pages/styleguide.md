@@ -153,7 +153,7 @@ A paragraph looks like this — dolor amet cray stumptown fingerstache neutra fo
 
 ## Youtube Embed
 
-<p><iframe src="https://www.youtube.com/embed/Hd1_EXhr_fg" loading="lazy" frameborder="0" allowfullscreen></iframe></p>
+<p><a href="https://www.youtube.com/watch?v=Hd1_EXhr_fg">Watch the YouTube example</a></p>
 
 {% highlight html %}
   <iframe src="https://www.youtube.com/embed/Hd1_EXhr_fg" frameborder="0" allowfullscreen></iframe>
@@ -161,7 +161,7 @@ A paragraph looks like this — dolor amet cray stumptown fingerstache neutra fo
 
 ## Vimeo Embed
 
-<p><iframe src="https://player.vimeo.com/video/107654760" loading="lazy" width="640" height="360" frameborder="0" allowfullscreen></iframe></p>
+<p><a href="https://vimeo.com/107654760">Watch the Vimeo example</a></p>
 
 {% highlight html %}
   <iframe src="https://player.vimeo.com/video/107654760" width="640" height="360" frameborder="0" allowfullscreen></iframe>

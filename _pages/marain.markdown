@@ -1,7 +1,7 @@
 ---
 layout: page
 #hero_title: Marain <span class="marain">(marain)</span>
-title: Marain
+title: 
 marain_title: "(marain)"
 permalink: /marain/
 ---

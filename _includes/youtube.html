@@ -1,8 +1,1 @@
-<div class="youtube-container">  
-	<iframe src="https://www.youtube.com/embed/{{ include.id }}" 
-		title="{{ include.title | default: 'YouTube video' }}" 
-		frameborder="0" 
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-		allowfullscreen>  
-	</iframe>  
-</div>  
+<p class="video-link"><a href="https://www.youtube.com/watch?v={{ include.id | uri_escape }}">Watch {{ include.title | default: 'video' | escape }} on YouTube</a></p>

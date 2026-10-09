@@ -3,7 +3,7 @@
 
     {% if post.image %}
     <a class="article__image" href="{{ post.url | relative_url }}">
-      <img class="lazy" data-src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      <img loading="lazy" decoding="async" src="{{ post.image | relative_url }}" alt="{{ post.title | strip_html | escape }}">
     </a>
     {% endif %}
 
@@ -21,7 +21,7 @@
         </span>
       </div>
 
-      <h2 class="article__title">{{ post.title }}</h2>
+      <h2 class="article__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
 
       <p class="article__excerpt">{{ post.description }}</p>
 
@@ -29,7 +29,7 @@
 
         {% if site.data.settings.author.avatar %}
         <div class="article__author">
-          <a href="{{ '/about/' | relative_url }}" aria-label="{{ site.data.settings.author.name }}"><img class="article__author-image lazy" data-src="{{ site.data.settings.author.avatar | relative_url }}" alt="{{ site.data.settings.author.name }}'s Picture"></a>
+          <a href="{{ '/about/' | relative_url }}" aria-label="{{ site.data.settings.author.name }}"><img loading="lazy" decoding="async" class="article__author-image" src="{{ site.data.settings.author.avatar | relative_url }}" alt="{{ site.data.settings.author.name }}'s Picture"></a>
         </div>
         {% endif %}
 
@@ -41,7 +41,7 @@
             <span>in</span>
             <span class="article-tags">
               {% for tag in post.tags %}
-                <a href="{{ site.baseurl }}/tags/?tag={{ tag | downcase | url_encode }}" class="article__tag">{{ tag }}</a>
+                <a href="{{ '/tags/' | relative_url }}#tag-{{ tag | url_encode | url_encode }}" class="article__tag">{{ tag }}</a>
               {% endfor %}
             </span>
           {% endif %}

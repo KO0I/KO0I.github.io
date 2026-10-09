@@ -1,15 +1,39 @@
-<script src="{{ '/js/scripts.js' | relative_url }}"></script>
-<script src="{{ '/js/common.js' | relative_url }}"></script>
+{% comment %}
+The shared blog shell needs no scripts. Page-local apps own their dependencies.
+Legacy math/diagram renderers are an explicit interactive-page opt-in.
+{% endcomment %}
+{% if page.interactive %}
+{% if page.mathjax %}
 <script>
-  SimpleJekyllSearch({
-    searchInput: document.getElementById("js-search-input"),
-    resultsContainer: document.getElementById("js-results-container"),
-    json: "{{ '/search.json' | relative_url }}",
-    searchResultTemplate: '{article}',
-    noResultsText: '<li class="no-results"><h3>No results found</h3></li>'
-  });
-  var base_url = "",
-    pagination_next_url = base_url + "{{ '/page2' | relative_url }}",
-    pagination_next_page_number = "{{ paginator.next_page }}",
-    pagination_available_pages_number = "{{ paginator.total_pages }}";
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
 </script>
+<script async src="{{ "/js/mathjax/es5/tex-chtml.js" | relative_url }}"></script>
+{% endif %}
+
+{% if page.mermaid %}
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark"
+  });
+</script>
+{% endif %}
+
+{% if page.wavedrom %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
+<script>
+  window.addEventListener("load", function () {
+    WaveDrom.ProcessAll();
+  });
+</script>
+{% endif %}
+
+{% endif %}

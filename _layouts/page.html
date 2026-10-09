@@ -7,8 +7,7 @@ layout: default
 <section class="hero">
   <div class="hero__inner">
     <div class="hero__image">
-      <img class="lazy"
-           data-src="{{ page.image | relative_url }}"
+      <img loading="eager" fetchpriority="high" decoding="async" src="{{ page.image | relative_url }}"
            alt="{{ page.title | strip_html | escape }}">
     </div>
     <div class="hero__content">
@@ -26,19 +25,6 @@ layout: default
 </section>
 {% endif %}
 <!-- begin hero -->
-
-{% if page.mathjax %}
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    }
-  };
-</script>
-
-<script async src="js/mathjax/es5/tex-chtml.js"></script>
-{% endif %}
 
 <!-- begin page -->
 <div class="container">

@@ -79,6 +79,7 @@
 {% include_relative _3-modules/footer.scss %}
 {% include_relative _3-modules/social-links.scss %}
 {% include_relative _3-modules/buttons.scss %}
+{% include_relative _3-modules/static-blog.scss %}
 
 /* =======================
 :: 4-Layouts
@@ -93,7 +94,8 @@
 :: PDF Container
 ======================= */
 .pdf-container {
-    width: min(96vw, 1400px);
+    width: 96vw;
+    max-width: 1400px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
