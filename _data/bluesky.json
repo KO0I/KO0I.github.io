@@ -1,0 +1,896 @@
+[
+  {
+    "image": "/assets/bluesky/3mwzvr64wls2w.jpg",
+    "text": "Polygonal jetstream: whee! 😵‍💫 #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwzvr64wls2w",
+    "date": "2026-10-04T07:44:08.974Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwphwggqj22h.jpg",
+    "text": "Yeah, getting the rings brighter towards the singularity and actually using a nonzero frequency on the cloud rotation really gives it the pinch of gravitas. This is def pushing the workbench fps, and might suck even worse as a stage, but import to game pending. #rasdFastwalkerLeague #astrophobia",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwphwggqj22h",
+    "date": "2026-09-30T04:09:55.691Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwph6sddlc2h.jpg",
+    "text": "Using nebula workbench to Make a new amgy black hole. Music: Into The Sun by Casket Casette",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwph6sddlc2h",
+    "date": "2026-09-30T03:56:42.855Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwnve6ygj223.jpg",
+    "text": "Struggled to sleep, so this morning, I took my provisional wordlist (i need to shorten a fair number of them tbh) and had the English switch to marain words, the I used signed distance field morphing between the two fonts, trouble is the #Marain font is larger so had to interpolate spacing. #conlang",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwnve6ygj223",
+    "date": "2026-09-29T13:04:56.808Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwnd7a6tyk2b.jpg",
+    "text": "It is a General Systems Vehicle. A very large spaceship that serves as a home to billions.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwnd7a6tyk2b",
+    "date": "2026-09-29T07:40:02.944Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwn4hlpj6c2i.jpg",
+    "text": "Looping around Codure, at its true scale! It takes just under four and and a half minutes for me to get from sunset to to sunrise, which over 10 million kilometers is 133 million kph, or 12% the speed of light. #rasdFastWalkerLeague Need to work out mach cone and hypersonic effects soon!",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwn4hlpj6c2i",
+    "date": "2026-09-29T05:39:27.268Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwkjhq6yes2l.jpg",
+    "text": "Test flight around GSV. Things need fixing still (plate terraij too simple, clouds are currently fixed, but its got a nice sense of scale and ability to manually or autopilot to a spot. I need to think up more greeblies. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwkjhq6yes2l",
+    "date": "2026-09-28T04:54:11.395Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwjcjrbm2s2t.jpg",
+    "text": "Dogwillhunt second pilot out. It features this incredible band: youtu.be/nr8rxkRxFvY",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwjcjrbm2s2t",
+    "date": "2026-09-27T17:17:23.708Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwix3rxr5s2d.jpg",
+    "text": "Bad news: I might be moving away from Comanche-style rendering. Good news: I might be moving away from Comanche-style rendering. +Volumetric clouds -uglier near-surface rn +60 fps +Uses climate workbench to: ++ procedurally generate the planet surface & ++ weather pattern #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwix3rxr5s2d",
+    "date": "2026-09-27T13:52:43.514Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwhmzypyks2s.jpg",
+    "text": "Me (and others lacking in sufficient astrophobia): “I wanna fly through the shiny clouds”",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwhmzypyks2s",
+    "date": "2026-09-27T01:20:06.336Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwhiu752xc2i.jpg",
+    "text": "",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwhiu752xc2i",
+    "date": "2026-09-27T00:05:16.758Z"
+  },
+  {
+    "image": "/assets/bluesky/3mwgo54o2yc2p.jpg",
+    "text": "I genuinely have no idea, have been mucking and will continue mucking about to make interesting patterns with magIC, but thus far all i get is basic banding features.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mwgo54o2yc2p",
+    "date": "2026-09-26T16:07:05.134Z"
+  },
+  {
+    "image": "/assets/bluesky/3mw656zak6s22.jpg",
+    "text": "Hand mocap is challenge. But I was curious how much could be done with mediapipe and was impressed. MediaPipe has free hand tracking stuff, but I must be doing something wrong because it can detect palms great but turn my hand around and the output goes inside out cryptkeeper #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mw656zak6s22",
+    "date": "2026-09-23T06:42:37.122Z"
+  },
+  {
+    "image": "/assets/bluesky/3mw5tvbbilk2k.jpg",
+    "text": "Mocap, on my phone in a browser. I think freemocap might be the final answer in terms of quality, but I can see a possible path to using this MediaPipe (ew, Google) to get a bunch of captures done very quickly, but with more implied post-cleanup. All processing done on-device.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mw5tvbbilk2k",
+    "date": "2026-09-23T03:56:06.329Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvw5v3erac2q.jpg",
+    "text": "Happy dancing low poly Homomda. (Now 100% less mangled!)",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvw5v3erac2q",
+    "date": "2026-09-20T02:33:39.657Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvrjfhgyi22x.jpg",
+    "text": "Based on SNES Pilotwings Expert Menu. I always wanted to fly that specifically as a stage. Therefore: #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvrjfhgyi22x",
+    "date": "2026-09-18T06:16:21.652Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvrfvv3vd22u.jpg",
+    "text": "Bright light.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvrfvv3vd22u",
+    "date": "2026-09-18T05:13:57.873Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvmgkgf4nc2k.jpg",
+    "text": "With music “Underwater” by Smoke Trees",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvmgkgf4nc2k",
+    "date": "2026-09-16T05:42:08.401Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvmfau55tk2k.jpg",
+    "text": "",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvmfau55tk2k",
+    "date": "2026-09-16T05:18:53.531Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvkjqk4rgc2k.jpg",
+    "text": "Nursery Cluster. Been nervous about accommodation stuff so bad that I can't sleep. Making happy glowy clouds. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvkjqk4rgc2k",
+    "date": "2026-09-15T11:33:55.397Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvkjkobf622k.jpg",
+    "text": "💥 #rasdFastlwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvkjkobf622k",
+    "date": "2026-09-15T11:30:38.417Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvkbvk3byk2i.jpg",
+    "text": "I need to update the trees, I found an asset on itch that is good enough to get me started because NOto procbiogen (rn), and increase the render distance of the water detail, and do a better job color-matching XPMs w the surface. Anyway new clouds: enjoy ALL the cumulonimbus #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvkbvk3byk2i",
+    "date": "2026-09-15T09:13:33.187Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvhcizsfis2m.jpg",
+    "text": "Reusing the basic sphere drone stuff as inner exotic ice layer near the core of gas giants. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvhcizsfis2m",
+    "date": "2026-09-14T04:46:27.990Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvgsq4z3s22n.jpg",
+    "text": "I thought getting magIC working would be harder... #magIC #fortran #rasdFastwalkerLeague I should probably set up things for music stream.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvgsq4z3s22n",
+    "date": "2026-09-14T00:04:06.367Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvge5lyt422j.jpg",
+    "text": "#rasdFastwalkerLeague #indiegamedev Progress, albeit I need to revisit how I am “hulling” the two sprites to improve performance.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvge5lyt422j",
+    "date": "2026-09-13T19:43:12.168Z"
+  },
+  {
+    "image": "/assets/bluesky/3mvb4dwam7c2x.jpg",
+    "text": "Realized i could render the surface as “glass” material and badda bing badda boom I am fussed I didn’t think of this earlier. Kinda feels overkill",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mvb4dwam7c2x",
+    "date": "2026-09-11T17:40:15.610Z"
+  },
+  {
+    "image": "/assets/bluesky/3mv36x2xtg22t.jpg",
+    "text": "This is the issue btw 😵:",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mv36x2xtg22t",
+    "date": "2026-09-09T09:10:47.148Z"
+  },
+  {
+    "image": "/assets/bluesky/3muyemg4zyk2d.jpg",
+    "text": "Angy",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3muyemg4zyk2d",
+    "date": "2026-09-08T06:14:12.979Z"
+  },
+  {
+    "image": "/assets/bluesky/3muyemg4yzc2d.jpg",
+    "text": "Pleased",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3muyemg4yzc2d",
+    "date": "2026-09-08T06:14:12.978Z"
+  },
+  {
+    "image": "/assets/bluesky/3muyemg4ncc2d.jpg",
+    "text": "Some of the moods of a Drone:",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3muyemg4ncc2d",
+    "date": "2026-09-08T06:14:12.977Z"
+  },
+  {
+    "image": "/assets/bluesky/3musnga5pd22u.jpg",
+    "text": "CHOOSE YOUR CHARACTER: (I wanna use vertical oscillation for cheaper water)",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3musnga5pd22u",
+    "date": "2026-09-05T23:35:50.644Z"
+  },
+  {
+    "image": "/assets/bluesky/3musgmr6zos27.jpg",
+    "text": "400718 #inspo #gamedev #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3musgmr6zos27",
+    "date": "2026-09-05T21:34:13.647Z"
+  },
+  {
+    "image": "/assets/bluesky/3muqtyy4gik2m.jpg",
+    "text": "Biome making time. #rasdFastwalkerLeague #XPMworkbench Im not sure how many faux voxels i want as sprites per heightmap tile in surface mode. I wanna start with 32x32 and see if its even performant, then try 64x64 or higher?",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3muqtyy4gik2m",
+    "date": "2026-09-05T06:28:22.719Z"
+  },
+  {
+    "image": "/assets/bluesky/3munphyiylk2p.jpg",
+    "text": "Happy little trees on the tiniest Plate-class in the #rasdFastwalkerLeague (polyhedral imposters, just two xpms that fade into each other over another trick for the surface). 🌳🌳 The lights +ballast are a singular XPM and show the classic moiré-away at certain angles. #xpmWorkbench by @reggi.com",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3munphyiylk2p",
+    "date": "2026-09-04T00:29:18.524Z"
+  },
+  {
+    "image": "/assets/bluesky/3mungegkoes25.jpg",
+    "text": "Last night’s efforts. Despite the background bug, the water looks pretty nice! Tool: #xpmworkbench #xpm by @reggi.com Inspiration/source from old Godot example: github.com/KO0I/godot-d... Caustic approximation needs to chill",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mungegkoes25",
+    "date": "2026-09-03T21:46:15.362Z"
+  },
+  {
+    "image": "/assets/bluesky/3mukr5j3s5c2c.jpg",
+    "text": "Success: got the sphere and ellipsoid polyhedral imposter works! No fade trickery. Downsides and gaps: no idea if this works for floor. Obviously I was lazy and reused the same sphere reflection. Need to generate two orthogonal projections and shift by idk -90 deg over y-axis",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mukr5j3s5c2c",
+    "date": "2026-09-02T20:21:15.087Z"
+  },
+  {
+    "image": "/assets/bluesky/3mujbpjeiak2r.jpg",
+    "text": "Ur right this is cool",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mujbpjeiak2r",
+    "date": "2026-09-02T06:12:19.745Z"
+  },
+  {
+    "image": "/assets/bluesky/3muj7gdkgo22r.jpg",
+    "text": "I want to believe there is a way to make this #xpm animation look good from more angles without true 3D. But the embeddability in C hnnnng",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3muj7gdkgo22r",
+    "date": "2026-09-02T05:31:24.176Z"
+  },
+  {
+    "image": "/assets/bluesky/3muirmoh3tk2c.jpg",
+    "text": "Got one of my silly starships to render LFG",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3muirmoh3tk2c",
+    "date": "2026-09-02T01:24:24.541Z"
+  },
+  {
+    "image": "/assets/bluesky/3mudxhd2hwc2o.jpg",
+    "text": "Fih 🐟",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mudxhd2hwc2o",
+    "date": "2026-08-31T03:25:28.578Z"
+  },
+  {
+    "image": "/assets/bluesky/3mudefntt7k2f.jpg",
+    "text": "Here’s a simulation from youtu.be/0RzduKt_IMQ which I am attempting to emulate. The talk is really good and further has me rethinking compact-body surfaces. I wanna kinda be sorta closer to accurate than not when I can help it.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mudefntt7k2f",
+    "date": "2026-08-30T21:44:31.695Z"
+  },
+  {
+    "image": "/assets/bluesky/3mudcpi5hls2f.jpg",
+    "text": "☀️ We got fingers! (It’s not supposed to stripe in surface tho, but make granules.)",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mudcpi5hls2f",
+    "date": "2026-08-30T21:14:13.775Z"
+  },
+  {
+    "image": "/assets/bluesky/3mtfa2enfgc2a.jpg",
+    "text": "General Systems Vehicle goes spinny #RasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mtfa2enfgc2a",
+    "date": "2026-08-18T22:06:45.818Z"
+  },
+  {
+    "image": "/assets/bluesky/3mt5cztr3ts2k.jpg",
+    "text": "More from the baopinsui shader that I continue to be flabbergasted and inspired by:",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mt5cztr3ts2k",
+    "date": "2026-08-15T18:38:51.444Z"
+  },
+  {
+    "image": "/assets/bluesky/3mswrjp4pwc2a.jpg",
+    "text": "Shadertoy oooh ahhh",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mswrjp4pwc2a",
+    "date": "2026-08-13T04:09:37.670Z"
+  },
+  {
+    "image": "/assets/bluesky/3msaqail3q22p.jpg",
+    "text": "Minichord can be powered by nothing more than the speaker?",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3msaqail3q22p",
+    "date": "2026-08-04T09:48:00.824Z"
+  },
+  {
+    "image": "/assets/bluesky/3mprvw4q7622c.jpg",
+    "text": "#oddlysatisfying",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mprvw4q7622c",
+    "date": "2026-07-04T01:29:15.985Z"
+  },
+  {
+    "image": "/assets/bluesky/3mpfnyaku4c2y.jpg",
+    "text": "Lunar robot: eat this man 🫵 (It’s gonna get you)",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mpfnyaku4c2y",
+    "date": "2026-06-29T04:35:20.318Z"
+  },
+  {
+    "image": "/assets/bluesky/3mpfj4krwcs2i.jpg",
+    "text": "The Japanese lunar bot is adorable.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mpfj4krwcs2i",
+    "date": "2026-06-29T03:08:16.544Z"
+  },
+  {
+    "image": "/assets/bluesky/3mpdpmuqkic2l.jpg",
+    "text": "Current mood: dogwillhunt’s axolotl",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mpdpmuqkic2l",
+    "date": "2026-06-28T09:59:26.829Z"
+  },
+  {
+    "image": "/assets/bluesky/3mozcampcms2c.jpg",
+    "text": "Libreoffice remembered my slides from my electromagnetics independent study from ... 2015? lmao Behold: some microstrip circuits! Made in #MicrowaveOffice",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mozcampcms2c",
+    "date": "2026-06-24T06:33:19.720Z"
+  },
+  {
+    "image": "/assets/bluesky/3moueg3v4kk2e.jpg",
+    "text": "Got a #godot tutorial mostly working in 4.7. I added a sphere and a faux vapor-cone. Not able to work out how to integrate it into the comanche-style renderer water tiles for my game. 💔",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3moueg3v4kk2e",
+    "date": "2026-06-22T07:28:52.202Z"
+  },
+  {
+    "image": "/assets/bluesky/3momndael7c2m.jpg",
+    "text": "Scaled up the systems and also the speed. It's a bit trickier to land rn gracefully...",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3momndael7c2m",
+    "date": "2026-06-19T05:47:02.009Z"
+  },
+  {
+    "image": "/assets/bluesky/3mofii3esh22a.jpg",
+    "text": "Got orbitals working! now to make for sunset/rise color patterns on the clouds on twilight spots. Enjoy several different Orbitals: #RasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mofii3esh22a",
+    "date": "2026-06-16T09:31:37.669Z"
+  },
+  {
+    "image": "/assets/bluesky/3mofgiemb6k2q.jpg",
+    "text": "I was getting grumpy about how my space-mode was rendering 3D objects. Icky! YouTuber @dafluffypotato.bsky.social showcased a technique involving my favorite words: *input geometry free* I had a further idea, lights in their own disk active in shadow. I did a test and it really improves fps+vibes.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mofgiemb6k2q",
+    "date": "2026-06-16T08:55:59.865Z"
+  },
+  {
+    "image": "/assets/bluesky/3mobqqbczrk2g.jpg",
+    "text": "Attached: a naked singularity and another star in a binary orbit. Over 100 fps.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mobqqbczrk2g",
+    "date": "2026-06-14T21:48:43.317Z"
+  },
+  {
+    "image": "/assets/bluesky/3mobnjyol5s25.jpg",
+    "text": "I'm new to screenkey I think there's a way to suppress \"holding\" the key being interpreted as BRRRRRRRR, but idk yet.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mobnjyol5s25",
+    "date": "2026-06-14T20:51:31.708Z"
+  },
+  {
+    "image": "/assets/bluesky/3mo764bcu4k2b.jpg",
+    "text": "In-system cruising: Still need to make atmo entry more dramatic, and slowdown when approaching to cut down on #loopOfShame moments at least a little.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mo764bcu4k2b",
+    "date": "2026-06-13T21:10:05.387Z"
+  },
+  {
+    "image": "/assets/bluesky/3mo764bcldc2b.jpg",
+    "text": "Entering lightspeed, with more style (have to hold Enter for a bit and then release for it to kick in) #rasdFastwalkerLeague #indiegamedev Also, I got obs working finally! No more obligatory use of peek (good program as it is, the framerate is barely acceptable).",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mo764bcldc2b",
+    "date": "2026-06-13T21:10:05.386Z"
+  },
+  {
+    "image": "/assets/bluesky/3mo6ciiyv2k2b.jpg",
+    "text": "More parties on the or",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mo6ciiyv2k2b",
+    "date": "2026-06-13T12:55:51.339Z"
+  },
+  {
+    "image": "/assets/bluesky/3mo6ccpisxc2b.jpg",
+    "text": "5 Player multiplayer LAN. Blowing up the scale is exciting. I need to make a round mask for the light change near \"light speed\" #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mo6ccpisxc2b",
+    "date": "2026-06-13T12:52:36.825Z"
+  },
+  {
+    "image": "/assets/bluesky/3mo5qvnw7h22b.jpg",
+    "text": "Rise n shine #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mo5qvnw7h22b",
+    "date": "2026-06-13T07:41:05.349Z"
+  },
+  {
+    "image": "/assets/bluesky/3mo3dcniphs2y.jpg",
+    "text": "Counting in #Marain",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mo3dcniphs2y",
+    "date": "2026-06-12T08:32:29.250Z"
+  },
+  {
+    "image": "/assets/bluesky/3mo3cqoo3k22h.jpg",
+    "text": "Animated Cubes #openscad",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mo3cqoo3k22h",
+    "date": "2026-06-12T08:22:26.495Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnzoj5evbc2g.jpg",
+    "text": "Composite of recent progress. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnzoj5evbc2g",
+    "date": "2026-06-11T16:47:38.913Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnyrkcade22h.jpg",
+    "text": "Surface level selecting has bugs, but at least multiplayer has planet entry! \"C\" locks onto a target and if I mouse away, the last actions are locked in, so I can have fastwalkers follow each other and do testing.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnyrkcade22h",
+    "date": "2026-06-11T08:09:19.048Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnyqwcwvns2h.jpg",
+    "text": "Everybody was Foo fighting, huh Those cats were fast as lightning In fact, it was a little bit frightening, hey, yeah #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnyqwcwvns2h",
+    "date": "2026-06-11T07:58:08.698Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnyjueorf22h.jpg",
+    "text": "Broke the enet build. Netcode is ... a lot, even when using an existing library like enet. Trying to do a simple LAN with a sing host. Anyway, consolation prize is making the lens flares even biggerer.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnyjueorf22h",
+    "date": "2026-06-11T05:51:47.228Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnwfyzoxh22j.jpg",
+    "text": "Since I can just apply bitmasks to zones, I have some places with light which looks like. And then I decided to set up spots with \"lasers\" and rainbow colors spilling out to represent locations where fun things are happening. Culturniks like to party, after all. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnwfyzoxh22j",
+    "date": "2026-06-10T09:37:29.028Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnwdgluwe22j.jpg",
+    "text": "A sunrise",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnwdgluwe22j",
+    "date": "2026-06-10T08:51:23.080Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnwbcfm4ws2w.jpg",
+    "text": "Orbitals almost looking ok, except the lens flare thing is weird lmao. I wanna render clouds on the rough surface to simulate that pre-sunrise/post-sunset glow. I also need to either increase surface-mode speed and/or reduce the rough surface traversal.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnwbcfm4ws2w",
+    "date": "2026-06-10T08:13:14.799Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnw7syuo6c2w.jpg",
+    "text": "You'll love this. So it turns out if you make a hole in my the columnar faux-voxel renderer, it looks like a horrifying abyss. This got me thinking.... Europa-style moon and under-surface ocean.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnw7syuo6c2w",
+    "date": "2026-06-10T07:46:44.389Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnw5ppux3k2a.jpg",
+    "text": "More lighting/occlusion effects and planetary effects. More landable worlds but the generative skyboxes are tricky. Plus I want to move when entering surface mode. I tried making some entry effects earlier and it was terrible.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnw5ppux3k2a",
+    "date": "2026-06-10T07:09:06.814Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnvzffek2s2t.jpg",
+    "text": "Progress on the skybox, but the flare remains despite the planet in the way...",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnvzffek2s2t",
+    "date": "2026-06-10T05:51:45.280Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnvvqop3dc2t.jpg",
+    "text": "Using a sprite for the stars is not my idea. Thanks again to @lorenschmidt.bsky.social for bringing Noctis IV to my attention, which did it first and better. #rasdFastwalkerLeague My skybox update-per-movement is fucked up a bit, and my planets are smol. Many things to address.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnvvqop3dc2t",
+    "date": "2026-06-10T04:46:29.193Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnvcgikq422t.jpg",
+    "text": "I have some bugs in the day/night stuff (instant daylight). But I am rendering both the ground graphics thing and the skybox, and I think it's pretty, even without a sunrise/sunset effect. The fps is trashed tho. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnvcgikq422t",
+    "date": "2026-06-09T23:00:46.121Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnrzdvqupk2j.jpg",
+    "text": "Wao",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnrzdvqupk2j",
+    "date": "2026-06-08T15:40:16.399Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnqsfqtmqs2y.jpg",
+    "text": "Baking in day/night and shadow information.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnqsfqtmqs2y",
+    "date": "2026-06-08T04:03:22.423Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnqhq3kqxs2y.jpg",
+    "text": "Complex cloud generation is very slow live, but I think it's a promising start! But if I make these height-surface maps into gifs, we could have these (totally intentional) faux-virga at a higher framerate! #spacesim #atmosphere #cloudgeneration #voxels #indiegamedev #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnqhq3kqxs2y",
+    "date": "2026-06-08T00:52:18.052Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnnku34rmc2c.jpg",
+    "text": "Time to test a 3-layer gas giant in the Comanche style with a metallic hydrogen \"ocean\" Layer loading time is slow. Maybe I can re-use the map and just change the color and position or something. Yes you bounce off of the metallic hydrogen core and it's supposed to make lightning hit ur comrades.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnnku34rmc2c",
+    "date": "2026-06-06T21:10:13.820Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnndexojjs2c.jpg",
+    "text": "I did something to hose up the framerate again, but I added in something fun: a splash screen. Character creator WIP. #c #rasdFastwalkerLeague #indiegamedev",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnndexojjs2c",
+    "date": "2026-06-06T18:56:30.700Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnn6sn5an22c.jpg",
+    "text": "Dusty",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnn6sn5an22c",
+    "date": "2026-06-06T17:34:40.700Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnn2lpkhnk2j.jpg",
+    "text": "It’s better with music: [The everlasting bridge party recommends: “On & On Kanine remix”]",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnn2lpkhnk2j",
+    "date": "2026-06-06T16:19:13.383Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnmxyif2os24.jpg",
+    "text": "Gotta make the dust ring glow or be like, dustier? Anyway, the sandbox is starting to get fun. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnmxyif2os24",
+    "date": "2026-06-06T15:32:40.848Z"
+  },
+  {
+    "image": "/assets/bluesky/3mni7yzkwn22b.jpg",
+    "text": "Relax and float for a bit. I got the Orbital to have a spin, but I have fun issues now with collision and \"landing\" on the surface. #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mni7yzkwn22b",
+    "date": "2026-06-04T18:12:50.108Z"
+  },
+  {
+    "image": "/assets/bluesky/3mnh37szb4s2i.jpg",
+    "text": "Frame rate sucks, but I added jet cones: #rasdFastwalkerLeague",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mnh37szb4s2i",
+    "date": "2026-06-04T07:14:29.672Z"
+  },
+  {
+    "image": "/assets/bluesky/3mja4izva5s2w.jpg",
+    "text": "#netherlands #travel vliegtuigramen zijn de ultieme gluggavedur",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mja4izva5s2w",
+    "date": "2026-04-11T15:08:07.931Z"
+  },
+  {
+    "image": "/assets/bluesky/3mg4de2oyks2g.jpg",
+    "text": "Most of the mods are holographic. I will always accept random holographic stickers",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mg4de2oyks2g",
+    "date": "2026-03-02T22:44:23.359Z"
+  },
+  {
+    "image": "/assets/bluesky/3me5rl34slc2d.jpg",
+    "text": "Grab & Go #cat",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3me5rl34slc2d",
+    "date": "2026-02-06T01:41:07.562Z"
+  },
+  {
+    "image": "/assets/bluesky/3me2ydkmjns2o.jpg",
+    "text": "Fun fact: you can have transparency on your linktree avatar. This has been an official Office Of Mischief Announcement 📢",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3me2ydkmjns2o",
+    "date": "2026-02-04T23:04:12.344Z"
+  },
+  {
+    "image": "/assets/bluesky/3mdyxaigbhs25.jpg",
+    "text": "Noise show",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mdyxaigbhs25",
+    "date": "2026-02-04T03:39:16.163Z"
+  },
+  {
+    "image": "/assets/bluesky/3mcviosqssk2y.jpg",
+    "text": "Noise Complaint! Third one, first one in the library. #longmont folks are welcome to stop by for the next one in the next 2-4 weeks. Will go later next time. Thanks to the cool folks who showed to play!",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mcviosqssk2y",
+    "date": "2026-01-21T01:15:39.783Z"
+  },
+  {
+    "image": "/assets/bluesky/3mcdsz6e2qs22.jpg",
+    "text": "New cat feeder seems to be a hit",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mcdsz6e2qs22",
+    "date": "2026-01-14T00:32:29.624Z"
+  },
+  {
+    "image": "/assets/bluesky/3mbtbdovenc2a.jpg",
+    "text": "Source: #umami #safemode #cyberacme #vim",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mbtbdovenc2a",
+    "date": "2026-01-07T10:33:39.345Z"
+  },
+  {
+    "image": "/assets/bluesky/3mbtamyo3g22a.jpg",
+    "text": "Original source: u m a m i [safe mode] #theCulture #safemode #umami #dada",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mbtamyo3g22a",
+    "date": "2026-01-07T10:20:57.840Z"
+  },
+  {
+    "image": "/assets/bluesky/3mbta6lzvuk2a.jpg",
+    "text": "Source: youtu.be/RE38q1nD1Ro By jiří bednář",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3mbta6lzvuk2a",
+    "date": "2026-01-07T10:12:54.835Z"
+  },
+  {
+    "image": "/assets/bluesky/3m5uwc7dulk2q.jpg",
+    "text": "Aye!",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3m5uwc7dulk2q",
+    "date": "2025-11-18T04:40:31.294Z"
+  },
+  {
+    "image": "/assets/bluesky/3m4m2p2kaqk2g.jpg",
+    "text": "Friends had great decorations 🎃",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3m4m2p2kaqk2g",
+    "date": "2025-11-01T22:40:08.162Z"
+  },
+  {
+    "image": "/assets/bluesky/3m42lz5kdas2f.jpg",
+    "text": "#Windows11 2H25 features a built in #debloat option, a sorely needed thing. You have to do group policy things, because ofc. Search gpedit and then find App Package Deployment as seen in the following gif, and look for the (overly wordy) setting starting with the ever-musical \"Remove Default...\"",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3m42lz5kdas2f",
+    "date": "2025-10-26T00:02:05.176Z"
+  },
+  {
+    "image": "/assets/bluesky/3m2ntl6hls22g.jpg",
+    "text": "",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3m2ntl6hls22g",
+    "date": "2025-10-08T04:47:38.081Z"
+  },
+  {
+    "image": "/assets/bluesky/3m2hw62jlvs2a.jpg",
+    "text": "",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3m2hw62jlvs2a",
+    "date": "2025-10-05T20:18:00.538Z"
+  },
+  {
+    "image": "/assets/bluesky/3m26uqiodfc2x.jpg",
+    "text": "👅",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3m26uqiodfc2x",
+    "date": "2025-10-02T05:58:34.224Z"
+  },
+  {
+    "image": "/assets/bluesky/3lzvwfqs3d22i.jpg",
+    "text": "Considered: done!",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lzvwfqs3d22i",
+    "date": "2025-09-28T16:34:23.477Z"
+  },
+  {
+    "image": "/assets/bluesky/3lzn5gwo7ws2p.jpg",
+    "text": "LLC title card.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lzn5gwo7ws2p",
+    "date": "2025-09-25T04:46:21.743Z"
+  },
+  {
+    "image": "/assets/bluesky/3lzmwf7wmwk2p.jpg",
+    "text": "Hello gay ppl in my phone",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lzmwf7wmwk2p",
+    "date": "2025-09-25T02:40:08.154Z"
+  },
+  {
+    "image": "/assets/bluesky/3lxolzid7vc2k.jpg",
+    "text": "After making music for a bit, it was time to pack. I very much want to use something like this cart to perform. If it was only a centimeter or two wider, I would be able to have my Neutron and my Boss looper in there.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lxolzid7vc2k",
+    "date": "2025-08-31T07:49:33.106Z"
+  },
+  {
+    "image": "/assets/bluesky/3lxh2y62wzk2q.jpg",
+    "text": "Adding blue knobs to the uvb-76",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lxh2y62wzk2q",
+    "date": "2025-08-28T07:55:57.015Z"
+  },
+  {
+    "image": "/assets/bluesky/3lxh2upiy6k2q.jpg",
+    "text": "Other therepeutic synth nonsense: Recovery Mystic gets gold knobs.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lxh2upiy6k2q",
+    "date": "2025-08-28T07:54:01.083Z"
+  },
+  {
+    "image": "/assets/bluesky/3lxh2j6sejc2q.jpg",
+    "text": "And now putting on the overlay with color coding.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lxh2j6sejc2q",
+    "date": "2025-08-28T07:47:34.458Z"
+  },
+  {
+    "image": "/assets/bluesky/3lxh2j6s4pc2q.jpg",
+    "text": "I dont mind the red color, but i wanted color-coded labels",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lxh2j6s4pc2q",
+    "date": "2025-08-28T07:47:34.457Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwqlurhlkk27.jpg",
+    "text": "Undergrad project revisited. The decay function is messed up and uploading new version is painful rn, but is fun after the kastle arp stuff. #diy #synth #arduino",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwqlurhlkk27",
+    "date": "2025-08-19T09:27:02.763Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwq3xrj77c2c.jpg",
+    "text": "Evening activity that isn’t just rotting in bed. The Akai FIRE controller needs to be set to port 235.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwq3xrj77c2c",
+    "date": "2025-08-19T04:42:23.610Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwlo2m6kxk27.jpg",
+    "text": "Finally, the good stuff. My Aeolian mode, or c nat minor configuration:",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwlo2m6kxk27",
+    "date": "2025-08-17T10:22:47.337Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwlo2m6jyc27.jpg",
+    "text": "Now for Cmin, Gmin, Dmin, Amin… kinda atonal idk.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwlo2m6jyc27",
+    "date": "2025-08-17T10:22:47.336Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwlo2m6d5k27.jpg",
+    "text": "#bastl hacking continues! Major key, normal random melody in major keys:",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwlo2m6d5k27",
+    "date": "2025-08-17T10:22:47.335Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwjammvrn227.jpg",
+    "text": "Oops i glitched it (not enough power is my guess). Trying to change the scale on my arp machine by bastl. Deliciousness ensues:",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwjammvrn227",
+    "date": "2025-08-16T11:17:00.220Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwj6xk4i4c27.jpg",
+    "text": "Might make a YouTube vid later, but hacked my #bastl Arp VCO, which is an ATTiny85! What lovely gear. Had to: use the mega as an external programmer, soldered a header in, and set the pots fully CCW, (this is important). But it works and chirps as you upload new firmware. 🐦 🎶",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwj6xk4i4c27",
+    "date": "2025-08-16T10:47:18.910Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwdhonhqg22x.jpg",
+    "text": "4/4 temu jesse pinkman finally emerges.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwdhonhqg22x",
+    "date": "2025-08-14T04:07:25.676Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwdhonhpgs2x.jpg",
+    "text": "3/4 Loud Noise Warning",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwdhonhpgs2x",
+    "date": "2025-08-14T04:07:25.675Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwdhonhohk2x.jpg",
+    "text": "2/4🚁",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwdhonhohk2x",
+    "date": "2025-08-14T04:07:25.674Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwdhonhim22x.jpg",
+    "text": "Events afoot in town: 1/4",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwdhonhim22x",
+    "date": "2025-08-14T04:07:25.673Z"
+  },
+  {
+    "image": "/assets/bluesky/3lwantlenwk2d.jpg",
+    "text": "An odd connector!",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lwantlenwk2d",
+    "date": "2025-08-13T01:19:34.491Z"
+  },
+  {
+    "image": "/assets/bluesky/3lw6rlso2lc2h.jpg",
+    "text": "Another reverb in the haunting sound machine sound processing extravaganza",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lw6rlso2lc2h",
+    "date": "2025-08-12T07:21:29.194Z"
+  },
+  {
+    "image": "/assets/bluesky/3lvuqdrcvok2m.jpg",
+    "text": "Further beepery",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lvuqdrcvok2m",
+    "date": "2025-08-08T07:32:28.210Z"
+  },
+  {
+    "image": "/assets/bluesky/3lvuqdrclw22m.jpg",
+    "text": "Become the noise complaint",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lvuqdrclw22m",
+    "date": "2025-08-08T07:32:28.209Z"
+  },
+  {
+    "image": "/assets/bluesky/3lvg44ljfsc2n.jpg",
+    "text": "Oh snap, posting music experiments of practicing before this month’s Noise Floor. Playing with some “new” used gear and quite peached. Pretty textures and then suddenly at the end: air raid sirrrren! Love this lil 8bit green goober; so wild when paired with a decent looping/reverb effect.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lvg44ljfsc2n",
+    "date": "2025-08-02T11:53:16.085Z"
+  },
+  {
+    "image": "/assets/bluesky/3ltmzx4n5e22y.jpg",
+    "text": "Brought mail in. Head hurts. Ugh. At least i picked a good day to wfh in advance",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3ltmzx4n5e22y",
+    "date": "2025-07-10T19:12:40.137Z"
+  },
+  {
+    "image": "/assets/bluesky/3lt4as6y6es2a.jpg",
+    "text": "Setting up for the jam sesh.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lt4as6y6es2a",
+    "date": "2025-07-04T02:59:55.464Z"
+  },
+  {
+    "image": "/assets/bluesky/3lt2gs4fxcs2x.jpg",
+    "text": "Awayyyy i (want to) go",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lt2gs4fxcs2x",
+    "date": "2025-07-03T09:41:55.743Z"
+  },
+  {
+    "image": "/assets/bluesky/3lsl236yhcc2o.jpg",
+    "text": "Friend playing guitar, me play pedal. #chasebliss #chaseblissmood",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lsl236yhcc2o",
+    "date": "2025-06-27T06:44:25.717Z"
+  },
+  {
+    "image": "/assets/bluesky/3lsfrrch33s2w.jpg",
+    "text": "I like this one",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lsfrrch33s2w",
+    "date": "2025-06-25T04:32:25.172Z"
+  },
+  {
+    "image": "/assets/bluesky/3lsfmu4yd4s2w.jpg",
+    "text": "Handpan loop to Mood reverb.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lsfmu4yd4s2w",
+    "date": "2025-06-25T03:04:31.400Z"
+  },
+  {
+    "image": "/assets/bluesky/3lsa53ec7is2m.jpg",
+    "text": "Handpan practice (and wasp visit)",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lsa53ec7is2m",
+    "date": "2025-06-22T22:38:55.384Z"
+  },
+  {
+    "image": "/assets/bluesky/3lrwnrseerc26.jpg",
+    "text": "Groovy #modular jam, such texture",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lrwnrseerc26",
+    "date": "2025-06-19T04:11:10.817Z"
+  },
+  {
+    "image": "/assets/bluesky/3lrwnnes32226.jpg",
+    "text": "Post work synthesis",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lrwnnes32226",
+    "date": "2025-06-19T04:08:42.368Z"
+  },
+  {
+    "image": "/assets/bluesky/3lr7saiid6k2c.jpg",
+    "text": "My first hardware synth with real patch cables, y’all (here’s me practicing with just the internal routing)",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lr7saiid6k2c",
+    "date": "2025-06-10T01:59:44.763Z"
+  },
+  {
+    "image": "/assets/bluesky/3lr2i7msvbk2w.jpg",
+    "text": "S e l f s t i m u l a t i n g #caturday",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lr2i7msvbk2w",
+    "date": "2025-06-07T23:16:59.639Z"
+  },
+  {
+    "image": "/assets/bluesky/3lpfmh4vo4c2z.jpg",
+    "text": "Cosmic gate set slaps",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lpfmh4vo4c2z",
+    "date": "2025-05-17T22:41:40.219Z"
+  },
+  {
+    "image": "/assets/bluesky/3lowcxaoj5k2w.jpg",
+    "text": "Boutta do some gaming, and remembered a great clean-up opportunity since I've graduamagrated Bye, Slack. You won't be missed from any of my machines, especially the gaming and music one!",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lowcxaoj5k2w",
+    "date": "2025-05-11T20:41:47.558Z"
+  },
+  {
+    "image": "/assets/bluesky/3lo7bslcmfk2n.jpg",
+    "text": ":P",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lo7bslcmfk2n",
+    "date": "2025-05-02T16:50:03.207Z"
+  },
+  {
+    "image": "/assets/bluesky/3lnmlje4xg223.jpg",
+    "text": "Nappish voïd",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lnmlje4xg223",
+    "date": "2025-04-25T06:23:16.080Z"
+  },
+  {
+    "image": "/assets/bluesky/3lnhhnpresk26.jpg",
+    "text": "So I was messing with imagemagick again.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lnhhnpresk26",
+    "date": "2025-04-23T05:30:48.842Z"
+  },
+  {
+    "image": "/assets/bluesky/3lmfmzpfl3c2b.jpg",
+    "text": "So happy to have seen this live. Not sorry for the bad camerawork I was vibing.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lmfmzpfl3c2b",
+    "date": "2025-04-09T18:36:28.713Z"
+  },
+  {
+    "image": "/assets/bluesky/3lm4asm46as2s.jpg",
+    "text": "#caturday part 2, hip nuzzlin",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lm4asm46as2s",
+    "date": "2025-04-06T01:03:47.832Z"
+  },
+  {
+    "image": "/assets/bluesky/3lkacmsyi3c2y.jpg",
+    "text": "And of course finish the fight.",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lkacmsyi3c2y",
+    "date": "2025-03-13T04:56:36.899Z"
+  },
+  {
+    "image": "/assets/bluesky/3lkacmsyabc2y.jpg",
+    "text": "Needed to take an extended reading break and play a classic",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lkacmsyabc2y",
+    "date": "2025-03-13T04:56:36.898Z"
+  },
+  {
+    "image": "/assets/bluesky/3lhjutawqwk27.jpg",
+    "text": "Current mood:",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lhjutawqwk27",
+    "date": "2025-02-06T20:00:42.971Z"
+  },
+  {
+    "image": "/assets/bluesky/3lgze6nitbs2z.jpg",
+    "text": "Synth jam was fun, went until the amp ran out of battery. Colleague at the thing was getting video of me patching when my BeReal notif popped off. The sounds are a mix of my nonsense with the synth noises in the other space #synthsky #synth #modular #bastl #noisefloorco",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3lgze6nitbs2z",
+    "date": "2025-01-31T06:20:15.818Z"
+  },
+  {
+    "image": "/assets/bluesky/3ldhplxkbok2m.jpg",
+    "text": "Pretty colored sand simulation with webcam control #max #msp #maxmsp #jitter",
+    "url": "https://bsky.app/profile/did:plc:co5a6hz2j6p5flyejvkc4aaf/post/3ldhplxkbok2m",
+    "date": "2024-12-17T01:41:03.546Z"
+  }
+]
