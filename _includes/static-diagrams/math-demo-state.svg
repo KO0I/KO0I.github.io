@@ -1,0 +1,25 @@
+<svg class="state-diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 680" role="img" aria-labelledby="math-state-title math-state-desc">
+<title id="math-state-title">Instruction-cycle state machine</title>
+<desc id="math-state-desc">RESET leads to Idle, Fetch, Decode, Execute, then Writeback. Writeback returns to Idle, not RESET.</desc>
+<defs><marker id="math-state-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"/></marker></defs>
+<g fill="none" stroke="currentColor" stroke-width="2">
+<path d="M160 109 V127" marker-end="url(#math-state-arrow)"/>
+<path d="M160 217 V235" marker-end="url(#math-state-arrow)"/>
+<path d="M160 325 V343" marker-end="url(#math-state-arrow)"/>
+<path d="M160 433 V451" marker-end="url(#math-state-arrow)"/>
+<path d="M160 541 V559" marker-end="url(#math-state-arrow)"/>
+<path d="M205 605 H340 V173 H207" marker-end="url(#math-state-arrow)"/>
+<circle cx="160" cy="65" r="44"/>
+<circle cx="160" cy="173" r="44"/>
+<circle cx="160" cy="281" r="44"/>
+<circle cx="160" cy="389" r="44"/>
+<circle cx="160" cy="497" r="44"/>
+<circle cx="160" cy="605" r="44"/>
+</g><g fill="currentColor" font-family="system-ui, sans-serif" font-size="15" text-anchor="middle" dominant-baseline="middle">
+<text x="160" y="65">RESET</text>
+<text x="160" y="173">Idle</text>
+<text x="160" y="281">Fetch</text>
+<text x="160" y="389">Decode</text>
+<text x="160" y="497">Execute</text>
+<text x="160" y="605">Writeback</text>
+</g></svg>

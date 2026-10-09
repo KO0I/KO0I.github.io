@@ -1,0 +1,43 @@
+<svg class="timing-diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 290" role="img" aria-labelledby="math-timing-title math-timing-desc">
+<title id="math-timing-title">Request, acknowledge and data timing over eight clock cycles</title>
+<desc id="math-timing-desc">clk has eight positive-edge cycles. req is low for cycles 0 and 1, high for 2 through 4, and low for 5 through 7. ack is high only for 3 and 4. data is unknown for 0 and 1, then A, B and C on cycles 2, 3 and 4, and unknown again for 5 through 7.</desc>
+<defs><pattern id="math-unknown-hatch" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M-2 2 L2 -2 M0 8 L8 0 M6 10 L10 6" stroke="currentColor" stroke-opacity=".25"/></pattern></defs>
+<g stroke="currentColor" stroke-opacity=".2" stroke-dasharray="3 4">
+<path d="M110 45 V263"/>
+<path d="M190 45 V263"/>
+<path d="M270 45 V263"/>
+<path d="M350 45 V263"/>
+<path d="M430 45 V263"/>
+<path d="M510 45 V263"/>
+<path d="M590 45 V263"/>
+<path d="M670 45 V263"/>
+<path d="M750 45 V263"/>
+</g><g fill="currentColor" font-family="ui-monospace, monospace" font-size="16">
+<text x="150" y="28" text-anchor="middle">0</text>
+<text x="230" y="28" text-anchor="middle">1</text>
+<text x="310" y="28" text-anchor="middle">2</text>
+<text x="390" y="28" text-anchor="middle">3</text>
+<text x="470" y="28" text-anchor="middle">4</text>
+<text x="550" y="28" text-anchor="middle">5</text>
+<text x="630" y="28" text-anchor="middle">6</text>
+<text x="710" y="28" text-anchor="middle">7</text>
+<text x="88" y="86" text-anchor="end">clk</text>
+<text x="88" y="141" text-anchor="end">req</text>
+<text x="88" y="196" text-anchor="end">ack</text>
+<text x="88" y="251" text-anchor="end">data</text>
+</g><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+<path d="M110 94 V70 H150 V94 H190 V70 H230 V94 H270 V70 H310 V94 H350 V70 H390 V94 H430 V70 H470 V94 H510 V70 H550 V94 H590 V70 H630 V94 H670 V70 H710 V94 H750"/>
+<path d="M110 149 V149 H190 V149 H270 V125 H350 V125 H430 V125 H510 V149 H590 V149 H670 V149 H750"/>
+<path d="M110 204 V204 H190 V204 H270 V204 H350 V180 H430 V180 H510 V204 H590 V204 H670 V204 H750"/>
+</g>
+<polygon points="110,246 116,234 264,234 270,246 264,258 116,258" fill="url(#math-unknown-hatch)" stroke="currentColor" stroke-width="2"/>
+<text x="190" y="251" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="currentColor">x</text>
+<polygon points="270,246 276,234 344,234 350,246 344,258 276,258" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="310" y="251" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="currentColor">A</text>
+<polygon points="350,246 356,234 424,234 430,246 424,258 356,258" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="390" y="251" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="currentColor">B</text>
+<polygon points="430,246 436,234 504,234 510,246 504,258 436,258" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="470" y="251" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="currentColor">C</text>
+<polygon points="510,246 516,234 744,234 750,246 744,258 516,258" fill="url(#math-unknown-hatch)" stroke="currentColor" stroke-width="2"/>
+<text x="630" y="251" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="currentColor">x</text>
+</svg>
