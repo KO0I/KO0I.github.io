@@ -19,7 +19,7 @@ image: '/images/surf.png'
 
 #### <font color="aqua">𒾫</font> [Game Roadmap](/roadmap/)
 
-Shaky Browser Prototype [here](/rasd-fastwalker-league/)
+Shaky Browser Prototype [here](https://chipchirp.digital/rfl/)
 
 **Special Thanks to [Loren Shmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer
 approach with overhangs**
