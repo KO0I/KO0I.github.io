@@ -1,0 +1,11 @@
+---
+layout: page
+title: Archive
+permalink: /archive/
+---
+<p>All published posts, newest first. Use your browser’s Find command to search titles, or <a href="{{ '/tags/' | relative_url }}">browse by tag</a>.</p>
+<ul class="archive-list">
+  {% for post in site.posts %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time></li>
+  {% endfor %}
+</ul>

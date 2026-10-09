@@ -14,7 +14,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-mermaid
 
 paginate: 8
 paginate_path: "/page/:num"

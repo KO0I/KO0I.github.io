@@ -1,0 +1,18 @@
+---
+layout: default
+title: Videos
+permalink: /videos/
+---
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+  {% for post in site.data.bluesky %}
+    <a href="{{ post.url | escape }}">
+      <img
+        src="{{ post.image | relative_url }}"
+        alt="{{ post.text | truncate: 140 | escape }}"
+        loading="lazy"
+        style="width:100%;height:auto"
+      >
+    </a>
+  {% endfor %}
+</div>
