@@ -19,7 +19,11 @@ WORKFLOW = '.github/workflows/browser-release.yml'
 API = f'https://api.github.com/repos/{REPO}'
 LIVE_RECEIPT = 'https://chipchirp.digital/rfl/deployment.json'
 LIMIT = 500 * 1024 * 1024
-EXTENSIONS = {'.js', '.mjs', '.css', '.html', '.svg', '.json', '.bin', '.png', '.woff', '.wasm', '.data', '.xpm', '.rnb', '.txt'}
+EXTENSIONS = {
+    '.js', '.mjs', '.css', '.html', '.svg', '.json',
+    '.bin', '.png', '.woff', '.wasm', '.data',
+    '.xpm', '.rnb', '.txt', '.mp3', '.mp4'
+}
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, *args, **kwargs):
