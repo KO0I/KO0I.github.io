@@ -1,0 +1,40 @@
+---
+layout: page
+title: Writing
+simpletitle: Writing | ChipChirp
+description: Essays, technical notes, art, and other longform writing, separate from the game development feed.
+permalink: /writing/
+image: '/images/11.jpg'
+---
+
+<p>Essays, technical notes, art, culture, and reflections. This list excludes Bluesky micro-posts and game development updates.</p>
+
+<div class="feature-list feature-list--writing">
+  {% assign writing_count = 0 %}
+  {% for post in site.posts %}
+    {% assign writing_words = post.content | number_of_words %}
+    {% assign is_game_post = false %}
+    {% if post.tags contains 'rasdFastwalkerLeague' or post.tags contains 'rasdFastWalkerLeague' or post.categories contains 'rasdFastwalkerLeague' or post.categories contains 'rasdFastWalkerLeague' %}
+      {% assign is_game_post = true %}
+    {% endif %}
+    {% if writing_words >= 500 and post.bsky_uri == nil and is_game_post == false %}
+      <article class="feature-list__item">
+        <a class="feature-list__image" href="{{ post.url | relative_url }}">
+          {% if post.image %}
+            <img src="{{ post.image | relative_url }}" width="400" height="260" alt="{{ post.title | strip_html | escape }}" loading="lazy" decoding="async">
+          {% else %}
+            <img src="{{ '/images/01.jpg' | relative_url }}" width="400" height="260" alt="ChipChirp writing" loading="lazy" decoding="async">
+          {% endif %}
+        </a>
+        <div class="feature-list__copy">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title | strip_html | escape }}</a></h3>
+          <p>{{ post.description | default: post.excerpt | markdownify | strip_html | normalize_whitespace | truncate: 230 | escape }}</p>
+          <a href="{{ post.url | relative_url }}">Read essay →</a>
+        </div>
+      </article>
+      {% assign writing_count = writing_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  {% if writing_count == 0 %}<p>No longform entries have been published yet.</p>{% endif %}
+</div>

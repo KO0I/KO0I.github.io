@@ -1,7 +1,7 @@
 ---
 layout: page
 marain_title: "laysoeter skatsa"
-title: Tools
+title: Game
 permalink: /tools/
 image: '/images/surf.png'
 ---
@@ -51,3 +51,41 @@ out" the gas giants in the end)*
 
 ### <span class="marain">HYLIG GUHNAYMERE ANONG</span>
 
+---
+
+## Gamedev Progress
+
+Notes and screenshots from the development of **Rasd Fastwalker League**. These posts are rendered at build time from the site's existing Bluesky archive—no live embeds or browser-side feed scripts.
+
+<div class="feature-list feature-list--gamedev">
+  {% assign progress_count = 0 %}
+  {% for post in site.posts %}
+    {% if post.bsky_uri and post.tags contains 'rasdFastwalkerLeague' %}
+      {% assign bsky_post_id = post.bsky_uri | split: '/' | last %}
+      {% assign progress_text = post.content | markdownify | strip_html | normalize_whitespace | replace: 'View on Bluesky', '' | strip %}
+      <article class="feature-list__item">
+        <a class="feature-list__image" href="{{ post.url | relative_url }}">
+          {% if post.image %}
+            <img src="{{ post.image | relative_url }}" width="400" height="260" alt="{{ post.title | strip_html | escape }}" loading="lazy" decoding="async">
+          {% else %}
+            <img src="{{ '/images/surf.png' | relative_url }}" width="400" height="260" alt="Rasd Fastwalker League development" loading="lazy" decoding="async">
+          {% endif %}
+        </a>
+        <div class="feature-list__copy">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title | strip_html | escape }}</a></h3>
+          <p>{{ progress_text | truncate: 280 | escape }}</p>
+          <div class="feature-list__links">
+            <a href="{{ post.url | relative_url }}">Read on ChipChirp →</a>
+            <a href="https://bsky.app/profile/sesheta.chipchirp.digital/post/{{ bsky_post_id | escape }}" rel="noopener noreferrer">View on Bluesky ↗</a>
+          </div>
+        </div>
+      </article>
+      {% assign progress_count = progress_count | plus: 1 %}
+      {% if progress_count >= 16 %}{% break %}{% endif %}
+    {% endif %}
+  {% endfor %}
+  {% if progress_count == 0 %}<p>No game progress entries have been published yet.</p>{% endif %}
+</div>
+
+[More development posts on Bluesky](https://bsky.app/profile/sesheta.chipchirp.digital)
