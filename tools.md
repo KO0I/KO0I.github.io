@@ -19,12 +19,9 @@ image: '/images/surf.png'
 
 #### <font color="aqua">𒾫</font> [Game Roadmap](/roadmap/)
 
-*Shaky browser prototype*
+#### <span style="color: pink; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">ᐉ</span> Play Rasd Fastwalker League [in your browser](https://chipchirp.digital/rfl)
 
-#### <span style="color: pink;">ᐉ</span> Play Rasd Fastwalker League [in your browser](https://chipchirp.digital/rfl)
-
-**Special Thanks to [Loren Shmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer
-approach with overhangs**
+**Special Thanks to [Loren Schmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer approach with overhangs, and for so many ideas about procedural generation**
 
 # <font color="pink"> Tooling</font>
 #### <font color="red" size=14>𓆝</font> [X-PixMap WorkBench](/tools/serializable-pixel-art) 
