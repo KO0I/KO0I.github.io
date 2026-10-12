@@ -29,7 +29,7 @@ menu-settings:
       url: '/tools/'
     - title: 'Music'
       url: '/music/'
-    - title: 'Writing'
+    - title: 'Blog'
       url: '/writing/'
 
 
