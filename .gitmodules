@@ -7,3 +7,6 @@
 [submodule "tools/rfl-climate-workbench"]
 	path = tools/rfl-climate-workbench
 	url = https://github.com/KO0I/rfl-climate-workbench
+[submodule "tools/rfl-interiors-workbench"]
+	path = tools/rfl-interiors-workbench
+	url = https://github.com/KO0I/rfl-interiors-workbench
