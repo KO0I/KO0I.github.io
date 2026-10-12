@@ -37,6 +37,10 @@ out" the gas giants in the end)*
 
 *(Based heavily on [Don Juan Javier's Nebula Gen](https://donjuanjavier.itch.io/nebula-gen))*
 
+#### <span style="color: #29B6FF; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">𓆏</span> [Interiors Workbench](https://github.com/KO0I/rfl-interiors-workbench)
+
+*Interior volumes, rooms, and spatial layouts. Source repository; browser build not yet available.*
+
 #  <font color="lightblue">Lore</font>
 
 #### <font color="teal" size=12>𓍰</font> [Marain Dictionary](/marain/)
