@@ -1,0 +1,8 @@
+# Ordinary music links, without third-party embeds or scripts.
+# SoundCloud currently uses the artist's link hub until the direct URL is confirmed.
+- name: SoundCloud (via artist links)
+  url: https://linktr.ee/sesheta
+- name: YouTube
+  url: https://youtube.com/@chipchirp_en_somnia
+- name: TIDAL
+  url: https://tidal.com/album/549758649/u

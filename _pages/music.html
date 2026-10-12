@@ -1,0 +1,29 @@
+---
+layout: page
+title: Music
+simpletitle: Music | ChipChirp
+description: Experimental music, live noise, and dreamy electronic textures by en_somnia.
+permalink: /music/
+image: '/images/kefel_glitch.jpg'
+---
+
+<p>Dreamy textures, glitch music, experimental electronics, and live noise as <strong>en_somnia</strong>.</p>
+
+{% include music-links.html expanded=true label='Listen on SoundCloud, YouTube, or TIDAL' %}
+
+<h2>Music &amp; live performance</h2>
+<div class="feature-list">
+  {% assign noise_article = site.posts | where: 'title', 'What is a Noise Complaint?' | first %}
+  {% if noise_article %}
+  <article class="feature-list__item">
+    <a class="feature-list__image" href="{{ noise_article.url | relative_url }}">
+      <img src="{{ '/images/kefel_glitch.jpg' | relative_url }}" width="400" height="260" alt="Live noise performance image" loading="lazy" decoding="async">
+    </a>
+    <div class="feature-list__copy">
+      <h3><a href="{{ noise_article.url | relative_url }}">What is a Noise Complaint?</a></h3>
+      <p>Notes on experimental sound, improvisation, and making live music with other people.</p>
+      <a href="{{ noise_article.url | relative_url }}">Read the article →</a>
+    </div>
+  </article>
+  {% endif %}
+</div>

@@ -1,0 +1,8 @@
+<details class="music-links{% if include.expanded %} music-links--page{% endif %}"{% if include.expanded %} open{% endif %}>
+  <summary>{{ include.label | default: 'Listen or watch' }}</summary>
+  <ul class="music-links__list">
+    {% for platform in site.data.music_platforms %}
+      <li><a href="{{ platform.url | escape }}" rel="noopener noreferrer">{{ platform.name | escape }} <span aria-hidden="true">↗</span></a></li>
+    {% endfor %}
+  </ul>
+</details>

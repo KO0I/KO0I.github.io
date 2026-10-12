@@ -25,8 +25,12 @@ menu-settings:
       url: '/reading-list/'
     #- title: 'Videos' # TODO just link to YouTube
     #  url: '/videos/'
-    - title: 'Tools'
+    - title: 'Game'
       url: '/tools/'
+    - title: 'Music'
+      url: '/music/'
+    - title: 'Writing'
+      url: '/writing/'
 
 
 #-------------------------------

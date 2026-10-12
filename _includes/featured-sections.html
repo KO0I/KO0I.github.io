@@ -1,0 +1,40 @@
+<!-- Three lightweight, image-led entry points, rendered during the Jekyll build. -->
+<section class="feature-sections container" aria-labelledby="feature-sections-heading">
+  <div class="feature-sections__heading">
+    <h2 id="feature-sections-heading">Explore</h2>
+    <p>Play, listen, or read.</p>
+  </div>
+  <div class="feature-sections__grid">
+    <article class="feature-card">
+      <a class="feature-card__link" href="{{ '/tools/' | relative_url }}">
+        <img class="feature-card__image" src="{{ '/images/surf.png' | relative_url }}" width="640" height="360" alt="Artwork for the procedural space exploration game" loading="lazy" decoding="async">
+        <div class="feature-card__copy">
+          <h3>Game</h3>
+          <p>Rasd Fastwalker League, playable prototypes, workbenches, and development updates.</p>
+          <span class="feature-card__action">Explore the game →</span>
+        </div>
+      </a>
+    </article>
+    <article class="feature-card">
+      <a class="feature-card__link" href="{{ '/music/' | relative_url }}">
+        <img class="feature-card__image" src="{{ '/images/kefel_glitch.jpg' | relative_url }}" width="640" height="360" alt="Glitch-art photograph associated with en_somnia's music" loading="lazy" decoding="async">
+        <div class="feature-card__copy">
+          <h3>Music</h3>
+          <p>Experimental sounds, ambient textures, and live noise as en_somnia.</p>
+          <span class="feature-card__action">Explore the music →</span>
+        </div>
+      </a>
+      {% include music-links.html label='Choose a platform' %}
+    </article>
+    <article class="feature-card">
+      <a class="feature-card__link" href="{{ '/writing/' | relative_url }}">
+        <img class="feature-card__image" src="{{ '/images/11.jpg' | relative_url }}" width="640" height="360" alt="Cover artwork from ChipChirp essays" loading="lazy" decoding="async">
+        <div class="feature-card__copy">
+          <h3>Writing</h3>
+          <p>Longform essays, reflections, and technical writing beyond game development.</p>
+          <span class="feature-card__action">Read the essays →</span>
+        </div>
+      </a>
+    </article>
+  </div>
+</section>
