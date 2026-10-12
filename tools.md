@@ -37,9 +37,9 @@ out" the gas giants in the end)*
 
 *(Based heavily on [Don Juan Javier's Nebula Gen](https://donjuanjavier.itch.io/nebula-gen))*
 
-#### <span style="color: #29B6FF; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">𓆏</span> [Interiors Workbench](https://github.com/KO0I/rfl-interiors-workbench)
+#### <span style="color: #29B6FF; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">𓆏</span> [Interiors Workbench](/tools/rfl-interiors-workbench/dist/)
 
-*Interior volumes, rooms, and spatial layouts. Source repository; browser build not yet available.*
+*Explore interior volumes, rooms, and spatial layouts in the browser.*
 
 #  <font color="lightblue">Lore</font>
 
