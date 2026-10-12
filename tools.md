@@ -17,7 +17,7 @@ image: '/images/surf.png'
 
 # Space Exploration Game
 
-#### <font color="aqua">𒾫</font> [Game Roadmap](/roadmap/)
+#### <span style="color: pink; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">ᑝ</span> [Game Roadmap](/roadmap/)
 
 #### <span style="color: pink; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">ᐉ</span> Play Rasd Fastwalker League [in your browser](https://chipchirp.digital/rfl)
 
