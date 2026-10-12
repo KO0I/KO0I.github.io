@@ -1,8 +1,8 @@
-# These are ordinary links; the music menu does not load third-party embeds.
-# Replace the SoundCloud intermediary with the confirmed direct artist profile when available.
+# Ordinary music links, without third-party embeds or scripts.
+# SoundCloud currently uses the artist's link hub until the direct URL is confirmed.
 - name: SoundCloud (via artist links)
   url: https://linktr.ee/sesheta
 - name: YouTube
   url: https://youtube.com/@chipchirp_en_somnia
-- name: TIDAL (curated playlist)
-  url: https://tidal.com/playlist/d0021fd2-0dac-4512-8f34-d71063412044
+- name: TIDAL
+  url: https://tidal.com/album/549758649/u
