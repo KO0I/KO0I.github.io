@@ -30,6 +30,61 @@ permalink: /tools/camelot-wheel/
 .camelot-tool button:hover,.camelot-tool button:focus-visible{background:#453956}
 .camelot-note{color:var(--cw-muted);font-size:.92rem}
 @media(max-width:750px){.camelot-layout{grid-template-columns:1fr}.camelot-info{padding:1rem}}
+
+/* Dark palette confined to the Camelot tool, independent of page defaults. */
+body:has(.camelot-tool) .page { max-width: 1120px; }
+body:has(.camelot-tool) .hero__title::before {
+  content: "𓏢";
+  color: #a89b8b;
+  font-family: "Noto Sans Egyptian Hieroglyphs", "Segoe UI Historic", sans-serif;
+  margin-right: .4em;
+}
+.camelot-tool {
+  color-scheme: dark;
+  --cw-ink: #f1edf5;
+  --cw-muted: #bcb5c8;
+  --cw-panel: #191722;
+  --cw-border: #3b3546;
+  --cw-accent: #a89b8b;
+  background: #111019;
+  color: var(--cw-ink);
+  border: 1px solid var(--cw-border);
+  border-radius: 18px;
+  padding: clamp(16px, 3.5vw, 36px);
+}
+.camelot-tool :is(h2, h3, strong) { color: var(--cw-ink); }
+.camelot-tool .camelot-wheel-wrap {
+  background: #0b0b12;
+  border-color: var(--cw-border);
+}
+.camelot-tool .camelot-info { background: var(--cw-panel); border-color: var(--cw-border); }
+.camelot-tool .camelot-options li { border-color: var(--cw-border); }
+.camelot-tool .camelot-note, .camelot-tool .camelot-options small { color: var(--cw-muted); }
+.camelot-tool button {
+  color: var(--cw-ink);
+  background: #292634;
+  border-color: #625b6d;
+}
+.camelot-tool button:hover, .camelot-tool button:focus-visible { background: #3f394c; border-color: var(--cw-accent); }
+.camelot-tool a { color: #dcc1f1; text-decoration: underline; text-decoration-color: #7a668a; }
+.camelot-tool a:hover, .camelot-tool a:focus-visible { color: #fff; text-decoration-color: #dcc1f1; }
+.camelot-tool table {
+  width: 100%;
+  color: var(--cw-ink);
+  background: #15141e;
+  border-collapse: collapse;
+  border: 1px solid var(--cw-border);
+}
+.camelot-tool table th {
+  background: #2b2635;
+  color: #f6f2fa;
+  border: 1px solid var(--cw-border);
+}
+.camelot-tool table td { color: #e4dfea; border: 1px solid var(--cw-border); }
+.camelot-tool table tbody tr { background: #1e1b29; }
+.camelot-tool table tbody tr:nth-child(even) { background: #15141e; }
+.camelot-tool table tbody tr:hover { background: #393147; color: #fff; }
+.camelot-tool .camelot-segment:focus-visible { stroke: #fff; stroke-width: 5; }
 </style>
 
 <div class="camelot-tool">
