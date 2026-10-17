@@ -77,15 +77,12 @@ function renderWheel(){
   if(camelot){
     for(let i=0;i<12;i++){const number=mod(i+7,12)+1;makeSegment(i,'B',i,12,number+'B');makeSegment(i,'A',i,12,number+'A');}
   }else{
-    if(state.layout==='generator'&&cycles>1){
-      let index=0;for(const cycle of generatorCycles(state.edo,state.generator)){
-        for(const step of cycle){const i=index++;makeSegment(step,'B',i,count,displayCode(step));}
-      }
-    }else order.forEach((step,i)=>makeSegment(step,'B',i,order.length,displayCode(step)));
+    order.forEach((step,i)=>makeSegment(step,'B',i,order.length,displayCode(step)));
     // Scale membership in inner ring. Intentionally independent of compatibility calculations.
     const selected=new Set(absoluteScale());
     const safeOrder=state.layout==='generator'?wheelOrder(state.edo,state.layout,state.generator):fullOrder;
     safeOrder.forEach((step,i)=>{
+      if(count>240)return;
       if(!selected.has(step))return;
       const a=-Math.PI/2+i*2*Math.PI/count,b=a+2*Math.PI/count;
       const mark=svgElement('path',{d:sector(107,173,a,b),fill:'#b8a1cb',stroke:'#100e19','stroke-width':1,opacity:.8},svg);
@@ -100,10 +97,12 @@ function renderWheel(){
 function renderGraph(){
   const graph=$('cw-graph');graph.replaceChildren();
   const notes=state.edo===12&&state.mode==='mixing'?Array.from({length:12},(_,i)=>i):absoluteScale();
-  const count=notes.length;
-  $('cw-graph-caption').textContent=count+' nodes';
+  const allCount=notes.length;
+  const visibleNotes=allCount>36?notes.filter((_,i)=>Math.floor(i*36/allCount)!==Math.floor((i-1)*36/allCount)):notes;
+  const count=visibleNotes.length;
+  $('cw-graph-caption').textContent=allCount+(allCount>36?' nodes · 36 sampled':' nodes');
   if(count===0)return;
-  const positions=notes.map((pitch,i)=>({pitch,x:230+138*Math.cos(-Math.PI/2+2*Math.PI*i/count),y:184+135*Math.sin(-Math.PI/2+2*Math.PI*i/count)}));
+  const positions=visibleNotes.map((pitch,i)=>({pitch,x:230+138*Math.cos(-Math.PI/2+2*Math.PI*i/count),y:184+135*Math.sin(-Math.PI/2+2*Math.PI*i/count)}));
   const highlight=new Set(absoluteChord());
   for(let i=0;i<count;i++)for(let j=i+1;j<count;j++){
     const a=positions[i],b=positions[j];
