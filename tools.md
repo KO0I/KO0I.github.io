@@ -25,7 +25,7 @@ image: '/images/surf.png'
 
 # <font color="pink"> Tooling</font>
 
-#### <span style="color: #d993b7;" aria-hidden="true">♫</span> [Interactive Camelot Wheel]({{ '/tools/camelot-wheel/' | relative_url }})
+#### <span style="color: #a89b8b; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓏢</span> [Interactive Camelot Wheel]({{ '/tools/camelot-wheel/' | relative_url }})
 
 *Harmonic mixing key wheel; based on the [original by Mixed In Key](https://mixedinkey.com/camelot-wheel/#chart).*
 
