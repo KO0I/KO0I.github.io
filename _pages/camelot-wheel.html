@@ -1,202 +1,137 @@
 ---
 layout: page
 title: Camelot Wheel
+description: Interactive Camelot harmonic mixing wheel and alternative equal-temperament explorer.
 permalink: /tools/camelot-wheel/
+interactive: true
 ---
 
-<style>
-.camelot-tool{--cw-ink:#eceaf5;--cw-muted:#b5b0c5;--cw-panel:#181727;max-width:1050px;margin:1.5rem auto;color:var(--cw-ink)}
-.camelot-intro{max-width:66ch}
-.camelot-layout{display:grid;grid-template-columns:minmax(280px,1.25fr) minmax(260px,1fr);gap:1.2rem;align-items:start}
-.camelot-wheel-wrap{background:#11111c;border:1px solid #393347;border-radius:16px;padding:12px}
-#camelot-wheel{display:block;width:100%;height:auto;max-width:620px;margin:auto}
-.camelot-segment{cursor:pointer;stroke:#151421;stroke-width:2;transition:opacity .12s,stroke-width .12s;outline:none}
-.camelot-segment:hover,.camelot-segment:focus-visible{stroke:#fff;stroke-width:4}
-.camelot-segment.dim{opacity:.25}
-.camelot-segment.active{stroke:#fff;stroke-width:5}
-.camelot-segment.related{stroke:#fafafa;stroke-width:2.5}
-.camelot-label{pointer-events:none;text-anchor:middle;dominant-baseline:middle;font:700 16px system-ui,sans-serif;fill:white}
-.camelot-center{font:700 31px system-ui,sans-serif;fill:#fff;text-anchor:middle}
-.camelot-center-sub{font:13px system-ui,sans-serif;fill:#c7c2d2;text-anchor:middle}
-.camelot-info{background:var(--cw-panel);border:1px solid #393347;border-radius:16px;padding:1.25rem}
-.camelot-info h2{margin:.25em 0}.camelot-info h3{margin:1.3rem 0 .5rem}
-.camelot-info p,.camelot-tool p{line-height:1.55}
-.camelot-options{list-style:none;padding:0;margin:0}
-.camelot-options li{padding:.6rem 0;border-bottom:1px solid #40384d;display:flex;gap:1rem;justify-content:space-between;align-items:baseline}
-.camelot-options li small{color:var(--cw-muted);text-align:right}
-.camelot-key{font-weight:bold;white-space:nowrap}
-.camelot-toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.camelot-tool button{border:1px solid #8880a0;border-radius:7px;padding:.3rem .75rem;color:inherit;background:#27233a;cursor:pointer}
-.camelot-tool button:hover,.camelot-tool button:focus-visible{background:#453956}
-.camelot-note{color:var(--cw-muted);font-size:.92rem}
-@media(max-width:750px){.camelot-layout{grid-template-columns:1fr}.camelot-info{padding:1rem}}
+<link rel="stylesheet" href="{{ '/assets/css/camelot-explorer.css' | relative_url }}">
 
-/* Dark palette confined to the Camelot tool, independent of page defaults. */
-body:has(.camelot-tool) .page { max-width: 1120px; }
-body:has(.camelot-tool) .hero__title::before {
-  content: "𓏢";
-  color: #a89b8b;
-  font-family: "Noto Sans Egyptian Hieroglyphs", "Segoe UI Historic", sans-serif;
-  margin-right: .4em;
-}
-.camelot-tool {
-  color-scheme: dark;
-  --cw-ink: #f1edf5;
-  --cw-muted: #bcb5c8;
-  --cw-panel: #191722;
-  --cw-border: #3b3546;
-  --cw-accent: #a89b8b;
-  background: #111019;
-  color: var(--cw-ink);
-  border: 1px solid var(--cw-border);
-  border-radius: 18px;
-  padding: clamp(16px, 3.5vw, 36px);
-}
-.camelot-tool :is(h2, h3, strong) { color: var(--cw-ink); }
-.camelot-tool .camelot-wheel-wrap {
-  background: #0b0b12;
-  border-color: var(--cw-border);
-}
-.camelot-tool .camelot-info { background: var(--cw-panel); border-color: var(--cw-border); }
-.camelot-tool .camelot-options li { border-color: var(--cw-border); }
-.camelot-tool .camelot-note, .camelot-tool .camelot-options small { color: var(--cw-muted); }
-.camelot-tool button {
-  color: var(--cw-ink);
-  background: #292634;
-  border-color: #625b6d;
-}
-.camelot-tool button:hover, .camelot-tool button:focus-visible { background: #3f394c; border-color: var(--cw-accent); }
-.camelot-tool a { color: #dcc1f1; text-decoration: underline; text-decoration-color: #7a668a; }
-.camelot-tool a:hover, .camelot-tool a:focus-visible { color: #fff; text-decoration-color: #dcc1f1; }
-.camelot-tool table {
-  width: 100%;
-  color: var(--cw-ink);
-  background: #15141e;
-  border-collapse: collapse;
-  border: 1px solid var(--cw-border);
-}
-.camelot-tool table th {
-  background: #2b2635;
-  color: #f6f2fa;
-  border: 1px solid var(--cw-border);
-}
-.camelot-tool table td { color: #e4dfea; border: 1px solid var(--cw-border); }
-.camelot-tool table tbody tr { background: #1e1b29; }
-.camelot-tool table tbody tr:nth-child(even) { background: #15141e; }
-.camelot-tool table tbody tr:hover { background: #393147; color: #fff; }
-.camelot-tool .camelot-segment:focus-visible { stroke: #fff; stroke-width: 5; }
-</style>
+<div id="camelot-explorer" class="cw">
+  <p class="cw-intro">Harmonic mixing · alternative equal temperaments · linked pitch relationships</p>
+  <div class="cw-toolbar" role="group" aria-label="Explorer modes">
+    <button id="cw-mixing" type="button" class="cw-mode is-on" aria-pressed="true">Mixing</button>
+    <button id="cw-explore" type="button" class="cw-mode" aria-pressed="false">Explore</button>
+    <span class="cw-spacer"></span>
+    <button id="cw-share" type="button">Share URL</button>
+    <button id="cw-save" type="button">Save locally</button>
+    <button id="cw-load" type="button">Load saved</button>
+  </div>
 
-<div class="camelot-tool">
-  <p class="camelot-intro">An interactive reference for harmonic DJ mixing. Select a key to see compatible keys and a few more adventurous transitions.</p>
-  <div class="camelot-layout">
-    <div class="camelot-wheel-wrap">
-      <svg id="camelot-wheel" viewBox="0 0 560 560" role="group" aria-label="Interactive Camelot Wheel. Outer ring: major keys (B); inner ring: minor keys (A)."></svg>
-      <p class="camelot-note" style="text-align:center">Outer ring: major (B) · Inner ring: minor (A)</p>
-    </div>
-    <section class="camelot-info" aria-label="Selected key and harmonically related keys">
-      <div class="camelot-toolbar"><strong>Selected key</strong><button id="camelot-clear" type="button">Clear</button></div>
-      <h2 id="camelot-title" aria-live="polite">8A — A minor</h2>
-      <p class="camelot-note">Basic harmonic transitions</p>
-      <ul class="camelot-options" id="camelot-basic"></ul>
-      <h3>Advanced moves</h3>
-      <ul class="camelot-options" id="camelot-advanced"></ul>
-      <p class="camelot-note">These are starting points, not guarantees. Check phrasing, basslines, vocals, and the actual overlap. Camelot numbers wrap between 12 and 1.</p>
+  <div class="cw-setup">
+    <label>Temperament
+      <select id="cw-system">
+        <option value="12">Camelot · 12-EDO</option>
+        <option value="19">19-EDO</option>
+        <option value="24">24-EDO</option>
+        <option value="31">31-EDO</option>
+        <option value="custom">Custom N-EDO</option>
+      </select>
+    </label>
+    <label id="cw-custom-wrap" hidden>Steps per octave
+      <input id="cw-custom-n" type="number" min="2" max="4096" step="1" value="53">
+    </label>
+    <label>Wheel order
+      <select id="cw-layout">
+        <option value="chromatic">Chromatic</option>
+        <option value="generator">Generator</option>
+      </select>
+    </label>
+    <label id="cw-generator-wrap" hidden>Generator (+steps)
+      <input id="cw-generator" type="number" min="1" max="11" value="7" step="1">
+    </label>
+    <label>Reference (Hz)
+      <input id="cw-reference" type="number" min="1" max="20000" step="0.01" value="440">
+    </label>
+  </div>
+
+  <div class="cw-workspace">
+    <section class="cw-panel cw-wheel-panel" aria-label="Tuning wheel">
+      <div class="cw-panel-heading">
+        <h2 id="cw-wheel-heading">Camelot Wheel</h2>
+        <span id="cw-cycle-count" class="cw-subtle">12 keys · A/B</span>
+      </div>
+      <svg id="cw-wheel" viewBox="0 0 560 560" role="group" aria-label="Selectable pitch-class wheel"></svg>
+      <div class="cw-panel-foot">
+        <span id="cw-selected" aria-live="polite">8A · A minor</span>
+        <label class="cw-inline">Visible steps
+          <input id="cw-zoom" type="range" min="12" max="12" value="12" disabled>
+        </label>
+      </div>
+    </section>
+
+    <section class="cw-panel cw-graph-panel" aria-label="Interval graph and selection">
+      <div class="cw-panel-heading">
+        <h2>Interval graph</h2>
+        <span id="cw-graph-caption" class="cw-subtle">Selected pitches and intervals</span>
+      </div>
+      <svg id="cw-graph" viewBox="0 0 460 370" role="group" aria-label="Linked interval relationships"></svg>
+      <div id="cw-metrics" class="cw-metrics" aria-live="polite"></div>
+      <div id="cw-camelot-related" class="cw-key-list" aria-label="Camelot transitions"></div>
+      <div class="cw-compact-data"><span id="cw-frequency">440 Hz</span><span id="cw-offset">0 cents</span></div>
     </section>
   </div>
-  <h2>Key conversion chart</h2>
-  <table><thead><tr><th>Camelot</th><th>A — minor</th><th>B — major</th></tr></thead><tbody id="camelot-chart"></tbody></table>
-  <p class="camelot-note">Independent interactive reference based on the Camelot harmonic mixing system. Original wheel, concept, and further mixing guidance: <a href="https://mixedinkey.com/camelot-wheel/#chart" rel="noopener noreferrer" target="_blank">Mixed In Key — Camelot Wheel ↗</a>. This tool is not affiliated with Mixed In Key.</p>
+
+  <div class="cw-workspace cw-edit-layout">
+    <section class="cw-panel" aria-label="Scale editor">
+      <div class="cw-panel-heading"><h2>Scale / chord</h2><span class="cw-subtle">Step numbers relative to root</span></div>
+      <div class="cw-field-grid">
+        <label>Scale preset <select id="cw-preset"></select></label>
+        <label>Tonal center <select id="cw-root"></select></label>
+      </div>
+      <label class="cw-checkbox"><input id="cw-edit" type="checkbox"> Edit scale on wheel</label>
+      <label>Scale intervals (comma-separated steps)
+        <input id="cw-scale" type="text" value="0,2,3,5,7,8,10" spellcheck="false" aria-describedby="cw-scale-help">
+      </label>
+      <small class="cw-subtle" id="cw-scale-help">Changing the scale here replaces the current preset.</small>
+      <label>Chord intervals
+        <input id="cw-chord" type="text" value="0,3,7" spellcheck="false">
+      </label>
+      <div id="cw-notes" class="cw-notes" aria-label="Selected scale steps"></div>
+    </section>
+
+    <section class="cw-panel" aria-label="Sound laboratory">
+      <div class="cw-panel-heading"><h2>Audition</h2><span class="cw-subtle">Silent until enabled</span></div>
+      <div class="cw-audio-controls">
+        <button id="cw-enable-audio" type="button" aria-pressed="false">Enable audio</button>
+        <button id="cw-play-pitch" type="button">Pitch</button>
+        <button id="cw-play-interval" type="button">Interval</button>
+        <button id="cw-play-chord" type="button">Chord</button>
+        <button id="cw-play-scale" type="button">Scale</button>
+        <button id="cw-stop" type="button">Stop all</button>
+      </div>
+      <div class="cw-field-grid">
+        <label>Waveform
+          <select id="cw-wave">
+            <option value="sine">Sine</option>
+            <option value="triangle">Triangle</option>
+            <option value="sawtooth">Sawtooth</option>
+            <option value="square">Square</option>
+          </select>
+        </label>
+        <label>Volume
+          <input id="cw-volume" type="range" min="0" max="0.22" step="0.01" value="0.08">
+        </label>
+      </div>
+      <div class="cw-field-grid">
+        <label>Interval (+steps)
+          <input id="cw-interval" type="number" min="0" max="11" value="7" step="1">
+        </label>
+        <label>Note duration (s)
+          <input id="cw-duration" type="number" min="0.1" max="4" value="0.45" step="0.05">
+        </label>
+      </div>
+      <p id="cw-audio-status" class="cw-subtle" aria-live="polite">Audio disabled.</p>
+    </section>
+  </div>
+  <div class="cw-panel cw-table-panel">
+    <div class="cw-panel-heading"><h2 id="cw-table-title">Camelot key conversion</h2><span id="cw-table-count" class="cw-subtle">12 rows</span></div>
+    <div class="cw-table-scroll">
+      <table><thead id="cw-table-head"></thead><tbody id="cw-table-body"></tbody></table>
+    </div>
+  </div>
+  <p class="cw-source">Independent interactive reference. Original system and mixing chart: <a href="https://mixedinkey.com/camelot-wheel/#chart" target="_blank" rel="noopener noreferrer">Mixed In Key — Camelot Wheel ↗</a>. Not affiliated with Mixed In Key. Other temperaments show measurable intervals, not universal musical compatibility.</p>
+  <p id="cw-status" class="cw-status" role="status" aria-live="polite"></p>
 </div>
-<script>
-(() => {
-  'use strict';
-  const minor = ['G♯ minor / A♭ minor','D♯ minor / E♭ minor','A♯ minor / B♭ minor','F minor','C minor','G minor','D minor','A minor','E minor','B minor','F♯ minor','C♯ minor / D♭ minor'];
-  const major = ['B major','F♯ major / G♭ major','D♭ major / C♯ major','A♭ major','E♭ major','B♭ major','F major','C major','G major','D major','A major','E major'];
-  const colors = ['#ba3461','#ab445f','#995474','#89628f','#7169a9','#5577b2','#3c8aab','#259c96','#369c72','#67a24e','#a59c3e','#b9813d'];
-  const svg = document.getElementById('camelot-wheel');
-  const basic = document.getElementById('camelot-basic');
-  const advanced = document.getElementById('camelot-advanced');
-  const title = document.getElementById('camelot-title');
-  const chart = document.getElementById('camelot-chart');
-  const NS = 'http://www.w3.org/2000/svg';
-  const keyName = (num, type) => (type === 'A' ? minor : major)[num - 1];
-  const wrap = num => ((num - 1 + 120) % 12) + 1;
-  const polar = (r, degrees) => {
-    const rad = degrees * Math.PI / 180;
-    return [280 + r * Math.cos(rad), 280 + r * Math.sin(rad)];
-  };
-  const segmentPath = (inner, outer, start, end) => {
-    const a = polar(outer,start), b = polar(outer,end), c = polar(inner,end), d = polar(inner,start);
-    return 'M '+a.join(' ')+' A '+outer+' '+outer+' 0 0 1 '+b.join(' ')+' L '+c.join(' ')+' A '+inner+' '+inner+' 0 0 0 '+d.join(' ')+' Z';
-  };
-  const elem = (tag, attrs, parent) => {
-    const el = document.createElementNS(NS, tag);
-    Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k,String(v)));
-    parent.appendChild(el);
-    return el;
-  };
-  const groups = new Map();
-  let selected = '8A';
-  const compatible = code => {
-    const num = Number(code.slice(0,-1)), type = code.slice(-1), opposite = type === 'A' ? 'B' : 'A';
-    return [code, num+opposite, wrap(num-1)+type, wrap(num+1)+type];
-  };
-  const addOption = (root, label, code) => {
-    const item = document.createElement('li');
-    const left = document.createElement('span'), right = document.createElement('small');
-    left.className = 'camelot-key'; left.textContent = label+' · '+code;
-    right.textContent = keyName(Number(code.slice(0,-1)),code.slice(-1));
-    item.append(left,right);root.appendChild(item);
-  };
-  function render() {
-    basic.replaceChildren(); advanced.replaceChildren();
-    title.textContent = selected ? selected+' — '+keyName(Number(selected.slice(0,-1)),selected.slice(-1)) : 'Choose a key';
-    const matches = selected ? new Set(compatible(selected)) : new Set();
-    for (const [code, seg] of groups) {
-      seg.classList.toggle('active', code === selected);
-      seg.classList.toggle('related', Boolean(selected && matches.has(code) && code !== selected));
-      seg.classList.toggle('dim', Boolean(selected && !matches.has(code)));
-      seg.setAttribute('aria-pressed', String(code === selected));
-    }
-    if (!selected) return;
-    const n = Number(selected.slice(0,-1)), t = selected.slice(-1);
-    addOption(basic,'Same key',selected);
-    addOption(basic,'Relative major / minor', n+(t === 'A' ? 'B' : 'A'));
-    addOption(basic,'One number lower',wrap(n-1)+t);
-    addOption(basic,'One number higher',wrap(n+1)+t);
-    addOption(advanced,'Energy Boost (+2)',wrap(n+2)+t);
-    addOption(advanced,'Jaws Mix (−5)',wrap(n-5)+t);
-    addOption(advanced,'Pay Attention (−3)',wrap(n-3)+t);
-  }
-  for(let i=0;i<12;i++) {
-    const n = wrap(8+i), middle = -90+i*30, start = middle-15, end = middle+15;
-    for(const type of ['B','A']) {
-      const code = n+type, inner = type === 'A' ? 101 : 176, outer = type === 'A' ? 176 : 253;
-      const path = elem('path',{d:segmentPath(inner,outer,start,end),fill:colors[i],class:'camelot-segment',tabindex:0,role:'button','aria-label':code+', '+keyName(n,type),'aria-pressed':'false'},svg);
-      path.dataset.code=code;groups.set(code,path);
-      path.addEventListener('click',()=>{selected= selected===code ? null : code;render();});
-      path.addEventListener('keydown',ev=>{
-        if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();path.dispatchEvent(new Event('click'));}
-        if(ev.key==='ArrowLeft'||ev.key==='ArrowRight'){
-          ev.preventDefault();const next = wrap(n+(ev.key==='ArrowRight'?1:-1))+type;
-          groups.get(next).focus();
-        }
-        if(ev.key==='ArrowUp'||ev.key==='ArrowDown'){ev.preventDefault();groups.get(n+(type==='A'?'B':'A')).focus();}
-      });
-      const pos=polar((inner+outer)/2,middle);
-      const txt=elem('text',{x:pos[0],y:pos[1],class:'camelot-label'},svg);txt.textContent=code;
-    }
-  }
-  elem('circle',{cx:280,cy:280,r:97,fill:'#1c1b2b',stroke:'#474055','stroke-width':2},svg);
-  const central=elem('text',{x:280,y:275,class:'camelot-center'},svg);central.textContent='CAMELOT';
-  const sub=elem('text',{x:280,y:302,class:'camelot-center-sub'},svg);sub.textContent='HARMONIC MIXING';
-  document.getElementById('camelot-clear').addEventListener('click',()=>{selected=null;render();});
-  for(let n=1;n<=12;n++){
-    const tr=document.createElement('tr');
-    [String(n),minor[n-1],major[n-1]].forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.appendChild(td);});
-    chart.appendChild(tr);
-  }
-  render();
-})();
-</script>
+<script type="module" src="{{ '/assets/js/camelot/app.mjs' | relative_url }}"></script>
