@@ -24,6 +24,11 @@ image: '/images/surf.png'
 **Special Thanks to [Loren Schmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer approach with overhangs, and for so many ideas about procedural generation**
 
 # <font color="pink"> Tooling</font>
+
+#### <span style="color: #d993b7;" aria-hidden="true">♫</span> [Interactive Camelot Wheel]({{ '/tools/camelot-wheel/' | relative_url }})
+
+*Harmonic mixing key wheel; based on the [original by Mixed In Key](https://mixedinkey.com/camelot-wheel/#chart).*
+
 #### <font color="red" size=14>𓆝</font> [X-PixMap WorkBench](/tools/serializable-pixel-art) 
 *(Special thanks to [Tea Reggi](https://reggi.com) for making and sharing the original workbench)*
 
