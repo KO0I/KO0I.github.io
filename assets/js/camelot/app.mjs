@@ -21,8 +21,25 @@ function camelotNotes(){
   const root=mod((Number(state.camelot.slice(0,-1))-8)*7+(state.camelot.endsWith('B')?3:0),12);
   return [root,root+(state.camelot.endsWith('A')?3:4),root+7];
 }
-function setCamelot(code){state.camelot=code;state.pitch=camelotNotes()[0];render();audition(camelotNotes());}
-function playSelection(){return audition(state.edo===12&&state.mode==='mixing'?camelotNotes():[state.pitch]);}
+function syncCamelot(){
+  const notes=camelotNotes();
+  state.root=state.pitch=notes[0];
+  state.chord=notes.map(note=>note-state.root);
+  const preset=state.camelot.endsWith('A')?'minor':'major';
+  state.scale=scalePresets(12).find(item=>item.id===preset).steps;
+  $('cw-root').value=String(state.root);$('cw-preset').value=preset;
+  $('cw-scale').value=state.scale.join(',');$('cw-chord').value=state.chord.join(',');
+}
+function setCamelot(code){state.camelot=code;syncCamelot();render();audition(camelotNotes());}
+function playSelection(){return audition(state.edo===12&&state.mode==='mixing'?state.chord.map(step=>state.root+step):[state.pitch]);}
+function setRoot(p){
+  state.root=state.pitch=mod(p,state.edo);
+  $('cw-root').value=String(state.root);
+  if(state.edo===12&&state.mode==='mixing'){
+    const kind=state.camelot.at(-1),offset=kind==='B'?3:0;
+    state.camelot=(mod((state.root-offset)*7+7,12)+1)+kind;
+  }
+}
 function setPitch(p){state.pitch=mod(p,state.edo);render();audition([state.pitch],.25);}
 function chooseStep(p){
   p=mod(p,state.edo);
@@ -30,7 +47,7 @@ function chooseStep(p){
     const relative=mod(p-state.root,state.edo);
     state.scale=state.scale.includes(relative)?state.scale.filter(x=>x!==relative):normalizeSteps([...state.scale,relative],state.edo);
     $('cw-preset').value='custom';$('cw-scale').value=state.scale.join(',');
-  }else state.pitch=p;
+  }else setRoot(p);
   render();
   audition([p],.25);
 }
@@ -102,13 +119,13 @@ function renderWheel(){
 }
 function renderGraph(){
   const graph=$('cw-graph');graph.replaceChildren();
-  const notes=state.edo===12&&state.mode==='mixing'?Array.from({length:12},(_,i)=>i):absoluteScale();
+  const notes=state.edo===12&&state.mode==='mixing'?Array.from({length:12},(_,i)=>i):normalizeSteps([...absoluteScale(),...absoluteChord()],state.edo);
   const allCount=notes.length;
   const visibleNotes=allCount>36?notes.filter((_,i)=>Math.floor(i*36/allCount)!==Math.floor((i-1)*36/allCount)):notes;
   const count=visibleNotes.length;
-  $('cw-graph-caption').textContent=allCount+(allCount>36?' nodes · 36 sampled':' nodes');
+  $('cw-graph-caption').textContent=state.edo+'-EDO · root '+state.root+' · '+allCount+(allCount>36?' nodes · 36 sampled':' nodes');
   if(count===0)return;
-  const positions=visibleNotes.map((pitch,i)=>({pitch,x:230+138*Math.cos(-Math.PI/2+2*Math.PI*i/count),y:184+135*Math.sin(-Math.PI/2+2*Math.PI*i/count)}));
+  const positions=visibleNotes.map(pitch=>({pitch,x:230+138*Math.cos(-Math.PI/2+2*Math.PI*pitch/state.edo),y:184+135*Math.sin(-Math.PI/2+2*Math.PI*pitch/state.edo)}));
   const highlight=new Set(absoluteChord());
   for(let i=0;i<count;i++)for(let j=i+1;j<count;j++){
     const a=positions[i],b=positions[j];
@@ -195,7 +212,9 @@ function configureEdo(n){
   $('cw-generator').value=state.generator;$('cw-interval').value=state.interval;
   $('cw-scale').value=state.scale.join(',');$('cw-chord').value=state.chord.join(',');
   $('cw-zoom').value=String(Math.min(state.edo,240));
-  populatePresets();render();
+  populatePresets();
+  if(state.edo===12&&state.mode==='mixing')syncCamelot();
+  render();
 }
 function clearVoices(){
   for(const timeout of pendingTimers)clearTimeout(timeout);pendingTimers=[];
@@ -270,10 +289,10 @@ $('cw-custom-n').addEventListener('change',()=>{try{configureEdo(num($('cw-custo
 $('cw-layout').addEventListener('change',()=>{state.layout=$('cw-layout').value;render();});
 $('cw-generator').addEventListener('change',()=>{try{generatorCycles(state.edo,num($('cw-generator').value));state.generator=num($('cw-generator').value);render();status('');}catch(e){status(e.message);}});
 $('cw-reference').addEventListener('change',()=>{try{state.reference=validateReference($('cw-reference').value);render();status('');}catch(e){status(e.message);}});
-$('cw-mixing').addEventListener('click',()=>{state.mode='mixing';render();});
+$('cw-mixing').addEventListener('click',()=>{state.mode='mixing';if(state.edo===12)syncCamelot();render();});
 $('cw-explore').addEventListener('click',()=>{state.mode='explore';render();});
 $('cw-zoom').addEventListener('input',renderWheel);
-$('cw-root').addEventListener('change',()=>{state.root=num($('cw-root').value);render();});
+$('cw-root').addEventListener('change',()=>{setRoot(num($('cw-root').value));render();});
 $('cw-preset').addEventListener('change',()=>{const p=scalePresets(state.edo).find(x=>x.id===$('cw-preset').value);if(p){state.scale=p.steps;$('cw-scale').value=p.steps.join(',');render();}});
 $('cw-scale').addEventListener('change',updateScale);
 $('cw-chord').addEventListener('change',updateChord);
@@ -285,7 +304,7 @@ $('cw-duration').addEventListener('change',()=>state.duration=Math.min(4,Math.ma
 $('cw-play-selected').addEventListener('click',playSelection);
 $('cw-play-pitch').addEventListener('click',()=>audition([state.pitch]));
 $('cw-play-interval').addEventListener('click',()=>audition([state.pitch,state.pitch+state.interval]));
-$('cw-play-chord').addEventListener('click',()=>audition(absoluteChord()));
+$('cw-play-chord').addEventListener('click',()=>audition(state.chord.map(step=>state.root+step)));
 $('cw-play-scale').addEventListener('click',async()=>{
   if(!await startAudio())return;
   clearVoices();const notes=absoluteScale();audioStatus(state.volume===0?'Volume is zero — raise Volume in Sound settings.':'Playing scale.');
