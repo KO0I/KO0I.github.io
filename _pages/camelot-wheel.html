@@ -52,6 +52,11 @@ interactive: true
         <h2 id="cw-wheel-heading">Camelot Wheel</h2>
         <span id="cw-cycle-count" class="cw-subtle">12 keys · A/B</span>
       </div>
+      <div class="cw-audio-controls">
+        <button id="cw-play-selected" type="button">▶ Play selected key</button>
+        <button id="cw-enable-audio" type="button" aria-pressed="false">Enable audio</button>
+      </div>
+      <p id="cw-audio-status" class="cw-subtle" aria-live="polite">Tap a wheel key to hear its chord. In Explore, tap a step to hear a pitch.</p>
       <svg id="cw-wheel" viewBox="0 0 560 560" role="group" aria-label="Selectable pitch-class wheel"></svg>
       <div class="cw-panel-foot">
         <span id="cw-selected" aria-live="polite">8A · A minor</span>
@@ -92,13 +97,12 @@ interactive: true
     </section>
 
     <section class="cw-panel" aria-label="Sound laboratory">
-      <div class="cw-panel-heading"><h2>Audition</h2><span class="cw-subtle">Silent until enabled</span></div>
+      <div class="cw-panel-heading"><h2>Sound settings</h2><span class="cw-subtle">Tap a Play button to hear sound</span></div>
       <div class="cw-audio-controls">
-        <button id="cw-enable-audio" type="button" aria-pressed="false">Enable audio</button>
-        <button id="cw-play-pitch" type="button">Pitch</button>
-        <button id="cw-play-interval" type="button">Interval</button>
-        <button id="cw-play-chord" type="button">Chord</button>
-        <button id="cw-play-scale" type="button">Scale</button>
+        <button id="cw-play-pitch" type="button">Play pitch</button>
+        <button id="cw-play-interval" type="button">Play interval</button>
+        <button id="cw-play-chord" type="button">Play chord</button>
+        <button id="cw-play-scale" type="button">Play scale</button>
         <button id="cw-stop" type="button">Stop all</button>
       </div>
       <div class="cw-field-grid">
@@ -122,7 +126,6 @@ interactive: true
           <input id="cw-duration" type="number" min="0.1" max="4" value="0.45" step="0.05">
         </label>
       </div>
-      <p id="cw-audio-status" class="cw-subtle" aria-live="polite">Audio disabled.</p>
     </section>
   </div>
   <div class="cw-panel cw-table-panel">

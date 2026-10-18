@@ -17,8 +17,13 @@ const displayCode=step=>String(step);
 const absoluteScale=()=>transposeSteps(state.scale,state.root,state.edo);
 const absoluteChord=()=>transposeSteps(state.chord,state.root,state.edo);
 const status=message=>{$('cw-status').textContent=message;};
-function setCamelot(code){state.camelot=code;state.pitch=mod(Number(code.slice(0,-1))-8,12);render();}
-function setPitch(p){state.pitch=mod(p,state.edo);render();if(audioEnabled)playNotes([state.pitch],.25);}
+function camelotNotes(){
+  const root=mod((Number(state.camelot.slice(0,-1))-8)*7+(state.camelot.endsWith('B')?3:0),12);
+  return [root,root+(state.camelot.endsWith('A')?3:4),root+7];
+}
+function setCamelot(code){state.camelot=code;state.pitch=camelotNotes()[0];render();audition(camelotNotes());}
+function playSelection(){return audition(state.edo===12&&state.mode==='mixing'?camelotNotes():[state.pitch]);}
+function setPitch(p){state.pitch=mod(p,state.edo);render();audition([state.pitch],.25);}
 function chooseStep(p){
   p=mod(p,state.edo);
   if($('cw-edit').checked && state.edo!==12){
@@ -27,7 +32,7 @@ function chooseStep(p){
     $('cw-preset').value='custom';$('cw-scale').value=state.scale.join(',');
   }else state.pitch=p;
   render();
-  if(audioEnabled)playNotes([p],.25);
+  audition([p],.25);
 }
 function selectedRelations(){
   const relatives=new Set(absoluteScale());
@@ -38,6 +43,7 @@ function renderWheel(){
   const svg=$('cw-wheel');svg.replaceChildren();
   const camelot=state.edo===12 && state.mode==='mixing';
   $('cw-wheel-heading').textContent=camelot?'Camelot Wheel':state.edo+'-EDO Wheel';
+  $('cw-play-selected').textContent=camelot?'▶ Play selected key':'▶ Play selected pitch';
   const fullOrder=camelot?Array.from({length:12},(_,i)=>i):wheelOrder(state.edo,state.layout,state.generator);
   const count=fullOrder.length;
   const cycles=camelot?1:state.layout==='generator'?generatorCycles(state.edo,state.generator).length:1;
@@ -195,10 +201,32 @@ function clearVoices(){
   for(const timeout of pendingTimers)clearTimeout(timeout);pendingTimers=[];
   for(const voice of voices){try{voice.osc.stop();}catch{}try{voice.osc.disconnect();voice.gain.disconnect();}catch{}}voices=[];
 }
+function audioStatus(message){$('cw-audio-status').textContent=message;}
+async function startAudio(){
+  const Ctx=window.AudioContext||window.webkitAudioContext;
+  if(!Ctx){audioStatus('Web Audio is unavailable in this browser.');return false;}
+  try{
+    audioContext=audioContext||new Ctx();
+    if(audioContext.state!=='running')await audioContext.resume();
+    if(audioContext.state!=='running')throw new Error('Audio suspended');
+    audioEnabled=true;
+    $('cw-enable-audio').textContent='Mute audio';
+    $('cw-enable-audio').setAttribute('aria-pressed','true');
+    return true;
+  }catch{audioStatus('Audio could not start. Tap Play to try again.');return false;}
+}
+async function audition(steps,duration=state.duration){
+  if(!await startAudio())return;
+  clearVoices();playNotes(steps,duration);
+  audioStatus(state.volume===0?'Volume is zero — raise Volume in Sound settings.':'Playing · tap another key to hear it.');
+}
 async function enableAudio(){
-  if(audioEnabled){clearVoices();audioEnabled=false; if(audioContext){await audioContext.suspend();} $('cw-enable-audio').textContent='Enable audio';$('cw-enable-audio').setAttribute('aria-pressed','false');$('cw-audio-status').textContent='Audio disabled.';return;}
-  const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx){status('Web Audio is unavailable in this browser.');return;}
-  try{audioContext=audioContext||new Ctx();await audioContext.resume();audioEnabled=true;$('cw-enable-audio').textContent='Disable audio';$('cw-enable-audio').setAttribute('aria-pressed','true');$('cw-audio-status').textContent='Audio enabled.';}catch{status('Audio could not be started.');}
+  if(!audioEnabled){await playSelection();return;}
+  clearVoices();audioEnabled=false;
+  if(audioContext)await audioContext.suspend();
+  $('cw-enable-audio').textContent='Enable audio';
+  $('cw-enable-audio').setAttribute('aria-pressed','false');
+  audioStatus('Muted. Tap Play or a wheel key to start sound again.');
 }
 function playNotes(steps,duration=state.duration){
   if(!audioEnabled||!audioContext){$('cw-audio-status').textContent='Enable audio to audition.';return;}
@@ -254,11 +282,13 @@ $('cw-wave').addEventListener('change',()=>state.wave=$('cw-wave').value);
 $('cw-volume').addEventListener('input',()=>state.volume=num($('cw-volume').value));
 $('cw-interval').addEventListener('change',()=>{state.interval=mod(num($('cw-interval').value)||0,state.edo);});
 $('cw-duration').addEventListener('change',()=>state.duration=Math.min(4,Math.max(.1,num($('cw-duration').value)||.45)));
-$('cw-play-pitch').addEventListener('click',()=>playNotes([state.pitch]));
-$('cw-play-interval').addEventListener('click',()=>playNotes([state.pitch,state.pitch+state.interval]));
-$('cw-play-chord').addEventListener('click',()=>playNotes(absoluteChord()));
-$('cw-play-scale').addEventListener('click',()=>{
-  clearVoices();const notes=absoluteScale();if(!audioEnabled){$('cw-audio-status').textContent='Enable audio to audition.';return;}
+$('cw-play-selected').addEventListener('click',playSelection);
+$('cw-play-pitch').addEventListener('click',()=>audition([state.pitch]));
+$('cw-play-interval').addEventListener('click',()=>audition([state.pitch,state.pitch+state.interval]));
+$('cw-play-chord').addEventListener('click',()=>audition(absoluteChord()));
+$('cw-play-scale').addEventListener('click',async()=>{
+  if(!await startAudio())return;
+  clearVoices();const notes=absoluteScale();audioStatus(state.volume===0?'Volume is zero — raise Volume in Sound settings.':'Playing scale.');
   notes.forEach((note,i)=>pendingTimers.push(setTimeout(()=>playNotes([note]),i*state.duration*700)));
 });
 $('cw-stop').addEventListener('click',()=>{clearVoices();$('cw-audio-status').textContent='Stopped.';});

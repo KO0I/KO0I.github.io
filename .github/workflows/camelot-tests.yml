@@ -3,12 +3,12 @@ on:
   push:
     paths:
       - 'assets/js/camelot/**'
-      - 'tests/camelot-tuning.test.mjs'
+      - 'tests/camelot-*.test.mjs'
       - '.github/workflows/camelot-tests.yml'
   pull_request:
     paths:
       - 'assets/js/camelot/**'
-      - 'tests/camelot-tuning.test.mjs'
+      - 'tests/camelot-*.test.mjs'
       - '.github/workflows/camelot-tests.yml'
 jobs:
   tuning:
@@ -20,4 +20,4 @@ jobs:
           node-version: '22'
       - run: node --check assets/js/camelot/app.mjs
       - run: node --check assets/js/camelot/tuning.mjs
-      - run: node --test tests/camelot-tuning.test.mjs
+      - run: node --test tests/camelot-*.test.mjs
