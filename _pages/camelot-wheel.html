@@ -1,140 +1,26 @@
 ---
 layout: page
 title: Camelot Wheel
-description: Interactive Camelot harmonic mixing wheel and alternative equal-temperament explorer.
+description: Interactive Camelot harmonic mixing wheel with key and chord playback.
 permalink: /tools/camelot-wheel/
 interactive: true
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/camelot-explorer.css' | relative_url }}">
-
-<div id="camelot-explorer" class="cw">
-  <p class="cw-intro">Harmonic mixing · alternative equal temperaments · linked pitch relationships</p>
-  <div class="cw-toolbar" role="group" aria-label="Explorer modes">
-    <button id="cw-mixing" type="button" class="cw-mode is-on" aria-pressed="true">Mixing</button>
-    <button id="cw-explore" type="button" class="cw-mode" aria-pressed="false">Explore</button>
-    <span class="cw-spacer"></span>
-    <button id="cw-share" type="button">Share URL</button>
-    <button id="cw-save" type="button">Save locally</button>
-    <button id="cw-load" type="button">Load saved</button>
-  </div>
-
-  <div class="cw-setup">
-    <label>Temperament
-      <select id="cw-system">
-        <option value="12">Camelot · 12-EDO</option>
-        <option value="19">19-EDO</option>
-        <option value="24">24-EDO</option>
-        <option value="31">31-EDO</option>
-        <option value="custom">Custom N-EDO</option>
-      </select>
-    </label>
-    <label id="cw-custom-wrap" hidden>Steps per octave
-      <input id="cw-custom-n" type="number" min="2" max="4096" step="1" value="53">
-    </label>
-    <label>Wheel order
-      <select id="cw-layout">
-        <option value="chromatic">Chromatic</option>
-        <option value="generator">Generator</option>
-      </select>
-    </label>
-    <label id="cw-generator-wrap" hidden>Generator (+steps)
-      <input id="cw-generator" type="number" min="1" max="11" value="7" step="1">
-    </label>
-    <label>Reference (Hz)
-      <input id="cw-reference" type="number" min="1" max="20000" step="0.01" value="440">
-    </label>
-  </div>
-
-  <div class="cw-workspace">
-    <section class="cw-panel cw-wheel-panel" aria-label="Tuning wheel">
-      <div class="cw-panel-heading">
-        <h2 id="cw-wheel-heading">Camelot Wheel</h2>
-        <span id="cw-cycle-count" class="cw-subtle">12 keys · A/B</span>
-      </div>
-      <div class="cw-audio-controls">
-        <button id="cw-play-selected" type="button">▶ Play selected key</button>
-        <button id="cw-enable-audio" type="button" aria-pressed="false">Enable audio</button>
-      </div>
-      <p id="cw-audio-status" class="cw-subtle" aria-live="polite">Tap a wheel key to hear its chord. In Explore, tap a step to hear a pitch.</p>
-      <svg id="cw-wheel" viewBox="0 0 560 560" role="group" aria-label="Selectable pitch-class wheel"></svg>
-      <div class="cw-panel-foot">
-        <span id="cw-selected" aria-live="polite">8A · A minor</span>
-        <label class="cw-inline">Visible steps
-          <input id="cw-zoom" type="range" min="12" max="12" value="12" disabled>
-        </label>
-      </div>
-    </section>
-
-    <section class="cw-panel cw-graph-panel" aria-label="Interval graph and selection">
-      <div class="cw-panel-heading">
-        <h2>Interval graph</h2>
-        <span id="cw-graph-caption" class="cw-subtle">Selected pitches and intervals</span>
-      </div>
-      <svg id="cw-graph" viewBox="0 0 460 370" role="group" aria-label="Linked interval relationships"></svg>
-      <div id="cw-metrics" class="cw-metrics" aria-live="polite"></div>
-      <div id="cw-camelot-related" class="cw-key-list" aria-label="Camelot transitions"></div>
-      <div class="cw-compact-data"><span id="cw-frequency">440 Hz</span><span id="cw-offset">0 cents</span></div>
-    </section>
-  </div>
-
-  <div class="cw-workspace cw-edit-layout">
-    <section class="cw-panel" aria-label="Scale editor">
-      <div class="cw-panel-heading"><h2>Scale / chord</h2><span class="cw-subtle">Step numbers relative to root</span></div>
-      <div class="cw-field-grid">
-        <label>Scale preset <select id="cw-preset"></select></label>
-        <label>Tonal center <select id="cw-root"></select></label>
-      </div>
-      <label class="cw-checkbox"><input id="cw-edit" type="checkbox"> Edit scale on wheel</label>
-      <label>Scale intervals (comma-separated steps)
-        <input id="cw-scale" type="text" value="0,2,3,5,7,8,10" spellcheck="false" aria-describedby="cw-scale-help">
-      </label>
-      <small class="cw-subtle" id="cw-scale-help">Changing the scale here replaces the current preset.</small>
-      <label>Chord intervals
-        <input id="cw-chord" type="text" value="0,3,7" spellcheck="false">
-      </label>
-      <div id="cw-notes" class="cw-notes" aria-label="Selected scale steps"></div>
-    </section>
-
-    <section class="cw-panel" aria-label="Sound laboratory">
-      <div class="cw-panel-heading"><h2>Sound settings</h2><span class="cw-subtle">Tap a Play button to hear sound</span></div>
-      <div class="cw-audio-controls">
-        <button id="cw-play-pitch" type="button">Play pitch</button>
-        <button id="cw-play-interval" type="button">Play interval</button>
-        <button id="cw-play-chord" type="button">Play chord</button>
-        <button id="cw-play-scale" type="button">Play scale</button>
-        <button id="cw-stop" type="button">Stop all</button>
-      </div>
-      <div class="cw-field-grid">
-        <label>Waveform
-          <select id="cw-wave">
-            <option value="sine">Sine</option>
-            <option value="triangle">Triangle</option>
-            <option value="sawtooth">Sawtooth</option>
-            <option value="square">Square</option>
-          </select>
-        </label>
-        <label>Volume
-          <input id="cw-volume" type="range" min="0" max="0.22" step="0.01" value="0.08">
-        </label>
-      </div>
-      <div class="cw-field-grid">
-        <label>Interval (+steps)
-          <input id="cw-interval" type="number" min="0" max="11" value="7" step="1">
-        </label>
-        <label>Note duration (s)
-          <input id="cw-duration" type="number" min="0.1" max="4" value="0.45" step="0.05">
-        </label>
-      </div>
-    </section>
-  </div>
-  <div class="cw-panel cw-table-panel">
-    <div class="cw-panel-heading"><h2 id="cw-table-title">Camelot key conversion</h2><span id="cw-table-count" class="cw-subtle">12 rows</span></div>
-    <div class="cw-table-scroll">
-      <table><thead id="cw-table-head"></thead><tbody id="cw-table-body"></tbody></table>
+<div class="cw cw-simple">
+  <p class="cw-intro">Tap a key to hear its chord. Highlighted neighbors are compatible mixing keys.</p>
+  <section class="cw-panel cw-wheel-panel" aria-label="Camelot wheel">
+    <div class="cw-panel-heading"><h2>Camelot Wheel</h2><span class="cw-subtle">A · minor &nbsp; B · major</span></div>
+    <div class="cw-audio-controls">
+      <button id="cw-play-selected" type="button">▶ Play selected key</button>
+      <button id="cw-stop" type="button">Stop</button>
+      <label class="cw-inline">Volume <input id="cw-volume" type="range" min="0" max="0.22" step="0.01" value="0.08"></label>
     </div>
-  </div>
-  <p class="cw-source">Independent interactive reference. Original system and mixing chart: <a href="https://mixedinkey.com/camelot-wheel/#chart" target="_blank" rel="noopener noreferrer">Mixed In Key — Camelot Wheel ↗</a>. Not affiliated with Mixed In Key. Other temperaments show measurable intervals, not universal musical compatibility.</p>
-  <p id="cw-status" class="cw-status" role="status" aria-live="polite"></p>
+    <p id="cw-audio-status" class="cw-subtle" aria-live="polite">Tap a key or press Play to hear sound.</p>
+    <svg id="cw-wheel" viewBox="0 0 560 560" role="group" aria-label="Camelot keys"></svg>
+    <p id="cw-selected" aria-live="polite">8A · A minor</p>
+    <div id="cw-camelot-related" class="cw-key-list" aria-label="Compatible mixing keys"></div>
+  </section>
+  <p class="cw-source">Original system and mixing chart: <a href="https://mixedinkey.com/camelot-wheel/#chart" target="_blank" rel="noopener noreferrer">Mixed In Key — Camelot Wheel ↗</a>. Independent reference; not affiliated with Mixed In Key.</p>
 </div>
-<script type="module" src="{{ '/assets/js/camelot/app.mjs' | relative_url }}"></script>
+<script type="module" src="{{ '/assets/js/camelot/wheel.mjs' | relative_url }}"></script>

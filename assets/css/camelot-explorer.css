@@ -59,3 +59,7 @@ body:has(.cw) .hero__title:before{content:"𓏢";color:#a89b8b;margin-right:.35e
 .cw a:hover{color:#fff}
 @media(max-width:760px){.cw-workspace{grid-template-columns:1fr}.cw-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.cw-field-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.cw *{transition:none!important;animation:none!important}}
+/* The public page currently exposes only the Camelot wheel. */
+.cw-simple{max-width:740px;margin-inline:auto}
+.cw-simple #cw-wheel{max-width:560px;margin-inline:auto}
+.cw-simple #cw-selected{font-weight:700;text-align:center}
