@@ -1,12 +1,32 @@
 ---
 layout: page
 marain_title: "laysoeter skatsa"
-title: Game
+title: Game Tools
 permalink: /tools/
 image: '/images/surf.png'
 ---
 
 <link rel="stylesheet" href="{{ '/assets/marain/css/marain.css' | relative_url }}">
+
+<style>
+.tool-symbol--color-wheel {
+  display: inline-block;
+  color: #00ffff;
+  font-size: 1.9em;
+  line-height: 0.8;
+  vertical-align: -0.08em;
+  font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;
+}
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .tool-symbol--color-wheel {
+    background-image: linear-gradient(90deg, #ff6b6b, #ffb347, #ffe66d, #66e58f, #00ffff, #8ca9ff, #e08bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+</style>
 
 # <span class="marain">lasoeter skatsa</span>
 *Laysoeter,*   *v.* to play (as in a videogame)
@@ -24,6 +44,10 @@ image: '/images/surf.png'
 **Special Thanks to [Loren Schmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer approach with overhangs, and for so many ideas about procedural generation**
 
 # <font color="pink"> Tooling</font>
+
+#### <span class="tool-symbol--color-wheel" aria-hidden="true">𓇳</span> [Color Wheel]({{ '/tools/color-wheel/' | relative_url }})
+
+*Explore color harmonies, drag the points, and copy your palette.*
 
 #### <span style="color: #a89b8b; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓏢</span> [Interactive Camelot Wheel]({{ '/tools/camelot-wheel/' | relative_url }})
 
