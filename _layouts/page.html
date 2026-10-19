@@ -11,7 +11,7 @@ layout: default
            alt="{{ page.title | strip_html | escape }}">
     </div>
     <div class="hero__content">
-      <h1 class="hero__title">{{ page.title }}</h1>
+      <h1 class="hero__title">{% if page.rainbow_title %}<span class="rainbow-page-title">{{ page.title }}</span>{% else %}{{ page.title }}{% endif %}</h1>
     </div>
   </div>
 </section>
@@ -19,7 +19,7 @@ layout: default
 <section class="hero-without-image">
   <div class="hero-inner">
     <div class="hero-content">
-      <h1 class="hero__title">{{ page.title }}</h1>
+      <h1 class="hero__title">{% if page.rainbow_title %}<span class="rainbow-page-title">{{ page.title }}</span>{% else %}{{ page.title }}{% endif %}</h1>
     </div>
   </div>
 </section>

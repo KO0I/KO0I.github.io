@@ -4,9 +4,24 @@ title: Color Wheel
 description: An interactive color harmony wheel — pick a rule, drag the points, copy the palette.
 permalink: /tools/color-wheel/
 interactive: true
+rainbow_title: true
 ---
 
 <style>
+
+.rainbow-page-title {
+  color: #00ffff;
+}
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .rainbow-page-title {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6b6b, #ffb347, #ffe66d, #66e58f, #00ffff, #8ca9ff, #e08bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
 /* scoped to #cc-wheel so theme CSS can't collide */
 #cc-wheel { display: grid; gap: 18px; justify-items: center; padding: 12px 0 24px; }
 #cc-wheel .cc-canvas { border-radius: 50%; cursor: crosshair; touch-action: none; display: block; max-width: 100%; height: auto; }

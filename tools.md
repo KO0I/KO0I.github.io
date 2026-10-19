@@ -35,15 +35,15 @@ image: '/images/surf.png'
 
 ---
 
-# Space Exploration Game
+# <span style="color: #fff;">Space Exploration Game</span>
 
-#### <span style="color: pink; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">ᑝ</span> [Game Roadmap](/roadmap/)
+#### <span style="color: #a860ff; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">ᑝ</span> [Game Roadmap](/roadmap/)
 
 #### <span style="color: pink; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">ᐉ</span> Play Rasd Fastwalker League [in your browser](https://chipchirp.digital/rfl)
 
 **Special Thanks to [Loren Schmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer approach with overhangs, and for so many ideas about procedural generation**
 
-# <font color="pink"> Tooling</font>
+# <span style="color: #fff;">Tooling</span>
 
 #### <span class="tool-symbol--color-wheel" aria-hidden="true">𓇳</span> [Color Wheel]({{ '/tools/color-wheel/' | relative_url }})
 
