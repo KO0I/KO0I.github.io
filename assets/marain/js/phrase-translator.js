@@ -223,6 +223,7 @@
       if(!statement || statement.mode!=='draft')return null;
       for(const k of ['missing','notes','alignment','rules'])ctx[k].push(...child[k]);
       ctx.rules.push('Proposed whole-clause possibility particle: anong (grammar extension v0.1).');
+      ctx.notes.push('Community grammar extension v0.1: newly proposed use of anong.');
       return {keys:[...(question?['haGgra']:[]),'anoG',...statement.keys],mode:'draft'};
     }
     const m=text.match(/^(you all|i|we|you|he|she|it|they) (.+)$/);
