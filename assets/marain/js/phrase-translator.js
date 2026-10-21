@@ -379,7 +379,7 @@
     return {keys:[...(question?['haGgra']:[]),...p.keys,'beyanlE'],mode:'draft'};
   }
   function consequentClauses(text,ctx,depth) {
-    const m=text.match(/^(.+?),\\s*(therefore|thus|consequently)\\s+(.+)$/);
+    const m=text.match(/^(.+?),\s*(therefore|thus|consequently)\s+(.+)$/);
     if(!m || depth>1)return null;
     const leftCtx=resultContext(),rightCtx=resultContext();
     const before=parse(m[1],leftCtx,depth+1),after=parse(m[3],rightCtx,depth+1);
