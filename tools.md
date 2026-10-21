@@ -49,10 +49,6 @@ image: '/images/surf.png'
 
 *Explore color harmonies, drag the points, and copy your palette.*
 
-#### <span style="color: #a89b8b; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓏢</span> [Interactive Camelot Wheel]({{ '/tools/camelot-wheel/' | relative_url }})
-
-*Harmonic mixing key wheel; based on the [original by Mixed In Key](https://mixedinkey.com/camelot-wheel/#chart).*
-
 #### <font color="red" size=14>𓆝</font> [X-PixMap WorkBench](/tools/serializable-pixel-art) 
 *(Special thanks to [Tea Reggi](https://reggi.com) for making and sharing the original workbench)*
 
@@ -69,6 +65,16 @@ out" the gas giants in the end)*
 #### <span style="color: #29B6FF; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">𓆏</span> [Interiors Workbench](/tools/rfl-interiors-workbench/dist/)
 
 *Explore interior volumes, rooms, and spatial layouts in the browser.*
+
+# <span style="color: #fff;">Waves &amp; Vibes</span>
+
+#### <span style="color: #a89b8b; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓏢</span> [Interactive Camelot Wheel]({{ '/tools/camelot-wheel/' | relative_url }})
+
+*Harmonic mixing key wheel; based on the [original by Mixed In Key](https://mixedinkey.com/camelot-wheel/#chart).*
+
+#### <span style="color: #00ffff; font-size: 1.9em;" aria-hidden="true">∿</span> [CircuitJS Simulator]({{ '/tools/circuitjs/' | relative_url }})
+
+*Build circuits, explore signals, and watch voltage and current change in your browser.*
 
 #  <font color="lightblue">Lore</font>
 
