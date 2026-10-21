@@ -22,6 +22,8 @@
   }
   // Only insert separators where concatenation would change the glyph sequence.
   function romanize(key) {
+    // Irrealis suffix apostrophe is morphological, so it must survive romanization.
+    if (key.endsWith("'Ca")) return romanize(key.slice(0,-3)) + "'tcha";
     let out = '', prefix = '';
     for (const ch of key) {
       if (!own(alpha, ch)) { out += ch; prefix = ''; continue; }
@@ -384,6 +386,7 @@
     }
     ctx.rules.push('Subject.NOM + bare verb + object.ACC; predictable display order, not mandatory Marain word order.');
     if(question)ctx.rules.push('Yes/no question: hanggra (Lesson 16).');
+    if(departure)ctx.notes.push('Community grammar extension v0.2: leave/go away is composed from go/move and away; not an attested compound.');
     if(/^(spoke|said|met|ate|rode|held|gave|wrote|made|grew|sat)$/.test(match.form)||/ed$/.test(match.form))ctx.notes.push('English past tense is not encoded in the verb. The lessons do not establish obligatory tense or aspect marking.');
     return {keys:[...(question?['haGgra']:[]),...subject,emit(match.key,match.form,ctx),...(departure?['nAla']:[]),...obj,...pp],mode:'draft'};
   }
