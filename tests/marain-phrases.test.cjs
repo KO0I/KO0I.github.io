@@ -115,22 +115,22 @@ test('newly proposed modal lexemes are separate from recovered lesson vocabulary
 
 test('simple modal clauses keep complement and negation scope distinct',()=>{
   const cases=[
-    ['I can speak Marain.',"ra'yuh funuft ke kabo maraynva."],
-    ["I can't speak Marain.","ra'yuh funuft hech ke kabo maraynva."],
-    ['I may speak Marain.',"ra'yuh gihwinuft ke kabo maraynva."],
+    ['I can speak Marain.',"ra'yuh funuft kabo maraynva."],
+    ["I can't speak Marain.","ra'yuh funuft hech kabo maraynva."],
+    ['I may speak Marain.',"ra'yuh gihwinuft kabo maraynva."],
     ['I might speak Marain.',"anong ra'yuh kabo maraynva."],
     ['Perhaps I speak Marain.',"anong ra'yuh kabo maraynva."],
-    ['I want to speak Marain.',"ra'yuh okehi ke kabo maraynva."],
-    ['I want you to speak Marain.',"ra'yuh okehi ke geyuh kabo maraynva."],
-    ['I need to speak Marain.',"ra'yuh ku'ha ke kabo maraynva."],
-    ['I do not need to speak Marain.',"ra'yuh ku'ha hech ke kabo maraynva."],
-    ['I should speak Marain.',"ra'yuh shuhztnuft ke kabo maraynva."],
-    ['I should not speak Marain.',"ra'yuh shuhztnuft ke kabo hech maraynva."],
-    ['I must speak Marain.',"ra'yuh kwemraku'ha ke kabo maraynva."],
-    ['I must not speak Marain.',"ra'yuh kwemraku'ha ke kabo hech maraynva."],
-    ['I intend to speak Marain.',"ra'yuh wolugnuft ke kabo maraynva."],
-    ['Can you speak Marain?', 'hanggra geyuh funuft ke kabo maraynva?'],
-    ['Do you want to speak Marain?', 'hanggra geyuh okehi ke kabo maraynva?']
+    ['I want to speak Marain.',"ra'yuh okehi kabo maraynva."],
+    ['I want you to speak Marain.',"ra'yuh okehi geyuh kabo maraynva."],
+    ['I need to speak Marain.',"ra'yuh ku'ha kabo maraynva."],
+    ['I do not need to speak Marain.',"ra'yuh ku'ha hech kabo maraynva."],
+    ['I should speak Marain.',"ra'yuh shuhztnuft kabo maraynva."],
+    ['I should not speak Marain.',"ra'yuh shuhztnuft kabo hech maraynva."],
+    ['I must speak Marain.',"ra'yuh kwemraku'ha kabo maraynva."],
+    ['I must not speak Marain.',"ra'yuh kwemraku'ha kabo hech maraynva."],
+    ['I intend to speak Marain.',"ra'yuh wolugnuft kabo maraynva."],
+    ['Can you speak Marain?', 'hanggra geyuh funuft kabo maraynva?'],
+    ['Do you want to speak Marain?', 'hanggra geyuh okehi kabo maraynva?']
   ];
   for(const [english,roman] of cases){
     const r=tr(english);
@@ -144,4 +144,57 @@ test('unsupported conditionals do not masquerade as translated clauses',()=>{
   const r=tr('If I could speak Marain, I would speak to you.');
   assert.equal(r.mode,'partial');
   assert.ok(r.missing.length);
+});
+
+test('irrealis ending deletion is romanization-specific and preserves glyph keys',()=>{
+  const cases={
+    uprahay:"upraha'tcha",
+    funuft:"funuf'tcha",
+    okehi:"okehi'tcha",
+    nocht:"noch'tcha",
+    hech:"he'tcha",
+    heth:"heth'tcha",
+    wach:"wa'tcha",
+    pac:"pa'tcha",
+    sap:"sa'tcha",
+    bad:"ba'tcha",
+    pat:"pa'tcha",
+    pay:"pa'tcha",
+    kabo:"kabo'tcha"
+  };
+  for(const [stem,expected] of Object.entries(cases))
+    assert.equal(api.hypotheticalRoman(stem),expected,stem);
+  for(const [stem,roman] of [['OprahA',"upraha'tcha"],['fOnOft',"funuf'tcha"],
+      ['okehE',"okehi'tcha"],['heT',"heth'tcha"],['noHt',"noch'tcha"]]){
+    const derived=api.hypothetical(stem);
+    assert.equal(derived.roman,roman,stem);
+    assert.equal(api.encode(roman),derived.glyphKey,stem);
+    assert.equal(api.romanize(derived.key),roman,stem);
+  }
+  assert.equal(api.hypotheticalRoman(''),null);
+});
+
+test('v0.2 hypotheticals, leave and belief clauses use zero-marked chaining',()=>{
+  const cases=[
+    ['I leave.',"ra'yuh uprahay nayla."],
+    ['I would leave.',"ra'yuh upraha'tcha nayla."],
+    ['I want to leave.',"ra'yuh okehi uprahay nayla."],
+    ['I would like to leave.',"ra'yuh okehi'tcha uprahay nayla."],
+    ['I can leave.',"ra'yuh funuft uprahay nayla."],
+    ['I could leave.',"ra'yuh funuf'tcha uprahay nayla."],
+    ['I should leave.',"ra'yuh shuhztnuft uprahay nayla."],
+    ['I think you should leave.',"ra'yuh heth geyuh shuhztnuft uprahay nayla."],
+    ['I think that you should leave.',"ra'yuh heth geyuh shuhztnuft uprahay nayla."],
+    ['I would think you should leave.',"ra'yuh heth'tcha geyuh shuhztnuft uprahay nayla."]
+  ];
+  for(const [english,roman] of cases){
+    const r=tr(english);
+    assert.equal(r.roman,roman,english);
+    assert.equal(r.mode,'draft',english);
+    assert.ok(r.notes.some(n=>/proposed|extension/.test(n)),english);
+    assert.equal(r.glyphs.includes("'"),false,'apostrophe must not be a glyph for '+english);
+  }
+  assert.equal(tr('I would leave.').glyphs,'rayu OprahaCa nAla.');
+  assert.equal(tr('I could leave.').glyphs,'rayu fOnOfCa OprahA nAla.');
+  assert.equal(tr('I would like a flower.').mode,'partial');
 });

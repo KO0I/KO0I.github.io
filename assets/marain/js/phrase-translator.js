@@ -32,6 +32,21 @@
     }
     return out;
   }
+
+  // Proposed v0.2 irrealis suffix. The apostrophe is romanised morphology,
+  // not a Marain glyph. Delete one eligible ending before adding 'tcha.
+  function hypotheticalRoman(roman) {
+    if(typeof roman!=='string' || !roman || /\s/.test(roman))return null;
+    const stem=roman.replace(/(?:ch|[cpdty])$/,'');
+    return stem ? stem+"'tcha" : null;
+  }
+  function hypothetical(key) {
+    const roman=hypotheticalRoman(romanize(key));
+    if(!roman)return null;
+    const glyphKey=encode(roman);
+    if(!glyphKey || !glyphKey.endsWith('Ca'))return null;
+    return {roman, glyphKey, key:glyphKey.slice(0,-2)+"'Ca"};
+  }
   function inflect(key, role) {
     if (key === UNKNOWN) return key;
     const suffixes = {acc:'va', dat:'vil', org:'sa', loc:'lE', com:'j', abs:''};
@@ -87,6 +102,7 @@
   add('fall','des sha','verb');
   const verbs = {
     kabo:{forms:['speak','speaks','spoke','talk','talks','say','says','said'], object:'optional'},
+    OprahA:{forms:['leave','leaves','left','go away','goes away','went away','go','goes','went','move','moves','moved'], object:'none'},
     gore:{forms:['meet','meets','met'], object:'required'},
     nadek:{forms:['consume','consumes','consumed','ingest','ingests','ingested','eat','eats','ate'], object:'required'},
     zawen:{forms:['ride','rides','rode','ride aboard','rides aboard'], object:'required'},
@@ -195,7 +211,7 @@
     'my mind state is backed up in the spaceship': ['murermarayu dam ra sAno prenlE','Lesson 12']
   };
 
-  // Community grammar extension v0.1: intentionally bounded modal/complement clauses.
+  // Community grammar extension v0.2: zero-marked predicate chaining and scope.
   // These are proposed constructions, not claims about recovered Banks canon.
   const modalForms = [
     ['do not need to','kOha','matrix'], ['does not need to','kOha','matrix'],
@@ -206,6 +222,9 @@
     ['are not obliged to','kwemrakOha','matrix'],
     ['must not','kwemrakOha','embedded'], ['should not','SuztnOft','embedded'],
     ['cannot','fOnOft','matrix'], ["can't",'fOnOft','matrix'], ['can not','fOnOft','matrix'],
+    ['would like to','okehE','hypothetical'], ['would want to','okehE','hypothetical'],
+    ['would need to','kOha','hypothetical'], ['would have to','kwemrakOha','hypothetical'],
+    ['could','fOnOft','hypothetical'],
     ['should','SuztnOft','none'], ['must','kwemrakOha','none'],
     ['have permission to','giwEnOft','none'], ['has permission to','giwEnOft','none'],
     ['may','giwEnOft','none'], ['can','fOnOft','none'],
@@ -214,7 +233,7 @@
     ['plan to','wolOgnOft','none'], ['plans to','wolOgnOft','none'],
     ['want to','okehE','none'], ['wants to','okehE','none'],
     ['need to','kOha','none'], ['needs to','kOha','none'],
-    ['want','okehE','explicit'], ['wants','okehE','explicit']
+    ['would like','okehE','explicit-hypothetical'], ['want','okehE','explicit'], ['wants','okehE','explicit']
   ];
   function extendedClause(text, question, ctx) {
     const possible=text.match(/^(maybe|perhaps) (.+)$/);
@@ -232,7 +251,7 @@
     for(const [form,modalKey,scope] of modalForms) {
       if(!remainder.startsWith(form+' '))continue;
       let expression=remainder.slice(form.length+1), embeddedActor=null;
-      if(scope==='explicit') {
+      if(scope==='explicit'||scope==='explicit-hypothetical') {
         const actor=expression.match(/^(you all|i|we|you|he|she|it|they) to (.+)$/);
         if(!actor)continue;
         embeddedActor=actor[1];expression=actor[2];
@@ -244,22 +263,56 @@
       if(!event.length)continue;
       if(scope==='embedded')event.splice(1,0,'heH');
       let keys;
+      const markedModal=(scope==='hypothetical'||scope==='explicit-hypothetical')?hypothetical(modalKey)?.key:modalKey;
+      if(!markedModal)return null;
       if(scope==='epistemic')keys=['anoG',matrixNom,...event];
-      else keys=[matrixNom,modalKey,...(scope==='matrix'?['heH']:[]),'ke',...(embeddedActor?[inflect(pronouns[embeddedActor],'nom')]:[]),...event];
+      else keys=[matrixNom,markedModal,...(scope==='matrix'?['heH']:[]),...(embeddedActor?[inflect(pronouns[embeddedActor],'nom')]:[]),...event];
       if(question)keys.unshift('haGgra');
       ctx.alignment.push({english:subject,marain:romanize(matrixNom),reason:'Nominative subject'});
-      ctx.alignment.push({english:form,marain:romanize(modalKey),reason:'Proposed modal grammar v0.1; '+scope});
+      ctx.alignment.push({english:form,marain:romanize(markedModal),reason:'Proposed modal grammar v0.2; '+scope});
       for(const field of ['missing','notes','rules'])ctx[field].push(...child[field]);
       ctx.alignment.push(...child.alignment.slice(embeddedActor?0:1));
-      ctx.rules.push('Proposed modal complement rule: modal + ke + verb; embedded subject inherits the matrix actor unless stated.');
+      ctx.rules.push('Proposed zero-marked predicate chain: modal + following predicate; optional ke boundary for ambiguity. A new nominative marks an explicit subordinate actor.');
       if(scope==='matrix'||scope==='embedded')ctx.rules.push('Negation scope depends on hech placement; proposed extension, not recovered canon.');
       if(form==='may')ctx.notes.push('English “may” is interpreted as permission, not probability. Use “might” for epistemic possibility.');
-      ctx.notes.push('Community grammar extension v0.1: newly proposed construction.');
+      ctx.notes.push('Community grammar extension v0.2: newly proposed construction.');
+      if(scope==='hypothetical'||scope==='explicit-hypothetical')ctx.notes.push('The irrealis suffix ' + "'tcha" + ' softens desire in English “would like”; other uses are hypothetical, not automatically polite.');
       return {keys,mode:'draft'};
     }
     return null;
   }
-  function parse(input,ctx) {
+
+  // Belief about a proposition uses heth, not tsha ('think about').
+  // An explicit second nominative introduces the embedded proposition.
+  function beliefClause(text,question,ctx,depth) {
+    const m=text.match(/^(you all|i|we|you|he|she|it|they) (would think|would believe|think|thinks|believe|believes) (?:that )?(you all|i|we|you|he|she|it|they) (.+)$/);
+    if(!m || depth>2)return null;
+    const child=resultContext(), clause=parse(m[3]+' '+m[4],child,depth+1);
+    if(!clause || clause.mode!=='draft' || clause.keys[0]!==inflect(pronouns[m[3]],'nom'))return null;
+    const matrix=m[2].startsWith('would ')?hypothetical('heT')?.key:'heT';
+    if(!matrix)return null;
+    const subject=inflect(pronouns[m[1]],'nom');
+    ctx.alignment.push({english:m[1],marain:romanize(subject),reason:'Main nominative subject'});
+    ctx.alignment.push({english:m[2],marain:romanize(matrix),reason:'Belief predicate; hypothetical if marked'});
+    for(const field of ['missing','notes','alignment','rules'])ctx[field].push(...child[field]);
+    ctx.rules.push('Proposed belief clause: heth + a separate nominative subject and proposition; tsha means to think about.');
+    ctx.notes.push('Community grammar extension v0.2: new nested-predicate rule, not attested in the recovered lessons.');
+    return {keys:[...(question?['haGgra']:[]),subject,matrix,...clause.keys],mode:'draft'};
+  }
+  function simpleWould(text,question,ctx,depth) {
+    const m=text.match(/^(you all|i|we|you|he|she|it|they) would (.+)$/);
+    if(!m || depth>2 || /^(like|want|think|believe|have)\b/.test(m[2]))return null;
+    const child=resultContext(), base=parse(m[1]+' '+m[2],child,depth+1);
+    if(!base || base.mode!=='draft' || base.keys[0]!==inflect(pronouns[m[1]],'nom'))return null;
+    const form=hypothetical(base.keys[1]);
+    if(!form)return null;
+    for(const field of ['missing','notes','alignment','rules'])ctx[field].push(...child[field]);
+    ctx.rules.push("Proposed irrealis predicate suffix 'tcha: drop final ch/c/p/d/t/y before attachment.");
+    ctx.notes.push('Community grammar extension v0.2: hypothetical, not a recovered verb tense.');
+    return {keys:[...(question?['haGgra']:[]),base.keys[0],form.key,...base.keys.slice(2)],mode:'draft'};
+  }
+  function parse(input,ctx,depth=0) {
+    if(depth>3)return null;
     let text=normal(input).replace(/\bi'm\b/g,'i am').replace(/\bdon't\b/g,'do not').replace(/\bdoesn't\b/g,'does not').replace(/\bdidn't\b/g,'did not');
     const plain=words(text).join(' ').replace(/mind-state/g,'mind state');
     if(own(fixed,plain)) {
@@ -275,8 +328,12 @@
     // English modal auxiliary inversion, e.g. "Can you speak Marain?"
     const inverted=text.match(/^(can|may|must|should|might) (you all|i|we|you|he|she|it|they) (.+)$/);
     if(inverted){text=inverted[2]+' '+inverted[1]+' '+inverted[3];question=true;}
+    const belief=beliefClause(text,question,ctx,depth);
+    if(belief)return belief;
     const proposed=extendedClause(text,question,ctx);
     if(proposed)return proposed;
+    const irrealis=simpleWould(text,question,ctx,depth);
+    if(irrealis)return irrealis;
     // Existential possession deliberately differs from physical holding.
     let m=text.match(/^(i|we|you|he|she|it|they) (have|has) (.+)$/);
     if(m) {
@@ -316,6 +373,7 @@
     if(match.v.object==='required'&&!objText)return null;
     if(match.v.object==='none'&&objText)return null;
     const obj=objText?nounPhrase(objText,'acc',ctx):[];if(!obj)return null;
+    const departure=match.key==='OprahA' && /^(?:leave|leaves|left|go away|goes away|went away)$/.test(match.form);
     let pp=[];
     if(tail.length) {
       const prep=tail.shift();
@@ -327,7 +385,7 @@
     ctx.rules.push('Subject.NOM + bare verb + object.ACC; predictable display order, not mandatory Marain word order.');
     if(question)ctx.rules.push('Yes/no question: hanggra (Lesson 16).');
     if(/^(spoke|said|met|ate|rode|held|gave|wrote|made|grew|sat)$/.test(match.form)||/ed$/.test(match.form))ctx.notes.push('English past tense is not encoded in the verb. The lessons do not establish obligatory tense or aspect marking.');
-    return {keys:[...(question?['haGgra']:[]),...subject,emit(match.key,match.form,ctx),...obj,...pp],mode:'draft'};
+    return {keys:[...(question?['haGgra']:[]),...subject,emit(match.key,match.form,ctx),...(departure?['nAla']:[]),...obj,...pp],mode:'draft'};
   }
   function translate(input) {
     input=String(input||'').trim();
@@ -354,15 +412,16 @@
       if(segments.length)segments.push({text:' ',plain:true});
       parsed.keys.forEach((key,i)=>{
         if(i)segments.push({text:' ',plain:true});
-        segments.push({text:key,unknown:key===UNKNOWN});
+        const suffix=key.endsWith("'Ca");
+        segments.push({text:suffix?key.replace(/'/g,''):key,roman:suffix?romanize(key):null,unknown:key===UNKNOWN});
       });
       if(end)segments.push({text:end,plain:true});
     }
     all.notes=[...new Set(all.notes)];all.rules=[...new Set(all.rules)];all.missing=[...new Set(all.missing)];
-    all.roman=segments.map(s=>s.unknown||s.plain?s.text:romanize(s.text)).join('');
+    all.roman=segments.map(s=>s.unknown||s.plain?s.text:(s.roman||romanize(s.text))).join('');
     all.glyphs=segments.map(s=>s.text).join('');all.segments=segments;
     all.mode=all.missing.length||modes.includes('partial')?'partial':modes.every(m=>m==='attested')?'attested':'draft';
     return all;
   }
-  return {translate,romanize,encode,inflect,lookup,numberKey};
+  return {translate,romanize,encode,inflect,lookup,numberKey,hypotheticalRoman,hypothetical};
 }));

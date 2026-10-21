@@ -1,83 +1,92 @@
-# Marain grammar extension v0.1
+# Marain grammar extension v0.2 — hypothetical predicates and clause chaining
 
-**Status: adopted into this site's community dictionary as *proposed* language, 2026-10-21.** Proposed grammar is not an assertion about Iain M. Banks's original Marain. Restored lesson vocabulary is explicitly distinguished from these inventions.
+**Status: adopted into this project's dictionary as explicitly proposed language (2026-10-21).** Neither the new irrealis suffix nor zero-marked predicate chaining is asserted to be part of Iain M. Banks's published Marain. The original community-lesson evidence is preserved in the [lesson-rule audit]({{ '/lesson-rules/' | relative_url }}).
 
-**Sources:** recovered Marain community lessons, especially 1, 2, 7, 12, 16 and 21; the site's dictionary and [lesson-rule audit]({{ '/lesson-rules/' | relative_url }}).
+## Recovered features retained
 
-## Existing rules retained
+- Seven existing nominal cases (nominative, accusative, dative, originative, locative, comitative, bare vocative/absolutive) and four grammatical persons; nouns and pronouns continue to take their ordinary case endings.
+- Predicates have no obligatory tense or person inflections in the surviving material. Existing optional time locatives include `bechumli` (past), `ikili` (present), and `beyanli` (future).
+- `hanggra` is the Lesson 16 yes/no question marker. `shay` is used for who/what/which.
+- `hech` (no/not/without) is attested after a verb, but the generalized scoping rule below is **proposed**.
+- `tcha` (if), `ayng` (then), `heth` (believe), `tsha` (think about), `uprahay` (go/move), and `nayla` (away) are existing dictionary words.
 
-- Seven noun cases: nominative, accusative, dative, originative, locative, comitative, and bare vocative/absolutive. Case marks grammatical role, permitting flexible word order.
-- First-, second-, third-, and generic fourth-person pronouns, each singular/plural; no new personal agreement is required on verbs.
-- Verbs are not obligatorily inflected for tense or person. Optional attested temporal locatives include `bechumli` (past), `ikili` (present), `beyanli` (future). No dedicated aspect system is established here.
-- `hanggra` (“is it true that…?”) is **recovered from Lesson 16** for yes/no questions. `shay` supplies who/what/which questions.
-- `hech` “no/not/without” and its postverbal use are **attested** in Lesson 2. Its general predicate-local scope below is newly proposed.
-- `tcha` (if) and `ayng` (then) already exist; retain their meanings.
+## 1. Zero-marked predicates and optional `ke`
 
-## Seven proposed dictionary entries
+**Proposal (superseding v0.1's mandatory `ke`):**
 
-| Romanisation | Glyph key | Meaning | Formation |
-|---|---|---|---|
-| `ke` | `ke` | predicate-complement linker (“to…”) | new grammatical particle |
-| `funuft` | `fOnOft` | can; ability | `fu` (ability) + `nuft` (do) |
-| `gihwinuft` | `giwEnOft` | may; permission | `gihwi` (permission) + `nuft` (do) |
-| `shuhztnuft` | `SuztnOft` | should; advisable | `shuhzt` (desirable) + `nuft` (do) |
-| `kwemraku'ha` | `kwemrakOha` | must; rule-bound | `kwemra` (respect rules) + `ku'ha` (need) |
-| `wolugnuft` | `wolOgnOft` | intend to | `wolug` (plan) + `nuft` (do) |
-| `hangtcha` | `haGCa` | contrary-to-fact if | `hang` (false) + `tcha` (if) |
+`[subject.NOM] [modal or control predicate] (hech) [main predicate] (hech) [case-marked arguments]`
 
-### New grammatical senses of existing words
+A modal (ability, permission, advice, obligation) or control predicate (desire, need, intention) takes the following verb phrase as its complement *without requiring another particle*. The complement inherits the matrix subject when no new nominative is given. An explicit second nominative introduces a different subordinate actor:
 
-- `anong` (glyph `anoG`) already means **possibility**. Proposed clause-initial use: *maybe/perhaps/might*.
-- `hech` (glyph `heH`) already means **no/not/without**. Proposed placement: directly after whichever predicate is negated.
-- `okehi` (want), `ku'ha` (need), `gih` (allow), `saynomag` (begin), and `nocht` (stop) may use the new `ke` complement rule. Their stems remain existing vocabulary.
+- `ra'yuh okehi uprahay nayla.` — I want to leave (literally I want to go away).
+- `ra'yuh funuft uprahay nayla.` — I can leave.
+- `ra'yuh shuhztnuft uprahay nayla.` — I should leave.
+- `ra'yuh okehi geyuh uprahay nayla.` — I want you to leave.
 
-## Proposed rules
+The existing proposed `ke` remains available *optionally* before the subordinate predicate where a boundary would otherwise be ambiguous. It is no longer the default equivalent of English “to”. These are **new syntax rules**, not observed lesson constructions.
 
-### Verb complement and reference
+The default display order of linked predicates is significant even though ordinary noun roles are marked by case. More complex nested clauses and freedom of argument order inside chains remain experimental.
 
-`[subject.NOM] [modal or control predicate] (hech) ke [(subordinate subject.NOM)] [verb] (hech) [case-marked arguments]`
+## 2. Hypothetical / irrealis predicate suffix `'tcha`
 
-The `ke` linker introduces an event or predicate complement. With no explicit subject, it inherits the matrix subject. When a subordinate subject is specified, mark it nominative. Case marking still licenses free argument order, while `ke` remains attached to its introduced predicate. This is a **new rule**, not a reconstructed one.
+**Proposal:** attach `'tcha` directly to the predicate whose action, capacity, or desire is hypothetical rather than asserted as actual.
 
-- `ra'yuh okehi ke kabo maraynva.` — I want to speak Marain.
-- `ra'yuh okehi ke geyuh kabo maraynva.` — I want you to speak Marain.
-- `ra'yuh funuft ke kabo maraynva.` — I can speak Marain.
-- `ra'yuh gihwinuft ke kabo maraynva.` — I have permission to speak Marain.
-- `anong ra'yuh kabo maraynva.` — I might speak Marain.
-- `ra'yuh shuhztnuft ke kabo maraynva.` — I should speak Marain.
-- `ra'yuh kwemraku'ha ke kabo maraynva.` — I must speak Marain.
-- `ra'yuh wolugnuft ke kabo maraynva.` — I intend to speak Marain.
+### Orthographic rule (revised Marain romanisation)
 
-### Negation scope
+Before appending `'tcha`, delete **one** final ending from the original predicate, checking the two-letter ending `ch` first, then `c`, `p`, `d`, `t`, or `y`. For any other ending, retain the complete stem. The rule is applied **once** per suffixation, not repeatedly to newly exposed letters.
 
-Under the **proposed** rule, place `hech` immediately after the predicate whose truth is denied.
+| Ending | Treatment | Example |
+|---|---|---|
+| `ch` | Drop `ch` | `hech → he'tcha` (illustrates spelling only; `hech` is not a predicate) |
+| `c` | Drop `c` | No dictionary predicate currently ends in Roman `c`; retained for future vocabulary |
+| `p` / `d` | Drop final letter | Rule defined; examples depend on eligible predicate stems |
+| `t` | Drop `t` | `funuft → funuf'tcha`, `nocht → noch'tcha` |
+| `y` | Drop `y` | `uprahay → upraha'tcha` |
+| Other | Keep stem | `okehi → okehi'tcha`, `heth → heth'tcha` |
 
-| Marain | Meaning |
+The apostrophe is the standard romanised *boundary notation*, not an additional Marain glyph or spoken syllable. Because `ay` represents a glyph in revised romanisation, dropping final `y` in `uprahay` can change the underlying glyph sequence: `uprahay` is internally `OprahA`, while `upraha'tcha` is `OprahaCa`. The converter performs the transformation on romanised stems, then re-encodes the resulting glyph keys. This is intentional and should not be silently “corrected” to ordinary text concatenation.
+
+The new predicate suffix is distinct from **standalone** `tcha` (“if”) and the previously proposed compound `hangtcha` (“counterfactual if”). Do not create a conflicting headword for the suffix.
+
+### Mood and scope examples
+
+| English | Proposed Marain |
 |---|---|
-| `ra'yuh funuft hech ke kabo maraynva.` | I cannot speak Marain (lack ability) |
-| `ra'yuh funuft ke kabo hech maraynva.` | I can refrain from speaking Marain |
-| `ra'yuh ku'ha hech ke kabo maraynva.` | I do not need to speak Marain |
-| `ra'yuh kwemraku'ha ke kabo hech maraynva.` | I must not speak Marain |
-| `ra'yuh kwemraku'ha hech ke kabo maraynva.` | I am not obliged to speak Marain |
+| I leave | `ra'yuh uprahay nayla.` |
+| I would leave | `ra'yuh upraha'tcha nayla.` |
+| I can leave | `ra'yuh funuft uprahay nayla.` |
+| I could leave | `ra'yuh funuf'tcha uprahay nayla.` |
+| I want to leave | `ra'yuh okehi uprahay nayla.` |
+| I would like to leave | `ra'yuh okehi'tcha uprahay nayla.` |
+| I want to leave in hypothetical circumstances | `ra'yuh okehi upraha'tcha nayla.` |
 
-### Question formation
+When `'tcha` marks `okehi`, the expression can conventionally **soften a request or desire** (“would like”). Hypothetical mood does not automatically mean politeness elsewhere.
 
-Use recovered `hanggra` before a proposition; do not invent a second question particle or require English-style inversion.
+## 3. Negation scope in predicate chains
 
-- **Recovered:** `hanggra kabo geyuh maraynva?` — Do you speak Marain?
-- **Proposed extension:** `hanggra geyuh okehi ke kabo maraynva?` — Do you want to speak Marain?
+**New generalization:** place `hech` directly after the predicate that is negated.
 
-Retain `shay` for WH-questions and the existing noun-case marking.
+- `ra'yuh ku'ha hech uprahay nayla.` — I do not need to leave.
+- `ra'yuh kwemraku'ha uprahay hech nayla.` — I must not leave.
+- `ra'yuh funuft hech uprahay nayla.` — I cannot leave.
 
-### Conditionals and counterfactuals (proposal, not automated yet)
+The distinction between negating the controlling predicate and negating the embedded action is part of the extension, not fully documented in the lessons.
 
-Attested: `tcha` (if), `ayng` (then). A new compound `hangtcha` may optionally mark an antecedent assumed false.
+## 4. Opinion predicates governing propositions
 
-- `tcha geyuh kabo maraynva, ayng ra'yuh hakla maraynva.` — If you speak Marain, I learn Marain.
-- `hangtcha ra'yuh funuft ke kabo maraynva, ayng ra'yuh kabo geyivil.` — If I could speak Marain (but cannot), I would speak to you.
+Use **`heth`**, “believe,” for English *I think [proposition]*; **`tsha`** means *think about/consider* an object.
 
-These are analytical equivalents of English *would/could*, **not** tense inflections. The phrase translator currently leaves general conditionals unresolved rather than pretending to translate them reliably.
+Under the proposed rule, a second nominative following a belief predicate starts the proposition the speaker believes:
 
-## Evidence boundaries and future work
+- `ra'yuh heth geyuh shuhztnuft uprahay nayla.` — I think you should leave.
+- `ra'yuh heth'tcha geyuh shuhztnuft uprahay nayla.` — I would think you should leave.
 
-The newly proposed `ke`, derived modals, general scope of `hech`, and counterfactual `hangtcha` are **not present in surviving lessons**. They are explicit community language extensions. `hang`, `gra` and `hanggra` were restored previously and remain marked as `community-lesson`. No old dictionary headwords were overwritten. Future decisions: aspect (habitual/progressive/perfect), broader modal constructions, nested scope, gender-neutral singular reference, and conditional compositional semantics.
+The hypothetically qualified **belief** is not the same as hypothetically qualified **departure**. Do not add an English “that” equivalent unless needed for clarity. This construction is intentionally narrower than general unrestricted embedding.
+
+## 5. Lexicon provenance and unresolved distinctions
+
+The prior v0.1 entries remain marked `proposed-extension`: `ke` (now optional), `funuft` (ability), `gihwinuft` (permission), `shuhztnuft` (advisability), `kwemraku'ha` (binding obligation), `wolugnuft` (intention), and `hangtcha` (counterfactual conditional). `anong` gains a proposed clause-wide possibility interpretation. Existing roots `okehi`, `ku'ha`, `heth`, and `tsha` are retained.
+
+General if/then clauses, perfect/progressive aspect, polyclausal negation, unrestricted fronting, and fine-grained politeness remain open questions. The phrase assistant demonstrates only covered patterns and preserves unknown phrases as `<??>`, without claiming all nested clauses are solved.
+
+**Validation:** run `node --test tests/marain-phrases.test.cjs`. The grammar is proposed; the tests check implementation consistency, not historical authenticity.

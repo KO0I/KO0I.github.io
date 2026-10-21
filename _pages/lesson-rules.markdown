@@ -166,3 +166,13 @@ The proposed linker `ke` introduces a verb complement. Its unexpressed actor inh
 Existing temporal locatives express past/present/future without imposing new tense conjugations. `hanggra` questions remain recovered grammar. The phrase translator now supports a bounded subset of the proposed modal clauses; unsupported conditionals still receive partial results.
 
 See [the full extension]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}) for provenance, example sentences, and remaining limitations.
+
+## 10. Community grammar extension v0.2 — hypothetical predicates and clause chaining
+
+**New proposal (2026-10-21), superseding the v0.1 requirement for `ke`.** The earlier section documents the first extension; it is not proof that `ke` appeared in the lessons. Predicates now chain directly; `ke` becomes an optional boundary marker for ambiguous complements. An omitted subordinate subject inherits the controlling subject, and an explicit nominative can introduce a new subordinate actor.
+
+**New irrealis marker:** `'tcha`, appended to a predicate after dropping one final romanised `ch`, `c`, `p`, `d`, `t`, or `y` (check `ch` first; no repeated deletion). Apostrophe is a written suffix boundary, not a glyph. Examples: `uprahay → upraha'tcha`, `funuft → funuf'tcha`, `okehi → okehi'tcha`. The independent `tcha` still means *if*. The glyph-key spelling for `upraha'tcha` is `OprahaCa`, distinct from the original `OprahA`.
+
+**Belief predicate:** `heth` is existing *believe* (not `tsha`, *think about*). Proposed nested belief construction: `ra'yuh heth geyuh shuhztnuft uprahay nayla` (“I think you should leave”). `ra'yuh heth'tcha ...` conveys hypothetical belief. `ra'yuh okehi'tcha uprahay nayla` conveys “I would like to leave.”
+
+This remains a community extension, **not Banks canon**. The [full v0.2 specification]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}) documents composition, examples, negation scope, and unresolved cases.
