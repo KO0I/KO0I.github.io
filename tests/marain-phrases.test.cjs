@@ -42,10 +42,10 @@ test('literal unknowns survive output and retain the English span',()=>{
 });
 
 test('unsupported grammar and ambiguity do not masquerade as full translation',()=>{
-  for(const en of ['I can speak Marain.','I do not eat flowers.','If I speak you listen.','I am happy.','I have eaten food.'])assert.equal(tr(en).mode,'partial',en);
+  for(const en of ['I do not eat flowers.','If I speak you listen.','I am happy.','I have eaten food.'])assert.equal(tr(en).mode,'partial',en);
   assert.equal(tr('name').roman,'<??>'); // noun name and verb name need context
   assert.equal(tr('I speak Marain and eat food.').mode,'partial');
-  assert.ok(tr('I can speak Marain.').notes.some(n=>n.includes('No case endings')));
+  assert.ok(tr('I do not eat flowers.').notes.some(n=>n.includes('No case endings')));
 });
 
 test('longest phrase and English inflections are exact, not substring guesses',()=>{
@@ -91,7 +91,7 @@ test('glyph and romanisation boundaries round-trip for every single-word diction
 });
 
 test('11 sourced additions, no duplicate existing headwords or unknown glyphs',()=>{
-  assert.equal(Object.keys(scope.dict).length,450);
+  assert.equal(Object.keys(scope.dict).length,457);
   const additions=Object.values(scope.dict).filter(e=>e.status==='community-lesson');
   assert.equal(additions.length,11);
   assert.ok(additions.every(e=>e.source&&e.en.length));
@@ -103,4 +103,45 @@ test('unsupported signed and decimal numbers are not silently changed',()=>{
   for(const s of ['I sense 1.5 humans.','I sense -8 humans.','I sense 12345678901234567890123456789012345 humans.']) {
     const r=tr(s);assert.equal(r.mode,'partial',s);assert.ok(r.roman.includes('<??>'),s);
   }
+});
+
+test('newly proposed modal lexemes are separate from recovered lesson vocabulary',()=>{
+  const keys=['ke','fOnOft','giwEnOft','SuztnOft','kwemrakOha','wolOgnOft','haGCa'];
+  for(const key of keys)assert.equal(scope.dict[key].status,'proposed-extension',key);
+  for(const key of ['haG','gra','haGgra'])assert.equal(scope.dict[key].status,'community-lesson',key);
+  assert.equal(Object.values(scope.dict).filter(e=>e.status==='proposed-extension').length,7);
+  assert.ok(scope.dict.anoG.proposed_sense.includes('epistemic'));
+});
+
+test('simple modal clauses keep complement and negation scope distinct',()=>{
+  const cases=[
+    ['I can speak Marain.',"ra'yuh funuft ke kabo maraynva."],
+    ["I can't speak Marain.","ra'yuh funuft hech ke kabo maraynva."],
+    ['I may speak Marain.',"ra'yuh gihwinuft ke kabo maraynva."],
+    ['I might speak Marain.',"anong ra'yuh kabo maraynva."],
+    ['Perhaps I speak Marain.',"anong ra'yuh kabo maraynva."],
+    ['I want to speak Marain.',"ra'yuh okehi ke kabo maraynva."],
+    ['I want you to speak Marain.',"ra'yuh okehi ke geyuh kabo maraynva."],
+    ['I need to speak Marain.',"ra'yuh kuha ke kabo maraynva."],
+    ['I do not need to speak Marain.',"ra'yuh kuha hech ke kabo maraynva."],
+    ['I should speak Marain.',"ra'yuh shuhztnuft ke kabo maraynva."],
+    ['I should not speak Marain.',"ra'yuh shuhztnuft ke kabo hech maraynva."],
+    ['I must speak Marain.',"ra'yuh kwemrakuha ke kabo maraynva."],
+    ['I must not speak Marain.',"ra'yuh kwemrakuha ke kabo hech maraynva."],
+    ['I intend to speak Marain.',"ra'yuh wolugnuft ke kabo maraynva."],
+    ['Can you speak Marain?', 'hanggra geyuh funuft ke kabo maraynva?'],
+    ['Do you want to speak Marain?', 'hanggra geyuh okehi ke kabo maraynva?']
+  ];
+  for(const [english,roman] of cases){
+    const r=tr(english);
+    assert.equal(r.roman,roman,english);
+    assert.equal(r.mode,'draft',english);
+    assert.ok(r.notes.some(n=>n.includes('proposed')),english);
+  }
+});
+
+test('unsupported conditionals do not masquerade as translated clauses',()=>{
+  const r=tr('If I could speak Marain, I would speak to you.');
+  assert.equal(r.mode,'partial');
+  assert.ok(r.missing.length);
 });

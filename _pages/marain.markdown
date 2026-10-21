@@ -72,6 +72,8 @@ permalink: /marain/
     <button type="button" data-marain-example="Do you speak Marain?">Do you speak Marain?</button>
     <button type="button" data-marain-example="I give a flower to you.">I give a flower to you</button>
     <button type="button" data-marain-example="I eat pizza.">Try an unknown word</button>
+    <button type="button" data-marain-example="I can speak Marain.">I can speak Marain</button>
+    <button type="button" data-marain-example="I must not speak Marain.">I must not speak Marain</button>
   </div>
   <div class="translation-result" aria-live="polite" aria-atomic="true">
     <p id="marainPhraseStatus" class="translation-notes"></p>
@@ -110,8 +112,32 @@ permalink: /marain/
       </tbody>
     </table>
   </div>
-  <p>Cases carry grammatical roles. The assistant uses a consistent subject–verb–object order, while lesson examples also use other orders. Bare verbs do not establish English tense, aspect, or number agreement. Negation scope, complex clauses, and adjective agreement remain incomplete.</p>
+  <p>Cases carry grammatical roles. The assistant uses a consistent subject–verb–object order, while lesson examples also use other orders. Bare verbs do not establish English tense, aspect, or number agreement. Recovered negation scope, complex clauses, and adjective agreement remain incomplete; see the separate proposed extension below.</p>
   <p><a href="{{ '/lesson-rules/' | relative_url }}">Full rules, evidence, and vocabulary audit</a></p>
+</details>
+
+
+<details class="dictionary-panel marain-rules">
+  <summary>Community grammar extension v0.1 — modals, negation, and conditionals (proposed)</summary>
+  <p>The following are newly proposed additions, <strong>not</strong> recovered Banks canon. The restored yes/no particle <code>hanggra</code> remains an attested lesson word; it has not been reinvented.</p>
+  <div class="marain-table-scroll"><table>
+    <thead><tr><th>Meaning</th><th>Marain (romanised)</th><th>Rule / status</th></tr></thead>
+    <tbody>
+      <tr><td>To / verbal complement</td><td>ke</td><td>New particle: modal + ke + predicate</td></tr>
+      <tr><td>Can (ability)</td><td>funuft</td><td>fu (capacity) + nuft (do)</td></tr>
+      <tr><td>May (permission)</td><td>gihwinuft</td><td>gihwi (permission) + nuft (do)</td></tr>
+      <tr><td>Might / perhaps</td><td>anong</td><td>New whole-clause use of existing “possibility”</td></tr>
+      <tr><td>Should</td><td>shuhztnuft</td><td>Desirability + do</td></tr>
+      <tr><td>Need to</td><td>kuha</td><td>Existing practical necessity verb</td></tr>
+      <tr><td>Must (obligation)</td><td>kwemrakuha</td><td>Respect rules + need</td></tr>
+      <tr><td>Want to</td><td>okehi</td><td>Existing desire verb with new complement construction</td></tr>
+      <tr><td>Intend to</td><td>wolugnuft</td><td>Plan + do</td></tr>
+      <tr><td>Counterfactual if</td><td>hangtcha</td><td>Proposed compound; conditional translation remains experimental</td></tr>
+    </tbody>
+  </table></div>
+  <p>Use <code>hech</code> after the predicate it negates: <code>kuha hech ke ...</code> (“do not need to”), versus <code>kwemrakuha ke kabo hech ...</code> (“must not speak ...”). This general scope rule is <em>proposed</em>, though postverbal <code>hech</code> is attested.</p>
+  <p>Past, present, and future still use the recovered optional time phrases <code>bechumli</code>, <code>ikili</code>, and <code>beyanli</code>; verbs need no obligatory tense or person suffix.</p>
+  <p><a href="{{ '/assets/marain/marain-grammar-extension.md' | relative_url }}">Full proposed extension and sentence examples</a>. The phrase tool supports common single-clause modals; advanced conditionals and arbitrary embeddings remain partial translations.</p>
 </details>
 
 

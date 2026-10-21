@@ -194,6 +194,70 @@
     'the mind speaks marain to me like a friend': ['rAmureru kabo marAnva ravil yokA EvemE','Lesson 12'],
     'my mind state is backed up in the spaceship': ['murermarayu dam ra sAno prenlE','Lesson 12']
   };
+
+  // Community grammar extension v0.1: intentionally bounded modal/complement clauses.
+  // These are proposed constructions, not claims about recovered Banks canon.
+  const modalForms = [
+    ['do not need to','kOha','matrix'], ['does not need to','kOha','matrix'],
+    ['do not want to','okehE','matrix'], ['does not want to','okehE','matrix'],
+    ['am not permitted to','giwEnOft','matrix'], ['is not permitted to','giwEnOft','matrix'],
+    ['are not permitted to','giwEnOft','matrix'],
+    ['am not obliged to','kwemrakOha','matrix'], ['is not obliged to','kwemrakOha','matrix'],
+    ['are not obliged to','kwemrakOha','matrix'],
+    ['must not','kwemrakOha','embedded'], ['should not','SuztnOft','embedded'],
+    ['cannot','fOnOft','matrix'], ["can't",'fOnOft','matrix'], ['can not','fOnOft','matrix'],
+    ['should','SuztnOft','none'], ['must','kwemrakOha','none'],
+    ['have permission to','giwEnOft','none'], ['has permission to','giwEnOft','none'],
+    ['may','giwEnOft','none'], ['can','fOnOft','none'],
+    ['might','anoG','epistemic'], ['maybe','anoG','epistemic'],
+    ['intend to','wolOgnOft','none'], ['intends to','wolOgnOft','none'],
+    ['plan to','wolOgnOft','none'], ['plans to','wolOgnOft','none'],
+    ['want to','okehE','none'], ['wants to','okehE','none'],
+    ['need to','kOha','none'], ['needs to','kOha','none'],
+    ['want','okehE','explicit'], ['wants','okehE','explicit']
+  ];
+  function extendedClause(text, question, ctx) {
+    const possible=text.match(/^(maybe|perhaps) (.+)$/);
+    if(possible) {
+      const child=resultContext(), statement=parse(possible[2],child);
+      if(!statement || statement.mode!=='draft')return null;
+      for(const k of ['missing','notes','alignment','rules'])ctx[k].push(...child[k]);
+      ctx.rules.push('Proposed whole-clause possibility particle: anong (grammar extension v0.1).');
+      return {keys:[...(question?['haGgra']:[]),'anoG',...statement.keys],mode:'draft'};
+    }
+    const m=text.match(/^(you all|i|we|you|he|she|it|they) (.+)$/);
+    if(!m)return null;
+    const subject=m[1], remainder=m[2], matrixNom=inflect(pronouns[subject],'nom');
+    for(const [form,modalKey,scope] of modalForms) {
+      if(!remainder.startsWith(form+' '))continue;
+      let expression=remainder.slice(form.length+1), embeddedActor=null;
+      if(scope==='explicit') {
+        const actor=expression.match(/^(you all|i|we|you|he|she|it|they) to (.+)$/);
+        if(!actor)continue;
+        embeddedActor=actor[1];expression=actor[2];
+      }
+      const target=embeddedActor||subject;
+      const child=resultContext(), statement=parse(target+' '+expression,child);
+      if(!statement || statement.mode!=='draft' || statement.keys[0]!==inflect(pronouns[target],'nom'))continue;
+      const event=statement.keys.slice(1);
+      if(!event.length)continue;
+      if(scope==='embedded')event.splice(1,0,'heH');
+      let keys;
+      if(scope==='epistemic')keys=['anoG',matrixNom,...event];
+      else keys=[matrixNom,modalKey,...(scope==='matrix'?['heH']:[]),'ke',...(embeddedActor?[inflect(pronouns[embeddedActor],'nom')]:[]),...event];
+      if(question)keys.unshift('haGgra');
+      ctx.alignment.push({english:subject,marain:romanize(matrixNom),reason:'Nominative subject'});
+      ctx.alignment.push({english:form,marain:romanize(modalKey),reason:'Proposed modal grammar v0.1; '+scope});
+      for(const field of ['missing','notes','rules'])ctx[field].push(...child[field]);
+      ctx.alignment.push(...child.alignment.slice(embeddedActor?0:1));
+      ctx.rules.push('Proposed modal complement rule: modal + ke + verb; embedded subject inherits the matrix actor unless stated.');
+      if(scope==='matrix'||scope==='embedded')ctx.rules.push('Negation scope depends on hech placement; proposed extension, not recovered canon.');
+      if(form==='may')ctx.notes.push('English “may” is interpreted as permission, not probability. Use “might” for epistemic possibility.');
+      ctx.notes.push('Community grammar extension v0.1: newly proposed construction.');
+      return {keys,mode:'draft'};
+    }
+    return null;
+  }
   function parse(input,ctx) {
     let text=normal(input).replace(/\bi'm\b/g,'i am').replace(/\bdon't\b/g,'do not').replace(/\bdoesn't\b/g,'does not').replace(/\bdidn't\b/g,'did not');
     const plain=words(text).join(' ').replace(/mind-state/g,'mind state');
@@ -207,6 +271,11 @@
     let question=false;
     if(text.startsWith('is it true that ')){text=text.slice(16);question=true;}
     else if(/^(do|does) /.test(text)){text=text.replace(/^(do|does) /,'');question=true;}
+    // English modal auxiliary inversion, e.g. "Can you speak Marain?"
+    const inverted=text.match(/^(can|may|must|should|might) (you all|i|we|you|he|she|it|they) (.+)$/);
+    if(inverted){text=inverted[2]+' '+inverted[1]+' '+inverted[3];question=true;}
+    const proposed=extendedClause(text,question,ctx);
+    if(proposed)return proposed;
     // Existential possession deliberately differs from physical holding.
     let m=text.match(/^(i|we|you|he|she|it|they) (have|has) (.+)$/);
     if(m) {
@@ -226,7 +295,7 @@
       ctx.rules.push('Existence plus location/origin/companion: case suffixes from Lesson 1; sentence assembly is inferred.');
       return {keys:[...(question?['haGgra']:[]),...subj,'sAno',...obj],mode:'draft'};
     }
-    // Embedded clauses, coordination, modals, and negation need scope rules not supplied by these lessons.
+    // Complex embedded clauses, coordination, and non-modal negation remain unsupported.
     if(/\b(and|or|not|never|can|could|would|should|will|because|if)\b/.test(text))return null;
     const ts=words(text); let match=null;
     outer:for(let i=1;i<ts.length;i++) {

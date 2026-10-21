@@ -263,7 +263,7 @@ var dict = {
 "TOwE": {"pos":"pos", "gloss":"disposal", "def":"disposal "},
 "wu": {"pos":"pos", "gloss":"they+pl", "def":"third-person plural pronoun "},
 "gafmara": {"pos":"pos", "gloss":"write", "def":"to write/type "},
-"anoG": {"pos":"pos", "gloss":"possibility", "def":"possibility "},
+"anoG": {"pos":"pos","gloss":"possibility","def":"possibility ","en":["possibility","maybe","perhaps","might"],"proposed_sense":"Clause-initial epistemic particle: maybe, perhaps, might. Existing noun sense retained.","extension_source":"Marain grammar extension v0.1 (2026-10-21)"},
 "hemnElO": {"pos":"pos", "gloss":"platonic-cuddle", "def":"to cuddle/snuggle platonically "},
 "saveneft": {"pos":"pos", "gloss":"green", "def":"green/blue-green (490-530 nm) "},
 "ObE": {"pos":"pos", "gloss":"drug", "def":"drug "},
@@ -385,7 +385,7 @@ var dict = {
 "Gykve": {"pos":"pos", "gloss":"unite", "def":"to unite/join together "},
 "zaGlemi": {"pos":"pos", "gloss":"taste[v]", "def":"to taste "},
 "sot": {"pos":"pos", "gloss":"make-imperfect", "def":"imperfect; to make imperfect "},
-"heH": {"pos":"pos", "gloss":"no", "def":"no "},
+"heH": {"pos":"pos","gloss":"no","def":"no; not; without (postverbal negation attested; proposed extension specifies predicate-scope placement)","en":["no","not","without"],"source":"IMG_2187.jpeg — Lesson 2 (negative example); scope extension v0.1","extension_note":"Place immediately after the predicate being negated; general scope rule is newly proposed."},
 "mere": {"pos":"pos", "gloss":"environment", "def":"environment"},
 "GuhiH": {"pos":"pos", "gloss":"disregard[v]", "def":"to disregard; to not worry about "},
 "ognAt": {"pos":"pos", "gloss":"orbit[v]", "def":"to orbit "},
@@ -449,4 +449,12 @@ var dict = {
 "heHkwemrawE": {"pos": "noun", "gloss": "meatfucker", "def": "meatfucker; literally non-respector of boundaries/rules; a taboo term for a ship that reads minds without permission", "en": ["meatfucker"], "source": "IMG_2195.jpeg — Lesson 16", "status": "community-lesson"},
 "HoldEHeEnda": {"pos": "noun", "gloss": "meat", "def": "meat; literally animal matter", "en": ["meat"], "source": "IMG_2195.jpeg — Lesson 16", "status": "community-lesson"},
 "kra": {"pos": "quantifier", "gloss": "all", "def": "all", "en": ["all"], "source": "IMG_2197.jpeg — Lesson 20, example gloss", "status": "community-lesson"}
+,
+"ke": {"pos":"particle","gloss":"verbal-complement","def":"introduces a verbal or predicate complement ('to ...')","en":["verbal complement"],"status":"proposed-extension","source":"Marain grammar extension v0.1 (2026-10-21)","note":"New complement linker; unmarked for noun case."},
+"fOnOft": {"pos":"modal","gloss":"able-to","def":"can; be capable of performing an action (capacity, not permission)","en":["can","be able to"],"status":"proposed-extension","source":"Marain grammar extension v0.1 (2026-10-21)","derivation":"fO (ability) + nOft (do)"},
+"giwEnOft": {"pos":"modal","gloss":"permitted-to","def":"may; be permitted to perform an action (permission, not probability)","en":["may","be permitted to"],"status":"proposed-extension","source":"Marain grammar extension v0.1 (2026-10-21)","derivation":"giwE (permission) + nOft (do)"},
+"SuztnOft": {"pos":"modal","gloss":"advisable-to","def":"should; ought to; recommended or advisable, without obligation","en":["should","ought to"],"status":"proposed-extension","source":"Marain grammar extension v0.1 (2026-10-21)","derivation":"Suzt (desirable) + nOft (do)"},
+"kwemrakOha": {"pos":"modal","gloss":"obliged-to","def":"must; obligation or binding rule, distinct from practical need","en":["must","be obliged to"],"status":"proposed-extension","source":"Marain grammar extension v0.1 (2026-10-21)","derivation":"kwemra (respect rules) + kOha (need)"},
+"wolOgnOft": {"pos":"modal","gloss":"intend-to","def":"intend or plan to perform an action","en":["intend to","plan to"],"status":"proposed-extension","source":"Marain grammar extension v0.1 (2026-10-21)","derivation":"wolOg (plan) + nOft (do)"},
+"haGCa": {"pos":"particle","gloss":"counterfactual-if","def":"if, contrary to fact; marks the antecedent of a counterfactual conditional","en":["counterfactual if"],"status":"proposed-extension","source":"Marain grammar extension v0.1 (2026-10-21)","derivation":"haG (false) + Ca (if)"}
 };

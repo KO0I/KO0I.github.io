@@ -1,0 +1,27 @@
+name: Marain dictionary and phrase tests
+on:
+  push:
+    paths:
+      - 'assets/marain/**'
+      - '_pages/marain.markdown'
+      - '_pages/lesson-rules.markdown'
+      - 'tests/marain-phrases.test.cjs'
+      - '.github/workflows/marain-tests.yml'
+  pull_request:
+    paths:
+      - 'assets/marain/**'
+      - '_pages/marain.markdown'
+      - '_pages/lesson-rules.markdown'
+      - 'tests/marain-phrases.test.cjs'
+      - '.github/workflows/marain-tests.yml'
+jobs:
+  grammar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/marain/js/dict.js
+      - run: node --check assets/marain/js/phrase-translator.js
+      - run: node --test tests/marain-phrases.test.cjs

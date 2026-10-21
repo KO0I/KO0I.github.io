@@ -154,3 +154,16 @@ The phrase assistant runs entirely in the browser. It uses longest exact English
 For unsupported grammar it returns lexical fragments, labelled **Partial match**, instead of asserting that those fragments form a correct sentence. Known long phrases win over their components. The glyph view renders placeholders in a normal text font rather than trying to translate the placeholder into Marain glyphs. User text is inserted with `textContent`, not executable HTML.
 
 Validation command: `node --test tests/marain-phrases.test.cjs`. Static integration checks validate unique IDs, labels, script order, and escaped placeholders. A full Jekyll build and visual browser checks were not available in the execution environment (Ruby/Jekyll and a Chromium binary are absent). These remain review checks before merging.
+
+
+## 9. Community grammar extension v0.1 — adopted as proposed vocabulary
+
+**New work, not recovered canon (21 October 2026).** This section is separate from the lesson-derived rules above. The existing dictionary already contains the attested Lesson 16 words `hang`, `gra`, and `hanggra`; no duplicates are added.
+
+Seven proposed dictionary entries: `ke` (introduce a verbal complement); `funuft` (able to); `gihwinuft` (permitted to); `shuhztnuft` (should); `kwemrakuha` (obliged to); `wolugnuft` (intend to); `hangtcha` (counterfactual if). The existing `anong` receives a proposed sentence-level *maybe/might* use, and `hech` receives an explicitly proposed rule for predicate-local negation.
+
+The proposed linker `ke` introduces a verb complement. Its unexpressed actor inherits the matrix subject; an explicit nominative actor overrides that. A modal negated by `hech` means something different from its complement negated by `hech`. The source lessons do not document this full generalisation.
+
+Existing temporal locatives express past/present/future without imposing new tense conjugations. `hanggra` questions remain recovered grammar. The phrase translator now supports a bounded subset of the proposed modal clauses; unsupported conditionals still receive partial results.
+
+See [the full extension]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}) for provenance, example sentences, and remaining limitations.
