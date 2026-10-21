@@ -190,6 +190,6 @@ Five proposed headwords are recorded with `status: proposed-extension`: `lemihgr
 
 The Gaelic-derived `burach` is **not** proof of an established translation for “That's heavy messing.” The proposed Gaelic phrase `’S e trom-bhùrach a th’ ann gu dearbh` has an interpretable structure but should not be treated as an authenticated idiom. *Heavy messing* can refer to serious interference, not merely disorder.
 
-Culture ship-name translations are interpretive glosses; *Just Testing* and *Just Read the Instructions* still omit the nuance of *just*, and several names lose wordplay or tense distinctions. See [the post]({{ '/marain-poetry-and-ship-names/' | relative_url }}) and [detailed poetic-register rules]({{ '/assets/marain/poetic-register.md' | relative_url }}).
+Culture ship-name translations are interpretive glosses; *Just Testing* and *Just Read the Instructions* still omit the nuance of *just*, and several names lose wordplay or tense distinctions. See [detailed poetic-register rules]({{ '/assets/marain/poetic-register.md' | relative_url }}).
 
 Implementation: the translator exposes bounded opt-in `poeticCadence`, `reversePoeticCadence`, `poeticMutate`, and `reversePoeticMutation` helpers, with collision checks and tests. It does not automatically mutate ordinary English-to-Marain outputs.

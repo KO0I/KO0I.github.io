@@ -199,4 +199,4 @@ A deliberately limited Gaelic-inspired initial mutation follows `po` (“small�
 
 Five clearly labeled proposals extend the vocabulary: `lemihgra` (test/verify), `gaflemih` (read), `saynowetsiki` (still), `hechrayspatsmaychrayti` (non-war/non-military, an approximation), and `burach` (mess/shambles, adapted from Scottish Gaelic `bùrach`). Full ship names and surface mutations are **not** dictionary headwords.
 
-The [poetry post]({{ '/marain-poetry-and-ship-names/' | relative_url }}) and [poetic register spec]({{ '/assets/marain/poetic-register.md' | relative_url }}) distinguish recovered language from authored extensions and partial translations.
+The [poetic register spec]({{ '/assets/marain/poetic-register.md' | relative_url }}) distinguish recovered language from authored extensions and partial translations.

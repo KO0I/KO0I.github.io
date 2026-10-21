@@ -2,7 +2,7 @@
 
 **Community language extension — not recovered Banks canon.** Ordinary forms remain valid and primary. The poetic register offers opt-in prosodic and sound changes that do not modify existing case, person, or predicate meaning.
 
-For context see [the v0.4 grammar]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}) and the [poetry and Culture ship-name post]({{ '/marain-poetry-and-ship-names/' | relative_url }}).
+For context see [the v0.4 grammar]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}). The accompanying article is kept as an unpublished Jekyll draft in `_drafts`.
 
 ## Prospective/resultative cadence
 

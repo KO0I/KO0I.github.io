@@ -1,8 +1,8 @@
 ---
+published: false
 layout: post
 title: "Marain should be able to rhyme, I think"
 date: 2026-10-21
-permalink: /marain-poetry-and-ship-names/
 tags: [marain, culture, language, poetry, conlang]
 ---
 

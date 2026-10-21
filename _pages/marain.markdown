@@ -174,7 +174,7 @@ permalink: /marain/
   </table></div>
   <p>In the poetic register only, <code>po</code> (“small”) can trigger the initial changes <code>p→f</code>, <code>b→v</code>, <code>t→th</code>, <code>s→sh</code>, and <code>k→ch</code>. The original headword is preserved, mutation must not collide with an existing dictionary word, and unmutation requires its trigger. The source of inspiration is Scottish Gaelic lenition, not its full phonological system.</p>
   <p>Cadence forms are reversible variants of <code>'wolug</code> and <code>'inayng</code>. Hypothetical <code>'tcha</code> keeps its existing final-letter deletion rule. Rhyme, alliteration, refrains, and multi-meaning words remain stylistic choices. The automatic phrase translator does not silently poeticize prose.</p>
-  <p><a href="{{ '/assets/marain/poetic-register.md' | relative_url }}">Rules and provenance</a> · <a href="{{ '/marain-poetry-and-ship-names/' | relative_url }}">Poetry and Culture ship-name post</a></p>
+  <p><a href="{{ '/assets/marain/poetic-register.md' | relative_url }}">Rules and provenance</a></p>
 </details>
 
 
