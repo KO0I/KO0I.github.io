@@ -159,7 +159,7 @@ The handwriting spellings `chakllich`, `chaytscha`, and `spetshihch` already mat
 
 **New work, not recovered canon (21 October 2026).** This section is separate from the lesson-derived rules above. The existing dictionary already contains the attested Lesson 16 words `hang`, `gra`, and `hanggra`; no duplicates are added.
 
-Seven proposed dictionary entries: `ke` (introduce a verbal complement); `funuft` (able to); `gihwinuft` (permitted to); `shuhztnuft` (should); `kwemrakuha` (obliged to); `wolugnuft` (intend to); `hangtcha` (counterfactual if). The existing `anong` receives a proposed sentence-level *maybe/might* use, and `hech` receives an explicitly proposed rule for predicate-local negation.
+Seven proposed dictionary entries: `ke` (introduce a verbal complement); `funuft` (able to); `gihwinuft` (permitted to); `shuhztnuft` (should); `kwemraku'ha` (obliged to); `wolugnuft` (intend to); `hangtcha` (counterfactual if). The existing `anong` receives a proposed sentence-level *maybe/might* use, and `hech` receives an explicitly proposed rule for predicate-local negation.
 
 The proposed linker `ke` introduces a verb complement. Its unexpressed actor inherits the matrix subject; an explicit nominative actor overrides that. A modal negated by `hech` means something different from its complement negated by `hech`. The source lessons do not document this full generalisation.
 

@@ -128,14 +128,14 @@ permalink: /marain/
       <tr><td>May (permission)</td><td>gihwinuft</td><td>gihwi (permission) + nuft (do)</td></tr>
       <tr><td>Might / perhaps</td><td>anong</td><td>New whole-clause use of existing “possibility”</td></tr>
       <tr><td>Should</td><td>shuhztnuft</td><td>Desirability + do</td></tr>
-      <tr><td>Need to</td><td>kuha</td><td>Existing practical necessity verb</td></tr>
-      <tr><td>Must (obligation)</td><td>kwemrakuha</td><td>Respect rules + need</td></tr>
+      <tr><td>Need to</td><td>ku'ha</td><td>Existing practical necessity verb</td></tr>
+      <tr><td>Must (obligation)</td><td>kwemraku'ha</td><td>Respect rules + need</td></tr>
       <tr><td>Want to</td><td>okehi</td><td>Existing desire verb with new complement construction</td></tr>
       <tr><td>Intend to</td><td>wolugnuft</td><td>Plan + do</td></tr>
       <tr><td>Counterfactual if</td><td>hangtcha</td><td>Proposed compound; conditional translation remains experimental</td></tr>
     </tbody>
   </table></div>
-  <p>Use <code>hech</code> after the predicate it negates: <code>kuha hech ke ...</code> (“do not need to”), versus <code>kwemrakuha ke kabo hech ...</code> (“must not speak ...”). This general scope rule is <em>proposed</em>, though postverbal <code>hech</code> is attested.</p>
+  <p>Use <code>hech</code> after the predicate it negates: <code>kuha hech ke ...</code> (“do not need to”), versus <code>kwemraku'ha ke kabo hech ...</code> (“must not speak ...”). This general scope rule is <em>proposed</em>, though postverbal <code>hech</code> is attested.</p>
   <p>Past, present, and future still use the recovered optional time phrases <code>bechumli</code>, <code>ikili</code>, and <code>beyanli</code>; verbs need no obligatory tense or person suffix.</p>
   <p><a href="{{ '/assets/marain/marain-grammar-extension.md' | relative_url }}">Full proposed extension and sentence examples</a>. The phrase tool supports common single-clause modals; advanced conditionals and arbitrary embeddings remain partial translations.</p>
 </details>

@@ -21,7 +21,7 @@
 | `funuft` | `fOnOft` | can; ability | `fu` (ability) + `nuft` (do) |
 | `gihwinuft` | `giwEnOft` | may; permission | `gihwi` (permission) + `nuft` (do) |
 | `shuhztnuft` | `SuztnOft` | should; advisable | `shuhzt` (desirable) + `nuft` (do) |
-| `kwemrakuha` | `kwemrakOha` | must; rule-bound | `kwemra` (respect rules) + `kuha` (need) |
+| `kwemraku'ha` | `kwemrakOha` | must; rule-bound | `kwemra` (respect rules) + `ku'ha` (need) |
 | `wolugnuft` | `wolOgnOft` | intend to | `wolug` (plan) + `nuft` (do) |
 | `hangtcha` | `haGCa` | contrary-to-fact if | `hang` (false) + `tcha` (if) |
 
@@ -29,7 +29,7 @@
 
 - `anong` (glyph `anoG`) already means **possibility**. Proposed clause-initial use: *maybe/perhaps/might*.
 - `hech` (glyph `heH`) already means **no/not/without**. Proposed placement: directly after whichever predicate is negated.
-- `okehi` (want), `kuha` (need), `gih` (allow), `saynomag` (begin), and `nocht` (stop) may use the new `ke` complement rule. Their stems remain existing vocabulary.
+- `okehi` (want), `ku'ha` (need), `gih` (allow), `saynomag` (begin), and `nocht` (stop) may use the new `ke` complement rule. Their stems remain existing vocabulary.
 
 ## Proposed rules
 
@@ -45,7 +45,7 @@ The `ke` linker introduces an event or predicate complement. With no explicit su
 - `ra'yuh gihwinuft ke kabo maraynva.` — I have permission to speak Marain.
 - `anong ra'yuh kabo maraynva.` — I might speak Marain.
 - `ra'yuh shuhztnuft ke kabo maraynva.` — I should speak Marain.
-- `ra'yuh kwemrakuha ke kabo maraynva.` — I must speak Marain.
+- `ra'yuh kwemraku'ha ke kabo maraynva.` — I must speak Marain.
 - `ra'yuh wolugnuft ke kabo maraynva.` — I intend to speak Marain.
 
 ### Negation scope
@@ -56,9 +56,9 @@ Under the **proposed** rule, place `hech` immediately after the predicate whose 
 |---|---|
 | `ra'yuh funuft hech ke kabo maraynva.` | I cannot speak Marain (lack ability) |
 | `ra'yuh funuft ke kabo hech maraynva.` | I can refrain from speaking Marain |
-| `ra'yuh kuha hech ke kabo maraynva.` | I do not need to speak Marain |
-| `ra'yuh kwemrakuha ke kabo hech maraynva.` | I must not speak Marain |
-| `ra'yuh kwemrakuha hech ke kabo maraynva.` | I am not obliged to speak Marain |
+| `ra'yuh ku'ha hech ke kabo maraynva.` | I do not need to speak Marain |
+| `ra'yuh kwemraku'ha ke kabo hech maraynva.` | I must not speak Marain |
+| `ra'yuh kwemraku'ha hech ke kabo maraynva.` | I am not obliged to speak Marain |
 
 ### Question formation
 
