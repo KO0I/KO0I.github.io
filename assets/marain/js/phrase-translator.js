@@ -24,7 +24,7 @@
   function romanize(key) {
     // Irrealis suffix apostrophe is morphological, so it must survive romanization.
     // Suffix boundaries are stored in internal keys for romanisation only.
-    for (const [suffix, spelling] of [['Ca','tcha'],['EnAG','inayng'],['wolOg','wolug']]) {
+    for (const [suffix, spelling] of [['wolOga','woluga'],['wolOgE','wolugi'],['EnAGa','inaynga'],['EnAGE','inayngi'],['Ca','tcha'],['EnAG','inayng'],['wolOg','wolug']]) {
       const marker="'"+suffix;
       if (key.endsWith(marker) && key.length>marker.length)
         return romanize(key.slice(0,-marker.length))+"'"+spelling;
@@ -66,6 +66,52 @@
     return {roman,glyphKey,key:key+"'"+suffix};
   }
 
+
+  // Optional poetic register v0.4: meaning-preserving cadence variants
+  // apply only to prospective and resultative predicates, not 'tcha.
+  function poeticCadence(stemKey,kind,cadence) {
+    if(!['prospective','resultative'].includes(kind)||!['a','i'].includes(cadence))return null;
+    if(!own(dict,stemKey))return null;
+    const entry=dict[stemKey];
+    if(entry.pos!=='verb'&&entry.pos!=='modal'&&!/^to\s/.test(entry.def))return null;
+    const base=predicateSuffix(stemKey,kind);
+    if(!base)return null;
+    const v=cadence==='a'?'a':'E', glyphKey=base.glyphKey+v, roman=base.roman+cadence;
+    if(encode(roman)!==glyphKey)return null;
+    return {kind,cadence,baseKey:stemKey,key:base.key+v,glyphKey,roman};
+  }
+  function reversePoeticCadence(formKey) {
+    if(typeof formKey!=='string')return null;
+    const suffixes=[["'wolOga",'prospective','a'],["'wolOgE",'prospective','i'],["'EnAGa",'resultative','a'],["'EnAGE",'resultative','i']];
+    for(const [ending,kind,cadence] of suffixes){
+      if(!formKey.endsWith(ending))continue;
+      const baseKey=formKey.slice(0,-ending.length);
+      const match=poeticCadence(baseKey,kind,cadence);
+      if(match&&match.key===formKey)return {baseKey,kind,cadence,canonical:predicateSuffix(baseKey,kind).key};
+    }
+    return null;
+  }
+  // Gaelic-inspired, not Gaelic's actual lenition: opt-in after 'po' only.
+  // Reversal requires the trigger and a unique, non-colliding dictionary base.
+  const poeticTriggers=new Set(['po']);
+  const onsetChanges={p:'f',b:'v',t:'T',s:'S',k:'H'};
+  const onsetUndo={f:'p',v:'b',T:'t',S:'s',H:'k'};
+  function poeticMutate(triggerKey,lemmaKey){
+    if(!poeticTriggers.has(triggerKey)||typeof lemmaKey!=='string'||!own(dict,lemmaKey))return null;
+    const ch=onsetChanges[lemmaKey[0]];
+    if(!ch)return null;
+    const key=ch+lemmaKey.slice(1);
+    if(own(dict,key)||encode(romanize(key))!==key)return null;
+    return {triggerKey,baseKey:lemmaKey,key,roman:romanize(key)};
+  }
+  function reversePoeticMutation(triggerKey,formKey){
+    if(!poeticTriggers.has(triggerKey)||typeof formKey!=='string'||own(dict,formKey))return null;
+    const ch=onsetUndo[formKey[0]];
+    if(!ch)return null;
+    const baseKey=ch+formKey.slice(1);
+    const generated=poeticMutate(triggerKey,baseKey);
+    return generated&&generated.key===formKey?{triggerKey,baseKey,roman:romanize(baseKey)}:null;
+  }
   function inflect(key, role) {
     if (key === UNKNOWN) return key;
     const suffixes = {acc:'va', dat:'vil', org:'sa', loc:'lE', com:'j', pat:'vu', abs:''};
@@ -510,7 +556,7 @@
         // No whitespace before the inter-clause comma; preserve one after it.
         if(i && key!==',')segments.push({text:' ',plain:true});
         if(key===','){segments.push({text:',',plain:true});return;}
-        const suffix=key.endsWith("'Ca")||key.endsWith("'EnAG")||key.endsWith("'wolOg");
+        const suffix=key.includes("'") && !key.startsWith("'");
         segments.push({text:suffix?key.replace(/'/g,''):key,roman:suffix?romanize(key):null,unknown:key===UNKNOWN});
       });
       if(end)segments.push({text:end,plain:true});
@@ -521,5 +567,5 @@
     all.mode=all.missing.length||modes.includes('partial')?'partial':modes.every(m=>m==='attested')?'attested':'draft';
     return all;
   }
-  return {translate,romanize,encode,inflect,lookup,numberKey,hypotheticalRoman,hypothetical,predicateSuffix};
+  return {translate,romanize,encode,inflect,lookup,numberKey,hypotheticalRoman,hypothetical,predicateSuffix,poeticCadence,reversePoeticCadence,poeticMutate,reversePoeticMutation};
 }));
