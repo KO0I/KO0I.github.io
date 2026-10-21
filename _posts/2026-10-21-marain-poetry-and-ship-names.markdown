@@ -36,7 +36,7 @@ For example, these are deliberately simple lines:
 
 “I speak Marain, truly; you see a spaceship, truly.” The endings on `maraynva` and `prenva` chime, and `gra` repeats as an affirmation. That's a proposed poetic use of an existing *true/correct* word, not a recovered grammatical particle.
 
-I'd also like to try a controlled **poetic conjugation**. Ordinary prose keeps `'tcha` for hypotheticals, `'wolug` for planned events, and `'inayng` for consequences. For verse I've added two optional cadences to the latter pair:
+I'd also like to try a controlled **poetic conjugation**. Ordinary prose keeps `'tcha` for hypotheticals, `'wolug` for planned events, and `'inayng` for consequences. For verse I've added two optional cadences to the latter pair, which you can try under the **Poetry** tab of the [Marain dictionary]({{ '/marain/' | relative_url }}):
 
 | Ordinary | Poetic -a | Poetic -i |
 | --- | --- | --- |

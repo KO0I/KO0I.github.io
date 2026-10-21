@@ -330,5 +330,21 @@ test('optional Gaelic-inspired poetic mutations reverse only in declared context
   assert.equal(api.reversePoeticMutation('gra','fren'),null);
   assert.equal(api.poeticMutate('po','not-a-lemma'),null);
   assert.equal(api.poeticMutate('po','gralemi'),null);
+  assert.equal(api.poeticMutate('po','kabo'),null); // A verb cannot be the nominal head after small
+  assert.equal(api.poeticMutate('po','po'),null); // The trigger cannot mutate itself
   assert.equal(tr('small spaceship').mode,'partial'); // prose is not mutated
+});
+
+test('Poetry tab is accessible and loaded after the grammar, without changing default prose',()=>{
+  const page=fs.readFileSync(path.join(root,'_pages/marain.markdown'),'utf8');
+  const tabs=fs.readFileSync(path.join(root,'assets/marain/js/marain-tabs.js'),'utf8');
+  const ui=fs.readFileSync(path.join(root,'assets/marain/js/poetic-ui.js'),'utf8');
+  for(const id of ['poetry-workbench','poetic-stem','poetic-kind','poetic-status','poetic-output-roman','poetic-output-glyphs']){
+    assert.equal(page.split('id="'+id+'"').length-1,1,id);
+  }
+  assert.ok(page.indexOf('phrase-translator.js')<page.indexOf('poetic-ui.js'));
+  assert.ok(page.indexOf('poetic-ui.js')<page.indexOf('marain-tabs.js'));
+  assert.ok(tabs.includes("['Phrases', 'Poetry', 'Dictionary', 'Alphabet', 'Base conversion']"));
+  assert.ok(ui.includes('textContent') && !ui.includes('innerHTML'));
+  assert.ok(page.includes('All forms here are newly proposed'));
 });

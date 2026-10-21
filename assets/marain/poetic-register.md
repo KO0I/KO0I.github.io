@@ -50,3 +50,7 @@ Each new headword is marked `proposed-extension` with provenance. *Heavy messing
 `poeticCadence(stem, kind, cadence)` and `reversePoeticCadence(form)` provide reversible, meaning-preserving forms for selected suffixes. `poeticMutate(po, lemma)` and `reversePoeticMutation(po, form)` implement the narrow initial consonant change. Invalid forms or missing context return no mutation. No default prose translation is changed.
 
 Validation: `node --test tests/marain-phrases.test.cjs` checks dictionary round-trips, canonical and poetic forms, context and collision rules. Poetic additions are proposals even if the code passes its tests.
+
+## Try the forms on the website
+
+The [Marain dictionary]({{ '/marain/' | relative_url }}) includes a dedicated **Poetry** tab. Enter a romanized dictionary headword and choose a prospective/resultative cadence or mutation after `po`. The controls use the opt-in helpers directly and display both romanization and glyphs. The automatic English phrase translator remains unmodified in behavior. A transformation is unavailable when a word is unknown, a form is not supported, or a surface mutation would collide with a dictionary headword.

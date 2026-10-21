@@ -7,6 +7,8 @@
     const phrases = root.querySelector('#phrase-translator');
     const converter = root.querySelector('#base-conversion');
     const words = root.querySelector('#english-to-marain');
+    const poetry = root.querySelector('#poetry-workbench');
+    const poetryOffset = poetry ? 1 : 0;
     // Leave the existing page usable if the expected sections are missing.
     if (!phrases || !words) return;
     const rules = root.querySelector('.marain-rules');
@@ -26,7 +28,7 @@
     list.setAttribute('role', 'tablist');
     list.setAttribute('aria-label', 'Marain tools');
     const panels = [], tabs = [];
-    ['Phrases', 'Dictionary', 'Alphabet', 'Base conversion'].forEach((name, i) => {
+    (poetry ? ['Phrases', 'Poetry', 'Dictionary', 'Alphabet', 'Base conversion'] : ['Phrases', 'Dictionary', 'Alphabet', 'Base conversion']).forEach((name, i) => {
       const slug = name.toLowerCase().replace(/ /g, '-');
       const tab = document.createElement('button');
       tab.type = 'button';
@@ -60,21 +62,22 @@
       });
       if (focus) tabs[index].focus();
     }
-    // Panel order: Phrases, Dictionary (English -> Marain lookup), Alphabet.
+    // Panel order: Phrases, optional Poetry, Dictionary, Alphabet, Base conversion.
     panels[0].append(phrases);
     if (rules) panels[0].append(rules);
-    panels[1].append(words);
+    if (poetry) panels[1].append(poetry);
+    panels[1 + poetryOffset].append(words);
     if (alphabetHeading && alphabetContent) {
       const scroll = document.createElement('div');
       scroll.className = 'marain-alphabet-scroll';
       scroll.append(alphabetContent);
-      panels[2].append(alphabetHeading, scroll);
+      panels[2 + poetryOffset].append(alphabetHeading, scroll);
     } else {
       const message = document.createElement('p');
       message.textContent = 'The symbol table could not be located on this page.';
-      panels[2].append(message);
+      panels[2 + poetryOffset].append(message);
     }
-    if (converter) panels[3].append(converter);
+    if (converter) panels[3 + poetryOffset].append(converter);
     const style = document.createElement('style');
     style.textContent = `
       .marain-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin:0 0 1rem; border-bottom:1px solid #595165; padding-bottom:.65rem; }

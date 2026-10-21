@@ -27,6 +27,7 @@
 }
 
 .marain-page input,
+.marain-page select,
 .marain-page textarea {
   width: 100%;
   box-sizing: border-box;
@@ -39,6 +40,7 @@
 }
 
 .marain-page input:focus,
+.marain-page select:focus,
 .marain-page textarea:focus {
   outline: 2px solid #a98cff;
   border-color: #a98cff;
@@ -207,3 +209,9 @@
 #base-conversion input.marain { font-family: "Marain", serif; font-size: 2rem; }
 #base-conversion output { overflow-wrap: anywhere; }
 #base-error { color: #ffb4b4; min-height: 1.5em; }
+
+/* The poetic workbench is moved into its own accessible tab when JS is enabled. */
+#poetry-workbench label { display: block; margin-top: 1rem; font-weight: 600; }
+#poetry-workbench select, #poetry-workbench input { margin-top: .4rem; }
+#poetry-workbench #poetic-output-glyphs { min-height: 2rem; font-size: 1.5rem; }
+#poetry-workbench #poetic-output-roman { min-height: 1.5rem; }

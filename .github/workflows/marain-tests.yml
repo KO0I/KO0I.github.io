@@ -24,4 +24,6 @@ jobs:
           node-version: '22'
       - run: node --check assets/marain/js/dict.js
       - run: node --check assets/marain/js/phrase-translator.js
+      - run: node --check assets/marain/js/poetic-ui.js
+      - run: node --check assets/marain/js/marain-tabs.js
       - run: node --test tests/marain-phrases.test.cjs

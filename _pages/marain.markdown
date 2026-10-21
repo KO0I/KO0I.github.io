@@ -17,6 +17,7 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/phrase-ui.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/marain-display.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/base-conversion.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/marain/js/poetic-ui.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/marain-tabs.js' | relative_url }}" defer></script>
 
 # <span class="marain">marain</span>
@@ -175,6 +176,28 @@ permalink: /marain/
   <p>Cadence forms are reversible variants of <code>'wolug</code> and <code>'inayng</code>. Hypothetical <code>'tcha</code> keeps its existing final-letter deletion rule. Rhyme, alliteration, refrains, and multi-meaning words remain stylistic choices. The automatic phrase translator does not silently poeticize prose.</p>
   <p><a href="{{ '/assets/marain/poetic-register.md' | relative_url }}">Rules and provenance</a> · <a href="{{ '/marain-poetry-and-ship-names/' | relative_url }}">Poetry and Culture ship-name post</a></p>
 </details>
+
+
+<section id="poetry-workbench" class="dictionary-panel" aria-labelledby="poetry-heading">
+  <h2 id="poetry-heading">Poetic forms</h2>
+  <p>The poetic register is optional. Enter one existing Marain dictionary word in romanization (not a sentence). Choose a rhyme cadence or the Gaelic-inspired mutation after <code>po</code>. The ordinary grammar stays unchanged.</p>
+  <label for="poetic-stem">Dictionary headword (romanized)</label>
+  <input id="poetic-stem" type="text" value="uprahay" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-describedby="poetic-status">
+  <label for="poetic-kind">Poetic transformation</label>
+  <select id="poetic-kind" aria-describedby="poetic-status">
+    <option value="prospective:a">Prospective, cadence -a</option>
+    <option value="prospective:i">Prospective, cadence -i</option>
+    <option value="resultative:a">Resultative, cadence -a</option>
+    <option value="resultative:i">Resultative, cadence -i</option>
+    <option value="mutation">Poetic consonant mutation after po</option>
+  </select>
+  <p id="poetic-status" class="translation-notes" role="status" aria-live="polite"></p>
+  <h3>Romanized poetic form</h3>
+  <div id="poetic-output-roman" class="roman-output" aria-live="polite"></div>
+  <h3>Marain glyphs</h3>
+  <div id="poetic-output-glyphs" class="marain marain-output" aria-label="Poetic Marain glyphs"></div>
+  <p class="translation-notes">Try <code>pren</code> with the mutation option to produce <code>po fren</code>. The tool refuses forms it cannot resolve uniquely to known vocabulary. All forms here are newly proposed, not recovered Marain.</p>
+</section>
 
 <div id="english-to-marain" class="dictionary-panel">
   <h2>English to Marain</h2>

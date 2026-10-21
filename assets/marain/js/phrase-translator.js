@@ -97,7 +97,9 @@
   const onsetChanges={p:'f',b:'v',t:'T',s:'S',k:'H'};
   const onsetUndo={f:'p',v:'b',T:'t',S:'s',H:'k'};
   function poeticMutate(triggerKey,lemmaKey){
-    if(!poeticTriggers.has(triggerKey)||typeof lemmaKey!=='string'||!own(dict,lemmaKey))return null;
+    if(!poeticTriggers.has(triggerKey)||typeof lemmaKey!=='string'||!own(dict,lemmaKey)||lemmaKey===triggerKey)return null;
+    const entry=dict[lemmaKey];
+    if(['verb','modal','particle','adverb','conjunction'].includes(entry.pos) || /^to\s/.test(entry.def.trim()))return null;
     const ch=onsetChanges[lemmaKey[0]];
     if(!ch)return null;
     const key=ch+lemmaKey.slice(1);
