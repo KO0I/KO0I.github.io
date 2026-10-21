@@ -159,6 +159,23 @@ permalink: /marain/
   <p><a href="{{ '/assets/marain/marain-grammar-extension.md' | relative_url }}">Full v0.3 rules and provenance</a></p>
 </details>
 
+
+<details class="dictionary-panel marain-rules">
+  <summary>Proposed poetic register v0.4 — rhyme, cadence, and Gaelic-inspired mutation</summary>
+  <p>Optional community extensions for verse, <strong>not recovered Marain or Banks canon</strong>. Ordinary prose, nominal cases, and predicate meanings remain unchanged.</p>
+  <div class="marain-table-scroll"><table>
+    <thead><tr><th>Canonical</th><th>Poetic alternative</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>uprahay'wolug</code></td><td><code>uprahay'woluga</code> / <code>uprahay'wolugi</code></td><td>Prospective action; the new vowels only provide cadence</td></tr>
+      <tr><td><code>kabo'inayng</code></td><td><code>kabo'inaynga</code> / <code>kabo'inayngi</code></td><td>Resultative, no change of tense or causality</td></tr>
+      <tr><td><code>po pren</code></td><td><code>po fren</code></td><td>“Small spaceship” with an optional mutated onset</td></tr>
+    </tbody>
+  </table></div>
+  <p>In the poetic register only, <code>po</code> (“small”) can trigger the initial changes <code>p→f</code>, <code>b→v</code>, <code>t→th</code>, <code>s→sh</code>, and <code>k→ch</code>. The original headword is preserved, mutation must not collide with an existing dictionary word, and unmutation requires its trigger. The source of inspiration is Scottish Gaelic lenition, not its full phonological system.</p>
+  <p>Cadence forms are reversible variants of <code>'wolug</code> and <code>'inayng</code>. Hypothetical <code>'tcha</code> keeps its existing final-letter deletion rule. Rhyme, alliteration, refrains, and multi-meaning words remain stylistic choices. The automatic phrase translator does not silently poeticize prose.</p>
+  <p><a href="{{ '/assets/marain/poetic-register.md' | relative_url }}">Rules and provenance</a> · <a href="{{ '/marain-poetry-and-ship-names/' | relative_url }}">Poetry and Culture ship-name post</a></p>
+</details>
+
 <div id="english-to-marain" class="dictionary-panel">
   <h2>English to Marain</h2>
 

@@ -190,3 +190,14 @@ This remains a community extension, **not Banks canon**. The [full v0.2 specific
 Examples: `tovuh tshainsle bechumli` = “it was imagined”; `ra'yuh uprahay'wolug nayla` = “I plan to leave”; `ra'yuh kwemraku'ha uprahay'wolug nayla` = “I am scheduled and obliged to leave.” Three proposed lexical compounds are `gralemih` (know), `tshainsle` (imagine), and independent `inayng` (therefore), all tagged as `proposed-extension` in the current dictionary.
 
 The [current full specification]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}) maintains a strict separation between recovered forms and invented vocabulary and grammar.
+
+
+## 12. Proposed poetic register v0.4
+
+**New, not recovered (2026-10-21).** The earlier grammar is retained. Prospective and resultative predicates may optionally use poetic endings `-a` or `-i` without changing meaning: `uprahay'woluga` / `uprahay'wolugi` and `kabo'inaynga` / `kabo'inayngi`. The hypothetical `'tcha` rule retains its original deletion behavior. Suffix stacking on a single predicate is still unresolved.
+
+A deliberately limited Gaelic-inspired initial mutation follows `po` (“small”) only in the opt-in poetic register, with mappings `p→f`, `b→v`, `t→th`, `s→sh`, `k→ch`. It is reversible only with the contextual trigger and only when the mutated word does not collide with an existing headword. Prose is not automatically mutated.
+
+Five clearly labeled proposals extend the vocabulary: `lemihgra` (test/verify), `gaflemih` (read), `saynowetsiki` (still), `hechrayspatsmaychrayti` (non-war/non-military, an approximation), and `burach` (mess/shambles, adapted from Scottish Gaelic `bùrach`). Full ship names and surface mutations are **not** dictionary headwords.
+
+The [poetry post]({{ '/marain-poetry-and-ship-names/' | relative_url }}) and [poetic register spec]({{ '/assets/marain/poetic-register.md' | relative_url }}) distinguish recovered language from authored extensions and partial translations.

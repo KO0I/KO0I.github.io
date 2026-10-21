@@ -1,4 +1,4 @@
-# Marain grammar extension v0.3 — hypothetical, patientive, resultative, and prospective
+# Marain grammar extension v0.4 — hypothetical, patientive, resultative, prospective, and poetic register
 
 **Status: adopted into this project's dictionary as explicitly proposed language (2026-10-21).** Neither the new irrealis suffix nor zero-marked predicate chaining is asserted to be part of Iain M. Banks's published Marain. The original community-lesson evidence is preserved in the [lesson-rule audit]({{ '/lesson-rules/' | relative_url }}).
 
@@ -155,3 +155,41 @@ These are **new lexical proposals**, not restored sources, each recorded in `dic
 ### Implementation and limits
 
 The phrase assistant supports a restricted set of English paraphrases for this extension (including “it was imagined,” “I plan to leave,” “I am scheduled and obliged to leave,” and the explicit comma + therefore example). It does not claim general passive, causative, modal-embedding, or aspect parsing; unsupported constructions remain partial. Tests check orthographic boundaries, patientive versus accusative, prospective versus necessity, resultative scope, and no regression in recovered examples.
+
+
+## 7. Poetic register v0.4 — rhyme without changing ordinary grammar
+
+**Community proposal (2026-10-21), not recovered Banks or lesson canon.** The existing case endings and predicate meanings remain unchanged. Poetry can use refrains, consonant correspondence, internal rhyme, and double-meaning words without requiring new grammar.
+
+### Optional prosodic conjugations
+
+The two v0.3 predicate suffixes **prospective** `'wolug` and **resultative** `'inayng` optionally take -a (glyph `a`) or -i (glyph `E`) in the poetic register. These are sound variants of the same predicate meaning, **not new tense/aspect/case values**. The ordinary form remains valid in verse and prose.
+
+| Predicate | Ordinary | Poetic ending a | Poetic ending i |
+|---|---|---|---|
+| `uprahay` (go) | `uprahay'wolug` | `uprahay'woluga` | `uprahay'wolugi` |
+| `kabo` (speak) | `kabo'inayng` | `kabo'inaynga` | `kabo'inayngi` |
+
+The surface glyph keys are `OprahAwolOga`, `OprahAwolOgE`, `kaboEnAGa`, and `kaboEnAGE`. The apostrophe is only a romanized morpheme boundary, not a glyph. These forms reverse to their existing stem + suffix without semantic loss. Do not conflate the prospective marker with necessity or the resultative with completed action.
+
+Hypothetical `'tcha` **does not** acquire cadence endings under v0.4; its one-time deletion before `ch`, `c`, `p`, `d`, `t` or `y` remains unchanged. The order of stacked predicate suffixes is not yet defined.
+
+### Gaelic-inspired initial consonant mutation
+
+A narrowly scoped *optional poetic register* mutation may follow the existing adjective `po` (“small”). It applies to ordinary known dictionary headwords and changes their initial Marain glyph as follows: `p→f`, `b→v`, `t→T` (th), `s→S` (sh), `k→H` (ch). For example, `po pren` may be `po fren`, both intended to mean “small spaceship.”
+
+This **does not reproduce Gaelic lenition**; it borrows the idea that a preceding word can trigger a predictable initial-consonant change. Normal prose remains `po pren`. The helper requires an explicit trigger, refuses a mutated form that would collide with an existing dictionary entry, and reverses only to a unique dictionary lemma in its trigger context. The mutated form is not inserted as a separate headword. The dictionary's ordinary case and person rules are unaffected.
+
+### Poetic composition
+
+Gaelic *aicill*, Welsh *cynghanedd*, Persian ghazal rhyme and refrain, Arabic *sajʿ*, and Japanese pivot words are inspirations for rhythmic and semantic play. These are **not** asserted to be historical Marain rules. `gra` (true/correct) might be repeated as an optional refrain. `luh` (flow, current, wind) already has a useful semantic pivot. Ordinary word order remains constrained by the v0.2/v0.3 parser in automated translations even though case can license alternate emphasis in manual verse.
+
+### Borrowings and translation provenance
+
+Five proposed headwords are recorded with `status: proposed-extension`: `lemihgra` (test/verify, sense+true); `gaflemih` (read, word+sense); `saynowetsiki` (still/continuing, exist+after); `hechrayspatsmaychrayti` (roughly non-war/non-military, **not a fully equivalent word for civilian**); `burach` (mess/shambles, adapted from Scottish Gaelic `bùrach`).
+
+The Gaelic-derived `burach` is **not** proof of an established translation for “That's heavy messing.” The proposed Gaelic phrase `’S e trom-bhùrach a th’ ann gu dearbh` has an interpretable structure but should not be treated as an authenticated idiom. *Heavy messing* can refer to serious interference, not merely disorder.
+
+Culture ship-name translations are interpretive glosses; *Just Testing* and *Just Read the Instructions* still omit the nuance of *just*, and several names lose wordplay or tense distinctions. See [the post]({{ '/marain-poetry-and-ship-names/' | relative_url }}) and [detailed poetic-register rules]({{ '/assets/marain/poetic-register.md' | relative_url }}).
+
+Implementation: the translator exposes bounded opt-in `poeticCadence`, `reversePoeticCadence`, `poeticMutate`, and `reversePoeticMutation` helpers, with collision checks and tests. It does not automatically mutate ordinary English-to-Marain outputs.
