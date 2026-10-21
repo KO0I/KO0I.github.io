@@ -91,7 +91,7 @@ test('glyph and romanisation boundaries round-trip for every single-word diction
 });
 
 test('11 sourced additions, no duplicate existing headwords or unknown glyphs',()=>{
-  assert.equal(Object.keys(scope.dict).length,457);
+  assert.equal(Object.keys(scope.dict).length,460);
   const additions=Object.values(scope.dict).filter(e=>e.status==='community-lesson');
   assert.equal(additions.length,11);
   assert.ok(additions.every(e=>e.source&&e.en.length));
@@ -109,7 +109,7 @@ test('newly proposed modal lexemes are separate from recovered lesson vocabulary
   const keys=['ke','fOnOft','giwEnOft','SuztnOft','kwemrakOha','wolOgnOft','haGCa'];
   for(const key of keys)assert.equal(scope.dict[key].status,'proposed-extension',key);
   for(const key of ['haG','gra','haGgra'])assert.equal(scope.dict[key].status,'community-lesson',key);
-  assert.equal(Object.values(scope.dict).filter(e=>e.status==='proposed-extension').length,7);
+  assert.equal(Object.values(scope.dict).filter(e=>e.status==='proposed-extension').length,10);
   assert.ok(scope.dict.anoG.proposed_sense.includes('epistemic'));
 });
 
@@ -197,4 +197,83 @@ test('v0.2 hypotheticals, leave and belief clauses use zero-marked chaining',()=
   assert.equal(tr('I would leave.').glyphs,'rayu OprahaCa nAla.');
   assert.equal(tr('I could leave.').glyphs,'rayu fOnOfCa OprahA nAla.');
   assert.equal(tr('I would like a flower.').mode,'partial');
+});
+
+test('v0.3 lexical additions are explicitly proposed and do not replace recovered entries',()=>{
+  for(const key of ['gralemi','tSaEnsle','EnAG']){
+    assert.equal(scope.dict[key].status,'proposed-extension',key);
+    assert.ok(scope.dict[key].derivation);
+    assert.ok(scope.dict[key].source.includes('v0.3'));
+    assert.equal(api.encode(api.romanize(key)),key);
+  }
+  assert.equal(Object.keys(scope.dict).length,460);
+  assert.equal(scope.dict.lemi.gloss,'sense[v]');
+  assert.equal(scope.dict.wolOg.gloss,'plan[n]');
+});
+
+test('patientive case marks the undergoer; agent and tense stay separate',()=>{
+  assert.equal(api.inflect('to','pat'),'tovu');
+  assert.equal(api.romanize(api.inflect('to','pat')),'tovuh');
+  assert.equal(api.inflect('pren','pat'),'prenvu');
+  assert.equal(api.romanize(api.inflect('pren','pat')),'prenvuh');
+  assert.equal(api.inflect('to','acc'),'tova');
+  assert.equal(api.inflect('to','nom'),'toyu');
+  for(const [en,expected] of [
+    ['It was imagined.','tovuh tshainsle bechumli.'],
+    ['It is imagined.','tovuh tshainsle.'],
+    ['It will be imagined.','tovuh tshainsle beyanli.']
+  ]){
+    const r=tr(en);
+    assert.equal(r.roman,expected,en);
+    assert.equal(r.mode,'draft',en);
+    assert.ok(r.notes.some(n=>n.includes('patientive')),en);
+  }
+  assert.equal(tr('It was forgotten.').mode,'partial');
+});
+
+test('resultative and prospective retain stems and use apostrophe as a non-glyph boundary',()=>{
+  const examples=[
+    ['OprahA','prospective',"uprahay'wolug",'OprahAwolOg'],
+    ['tSaEnsle','resultative',"tshainsle'inayng",'tSaEnsleEnAG'],
+    ['fOnOft','prospective',"funuft'wolug",'fOnOftwolOg'],
+    ['kabo','resultative',"kabo'inayng",'kaboEnAG']
+  ];
+  for(const [stem,kind,expected,glyphs] of examples){
+    const result=api.predicateSuffix(stem,kind);
+    assert.equal(result.roman,expected,stem);
+    assert.equal(result.glyphKey,glyphs,stem);
+    assert.equal(api.romanize(result.key),expected,stem);
+    assert.equal(api.encode(expected),glyphs,stem);
+  }
+  assert.equal(api.predicateSuffix('OprahA','unknown'),null);
+  assert.equal(api.predicateSuffix(api.hypothetical('OprahA').key,'prospective'),null);
+});
+
+test('prospective intentions and independently future obligations remain distinct',()=>{
+  const examples=[
+    ['I plan to leave.',"ra'yuh uprahay'wolug nayla."],
+    ['I am planning to leave.',"ra'yuh uprahay'wolug nayla."],
+    ['I am scheduled to leave.',"ra'yuh uprahay'wolug nayla."],
+    ['I must leave in the future.',"ra'yuh kwemraku'ha uprahay nayla beyanli."],
+    ['I am scheduled and obliged to leave.',"ra'yuh kwemraku'ha uprahay'wolug nayla."]
+  ];
+  for(const [english,expected] of examples){
+    const r=tr(english);
+    assert.equal(r.roman,expected,english);
+    assert.equal(r.mode,'draft',english);
+    assert.ok(r.notes.some(n=>n.includes('extension v0.3')) || r.rules.some(n=>n.includes('future time')),english);
+    assert.ok(!r.glyphs.includes("'"),english);
+  }
+  assert.equal(tr('I plan to leave.').glyphs,'rayu OprahAwolOg nAla.');
+});
+
+test('resultative explicitly marks second-clause consequence without assigning it to the past',()=>{
+  const r=tr('I would like to know, therefore it was imagined.');
+  assert.equal(r.roman,"ra'yuh okehi'tcha gralemih, tovuh tshainsle'inayng bechumli.");
+  assert.equal(r.glyphs,'rayu okehECa gralemi, tovu tSaEnsleEnAG beHOmlE.');
+  assert.equal(r.mode,'draft');
+  assert.ok(r.notes.some(n=>n.includes('causal relation')));
+  assert.ok(r.rules.some(n=>n.includes('resultative')));
+  assert.equal(tr('It was imagined.').roman,'tovuh tshainsle bechumli.');
+  assert.equal(tr('I would like to know, therefore it was teleporting.').mode,'partial');
 });

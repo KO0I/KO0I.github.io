@@ -23,7 +23,12 @@
   // Only insert separators where concatenation would change the glyph sequence.
   function romanize(key) {
     // Irrealis suffix apostrophe is morphological, so it must survive romanization.
-    if (key.endsWith("'Ca")) return romanize(key.slice(0,-3)) + "'tcha";
+    // Suffix boundaries are stored in internal keys for romanisation only.
+    for (const [suffix, spelling] of [['Ca','tcha'],['EnAG','inayng'],['wolOg','wolug']]) {
+      const marker="'"+suffix;
+      if (key.endsWith(marker) && key.length>marker.length)
+        return romanize(key.slice(0,-marker.length))+"'"+spelling;
+    }
     let out = '', prefix = '';
     for (const ch of key) {
       if (!own(alpha, ch)) { out += ch; prefix = ''; continue; }
@@ -49,9 +54,21 @@
     if(!glyphKey || !glyphKey.endsWith('Ca'))return null;
     return {roman, glyphKey, key:glyphKey.slice(0,-2)+"'Ca"};
   }
+  // Proposed v0.3 predicate markers RES and PROS preserve the entire stem.
+  // Unlike 'tcha, they do not delete a preceding letter; no stacked suffixes
+  // are interpreted until their ordering and scope are explicitly established.
+  function predicateSuffix(key, kind) {
+    const suffixes={resultative:['EnAG','inayng'],prospective:['wolOg','wolug']};
+    if(!own(suffixes,kind) || !key || key.includes("'") || !romanize(key))return null;
+    const [suffix,spell]=suffixes[kind], roman=romanize(key)+"'"+spell;
+    const glyphKey=encode(roman);
+    if(!glyphKey || !glyphKey.endsWith(suffix))return null;
+    return {roman,glyphKey,key:key+"'"+suffix};
+  }
+
   function inflect(key, role) {
     if (key === UNKNOWN) return key;
-    const suffixes = {acc:'va', dat:'vil', org:'sa', loc:'lE', com:'j', abs:''};
+    const suffixes = {acc:'va', dat:'vil', org:'sa', loc:'lE', com:'j', pat:'vu', abs:''};
     if (role === 'nom') return key + (/[AEOaeiouj]$/.test(key) ? 'yu' : 'u');
     return key + (suffixes[role] || '');
   }
@@ -105,6 +122,8 @@
   const verbs = {
     kabo:{forms:['speak','speaks','spoke','talk','talks','say','says','said'], object:'optional'},
     OprahA:{forms:['leave','leaves','left','go away','goes away','went away','go','goes','went','move','moves','moved'], object:'none'},
+    gralemi:{forms:['know','knows','knew'],object:'optional'},
+    tSaEnsle:{forms:['imagine','imagines','imagined'],object:'required'},
     gore:{forms:['meet','meets','met'], object:'required'},
     nadek:{forms:['consume','consumes','consumed','ingest','ingests','ingested','eat','eats','ate'], object:'required'},
     zawen:{forms:['ride','rides','rode','ride aboard','rides aboard'], object:'required'},
@@ -232,7 +251,7 @@
     ['may','giwEnOft','none'], ['can','fOnOft','none'],
     ['might','anoG','epistemic'], ['maybe','anoG','epistemic'],
     ['intend to','wolOgnOft','none'], ['intends to','wolOgnOft','none'],
-    ['plan to','wolOgnOft','none'], ['plans to','wolOgnOft','none'],
+    ['plan to','wolOgnOft','prospective'], ['plans to','wolOgnOft','prospective'], ['am planning to','wolOgnOft','prospective'], ['is planning to','wolOgnOft','prospective'], ['are planning to','wolOgnOft','prospective'],
     ['want to','okehE','none'], ['wants to','okehE','none'],
     ['need to','kOha','none'], ['needs to','kOha','none'],
     ['would like','okehE','explicit-hypothetical'], ['want','okehE','explicit'], ['wants','okehE','explicit']
@@ -265,19 +284,29 @@
       if(!event.length)continue;
       if(scope==='embedded')event.splice(1,0,'heH');
       let keys;
+      const isProspective=scope==='prospective';
       const markedModal=(scope==='hypothetical'||scope==='explicit-hypothetical')?hypothetical(modalKey)?.key:modalKey;
-      if(!markedModal)return null;
-      if(scope==='epistemic')keys=['anoG',matrixNom,...event];
+      if(!isProspective && !markedModal)return null;
+      if(isProspective) {
+        const eventMark=predicateSuffix(event[0],'prospective');
+        if(!eventMark)return null;
+        event[0]=eventMark.key;
+        keys=[matrixNom,...event];
+      } else if(scope==='epistemic')keys=['anoG',matrixNom,...event];
       else keys=[matrixNom,markedModal,...(scope==='matrix'?['heH']:[]),...(embeddedActor?[inflect(pronouns[embeddedActor],'nom')]:[]),...event];
       if(question)keys.unshift('haGgra');
       ctx.alignment.push({english:subject,marain:romanize(matrixNom),reason:'Nominative subject'});
-      ctx.alignment.push({english:form,marain:romanize(markedModal),reason:'Proposed modal grammar v0.2; '+scope});
+      ctx.alignment.push({english:form,marain:romanize(isProspective?event[0]:markedModal),reason:'Proposed predicate grammar; '+scope});
       for(const field of ['missing','notes','rules'])ctx[field].push(...child[field]);
       ctx.alignment.push(...child.alignment.slice(embeddedActor?0:1));
-      ctx.rules.push('Proposed zero-marked predicate chain: modal + following predicate; optional ke boundary for ambiguity. A new nominative marks an explicit subordinate actor.');
+      ctx.rules.push(isProspective
+        ? "Proposed prospective 'wolug: planned event; suffix attaches to the event rather than making an obligation."
+        : 'Proposed zero-marked predicate chain: modal + following predicate; optional ke boundary for ambiguity. A new nominative marks an explicit subordinate actor.');
       if(scope==='matrix'||scope==='embedded')ctx.rules.push('Negation scope depends on hech placement; proposed extension, not recovered canon.');
       if(form==='may')ctx.notes.push('English “may” is interpreted as permission, not probability. Use “might” for epistemic possibility.');
-      ctx.notes.push('Community grammar extension v0.2: newly proposed construction.');
+      ctx.notes.push(isProspective
+        ? 'Community grammar extension v0.3: prospective predicate marker; new proposal, not recovered grammar.'
+        : 'Community grammar extension v0.2: newly proposed construction.');
       if(scope==='hypothetical'||scope==='explicit-hypothetical')ctx.notes.push('The irrealis suffix ' + "'tcha" + ' softens desire in English “would like”; other uses are hypothetical, not automatically polite.');
       return {keys,mode:'draft'};
     }
@@ -313,9 +342,67 @@
     ctx.notes.push('Community grammar extension v0.2: hypothetical, not a recovered verb tense.');
     return {keys:[...(question?['haGgra']:[]),base.keys[0],form.key,...base.keys.slice(2)],mode:'draft'};
   }
+
+  function passivePatientive(text,question,ctx) {
+    // Passive-like English paraphrase: the patient is the subject, not an accusative object.
+    // Only the attested-in-this-extension predicate 'imagine' is recognized here.
+    const m=text.match(/^(.+?) (was|is|will be) imagined$/);
+    if(!m)return null;
+    const patient=nounPhrase(m[1],'pat',ctx);
+    if(!patient)return null;
+    const time=m[2]==='was'?['beHOmlE']:m[2]==='will be'?['beyanlE']:[];
+    ctx.rules.push('Proposed eighth nominal case: patientive -vuh; actor unspecified; verb is unchanged.');
+    ctx.notes.push('Community grammar extension v0.3: passive-like paraphrase using patientive; not recovered passive morphology.');
+    if(m[2]==='was'||m[2]==='will be')ctx.rules.push('Temporal locative provides time, not tense inflection on the verb.');
+    return {keys:[...(question?['haGgra']:[]),...patient,'tSaEnsle',...time],mode:'draft'};
+  }
+  function plannedObligation(text,question,ctx,depth) {
+    const m=text.match(/^(you all|i|we|you|he|she|it|they) (?:am|is|are) (scheduled to|scheduled and obliged to|obliged and scheduled to) (.+)$/);
+    if(!m || depth>2)return null;
+    const child=resultContext(), simple=parse(m[1]+' '+m[3],child,depth+1);
+    if(!simple || simple.mode!=='draft' || simple.keys[0]!==inflect(pronouns[m[1]],'nom'))return null;
+    const plan=predicateSuffix(simple.keys[1],'prospective');
+    if(!plan)return null;
+    for(const field of ['missing','notes','alignment','rules'])ctx[field].push(...child[field]);
+    const required=m[2]!=='scheduled to';
+    ctx.rules.push("Proposed: prospective 'wolug marks a plan; independent kwemraku'ha expresses obligation.");
+    ctx.notes.push('Community grammar extension v0.3: proposed planning/obligation construction, not recovered canon.');
+    return {keys:[...(question?['haGgra']:[]),simple.keys[0],...(required?['kwemrakOha']:[]),plan.key,...simple.keys.slice(2)],mode:'draft'};
+  }
+  function prospectiveTime(text,question,ctx,depth) {
+    const m=text.match(/^(.+) in the future$/);
+    if(!m || depth>2)return null;
+    const child=resultContext(), p=parse(m[1],child,depth+1);
+    if(!p||p.mode!=='draft')return null;
+    for(const field of ['missing','notes','alignment','rules'])ctx[field].push(...child[field]);
+    ctx.rules.push('Beyanli supplies future time; it does not by itself mean scheduled or obligatory.');
+    return {keys:[...(question?['haGgra']:[]),...p.keys,'beyanlE'],mode:'draft'};
+  }
+  function consequentClauses(text,ctx,depth) {
+    const m=text.match(/^(.+?),\\s*(therefore|thus|consequently)\\s+(.+)$/);
+    if(!m || depth>1)return null;
+    const leftCtx=resultContext(),rightCtx=resultContext();
+    const before=parse(m[1],leftCtx,depth+1),after=parse(m[3],rightCtx,depth+1);
+    if(!before||!after||before.mode!=='draft'||after.mode!=='draft')return null;
+    // Conservative: mark the second clause's main predicate, not any arbitrary modifier.
+    const verbSet=new Set(Object.keys(verbs));
+    const idx=after.keys.findIndex((key,i)=>i>0 && verbSet.has(key));
+    if(idx<0)return null;
+    const marked=predicateSuffix(after.keys[idx],'resultative');
+    if(!marked)return null; // Stacking rules remain unresolved.
+    const consequence=after.keys.slice();consequence[idx]=marked.key;
+    for(const part of [leftCtx,rightCtx])for(const field of ['missing','notes','alignment','rules'])ctx[field].push(...part[field]);
+    ctx.alignment.push({english:m[2],marain:"'inayng",reason:'Proposed predicate-level consequence, not merely temporal succession'});
+    ctx.rules.push("Proposed resultative 'inayng attaches to the consequent clause's predicate; the preceding clause supplies the antecedent.");
+    ctx.notes.push('Community grammar extension v0.3: causal relation asserted by speaker; not recovered canon.');
+    return {keys:[...before.keys,',',...consequence],mode:'draft'};
+  }
   function parse(input,ctx,depth=0) {
     if(depth>3)return null;
     let text=normal(input).replace(/\bi'm\b/g,'i am').replace(/\bdon't\b/g,'do not').replace(/\bdoesn't\b/g,'does not').replace(/\bdidn't\b/g,'did not');
+    // Preserve the comma boundary for bounded causal constructions before lexical tokenization.
+    const consequence=consequentClauses(text,ctx,depth);
+    if(consequence)return consequence;
     const plain=words(text).join(' ').replace(/mind-state/g,'mind state');
     if(own(fixed,plain)) {
       ctx.rules.push('Attested expression: '+fixed[plain][1]);
@@ -330,6 +417,12 @@
     // English modal auxiliary inversion, e.g. "Can you speak Marain?"
     const inverted=text.match(/^(can|may|must|should|might) (you all|i|we|you|he|she|it|they) (.+)$/);
     if(inverted){text=inverted[2]+' '+inverted[1]+' '+inverted[3];question=true;}
+    const passive=passivePatientive(text,question,ctx);
+    if(passive)return passive;
+    const future=prospectiveTime(text,question,ctx,depth);
+    if(future)return future;
+    const scheduled=plannedObligation(text,question,ctx,depth);
+    if(scheduled)return scheduled;
     const belief=beliefClause(text,question,ctx,depth);
     if(belief)return belief;
     const proposed=extendedClause(text,question,ctx);
@@ -414,8 +507,10 @@
       modes.push(parsed.mode);
       if(segments.length)segments.push({text:' ',plain:true});
       parsed.keys.forEach((key,i)=>{
-        if(i)segments.push({text:' ',plain:true});
-        const suffix=key.endsWith("'Ca");
+        // No whitespace before the inter-clause comma; preserve one after it.
+        if(i && key!==',')segments.push({text:' ',plain:true});
+        if(key===','){segments.push({text:',',plain:true});return;}
+        const suffix=key.endsWith("'Ca")||key.endsWith("'EnAG")||key.endsWith("'wolOg");
         segments.push({text:suffix?key.replace(/'/g,''):key,roman:suffix?romanize(key):null,unknown:key===UNKNOWN});
       });
       if(end)segments.push({text:end,plain:true});
@@ -426,5 +521,5 @@
     all.mode=all.missing.length||modes.includes('partial')?'partial':modes.every(m=>m==='attested')?'attested':'draft';
     return all;
   }
-  return {translate,romanize,encode,inflect,lookup,numberKey,hypotheticalRoman,hypothetical};
+  return {translate,romanize,encode,inflect,lookup,numberKey,hypotheticalRoman,hypothetical,predicateSuffix};
 }));

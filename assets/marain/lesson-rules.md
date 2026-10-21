@@ -177,3 +177,16 @@ See [the full extension]({{ '/assets/marain/marain-grammar-extension.md' | relat
 **Belief predicate:** `heth` is existing *believe* (not `tsha`, *think about*). Proposed nested belief construction: `ra'yuh heth geyuh shuhztnuft uprahay nayla` (“I think you should leave”). `ra'yuh heth'tcha ...` conveys hypothetical belief. `ra'yuh okehi'tcha uprahay nayla` conveys “I would like to leave.”
 
 This remains a community extension, **not Banks canon**. The [full v0.2 specification]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}) documents composition, examples, negation scope, and unresolved cases.
+
+
+## 11. Community grammar extension v0.3 — patientive, resultative, prospective
+
+**New, proposed (2026-10-21):** This section is not additional evidence from the recovered lessons. The earlier seven nominal cases remain attested. The extension adds an eighth nominal **patientive** case `-vuh` for an affected grammatical subject with unspecified agent, plus two *predicate-level* suffixes:
+
+- `'inayng` marks a consequent predicate, relating it to a preceding proposition as the speaker's asserted consequence. It does not encode past tense or completion.
+- `'wolug` marks an intended, scheduled, or planned event not yet realized relative to its reference time. It does not imply requirement or guarantee completion. Existing `kwemraku'ha` independently marks obligation, and `beyanli` is optional future time.
+- The new suffixes retain complete predicate stems; only hypothetical `'tcha` uses v0.2's ending-deletion rule. Apostrophes are orthographic boundaries rather than glyphs. Suffix order and stacking on one predicate remain unspecified.
+
+Examples: `tovuh tshainsle bechumli` = “it was imagined”; `ra'yuh uprahay'wolug nayla` = “I plan to leave”; `ra'yuh kwemraku'ha uprahay'wolug nayla` = “I am scheduled and obliged to leave.” Three proposed lexical compounds are `gralemih` (know), `tshainsle` (imagine), and independent `inayng` (therefore), all tagged as `proposed-extension` in the current dictionary.
+
+The [current full specification]({{ '/assets/marain/marain-grammar-extension.md' | relative_url }}) maintains a strict separation between recovered forms and invented vocabulary and grammar.

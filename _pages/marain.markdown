@@ -76,6 +76,9 @@ permalink: /marain/
     <button type="button" data-marain-example="I must not speak Marain.">I must not speak Marain</button>
     <button type="button" data-marain-example="I would like to leave.">I would like to leave</button>
     <button type="button" data-marain-example="I think you should leave.">I think you should leave</button>
+    <button type="button" data-marain-example="I plan to leave.">I plan to leave</button>
+    <button type="button" data-marain-example="I am scheduled and obliged to leave.">I am scheduled and obliged to leave</button>
+    <button type="button" data-marain-example="I would like to know, therefore it was imagined.">I would like to know…</button>
   </div>
   <div class="translation-result" aria-live="polite" aria-atomic="true">
     <p id="marainPhraseStatus" class="translation-notes"></p>
@@ -138,6 +141,23 @@ permalink: /marain/
   <p><a href="{{ '/assets/marain/marain-grammar-extension.md' | relative_url }}">Full grammar extension and examples</a>. The phrase tool implements a bounded subset; unfamiliar nested and counterfactual constructions still show partial matches.</p>
 </details>
 
+<details class="dictionary-panel marain-rules">
+  <summary>Community grammar extension v0.3 — patientive, resultative, and prospective (proposed)</summary>
+  <p><strong>Proposed language, not recovered canon.</strong> The new <code>-vuh</code> ending is a nominal patientive case; <code>'inayng</code> and <code>'wolug</code> are predicate-level markers, not ordinary noun cases.</p>
+  <div class="marain-table-scroll"><table>
+    <thead><tr><th>Function</th><th>Rule</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Patientive (PAT)</td><td><code>noun-vuh</code>: undergoer is grammatical subject; agent unspecified</td><td><code>tovuh tshainsle bechumli</code> — it was imagined</td></tr>
+      <tr><td>Resultative (RES)</td><td><code>predicate'inayng</code>: second clause is presented as a consequence of a prior proposition</td><td><code>tovuh tshainsle'inayng bechumli</code> — consequently, it was imagined</td></tr>
+      <tr><td>Prospective (PROS)</td><td><code>predicate'wolug</code>: planned, scheduled, or intended but unrealized</td><td><code>ra'yuh uprahay'wolug nayla</code> — I plan to leave</td></tr>
+      <tr><td>Future obligation</td><td><code>kwemraku'ha</code> (obligation) and <code>beyanli</code> (future time) are independent of planning</td><td><code>ra'yuh kwemraku'ha uprahay nayla beyanli</code></td></tr>
+      <tr><td>Planned obligation</td><td>Combine obligation with PROS on the intended action</td><td><code>ra'yuh kwemraku'ha uprahay'wolug nayla</code></td></tr>
+    </tbody>
+  </table></div>
+  <p>The new predicate suffixes preserve every letter of the stem. Only hypothetical <code>'tcha</code> uses the special final-letter deletion rule. The apostrophe is a romanisation boundary and not a glyph. Suffix stacking on the same predicate remains unspecified.</p>
+  <p>Three new <em>proposed</em> compounds support a fuller example: <code>gralemih</code> (know), <code>tshainsle</code> (imagine), and independent <code>inayng</code> (therefore). In a causal clause, the resultative suffix can replace the standalone connective.</p>
+  <p><a href="{{ '/assets/marain/marain-grammar-extension.md' | relative_url }}">Full v0.3 rules and provenance</a></p>
+</details>
 
 <div id="english-to-marain" class="dictionary-panel">
   <h2>English to Marain</h2>

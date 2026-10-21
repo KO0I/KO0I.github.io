@@ -1,4 +1,4 @@
-# Marain grammar extension v0.2 — hypothetical predicates and clause chaining
+# Marain grammar extension v0.3 — hypothetical, patientive, resultative, and prospective
 
 **Status: adopted into this project's dictionary as explicitly proposed language (2026-10-21).** Neither the new irrealis suffix nor zero-marked predicate chaining is asserted to be part of Iain M. Banks's published Marain. The original community-lesson evidence is preserved in the [lesson-rule audit]({{ '/lesson-rules/' | relative_url }}).
 
@@ -90,3 +90,68 @@ The prior v0.1 entries remain marked `proposed-extension`: `ke` (now optional), 
 General if/then clauses, perfect/progressive aspect, polyclausal negation, unrestricted fronting, and fine-grained politeness remain open questions. The phrase assistant demonstrates only covered patterns and preserves unknown phrases as `<??>`, without claiming all nested clauses are solved.
 
 **Validation:** run `node --test tests/marain-phrases.test.cjs`. The grammar is proposed; the tests check implementation consistency, not historical authenticity.
+
+## 6. Extension v0.3: patientive, resultative, and prospective
+
+**Status: adopted for the project as a community proposal on 2026-10-21, not recovered Banks or community-lesson canon.** All rules in sections 1–5 above remain unless explicitly superseded here. The seven nominal cases from the original lessons are unchanged. This extension adds an eighth nominal case and two distinct predicate markers.
+
+### Patientive (PAT): nominal case `-vuh`
+
+Add the case-sensitive internal suffix `vu` (romanised `vuh`) to a noun or pronoun normally capable of serving as an affected argument. The patientive-marked argument is the **grammatical subject undergoing the event**, with the actor absent or unspecified. The verb remains in its ordinary form. **Do not mark the patientive argument accusative as well**. This passive-like construction is only proposed for verbs with identifiable undergoers.
+
+| Active and patientive | Meaning |
+|---|---|
+| `ra'yuh tova tshainsle bechumli.` | I imagined it in the past (active; `to-va` is the object) |
+| `tovuh tshainsle bechumli.` | It was imagined (patientive; actor unspecified) |
+| `tovuh tshainsle.` | It is imagined (no obligatory tense marker) |
+| `tovuh tshainsle beyanli.` | It will be imagined (future temporal locative) |
+
+For `to` “it,” nominative is `toyuh`, accusative `tova`, patientive `tovuh`. Other stems form patientive mechanically, for example `pren → prenvuh`. An explicit agent phrase is not yet standardized; do not silently reinterpret originative `-sa` as an agent case.
+
+### Resultative (RES): predicate suffix `'inayng`
+
+Mark the **predicate of a consequent proposition** with `'inayng` (internal suffix `EnAG`, from `in` “because” and `ayng` “then”). The preceding clause supplies the cause or logical premise. The consequence is asserted by the speaker; the marker does not prove causality or temporal sequence and **does not mean completed action**.
+
+`[cause clause], [patient/actor] [consequent predicate]'inayng [arguments/time].`
+
+Example: `ra'yuh okehi'tcha gralemih, tovuh tshainsle'inayng bechumli.` — “I would like to know; therefore it was imagined.”
+
+Here `bechumli` alone supplies past time. The alternative independent connective `inayng` can precede a consequent clause, but do not require both the connective and resultative suffix at once. The idiom makes a causal assertion; whether the assertion is sensible is a question of meaning, not morphology.
+
+### Prospective (PROS): predicate suffix `'wolug`
+
+Attach `'wolug` (internal suffix `wolOg`, based on `wolug` “a plan”) to an action that is planned, scheduled, or intended **but is not yet realized relative to its reference time**. It does not entail that the action will happen or that anyone is obliged to perform it. The future locative `beyanli` is an independent temporal expression; a plan may also be described from a past reference point.
+
+| Marain | Interpretation |
+|---|---|
+| `ra'yuh uprahay'wolug nayla.` | I plan to leave |
+| `ra'yuh kwemraku'ha uprahay nayla beyanli.` | I must leave in the future (obligation + future time, no implication of a plan) |
+| `ra'yuh kwemraku'ha uprahay'wolug nayla.` | I am scheduled and obliged to leave (obligation + plan) |
+| `ra'yuh upraha'tcha nayla.` | I would leave, conditional/hypothetical, **not** a stated plan |
+
+`kwemraku'ha` is the already-proposed obligation predicate. The added prospective marker scopes over the **planned event** (e.g. `uprahay`), not the necessity itself. A plan and obligation are two independently asserted properties.
+
+### Suffix spelling and stacking
+
+| Marker | Applies to | Morphophonology |
+|---|---|---|
+| `-vuh` | nominal argument | ordinary case suffix; no apostrophe required |
+| `'tcha` | predicate | existing v0.2 truncation: delete one final `ch`, `c`, `p`, `d`, `t`, or `y` first |
+| `'inayng` | predicate of consequence | preserve full stem |
+| `'wolug` | predicate of planned action | preserve full stem |
+
+The apostrophe indicates an orthographic morpheme boundary, not an additional native Marain glyph. Thus `uprahay'wolug` displays with key `OprahAwolOg`, whereas `upraha'tcha` has key `OprahaCa`. Attaching multiple predicate suffixes to **the same predicate**, their order, and scope are deliberately left unresolved. A sentence may have different markers on different predicates, and a modal predicate may govern a prospective-marked event.
+
+### Proposed vocabulary supporting the example
+
+These are **new lexical proposals**, not restored sources, each recorded in `dict.js` with `status: proposed-extension` and its derivation:
+
+| Romanised | Internal key | Derivation / meaning |
+|---|---|---|
+| `gralemih` | `gralemi` | `gra` (true) + `lemih` (sense) → know |
+| `tshainsle` | `tSaEnsle` | `tsha` (consider) + `insle` (make) → imagine |
+| `inayng` | `EnAG` | `in` (because) + `ayng` (then) → therefore; independent connective distinct from attached `'inayng` |
+
+### Implementation and limits
+
+The phrase assistant supports a restricted set of English paraphrases for this extension (including “it was imagined,” “I plan to leave,” “I am scheduled and obliged to leave,” and the explicit comma + therefore example). It does not claim general passive, causative, modal-embedding, or aspect parsing; unsupported constructions remain partial. Tests check orthographic boundaries, patientive versus accusative, prospective versus necessity, resultative scope, and no regression in recovered examples.
