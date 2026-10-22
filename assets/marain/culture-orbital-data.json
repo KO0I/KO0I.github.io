@@ -109,7 +109,7 @@
   "rules": [
     "Personal-name origin components resemble an address and can identify a system/Orbital plus a local subdivision, but do not prove the type of either component.",
     "The -sa suffix is attached to the place-derived component; it roughly corresponds to English -er and is not a prefix.",
-    "The first component commonly identifies a stellar system; where a system has only one Orbital, it may instead identify that Orbital.",
+    "The first component can identify a stellar system; where a system has only one Orbital, it may instead identify that Orbital.",
     "Known second components include Plates; other second components must remain untyped unless explicitly identified.",
     "The Gzilt Tursensa Ngaroe construction is retained as a separate component-order variation.",
     "Do not infer a Culture Orbital from an adopted Culture name, a birth outside the Culture, or a ship/drone avatar."
@@ -118,7 +118,8 @@
     "title": "A Few Notes on the Culture",
     "author": "Iain M. Banks",
     "url": "https://theculture.adactio.com/",
-    "section": "Nomenclature"
+    "section": "Nomenclature",
+    "notes": "Primary author statement independently located; other classifications and book line numbers are user-supplied observations, not independently source-checked."
   },
   "origin_clues": [
     {
@@ -128,7 +129,8 @@
       "resident": "Wrobich Vress Schennil dam Flaysse",
       "first_type": "unresolved star/system or Orbital",
       "second_type": "unresolved habitat or subdivision",
-      "category": "unresolved"
+      "category": "unresolved",
+      "example": "Bahlln-Euchersa Wrobich Vress Schennil dam Flaysse"
     },
     {
       "origin_form": "Grice-Thantapsa",
@@ -137,7 +139,8 @@
       "resident": "Li Brase ’ndane dam Sione",
       "first_type": "unresolved star/system or Orbital",
       "second_type": "unresolved habitat or subdivision",
-      "category": "unresolved"
+      "category": "unresolved",
+      "example": "Grice-Thantapsa Li Brase ’ndane dam Sione"
     },
     {
       "origin_form": "Gart-Kepilesa",
@@ -146,7 +149,8 @@
       "resident": "Zreyn Enhoff Tramow Afayaf dam Niskat-west",
       "first_type": "unresolved star/system or Orbital",
       "second_type": "unresolved habitat or subdivision",
-      "category": "unresolved"
+      "category": "unresolved",
+      "example": "Gart-Kepilesa Zreyn Enhoff Tramow Afayaf dam Niskat-west"
     },
     {
       "origin_form": "Sholz-Iniassa",
@@ -155,7 +159,8 @@
       "resident": "Jerle Ruule Batra dam Ilyon",
       "first_type": "unresolved star/system or Orbital",
       "second_type": "unresolved habitat or subdivision",
-      "category": "unresolved"
+      "category": "unresolved",
+      "example": "Sholz-Iniassa Jerle Ruule Batra dam Ilyon"
     },
     {
       "origin_form": "Prebeign-Frultesa",
@@ -164,7 +169,8 @@
       "resident": "Yime Leutze Nsokyi dam Volsh",
       "first_type": "unresolved star/system or Orbital",
       "second_type": "unresolved habitat or subdivision",
-      "category": "unresolved"
+      "category": "unresolved",
+      "example": "Prebeign-Frultesa Yime Leutze Nsokyi dam Volsh"
     },
     {
       "origin_form": "Parharengyisa",
@@ -174,7 +180,8 @@
       "first_type": "unresolved origin",
       "second_type": null,
       "category": "speculative",
-      "note": "Possible interstellar habitat within an asteroid is the user's interpretation, not an established setting classification."
+      "note": "Possible interstellar habitat within an asteroid is the user's interpretation, not an established setting classification.",
+      "example": "Parharengyisa Listach Ja’andeesih Petrain dam Kotosklo"
     },
     {
       "origin_form": "Tursensa Ngaroe",
@@ -184,7 +191,8 @@
       "first_type": "unresolved origin component",
       "second_type": "unresolved habitat or subdivision",
       "category": "variant",
-      "note": "Gzilt example; actual component order is reversed relative to the common first–second-sa arrangement. Do not rewrite its attested order."
+      "note": "Gzilt example; actual component order is reversed relative to the common first–second-sa arrangement. Do not rewrite its attested order.",
+      "example": "Tursensa Ngaroe Hgan QiRia dam Yutton"
     },
     {
       "origin_form": "Chiark-Gevantsa",
@@ -194,7 +202,8 @@
       "first_type": "Orbital",
       "second_type": "Plate",
       "category": "identified",
-      "reference": "The Player of Games, lines 631, 885, 2077 (user-supplied locations)"
+      "reference": "The Player of Games, lines 631, 885, 2077 (user-supplied locations)",
+      "example": "Chiark-Gevantsa / Gurgeh"
     },
     {
       "origin_form": "Stafl-Preonsa",
@@ -204,7 +213,8 @@
       "first_type": "Orbital",
       "second_type": "subordinate component; Plate not confirmed",
       "category": "partial",
-      "reference": "Consider Phlebas, line 7936; Matter, line 8756 (user-supplied locations)"
+      "reference": "Consider Phlebas, line 7936; Matter, line 8756 (user-supplied locations)",
+      "example": "Stafl-Preonsa / Fal ’Ngeestra"
     },
     {
       "origin_form": "Stafl-Lepoortsa",
@@ -214,7 +224,8 @@
       "first_type": "Orbital",
       "second_type": "Plate",
       "category": "identified",
-      "reference": "Matter, lines 4784, 8756 (user-supplied locations)"
+      "reference": "Matter, lines 4784, 8756 (user-supplied locations)",
+      "example": "Stafl-Lepoortsa / Xide Hyrlis"
     },
     {
       "origin_form": "Seddun-Braijsa",
@@ -224,7 +235,8 @@
       "first_type": "Orbital",
       "second_type": "subordinate component; type unresolved",
       "category": "partial",
-      "reference": "Excession, lines 670, 1185, 4333 (user-supplied locations)"
+      "reference": "Excession, lines 670, 1185, 4333 (user-supplied locations)",
+      "example": "Seddun-Braijsa / Byr Genar-Hofoen"
     },
     {
       "origin_form": "Cloathel-Beldrunsa",
@@ -234,7 +246,8 @@
       "first_type": "Orbital",
       "second_type": "subordinate component; type unresolved",
       "category": "partial",
-      "reference": "Excession, line 5382 (user-supplied location)"
+      "reference": "Excession, line 5382 (user-supplied location)",
+      "example": "Cloathel-Beldrunsa / Khoriem Poere"
     },
     {
       "origin_form": "Masaq’—Sintriersa",
@@ -244,18 +257,21 @@
       "first_type": "Orbital",
       "second_type": "subordinate component; type unresolved",
       "category": "partial",
-      "reference": "Look to Windward, lines 209, 3053 (user-supplied locations)"
+      "reference": "Look to Windward, lines 209, 3053 (user-supplied locations)",
+      "example": "Masaq’—Sintriersa / Chomba Lassils"
     },
     {
       "origin_form": "Juboal-Rabaroansa",
       "first": "Juboal",
       "second": "Rabaroan",
-      "resident": "Perosteck Alseyn Balveda dam T’seif",
+      "resident": "Perosteck Balveda",
       "first_type": "stellar system",
       "second_type": "Plate",
       "category": "identified",
       "note": "The Orbital itself is not identified by this compound.",
-      "reference": "Iain M. Banks, A Few Notes on the Culture, Nomenclature section (author's explicit example)"
+      "reference": "Iain M. Banks, A Few Notes on the Culture, Nomenclature section (author's explicit example)",
+      "example": "Juboal-Rabaroansa / Perosteck Balveda",
+      "author_full_name": "Juboal-Rabaroansa Perosteck Alseyn Balveda dam T’seif"
     },
     {
       "origin_form": null,
@@ -266,7 +282,8 @@
       "second_type": null,
       "category": "exception",
       "note": "The full origin has multiple components. Born outside the Culture on the eighth level of Sursamen Shellworld; no Orbital should be inferred.",
-      "reference": "Matter, lines 2414–2416, 8756 (user-supplied locations)"
+      "reference": "Matter, lines 2414–2416, 8756 (user-supplied locations)",
+      "example": "/ Ulver Seich"
     },
     {
       "origin_form": "Quyn-Sichultsa",
@@ -277,14 +294,16 @@
       "second_type": "planet",
       "category": "exception",
       "note": "Name adopted after becoming a Culture citizen; this is a planetary origin, not an Orbital.",
-      "reference": "Surface Detail, line 11066 (user-supplied location)"
+      "reference": "Surface Detail, line 11066 (user-supplied location)",
+      "example": "Quyn-Sichultsa / Lededje Y’breq"
     }
   ],
   "exclusions": [
     {
       "person": "Klatsli Quike",
       "origin_form": "Astle-Chulinisa",
-      "reason": "Quike is a ship avatar; the compound is excluded from this biological-resident birthplace evidence set."
+      "reason": "Quike is a ship avatar; the compound is excluded from this biological-resident birthplace evidence set.",
+      "note": "Source user explicitly excludes this example from independent biological-person birth-origin evidence."
     },
     {
       "scope": "Ship and drone names",
