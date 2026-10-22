@@ -19,6 +19,7 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/base-conversion.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/poetic-ui.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/marain-tabs.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/marain/js/culture-orbitals-ui.js' | relative_url }}" defer></script>
 <script type="module" src="{{ '/assets/marain/js/culture-name-ui.mjs' | relative_url }}"></script>
 
 # <span class="marain">marain</span>
@@ -257,6 +258,92 @@ permalink: /marain/
   </details>
   <noscript><p>Enable JavaScript to generate or search names. The complete reference corpus remains available from the plain-text link above.</p></noscript>
 </section>
+
+
+<section id="culture-orbitals" class="dictionary-panel" aria-labelledby="culture-orbitals-heading"
+         data-orbital-data-url="{{ '/assets/marain/culture-orbital-data.json' | relative_url }}">
+  <h2 id="culture-orbitals-heading">Culture Orbitals &amp; habitats</h2>
+  <p>Named Orbitals and habitats, kept apart from personal names and generated inventions. The first list is <strong>the user-supplied confirmed-name set</strong>, not automatically inferred from birthplace suffixes. The origin clues below are separate research notes, <strong>not additional confirmed Orbitals</strong>.</p>
+
+  <div class="culture-orbital-summary" aria-label="Reference list counts">
+    <p><strong>18</strong> standalone names</p>
+    <p><strong>1</strong> additional habitat label (Broatsa / Broat)</p>
+    <p><strong>16</strong> origin examples, including exceptions</p>
+  </div>
+  <p class="translation-notes">The accompanying note calls an earlier list “17-name,” but the list supplied here contains 18 standalone names plus “Broatsa (Phage Rock).” All 19 source lines have been retained rather than silently discarding an entry.</p>
+
+  <label for="culture-orbitals-search">Search Orbitals, habitats, and origin components</label>
+  <input type="search" id="culture-orbitals-search" autocomplete="off" spellcheck="false"
+         placeholder="e.g. Stafl, Juboal, Gevant, Tursen">
+  <p id="culture-orbital-search-count" class="translation-notes" aria-live="polite"></p>
+
+  <h3>Source-listed Orbitals and habitats</h3>
+  <ul class="culture-orbital-list" id="culture-orbital-confirmed">
+    <li data-orbital-name="Codure">Codure</li>
+    <li data-orbital-name="Chiark">Chiark</li>
+    <li data-orbital-name="Cloathel">Cloathel</li>
+    <li data-orbital-name="Dibaldipen">Dibaldipen</li>
+    <li data-orbital-name="Dinyol-hei">Dinyol-hei</li>
+    <li data-orbital-name="Erbil">Erbil</li>
+    <li data-orbital-name="Foerlinteul">Foerlinteul</li>
+    <li data-orbital-name="Gadampth">Gadampth</li>
+    <li data-orbital-name="Hursklip">Hursklip</li>
+    <li data-orbital-name="Masaq’">Masaq’</li>
+    <li data-orbital-name="Quyeela">Quyeela</li>
+    <li data-orbital-name="Screce">Screce</li>
+    <li data-orbital-name="Seddun">Seddun</li>
+    <li data-orbital-name="Spanshacht-Trouferre">Spanshacht-Trouferre</li>
+    <li data-orbital-name="Stafl">Stafl</li>
+    <li data-orbital-name="Svanrayt">Svanrayt</li>
+    <li data-orbital-name="Teriocre">Teriocre</li>
+    <li data-orbital-name="Yinang">Yinang</li>
+    <li data-orbital-name="Broat">Broat <span class="translation-notes">(Phage Rock; source form <code>Broatsa</code>; Kwins system)</span></li>
+  </ul>
+  <p class="translation-notes">Plain-text source: <a href="{{ '/assets/marain/culture-orbital-names.txt' | relative_url }}">the complete Orbital/habitat name list</a>. The original spelling <code>Broatsa (Phage Rock)</code> is preserved in that file; <code>Broat</code> is displayed here as the habitat's formal name according to the supplied interpretation.</p>
+
+  <h3>Reading Culture personal-name origins</h3>
+  <p>The usual two-component origin identifies a larger location and a more specific location. The first part <em>can</em> identify a stellar system or an Orbital; the second may identify a Plate or another subdivision. <code>-sa</code> is a <strong>suffix</strong> on the origin component, roughly equivalent to English <em>-er</em>—not a prefix, and not proof that either part is itself an Orbital. Iain M. Banks gives the explicit example <code>Juboal-Rabaroansa</code>: Juboal is a stellar system, Rabaroan is a Plate; the Orbital's own name is not specified by that example. <a href="https://theculture.adactio.com/">Author's original explanation, “A Few Notes on the Culture”</a>.</p>
+
+  <details id="culture-origin-clues" class="marain-interpretation" open>
+    <summary>Additional birthplace and origin clues — not confirmed additions</summary>
+    <p>Sixteen examples from the supplied research notes. “Identified” means the supplied evidence identifies the components' types; the book line pointers and most classifications have not been independently checked against the novels. Unresolved candidates remain unresolved.</p>
+    <label for="culture-orbital-status-filter">Filter origin clues</label>
+    <select id="culture-orbital-status-filter">
+      <option value="all">All categories</option>
+      <option value="identified">Identified system / Orbital / Plate</option>
+      <option value="partial">Partly identified</option>
+      <option value="unresolved">Undetermined components</option>
+      <option value="speculative">Speculative habitat interpretation</option>
+      <option value="variant">Alternate component order (Gzilt)</option>
+      <option value="exception">Exceptions (not Orbital evidence)</option>
+    </select>
+    <div class="marain-table-scroll">
+      <table class="culture-origin-table">
+        <thead>
+          <tr>
+            <th scope="col">Source form and person</th>
+            <th scope="col">First component</th>
+            <th scope="col">Second component</th>
+            <th scope="col">Evidence status</th>
+          </tr>
+        </thead>
+        <tbody id="culture-orbital-origin-rows">
+          <tr><td colspan="4">Loading annotated origin clues… <a href="{{ '/assets/marain/culture-orbital-data.json' | relative_url }}">Read the reference data</a>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="culture-orbital-origin-count" class="translation-notes" aria-live="polite"></p>
+  </details>
+
+  <details class="marain-interpretation">
+    <summary>Exceptions and evidence rules</summary>
+    <p><strong>Tursensa Ngaroe</strong> is an explicitly retained Gzilt ordering variation and should not be rewritten to match a Culture-default pattern. <strong>Parharengyi</strong> being an asteroid-built interstellar habitat is a hypothesis, not an established identification. <strong>Ulver Seich</strong> was born outside the Culture (Sursamen Shellworld, eighth level). <strong>Quyn-Sichultsa</strong> refers to a star system and planet in a subsequently adopted Culture name, not an Orbital.</p>
+    <p>Ship and drone names are excluded. <strong>Klatsli Quike's Astle-Chulinisa</strong> is excluded as birthplace evidence because Quike is a ship avatar. The presence of an origin-like suffix alone does not establish the nature of any location.</p>
+    <p>Structured source data: <a href="{{ '/assets/marain/culture-orbital-data.json' | relative_url }}">JSON reference and origin clues</a>. Source locations in the notes are edition-dependent line numbers.</p>
+  </details>
+  <noscript><p>JavaScript is required to display the filtered origin-clue table. The confirmed-name list and linked JSON remain available without it.</p></noscript>
+</section>
+
 
 <div id="english-to-marain" class="dictionary-panel">
   <h2>English to Marain</h2>
