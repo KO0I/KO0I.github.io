@@ -210,11 +210,6 @@
 #base-conversion output { overflow-wrap: anywhere; }
 #base-error { color: #ffb4b4; min-height: 1.5em; }
 
-/* The poetic workbench is moved into its own accessible tab when JS is enabled. */
-#poetry-workbench label { display: block; margin-top: 1rem; font-weight: 600; }
-#poetry-workbench select, #poetry-workbench input { margin-top: .4rem; }
-#poetry-workbench #poetic-output-glyphs { min-height: 2rem; font-size: 1.5rem; }
-#poetry-workbench #poetic-output-roman { min-height: 1.5rem; }
 
 
 /* Culture-universe name generator. Letterforms here are Latin spellings, not Marain glyphs. */
