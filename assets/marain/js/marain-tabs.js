@@ -7,11 +7,9 @@
     const phrases = root.querySelector('#phrase-translator');
     const converter = root.querySelector('#base-conversion');
     const words = root.querySelector('#english-to-marain');
-    const poetry = root.querySelector('#poetry-workbench');
     const names = root.querySelector('#culture-names');
     const orbitals = root.querySelector('#culture-orbitals');
     const orbitalOffset = orbitals ? 1 : 0;
-    const poetryOffset = poetry ? 1 : 0;
     const namesOffset = names ? 1 : 0;
     // Leave the existing page usable if the expected sections are missing.
     if (!phrases || !words) return;
@@ -33,7 +31,6 @@
     list.setAttribute('aria-label', 'Marain tools');
     const panels = [], tabs = [];
     const tabNames = ['Phrases'];
-    if (poetry) tabNames.push('Poetry');
     if (names) tabNames.push('Names');
     if (orbitals) tabNames.push('Orbitals & Habs');
     tabNames.push('Dictionary', 'Alphabet', 'Base conversion');
@@ -71,25 +68,24 @@
       });
       if (focus) tabs[index].focus();
     }
-    // Panel order: Phrases, optional Poetry, optional Names, optional Orbitals & Habs,
+    // Panel order: Phrases, optional Names, optional Orbitals & Habs,
     // Dictionary, Alphabet, Base conversion.
     panels[0].append(phrases);
     if (rules) panels[0].append(rules);
-    if (poetry) panels[1].append(poetry);
-    if (names) panels[1 + poetryOffset].append(names);
-    if (orbitals) panels[1 + poetryOffset + namesOffset].append(orbitals);
-    panels[1 + poetryOffset + namesOffset + orbitalOffset].append(words);
+    if (names) panels[1].append(names);
+    if (orbitals) panels[1 + namesOffset].append(orbitals);
+    panels[1 + namesOffset + orbitalOffset].append(words);
     if (alphabetHeading && alphabetContent) {
       const scroll = document.createElement('div');
       scroll.className = 'marain-alphabet-scroll';
       scroll.append(alphabetContent);
-      panels[2 + poetryOffset + namesOffset + orbitalOffset].append(alphabetHeading, scroll);
+      panels[2 + namesOffset + orbitalOffset].append(alphabetHeading, scroll);
     } else {
       const message = document.createElement('p');
       message.textContent = 'The symbol table could not be located on this page.';
-      panels[2 + poetryOffset + namesOffset + orbitalOffset].append(message);
+      panels[2 + namesOffset + orbitalOffset].append(message);
     }
-    if (converter) panels[3 + poetryOffset + namesOffset + orbitalOffset].append(converter);
+    if (converter) panels[3 + namesOffset + orbitalOffset].append(converter);
     const style = document.createElement('style');
     style.textContent = `
       .marain-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin:0 0 1rem; border-bottom:1px solid #595165; padding-bottom:.65rem; }
