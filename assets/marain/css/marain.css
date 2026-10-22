@@ -215,3 +215,43 @@
 #poetry-workbench select, #poetry-workbench input { margin-top: .4rem; }
 #poetry-workbench #poetic-output-glyphs { min-height: 2rem; font-size: 1.5rem; }
 #poetry-workbench #poetic-output-roman { min-height: 1.5rem; }
+
+
+/* Culture-universe name generator. Letterforms here are Latin spellings, not Marain glyphs. */
+#culture-names { margin-top: 0; }
+#culture-names .culture-name-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, .6fr) minmax(0, 1.2fr);
+  gap: .85rem;
+  margin: 1.25rem 0 1rem;
+}
+#culture-names label { display: block; margin-bottom: .4rem; font-weight: 600; }
+#culture-name-seed { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+#culture-name-results, #culture-source-results {
+  padding-left: 1.8rem;
+  margin: 1rem 0 1.5rem;
+}
+#culture-name-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .35rem 1.25rem;
+}
+#culture-name-results li {
+  font-size: 1.06rem;
+  padding: .35rem .15rem;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid #454152;
+}
+#culture-source-results {
+  columns: 2;
+  column-gap: 2.2rem;
+  max-height: 28rem;
+  overflow-y: auto;
+}
+#culture-source-results li { break-inside: avoid; overflow-wrap: anywhere; padding: .2rem 0; }
+#culture-names button:disabled { opacity: .5; cursor: not-allowed; }
+@media (max-width: 700px) {
+  #culture-names .culture-name-controls { grid-template-columns: 1fr; }
+  #culture-name-results { grid-template-columns: 1fr; }
+  #culture-source-results { columns: 1; }
+}

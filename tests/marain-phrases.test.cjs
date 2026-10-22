@@ -344,7 +344,9 @@ test('Poetry tab is accessible and loaded after the grammar, without changing de
   }
   assert.ok(page.indexOf('phrase-translator.js')<page.indexOf('poetic-ui.js'));
   assert.ok(page.indexOf('poetic-ui.js')<page.indexOf('marain-tabs.js'));
-  assert.ok(tabs.includes("['Phrases', 'Poetry', 'Dictionary', 'Alphabet', 'Base conversion']"));
+  assert.ok(tabs.includes("if (poetry) tabNames.push('Poetry')"));
+  assert.ok(tabs.includes("if (names) tabNames.push('Names')"));
+  assert.ok(tabs.includes("tabNames.push('Dictionary', 'Alphabet', 'Base conversion')"));
   assert.ok(ui.includes('textContent') && !ui.includes('innerHTML'));
   assert.ok(page.includes('All forms here are newly proposed'));
 });
