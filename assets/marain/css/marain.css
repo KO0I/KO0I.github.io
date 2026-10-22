@@ -210,11 +210,6 @@
 #base-conversion output { overflow-wrap: anywhere; }
 #base-error { color: #ffb4b4; min-height: 1.5em; }
 
-/* The poetic workbench is moved into its own accessible tab when JS is enabled. */
-#poetry-workbench label { display: block; margin-top: 1rem; font-weight: 600; }
-#poetry-workbench select, #poetry-workbench input { margin-top: .4rem; }
-#poetry-workbench #poetic-output-glyphs { min-height: 2rem; font-size: 1.5rem; }
-#poetry-workbench #poetic-output-roman { min-height: 1.5rem; }
 
 
 /* Culture-universe name generator. Letterforms here are Latin spellings, not Marain glyphs. */
@@ -254,4 +249,56 @@
   #culture-names .culture-name-controls { grid-template-columns: 1fr; }
   #culture-name-results { grid-template-columns: 1fr; }
   #culture-source-results { columns: 1; }
+}
+
+
+/* Curated Culture Orbital and habitat reference. This is intentionally not a Marain glyph display. */
+#culture-orbitals { margin-top: 0; }
+#culture-orbitals h3 { color: #d8c7ff; margin-top: 1.3rem; }
+#culture-orbitals label { display: block; font-weight: 600; margin: .9rem 0 .4rem; }
+#culture-orbitals .culture-orbital-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin: .9rem 0;
+}
+#culture-orbitals .culture-orbital-summary p {
+  margin: 0;
+  padding: .55rem .9rem;
+  flex: 1 1 12rem;
+  background: #201d2b;
+  border: 1px solid #454152;
+  border-radius: .4rem;
+}
+#culture-orbitals .culture-orbital-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: .4rem 1.15rem;
+  padding-left: 1.6rem;
+}
+#culture-orbitals .culture-orbital-list li {
+  padding: .25rem 0;
+  border-bottom: 1px solid #454152;
+  overflow-wrap: anywhere;
+}
+#culture-orbitals .culture-orbital-list li[hidden] { display: none !important; }
+#culture-orbitals .culture-orbital-list .translation-notes { display: block; margin-top: .15rem; }
+#culture-orbitals .culture-origin-table { min-width: 640px; }
+#culture-orbitals .culture-origin-table th,
+#culture-orbitals .culture-origin-table td { padding: .65rem; }
+#culture-orbitals .culture-origin-table td { vertical-align: top; }
+#culture-orbitals .culture-origin-type,
+#culture-orbitals .culture-origin-person,
+#culture-orbitals .culture-origin-source,
+#culture-orbitals .culture-origin-reference {
+  display: block;
+  margin-top: .3rem;
+  color: #b8b2c8;
+  font-size: .9rem;
+  overflow-wrap: anywhere;
+}
+#culture-orbitals .culture-origin-person { color: #e8e3d7; }
+#culture-orbitals .culture-origin-note { margin: .45rem 0 0; font-size: .92rem; color: #b8b2c8; }
+@media (max-width: 700px) {
+  #culture-orbitals .culture-orbital-list { grid-template-columns: 1fr; }
 }
