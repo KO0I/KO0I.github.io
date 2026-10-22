@@ -17,7 +17,6 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/phrase-ui.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/marain-display.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/base-conversion.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/marain/js/poetic-ui.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/marain-tabs.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/culture-orbitals-ui.js' | relative_url }}" defer></script>
 <script type="module" src="{{ '/assets/marain/js/culture-name-ui.mjs' | relative_url }}"></script>
@@ -163,43 +162,9 @@ permalink: /marain/
 </details>
 
 
-<details class="dictionary-panel marain-rules">
-  <summary>Proposed poetic register v0.4 — rhyme, cadence, and Gaelic-inspired mutation</summary>
-  <p>Optional community extensions for verse, <strong>not recovered Marain or Banks canon</strong>. Ordinary prose, nominal cases, and predicate meanings remain unchanged.</p>
-  <div class="marain-table-scroll"><table>
-    <thead><tr><th>Canonical</th><th>Poetic alternative</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td><code>uprahay'wolug</code></td><td><code>uprahay'woluga</code> / <code>uprahay'wolugi</code></td><td>Prospective action; the new vowels only provide cadence</td></tr>
-      <tr><td><code>kabo'inayng</code></td><td><code>kabo'inaynga</code> / <code>kabo'inayngi</code></td><td>Resultative, no change of tense or causality</td></tr>
-      <tr><td><code>po pren</code></td><td><code>po fren</code></td><td>“Small spaceship” with an optional mutated onset</td></tr>
-    </tbody>
-  </table></div>
-  <p>In the poetic register only, <code>po</code> (“small”) can trigger the initial changes <code>p→f</code>, <code>b→v</code>, <code>t→th</code>, <code>s→sh</code>, and <code>k→ch</code>. The original headword is preserved, mutation must not collide with an existing dictionary word, and unmutation requires its trigger. The source of inspiration is Scottish Gaelic lenition, not its full phonological system.</p>
-  <p>Cadence forms are reversible variants of <code>'wolug</code> and <code>'inayng</code>. Hypothetical <code>'tcha</code> keeps its existing final-letter deletion rule. Rhyme, alliteration, refrains, and multi-meaning words remain stylistic choices. The automatic phrase translator does not silently poeticize prose.</p>
-  <p><a href="{{ '/assets/marain/poetic-register.md' | relative_url }}">Rules and provenance</a></p>
-</details>
 
 
-<section id="poetry-workbench" class="dictionary-panel" aria-labelledby="poetry-heading">
-  <h2 id="poetry-heading">Poetic forms</h2>
-  <p>The poetic register is optional. Enter one existing Marain dictionary word in romanization (not a sentence). Choose a rhyme cadence or the Gaelic-inspired mutation after <code>po</code>. The ordinary grammar stays unchanged.</p>
-  <label for="poetic-stem">Dictionary headword (romanized)</label>
-  <input id="poetic-stem" type="text" value="uprahay" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-describedby="poetic-status">
-  <label for="poetic-kind">Poetic transformation</label>
-  <select id="poetic-kind" aria-describedby="poetic-status">
-    <option value="prospective:a">Prospective, cadence -a</option>
-    <option value="prospective:i">Prospective, cadence -i</option>
-    <option value="resultative:a">Resultative, cadence -a</option>
-    <option value="resultative:i">Resultative, cadence -i</option>
-    <option value="mutation">Poetic consonant mutation after po</option>
-  </select>
-  <p id="poetic-status" class="translation-notes" role="status" aria-live="polite"></p>
-  <h3>Romanized poetic form</h3>
-  <div id="poetic-output-roman" class="roman-output" aria-live="polite"></div>
-  <h3>Marain glyphs</h3>
-  <div id="poetic-output-glyphs" class="marain marain-output" aria-label="Poetic Marain glyphs"></div>
-  <p class="translation-notes">Try <code>pren</code> with the mutation option to produce <code>po fren</code>. The tool refuses forms it cannot resolve uniquely to known vocabulary. All forms here are newly proposed, not recovered Marain.</p>
-</section>
+
 
 <section id="culture-names" class="dictionary-panel" aria-labelledby="culture-names-heading"
          data-corpus-url="{{ '/assets/marain/culture-names.txt' | relative_url }}">
