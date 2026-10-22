@@ -335,18 +335,20 @@ test('optional Gaelic-inspired poetic mutations reverse only in declared context
   assert.equal(tr('small spaceship').mode,'partial'); // prose is not mutated
 });
 
-test('Poetry tab is accessible and loaded after the grammar, without changing default prose',()=>{
+test('Poetry sections are absent from the Marain page; core language tools remain',()=>{
   const page=fs.readFileSync(path.join(root,'_pages/marain.markdown'),'utf8');
   const tabs=fs.readFileSync(path.join(root,'assets/marain/js/marain-tabs.js'),'utf8');
-  const ui=fs.readFileSync(path.join(root,'assets/marain/js/poetic-ui.js'),'utf8');
+  const css=fs.readFileSync(path.join(root,'assets/marain/css/marain.css'),'utf8');
   for(const id of ['poetry-workbench','poetic-stem','poetic-kind','poetic-status','poetic-output-roman','poetic-output-glyphs']){
-    assert.equal(page.split('id="'+id+'"').length-1,1,id);
+    assert.equal(page.includes('id="'+id+'"'),false,id);
   }
-  assert.ok(page.indexOf('phrase-translator.js')<page.indexOf('poetic-ui.js'));
-  assert.ok(page.indexOf('poetic-ui.js')<page.indexOf('marain-tabs.js'));
-  assert.ok(tabs.includes("if (poetry) tabNames.push('Poetry')"));
+  assert.ok(!page.includes('poetic-ui.js'));
+  assert.ok(!page.includes('Proposed poetic register v0.4'));
+  assert.ok(!tabs.includes("tabNames.push('Poetry')"));
+  assert.ok(!tabs.includes('poetryOffset'));
+  assert.ok(!css.includes('#poetry-workbench'));
   assert.ok(tabs.includes("if (names) tabNames.push('Names')"));
+  assert.ok(tabs.includes("if (orbitals) tabNames.push('Orbitals & Habs')"));
   assert.ok(tabs.includes("tabNames.push('Dictionary', 'Alphabet', 'Base conversion')"));
-  assert.ok(ui.includes('textContent') && !ui.includes('innerHTML'));
-  assert.ok(page.includes('All forms here are newly proposed'));
+  assert.ok(page.includes('phrase-translator.js'));
 });
