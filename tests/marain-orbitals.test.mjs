@@ -77,8 +77,9 @@ test('tab integrates with existing tools, source is readable without JavaScript'
   assert.ok(page.includes('id="culture-orbital-status-filter"'));
   assert.ok(page.includes("A Few Notes on the Culture"));
   assert.ok(tabs.includes("tabNames.push('Orbitals & Habs')"));
-  assert.ok(tabs.includes('panels[1 + poetryOffset + namesOffset].append(orbitals)'));
-  assert.ok(tabs.includes('panels[1 + poetryOffset + namesOffset + orbitalOffset].append(words)'));
+  assert.ok(tabs.includes('panels[1 + namesOffset].append(orbitals)'));
+  assert.ok(tabs.includes('panels[1 + namesOffset + orbitalOffset].append(words)'));
+  assert.ok(!tabs.includes("tabNames.push('Poetry')"));
   assert.ok(ui.includes('textContent'));
   assert.ok(!ui.includes('.innerHTML'));
 });
