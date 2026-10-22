@@ -21,7 +21,7 @@ LIVE_RECEIPT = 'https://chipchirp.digital/rfl/deployment.json'
 LIMIT = 500 * 1024 * 1024
 EXTENSIONS = {
     '.js', '.mjs', '.css', '.html', '.svg', '.json',
-    '.bin', '.gif', '.png', '.woff', '.wasm', '.data',
+    '.bin', '.gif', '.png', '.webp', '.woff', '.wasm', '.data',
     '.xpm', '.rnb', '.txt', '.mp3', '.mp4'
 }
 
@@ -180,3 +180,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

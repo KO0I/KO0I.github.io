@@ -45,6 +45,12 @@ class ReceiverTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.unpack(fixture('rfl-preview'))
         self.unpack(fixture('rfl-preview'), dry=True)
 
+    def test_hash_locked_webp_title_is_preserved(self):
+        name = 'fonts/title-marain-to-english.webp'
+        image = b'RIFF\x10\x00\x00\x00WEBPVP8X'
+        self.unpack(fixture(files={'index.html': b'ok', name: image}))
+        self.assertEqual((self.output / name).read_bytes(), image)
+
     def test_wrong_origin_variants(self):
         for field, value in [('head_branch', 'feature'), ('path', 'other.yml'), ('event', 'pull_request'),
                              ('conclusion', 'failure'), ('status', 'in_progress'), ('head_sha', 'b'*40), ('id', 999)]:
@@ -107,3 +113,4 @@ class ReceiverTests(unittest.TestCase):
             self.assertEqual(api.call_args_list[0].args[0], '/actions/artifacts/456')
 
 if __name__ == '__main__': unittest.main()
+
