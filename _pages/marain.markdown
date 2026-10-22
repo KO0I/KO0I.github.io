@@ -19,6 +19,7 @@ permalink: /marain/
 <script src="{{ '/assets/marain/js/base-conversion.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/poetic-ui.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/marain/js/marain-tabs.js' | relative_url }}" defer></script>
+<script type="module" src="{{ '/assets/marain/js/culture-name-ui.mjs' | relative_url }}"></script>
 
 # <span class="marain">marain</span>
 
@@ -197,6 +198,64 @@ permalink: /marain/
   <h3>Marain glyphs</h3>
   <div id="poetic-output-glyphs" class="marain marain-output" aria-label="Poetic Marain glyphs"></div>
   <p class="translation-notes">Try <code>pren</code> with the mutation option to produce <code>po fren</code>. The tool refuses forms it cannot resolve uniquely to known vocabulary. All forms here are newly proposed, not recovered Marain.</p>
+</section>
+
+<section id="culture-names" class="dictionary-panel" aria-labelledby="culture-names-heading"
+         data-corpus-url="{{ '/assets/marain/culture-names.txt' | relative_url }}">
+  <h2 id="culture-names-heading">Culture-universe name generator</h2>
+  <p>Invent names resembling the non-ship names in Iain M. Banks's Culture universe. The generator learns letter transitions from the supplied reference list and assembles single, compound, personal, place-like, and institutional names. Generated names are <strong>new inventions, not canonical names or Marain translations</strong>.</p>
+
+  <div class="culture-name-controls">
+    <div>
+      <label for="culture-name-style">Name structure</label>
+      <select id="culture-name-style">
+        <option value="mixed">Mixed (source-inspired)</option>
+        <option value="single">Single name</option>
+        <option value="personal">Personal (multiple parts)</option>
+        <option value="hyphenated">Hyphenated / apostrophe</option>
+        <option value="place">World or place</option>
+        <option value="institution">Organization or faction</option>
+        <option value="elaborate">Elaborate personal name</option>
+      </select>
+    </div>
+    <div>
+      <label for="culture-name-count">How many</label>
+      <select id="culture-name-count">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+    <div>
+      <label for="culture-name-seed">Seed (repeatable results)</label>
+      <input id="culture-name-seed" type="text" maxlength="120" autocomplete="off"
+             spellcheck="false" placeholder="Random seed if empty">
+    </div>
+  </div>
+  <div class="marain-examples">
+    <button type="button" id="culture-name-generate" disabled>Generate names</button>
+    <button type="button" id="culture-name-shuffle" disabled>New seed</button>
+    <button type="button" id="culture-name-copy" disabled>Copy names</button>
+  </div>
+  <p class="translation-notes">Use the same seed and structure to reproduce a list. “New seed” creates a fresh batch. All generation runs in your browser; it does not send input to a server.</p>
+  <p id="culture-name-status" class="translation-notes" role="status" aria-live="polite">Loading name corpus…</p>
+  <ol id="culture-name-results" class="culture-name-results" aria-label="Generated, noncanonical names"></ol>
+
+  <details class="marain-interpretation" id="culture-name-source">
+    <summary>Browse source names (user-supplied reference corpus)</summary>
+    <p>The original, unmodified list contains 784 entries, including people, places, factions, and other names. Names are preserved exactly as supplied; individual entries have not been independently fact-checked against the novels. <a href="{{ '/assets/marain/culture-names.txt' | relative_url }}">View or save the complete plain-text list</a>.</p>
+    <label for="culture-name-search">Search original names</label>
+    <input id="culture-name-search" type="search" autocomplete="off"
+           spellcheck="false" placeholder="e.g. Gurgeh, Gzilt, Culture" disabled>
+    <p id="culture-source-status" class="translation-notes" aria-live="polite">Loading source names…</p>
+    <ol id="culture-source-results" class="culture-source-results" aria-label="Original reference names"></ol>
+    <div class="marain-examples">
+      <button type="button" id="culture-source-prev" disabled>Previous</button>
+      <button type="button" id="culture-source-next" disabled>Next</button>
+    </div>
+  </details>
+  <noscript><p>Enable JavaScript to generate or search names. The complete reference corpus remains available from the plain-text link above.</p></noscript>
 </section>
 
 <div id="english-to-marain" class="dictionary-panel">
