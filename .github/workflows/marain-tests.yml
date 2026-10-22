@@ -6,6 +6,7 @@ on:
       - '_pages/marain.markdown'
       - '_pages/lesson-rules.markdown'
       - 'tests/marain-phrases.test.cjs'
+      - 'tests/culture-name-generator.test.mjs'
       - '.github/workflows/marain-tests.yml'
   pull_request:
     paths:
@@ -13,6 +14,7 @@ on:
       - '_pages/marain.markdown'
       - '_pages/lesson-rules.markdown'
       - 'tests/marain-phrases.test.cjs'
+      - 'tests/culture-name-generator.test.mjs'
       - '.github/workflows/marain-tests.yml'
 jobs:
   grammar:
@@ -26,4 +28,7 @@ jobs:
       - run: node --check assets/marain/js/phrase-translator.js
       - run: node --check assets/marain/js/poetic-ui.js
       - run: node --check assets/marain/js/marain-tabs.js
+      - run: node --check assets/marain/js/culture-name-generator.mjs
+      - run: node --check assets/marain/js/culture-name-ui.mjs
+      - run: node --test tests/culture-name-generator.test.mjs
       - run: node --test tests/marain-phrases.test.cjs
