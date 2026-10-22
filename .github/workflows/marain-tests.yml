@@ -7,6 +7,7 @@ on:
       - '_pages/lesson-rules.markdown'
       - 'tests/marain-phrases.test.cjs'
       - 'tests/culture-name-generator.test.mjs'
+      - 'tests/marain-orbitals.test.mjs'
       - '.github/workflows/marain-tests.yml'
   pull_request:
     paths:
@@ -15,6 +16,7 @@ on:
       - '_pages/lesson-rules.markdown'
       - 'tests/marain-phrases.test.cjs'
       - 'tests/culture-name-generator.test.mjs'
+      - 'tests/marain-orbitals.test.mjs'
       - '.github/workflows/marain-tests.yml'
 jobs:
   grammar:
@@ -30,5 +32,7 @@ jobs:
       - run: node --check assets/marain/js/marain-tabs.js
       - run: node --check assets/marain/js/culture-name-generator.mjs
       - run: node --check assets/marain/js/culture-name-ui.mjs
+      - run: node --check assets/marain/js/culture-orbitals-ui.js
+      - run: node --test tests/marain-orbitals.test.mjs
       - run: node --test tests/culture-name-generator.test.mjs
       - run: node --test tests/marain-phrases.test.cjs
