@@ -66,6 +66,8 @@ out" the gas giants in the end)*
 
 *Explore interior volumes, rooms, and spatial layouts in the browser.*
 
+#### <span style="color: #9ACD32; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓆸</span> [Plant Workbench]({{ '/tools/rfl-plant-workbench/dist/' | relative_url }})
+
 # <span style="color: #fff;">Waves &amp; Vibes</span>
 
 #### <span style="color: #a89b8b; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓏢</span> [Interactive Camelot Wheel]({{ '/tools/camelot-wheel/' | relative_url }})
