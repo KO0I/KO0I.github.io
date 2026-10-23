@@ -1,38 +1,22 @@
-name: Marain dictionary and phrase tests
+name: Pinned Marain tests
 on:
   push:
-    paths:
-      - 'assets/marain/**'
-      - '_pages/marain.markdown'
-      - '_pages/lesson-rules.markdown'
-      - 'tests/marain-phrases.test.cjs'
-      - 'tests/culture-name-generator.test.mjs'
-      - 'tests/marain-orbitals.test.mjs'
-      - '.github/workflows/marain-tests.yml'
+    paths: ['tools/marain-dictionary', '.gitmodules', 'scripts/*prepare_site.py', '.github/workflows/marain-tests.yml']
   pull_request:
-    paths:
-      - 'assets/marain/**'
-      - '_pages/marain.markdown'
-      - '_pages/lesson-rules.markdown'
-      - 'tests/marain-phrases.test.cjs'
-      - 'tests/culture-name-generator.test.mjs'
-      - 'tests/marain-orbitals.test.mjs'
-      - '.github/workflows/marain-tests.yml'
+    paths: ['tools/marain-dictionary', '.gitmodules', 'scripts/*prepare_site.py', '.github/workflows/marain-tests.yml']
+permissions:
+  contents: read
 jobs:
-  grammar:
+  marain:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: git submodule update --init tools/marain-dictionary
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check assets/marain/js/dict.js
-      - run: node --check assets/marain/js/phrase-translator.js
-      - run: node --check assets/marain/js/poetic-ui.js
-      - run: node --check assets/marain/js/marain-tabs.js
-      - run: node --check assets/marain/js/culture-name-generator.mjs
-      - run: node --check assets/marain/js/culture-name-ui.mjs
-      - run: node --check assets/marain/js/culture-orbitals-ui.js
-      - run: node --test tests/marain-orbitals.test.mjs
-      - run: node --test tests/culture-name-generator.test.mjs
-      - run: node --test tests/marain-phrases.test.cjs
+      - run: npm test --prefix tools/marain-dictionary
+      - run: python3 -m unittest discover -s scripts -p 'test_prepare_site.py' -v
+      - run: python3 scripts/prepare_site.py .site-source

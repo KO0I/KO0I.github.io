@@ -10,3 +10,9 @@
 [submodule "tools/rfl-interiors-workbench"]
 	path = tools/rfl-interiors-workbench
 	url = https://github.com/KO0I/rfl-interiors-workbench
+[submodule "tools/rfl-plant-workbench"]
+	path = tools/rfl-plant-workbench
+	url = https://github.com/KO0I/rfl-plant-workbench
+[submodule "tools/marain-dictionary"]
+	path = tools/marain-dictionary
+	url = https://github.com/KO0I/marain-dictionary

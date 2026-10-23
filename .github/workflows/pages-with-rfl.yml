@@ -32,10 +32,12 @@ jobs:
           submodules: recursive
       - name: Validate receiver without credentials
         run: python3 -m unittest discover -s .github/scripts -p 'test_*.py' -v
+      - name: Assemble site sources
+        run: python3 scripts/prepare_site.py .site-source
       - name: Build the existing Jekyll site using the Pages toolchain
         uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1
         with:
-          source: ./
+          source: ./.site-source
           destination: ./_site
       - name: Allow runner to assemble the generated site
         run: |
