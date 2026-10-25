@@ -1,0 +1,20 @@
+/* Inter 4.1 by Rasmus Andersson. See LICENSE.txt for the SIL Open Font License.
+ * Source: https://github.com/rsms/inter/tree/v4.1/docs/font-files
+ * Original, unmodified variable WOFF2 files with full character coverage.
+ */
+/* Full character sets; variable weights include the site's 400, 500, 650, 700 and 900. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./InterVariable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./InterVariable-Italic.woff2') format('woff2');
+}

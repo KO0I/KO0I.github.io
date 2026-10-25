@@ -46,11 +46,21 @@
 {% include_relative _0-settings/mixins.scss %}
 {% include_relative _0-settings/helpers.scss %}
 
-/* Font Awesome (v6.7.2) */
-{% include_relative _0-settings/brands.scss %}
-{% include_relative _0-settings/solid.scss %}
-{% include_relative _0-settings/regular.scss %}
-{% include_relative _0-settings/fontawesome.scss %}
+/* Marain overrides previously bundled with the icon stylesheet. */
+@font-face {
+  font-family: "Marain";
+  src:
+    url("{{ '/assets/fonts/marain.woff' | relative_url }}") format("woff"),
+    url("{{ '/assets/fonts/Marain.ttf' | relative_url }}") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.marain,
+.marain * {
+  font-family: "Marain" !important;
+}
 
 /* =======================
 :: 1-Tools and Libs

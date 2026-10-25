@@ -1,0 +1,6 @@
+Font Awesome Free 6.7.2
+Source: https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.7.2.tgz
+
+Unmodified css/all.min.css, webfonts/* and LICENSE.txt from the upstream package.
+Keep css/ and webfonts/ as siblings: the stylesheet uses ../webfonts/ URLs.
+Includes solid, regular, brands and legacy compatibility fonts.
