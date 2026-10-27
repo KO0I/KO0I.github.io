@@ -43,16 +43,17 @@
       "id": "characters",
       "required": true,
       "sites": {
-        "status": "pending",
+        "status": "succeeded",
         "source_sha": "7eb751de87118e516981e553a01d79718525e927",
-        "version_id": "appgprj_6acc5731b6148191817bd7c7fed1242b~appgver_73f3458897d081919dac5f97482e0419",
-        "deployment_id": "appgdep_6ae10feb520c8191880a52e43abe2da1"
+        "version_id": "appgprj_6acc5731b6148191817bd7c7fed1242b~appgver_1c10838fdd1c8191b24a9a0f30bf7f21",
+        "deployment_id": "appgdep_6ae1220425688191bd595f609f941576",
+        "url": "https://character-studio.sesheta.chatgpt.site"
       },
       "github": {
         "status": "blocked"
       },
       "blockers": [
-        "Source reconciliation incomplete; preserve independent GitHub styling and assets."
+        "Matching GitHub snapshot transfer pending; runtime consumer reconciliation still required."
       ]
     },
     {
@@ -161,6 +162,16 @@
         "Interior scene roundtrip"
       ],
       "human_webgl": "pending"
+    },
+    {
+      "action": "character_site_deployed",
+      "commit_sha": "7eb751de87118e516981e553a01d79718525e927",
+      "deployment_id": "appgdep_6ae1220425688191bd595f609f941576",
+      "version_id": "appgprj_6acc5731b6148191817bd7c7fed1242b~appgver_1c10838fdd1c8191b24a9a0f30bf7f21",
+      "url": "https://character-studio.sesheta.chatgpt.site",
+      "items": 19,
+      "characters": 12,
+      "fits": 38
     }
   ]
 }
