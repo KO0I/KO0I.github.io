@@ -106,7 +106,9 @@
         "Source comparison against verified historical GitHub/Sites snapshot pair found 43 conflicts and 19 paths added differently; candidate merge has not been applied.",
         "Private Character Creator GitHub snapshot must be completed before pinning the game's submodule.",
         "Focused local tests passed for 11 non-Zes residents, indexed mesh draw with mock GPU, 38 catalog fits and gelsuit selections. No new RFL Site deployment or GitHub commit.",
-        "Legacy botanical removal is prepared in the game catalog; Nauptre's 12 golden meshes and 16264 placements passed unchanged."
+        "Legacy botanical removal is prepared in the game catalog; Nauptre's 12 golden meshes and 16264 placements passed unchanged.",
+        "Additional checks: interior-ui fails because shipInterior markup is absent; current game also has a separate plate-interior/plate-interiors path whose roster still needs reconciliation. The 11-resident unit check does not prove that active Plate runtime is integrated.",
+        "stellar-interior fails its swept-core high-speed tunneling assertion; authored soft-contact test passes. No claim of full game release validation."
       ]
     }
   ],
@@ -222,6 +224,10 @@
       "component_branches_advanced": false,
       "website_published": false,
       "human_webgl": "not_run_human_owned"
+    },
+    {
+      "action": "rfl_validation_limit",
+      "result": "No RFL publication. Focused catalog checks pass, but active Plate runtime integration and full source reconciliation remain pending."
     }
   ]
 }
