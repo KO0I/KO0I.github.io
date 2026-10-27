@@ -2,7 +2,7 @@
   "schema_version": 1,
   "release_id": "workbenches-20261027-rerun",
   "kind": "application_release",
-  "status": "blocked",
+  "status": "pending",
   "scope": [
     "plants",
     "characters",
@@ -138,6 +138,18 @@
     {
       "action": "verified_plant_candidate",
       "result": "dist/tests content identical; all 23 test programs passed"
+    },
+    {
+      "action": "resume_character_source",
+      "source_sha": "ad0dcdbdaffe279309eb1d03ab8bc81e755f2df7",
+      "github_base": "68e4caab6b99eec7a47f21a5d7a81a9880c779a3",
+      "integration_base": "eafe6e6a461da41bf57352c2741e02713838db37",
+      "scope": "Character Creator owns characters and items; remove legacy botanical exports except preserved Nauptre/desert assets",
+      "validation": [
+        "38 authored fits passed exporter checks",
+        "12 Nauptre meshes and 16264 placements unchanged",
+        "19 retained items; hashes verified"
+      ]
     }
   ]
 }
