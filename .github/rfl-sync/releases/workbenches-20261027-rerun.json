@@ -2,7 +2,7 @@
   "schema_version": 1,
   "release_id": "workbenches-20261027-rerun",
   "kind": "application_release",
-  "status": "pending",
+  "status": "blocked",
   "scope": [
     "plants",
     "characters",
@@ -77,7 +77,7 @@
       "required": true,
       "sites": {
         "status": "pending",
-        "source_sha": "954c7e6016f455797098e8e453578e90f426b4d2",
+        "source_sha": "b82fe5a6b23061050ee5596cff866fe329750170",
         "version_id": "appgprj_6abf081f9aa08191b1d8f0433d33092f~appgver_2c6f153494a481918959d25a30d840ae",
         "deployment_id": "appgdep_6ae07a1d2ad481918313542902d93b99"
       },
@@ -172,6 +172,37 @@
       "items": 19,
       "characters": 12,
       "fits": 38
+    },
+    {
+      "action": "interiors_site_source_pushed",
+      "commit_sha": "b82fe5a6b23061050ee5596cff866fe329750170",
+      "character_source_sha": "7eb751de87118e516981e553a01d79718525e927",
+      "checks": [
+        "character detail hashes and loads",
+        "continuous routes and skeletal animation",
+        "Afterlight scene",
+        "933 room spawns and doorways",
+        "render resolution"
+      ]
+    },
+    {
+      "action": "github_upload_blocked",
+      "destination": "KO0I/rfl-character-creator",
+      "source_sha": "7eb751de87118e516981e553a01d79718525e927",
+      "prepared_blob_count": 32,
+      "branch_updated": false,
+      "reason": "Automatic approval review requires explicit user approval for this private source upload destination."
+    },
+    {
+      "action": "rfl_three_way_comparison",
+      "github_base": "61e84ca6e0ea3759ad3b89b11e2aabd8d52de8a2",
+      "sites_base": "ce499346b460a75a7c55a193c671abbdc768fdbb",
+      "github_head": "10bfd1df2637f73ddb3260442a877f8e9f33c1e8",
+      "clean_merges": 41,
+      "github_only": 32,
+      "conflicts": 43,
+      "added_both": 19,
+      "applied": false
     }
   ]
 }
