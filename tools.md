@@ -41,7 +41,9 @@ image: '/images/surf.png'
 
 #### <span style="color: pink; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em;" aria-hidden="true">ᐉ</span> Play Rasd Fastwalker League [in your browser](https://chipchirp.digital/rfl)
 
-**Special Thanks to [Loren Schmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer approach with overhangs, and for so many ideas about procedural generation**
+*Special Thanks to [Loren Schmidt](https://lorenschmidt.itch.io/) for the amazing Comanche renderer approach with overhangs, and for so many ideas about procedural generation*
+
+*Special thanks to [runevision](https://github.com/runevision) for [Dither3D](https://github.com/runevision/Dither3D) and its fractal dithering approach.*
 
 # <span style="color: #fff;">Tooling</span>
 
