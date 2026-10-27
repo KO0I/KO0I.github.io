@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "release_id": null,
+  "kind": "application_release",
+  "status": "pending",
+  "scope": [],
+  "baseline_record_url": null,
+  "inventory_frozen_at": null,
+  "components": [],
+  "component_record_shape": {
+    "id": null,
+    "required": true,
+    "sites": {
+      "status": "pending",
+      "source_sha": null,
+      "version_id": null,
+      "deployment_id": null,
+      "url": null
+    },
+    "github": {
+      "status": "pending",
+      "base_sha": null,
+      "commit_sha": null,
+      "branch": null,
+      "checks": []
+    },
+    "mapping": {
+      "paths": [],
+      "content_sha256": null,
+      "documented_differences": []
+    },
+    "dependencies": [],
+    "blockers": []
+  },
+  "website": {
+    "status": "pending",
+    "base_sha": null,
+    "release_sha": null,
+    "gitlinks": {},
+    "rfl_artifact": {
+      "id": null,
+      "run_id": null,
+      "source_sha": null,
+      "sha256": null
+    },
+    "workflow_run_id": null,
+    "deployment_id": null,
+    "url": null,
+    "published_version_evidence": null
+  },
+  "human_webgl": {
+    "status": "pending",
+    "evidence": null
+  },
+  "events": []
+}

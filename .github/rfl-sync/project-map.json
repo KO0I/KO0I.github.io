@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "website_repository": "KO0I/KO0I.github.io",
+  "discover_branch_each_run": true,
+  "components": [
+    {
+      "id": "plants",
+      "repository": "KO0I/rfl-plant-workbench",
+      "site_project_id": "appgprj_6adab577bbac819191dc039545c0d8da",
+      "website_gitlink": "tools/rfl-plant-workbench",
+      "depends_on": [],
+      "source_paths": "discover and verify against both checkouts",
+      "publication": "submodule-packaging-must-be-verified",
+      "mapping_evidence": "repository hosting.json and Sites listing"
+    },
+    {
+      "id": "characters",
+      "repository": "KO0I/rfl-character-creator",
+      "site_project_id": "appgprj_6acc5731b6148191817bd7c7fed1242b",
+      "website_gitlink": null,
+      "depends_on": [],
+      "source_paths": "discover and verify against both checkouts",
+      "publication": "no-direct-website-route-verified",
+      "mapping_evidence": "repository hosting.json and Sites listing"
+    },
+    {
+      "id": "climate",
+      "repository": "KO0I/rfl-climate-workbench",
+      "site_project_id": "appgprj_6aa286fb2d588191bd7c44312f39ca41",
+      "website_gitlink": "tools/rfl-climate-workbench",
+      "depends_on": [
+        "plants"
+      ],
+      "source_paths": "discover and verify against both checkouts",
+      "publication": "submodule-packaging-must-be-verified",
+      "mapping_evidence": "repository hosting.json and Sites listing"
+    },
+    {
+      "id": "interiors",
+      "repository": "KO0I/rfl-interiors-workbench",
+      "site_project_id": "appgprj_6abf081f9aa08191b1d8f0433d33092f",
+      "website_gitlink": "tools/rfl-interiors-workbench",
+      "depends_on": [
+        "plants",
+        "characters"
+      ],
+      "source_paths": "discover and verify against both checkouts",
+      "publication": "submodule-packaging-must-be-verified",
+      "mapping_evidence": "Sites listing and website .gitmodules; hosting.json not found"
+    },
+    {
+      "id": "rfl",
+      "repository": "KO0I/rasd-fastwalker-league-js",
+      "site_project_id": "appgprj_6ab6f57f38e081918a48848e6c64df17",
+      "website_gitlink": null,
+      "depends_on": [
+        "plants",
+        "characters",
+        "climate",
+        "interiors"
+      ],
+      "source_paths": "discover and verify against both checkouts",
+      "publication": "private-browser-artifact",
+      "mapping_evidence": "repository hosting.json and Sites listing"
+    }
+  ],
+  "additional_discovery": {
+    "cloud_atmosphere": {
+      "site_project_id": "appgprj_6ad90458e6b88191bbbd233a3e894399",
+      "repository": null,
+      "note": "Separate from planetary climate; resolve source/export ownership when selected"
+    },
+    "a_full_plate": {
+      "owner": "rfl",
+      "kind": "prototype_scene"
+    }
+  },
+  "other_submodules": "Discover from .gitmodules every run; include only within selected release scope"
+}
