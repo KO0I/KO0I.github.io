@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "release_id": "workbenches-20261027-rerun",
+  "kind": "application_release",
+  "status": "blocked",
+  "scope": [
+    "plants",
+    "characters",
+    "climate",
+    "interiors",
+    "rfl"
+  ],
+  "baseline_record_url": "https://github.com/KO0I/KO0I.github.io/blob/sync/plant-transfer-pilot/.github/rfl-sync/releases/plant-transfer-pilot-20261027.json",
+  "inventory_frozen_at": "2026-10-27T21:12:34.453Z",
+  "components": [
+    {
+      "id": "plants",
+      "required": true,
+      "sites": {
+        "status": "unchanged_verified",
+        "source_sha": "170b76f7d01ae456d7ecd458b5f5eac0aa63910f",
+        "version_id": "appgprj_6adab577bbac819191dc039545c0d8da~appgver_7011836d56708191b6a4412f6d1ec1cb",
+        "deployment_id": "appgdep_6ae0e6dc73008191b53d4559f58697ea"
+      },
+      "github": {
+        "status": "blocked",
+        "staging_commit": "0dbea0fb34a380ebab7ae36d97eba0b7fcfc9c3b",
+        "staging_branch": "sync/workbenches-20261027-rerun",
+        "base_sha": "b4b66a8dfd02963eab57d5fa448b693fff96aaa0"
+      },
+      "blockers": [
+        "22 test programs passed; plant-produce timed out at 60s, longer isolated retry pending."
+      ]
+    },
+    {
+      "id": "characters",
+      "required": true,
+      "sites": {
+        "status": "pending",
+        "source_sha": "ad0dcdbdaffe279309eb1d03ab8bc81e755f2df7",
+        "version_id": "appgprj_6acc5731b6148191817bd7c7fed1242b~appgver_73f3458897d081919dac5f97482e0419",
+        "deployment_id": "appgdep_6ae10feb520c8191880a52e43abe2da1"
+      },
+      "github": {
+        "status": "blocked"
+      },
+      "blockers": [
+        "Source reconciliation incomplete; preserve independent GitHub styling and assets."
+      ]
+    },
+    {
+      "id": "climate",
+      "required": true,
+      "sites": {
+        "status": "pending",
+        "source_sha": "b80bc564ee0c69ccc690779268eb5060cb71e68a",
+        "version_id": "appgprj_6aa286fb2d588191bd7c44312f39ca41~appgver_ad14ba078e748191b162dd6e441f9e78",
+        "deployment_id": "appgdep_6ae05bf2c900819195af0c56c66ce476"
+      },
+      "github": {
+        "status": "blocked"
+      },
+      "blockers": [
+        "Source reconciliation incomplete; preserve independent GitHub styling and assets."
+      ]
+    },
+    {
+      "id": "interiors",
+      "required": true,
+      "sites": {
+        "status": "pending",
+        "source_sha": "954c7e6016f455797098e8e453578e90f426b4d2",
+        "version_id": "appgprj_6abf081f9aa08191b1d8f0433d33092f~appgver_2c6f153494a481918959d25a30d840ae",
+        "deployment_id": "appgdep_6ae07a1d2ad481918313542902d93b99"
+      },
+      "github": {
+        "status": "blocked"
+      },
+      "blockers": [
+        "Source reconciliation incomplete; preserve independent GitHub styling and assets."
+      ]
+    },
+    {
+      "id": "rfl",
+      "required": true,
+      "sites": {
+        "status": "pending",
+        "source_sha": "5d41379e3ecddf8f68e5d13477a38d7cd20212d6",
+        "version_id": "appgprj_6ab6f57f38e081918a48848e6c64df17~appgver_e9255be320a881919385ce5000f0f833",
+        "deployment_id": "appgdep_6ae10e1ba1208191b872521261073d87"
+      },
+      "github": {
+        "status": "blocked"
+      },
+      "blockers": [
+        "124 test programs passed; 53 failed and one process killed. Includes stale mocks, missing jsdom and unresolved behavioral assertions; not all are established product regressions.",
+        "Independent GitHub-only weather, accessibility and release implementation needs reconciliation."
+      ]
+    }
+  ],
+  "website": {
+    "status": "blocked",
+    "base_sha": "68d132fedac156f57499be4e20834c978f1d519f",
+    "release_sha": null,
+    "gitlinks": {},
+    "rfl_artifact": {
+      "id": null,
+      "run_id": null,
+      "source_sha": null,
+      "sha256": null
+    },
+    "workflow_run_id": null,
+    "deployment_id": null,
+    "url": null,
+    "published_version_evidence": null
+  },
+  "human_webgl": {
+    "status": "pending",
+    "evidence": "Not run; human-owned."
+  },
+  "events": [
+    {
+      "action": "staged_plants",
+      "commit": "0dbea0fb34a380ebab7ae36d97eba0b7fcfc9c3b",
+      "files": 48
+    },
+    {
+      "action": "release_gate",
+      "result": "blocked; no Site publication, main branch update, gitlink advancement or website deployment"
+    }
+  ]
+}
