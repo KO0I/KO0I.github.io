@@ -54,7 +54,7 @@
         "base_sha": "68e4caab6b99eec7a47f21a5d7a81a9880c779a3"
       },
       "blockers": [
-        "Automatic approval review requires explicit approval to transfer private Character Creator snapshot 7eb751de87118e516981e553a01d79718525e927 to KO0I/rfl-character-creator. Exact repository confirmed private, owned by authenticated KO0I, hosting manifest matches Site."
+        "Transfer resumed with explicit user authorization; GitHub commit verification pending."
       ]
     },
     {
@@ -228,6 +228,14 @@
     {
       "action": "rfl_validation_limit",
       "result": "No RFL publication. Focused catalog checks pass, but active Plate runtime integration and full source reconciliation remain pending."
+    },
+    {
+      "action": "character_snapshot_transfer_authorized",
+      "source_sha": "7eb751de87118e516981e553a01d79718525e927",
+      "destination": "KO0I/rfl-character-creator",
+      "authorization": "User explicitly requested continuing transfer of that exact source snapshot to GitHub.",
+      "mapping_verified_files": 726,
+      "changed_files": 102
     }
   ]
 }
