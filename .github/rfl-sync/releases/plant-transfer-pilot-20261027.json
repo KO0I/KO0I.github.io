@@ -1,0 +1,72 @@
+{
+  "source_sha": "8b59682c10e89bd698f02bb4877c7e71c8c6a67f",
+  "destination_sha": "c012982ea4cffa78c12de83f9b844ec8ced66d3e",
+  "source_base": "6a0c566bbc72cf360ca50b17cf9c10bdcd88899d",
+  "destination_base": "400ce72896666220f6f2b01e6e64aaef7042b551",
+  "prefixes": [
+    "dist",
+    "tests"
+  ],
+  "patch_bytes": 146114,
+  "patch_sha256": "47ed6dc1d01bd319a9dcedb6bc3bf82219a9945024e7eb3f871e16762cc4fb66",
+  "status": "prepared",
+  "elapsed_seconds": 0.218,
+  "diagnostic": "Falling back to direct application...\nFalling back to direct application...\nApplied patch to 'dist/faceted-flora.js' cleanly.\nApplied patch to 'dist/flora-authoring.js' cleanly.\nFalling back to direct application...\nApplied patch to 'dist/flora-preview.js' cleanly.\nApplied patch to 'dist/flora-species.js' cleanly.\nApplied patch to 'dist/flora-workbench.css' cleanly.\nApplied patch to 'dist/flora-workbench.js' cleanly.\nApplied patch to 'dist/index.html' cleanly.\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nApplied patch to 'dist/nauptre-flora.js' cleanly.\nApplied patch to 'dist/octahedral-impostor.js' cleanly.\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\nFalling back to direct application...\n",
+  "changed_files": [
+    "dist/assets/fonts/rfl-english.woff",
+    "dist/botanical-plants.js",
+    "dist/faceted-flora.js",
+    "dist/flora-authoring.js",
+    "dist/flora-preview-controls.js",
+    "dist/flora-preview.js",
+    "dist/flora-species.js",
+    "dist/flora-workbench.css",
+    "dist/flora-workbench.js",
+    "dist/index.html",
+    "dist/interiors-foliage.mjs",
+    "dist/interiors-plants.js",
+    "dist/named-trees.js",
+    "dist/nauptre-flora.js",
+    "dist/octahedral-impostor.js",
+    "dist/plant-produce.js",
+    "dist/plant-seasons.js",
+    "dist/rfl-viewfinder-font.js",
+    "dist/tree-forms.js",
+    "dist/tree-references.js",
+    "dist/xpm-cacti.js",
+    "dist/xpm-cactus-references.json",
+    "tests/interiors-plants.mjs",
+    "tests/named-trees.mjs",
+    "tests/plant-produce.mjs",
+    "tests/preview-controls.mjs",
+    "tests/preview-lod.mjs",
+    "tests/seasons-and-botanical.mjs"
+  ],
+  "unmerged_files": [],
+  "kind": "staging_transfer_pilot",
+  "source_repository": "Sites Plant Workbench",
+  "github_repository": "KO0I/rfl-plant-workbench",
+  "staging_branch": "sync/plant-transfer-pilot",
+  "staging_commit": "71f1c969718afa4406c93e373725da434be7d659",
+  "checks": {
+    "plant_test_programs": 6,
+    "result": "passed",
+    "js_syntax": "passed",
+    "theme_integration": "preserved",
+    "transfer_runner_tests": 2,
+    "webgl": "not_run_human_owned"
+  },
+  "transport": {
+    "git_read": "succeeded",
+    "git_push_dry_run": "failed_missing_credentials",
+    "fallback": "GitHub connector: binary blob plus one text tree and commit",
+    "text_tree_upload_seconds": 7.204
+  },
+  "release_status": "not_released",
+  "remaining": [
+    "Reconcile retained GitHub theme changes back to Sites before a coordinated release",
+    "Verify intended deployed Site source revision",
+    "Review candidate then publish through normal Sites-first procedure",
+    "Do not advance website gitlink until release prerequisites pass"
+  ]
+}
