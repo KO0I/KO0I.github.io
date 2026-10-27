@@ -50,10 +50,11 @@
         "url": "https://character-studio.sesheta.chatgpt.site"
       },
       "github": {
-        "status": "blocked"
+        "status": "blocked",
+        "base_sha": "68e4caab6b99eec7a47f21a5d7a81a9880c779a3"
       },
       "blockers": [
-        "Matching GitHub snapshot transfer pending; runtime consumer reconciliation still required."
+        "Automatic approval review requires explicit approval to transfer private Character Creator snapshot 7eb751de87118e516981e553a01d79718525e927 to KO0I/rfl-character-creator. Exact repository confirmed private, owned by authenticated KO0I, hosting manifest matches Site."
       ]
     },
     {
@@ -76,16 +77,17 @@
       "id": "interiors",
       "required": true,
       "sites": {
-        "status": "pending",
+        "status": "succeeded",
         "source_sha": "b82fe5a6b23061050ee5596cff866fe329750170",
-        "version_id": "appgprj_6abf081f9aa08191b1d8f0433d33092f~appgver_2c6f153494a481918959d25a30d840ae",
-        "deployment_id": "appgdep_6ae07a1d2ad481918313542902d93b99"
+        "version_id": "appgprj_6abf081f9aa08191b1d8f0433d33092f~appgver_7ca123c5b8ec81919394f67c4ce1260e",
+        "deployment_id": "appgdep_6ae123e84fd081919afbecc0168fcaef",
+        "url": "https://interiors.sesheta.chatgpt.site"
       },
       "github": {
         "status": "blocked"
       },
       "blockers": [
-        "Source reconciliation incomplete; preserve independent GitHub styling and assets."
+        "Matching GitHub synchronization is pending; deployed character and item assets now come from Character Creator source 7eb751de87118e516981e553a01d79718525e927."
       ]
     },
     {
@@ -101,8 +103,10 @@
         "status": "blocked"
       },
       "blockers": [
-        "124 test programs passed; 53 failed and one process killed. Includes stale mocks, missing jsdom and unresolved behavioral assertions; not all are established product regressions.",
-        "Independent GitHub-only weather, accessibility and release implementation needs reconciliation."
+        "Source comparison against verified historical GitHub/Sites snapshot pair found 43 conflicts and 19 paths added differently; candidate merge has not been applied.",
+        "Private Character Creator GitHub snapshot must be completed before pinning the game's submodule.",
+        "Focused local tests passed for 11 non-Zes residents, indexed mesh draw with mock GPU, 38 catalog fits and gelsuit selections. No new RFL Site deployment or GitHub commit.",
+        "Legacy botanical removal is prepared in the game catalog; Nauptre's 12 golden meshes and 16264 placements passed unchanged."
       ]
     }
   ],
@@ -203,6 +207,21 @@
       "conflicts": 43,
       "added_both": 19,
       "applied": false
+    },
+    {
+      "action": "interiors_site_deployed",
+      "commit_sha": "b82fe5a6b23061050ee5596cff866fe329750170",
+      "deployment_id": "appgdep_6ae123e84fd081919afbecc0168fcaef",
+      "version_id": "appgprj_6abf081f9aa08191b1d8f0433d33092f~appgver_7ca123c5b8ec81919394f67c4ce1260e",
+      "url": "https://interiors.sesheta.chatgpt.site"
+    },
+    {
+      "action": "handoff",
+      "status": "blocked",
+      "required_approval": "Upload the deployed Character Creator source snapshot to the user's private KO0I/rfl-character-creator repository",
+      "component_branches_advanced": false,
+      "website_published": false,
+      "human_webgl": "not_run_human_owned"
     }
   ]
 }
