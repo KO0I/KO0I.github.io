@@ -1,0 +1,226 @@
+{
+  "note": "Diagnostic sweep, not all failures are product regressions. VM-module flag corrected where required. WebGL excluded.",
+  "passed": 150,
+  "unsuccessful": [
+    {
+      "test": "plants/tests/plant-produce.mjs",
+      "exit_code": -1
+    },
+    {
+      "test": "rfl/tests/flight-takeoff.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/interiors.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/menu-flight-integration.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/water-splashes.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/underwater.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/surface-vegetation-rendering.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/impact-scaling.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/orbital-menu-flight.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/rfl-stages.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/startup-dom.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/avatar-motion.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/orbital-dimensions.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/parkour.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/water-skimming.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/rotation-contact.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/explosion-landing.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/upper-impact.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/water-impacts.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/water-rendering.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/explosion-force.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/physical-scale-field.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/impacts.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/scout-flight.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/gravity-running.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/terrain-upload.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/gsv-terrain.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/performance-ui.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/charge-flight.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/walking-daylight.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/two-phase-showcase.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/flight-parkour.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/font-transition.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/waypoint-flight.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/flight-instruments.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/settlements.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/climate-flight.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/baked-graphics.mjs",
+      "exit_code": -9
+    },
+    {
+      "test": "rfl/tests/orbital-plates-titles.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/maneuver-stage.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/flight-controls.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/maneuver-flight.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/flight-uniforms.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/gsv-landing.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/compact-effects.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/aberration.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/interior-ui.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/performance.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/gsv-habitat.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/stellar-interior.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/startup-runtime.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/atmosphere-climate-foliage.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/steam-giant.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/habitable-stages.mjs",
+      "exit_code": 1
+    },
+    {
+      "test": "rfl/tests/thermal-footprint.mjs",
+      "exit_code": 1
+    }
+  ]
+}
