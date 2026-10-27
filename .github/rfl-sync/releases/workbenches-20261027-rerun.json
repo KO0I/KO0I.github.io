@@ -26,10 +26,17 @@
         "status": "blocked",
         "staging_commit": "0dbea0fb34a380ebab7ae36d97eba0b7fcfc9c3b",
         "staging_branch": "sync/workbenches-20261027-rerun",
-        "base_sha": "b4b66a8dfd02963eab57d5fa448b693fff96aaa0"
+        "base_sha": "b4b66a8dfd02963eab57d5fa448b693fff96aaa0",
+        "checks": [
+          {
+            "name": "plant test programs",
+            "passed": 23,
+            "note": "produce combinations passed on isolated retry with sufficient runtime"
+          }
+        ]
       },
       "blockers": [
-        "22 test programs passed; plant-produce timed out at 60s, longer isolated retry pending."
+        "Staged snapshot matches deployed Site dist/tests exactly. Await coordinated release; main and website gitlink unchanged."
       ]
     },
     {
@@ -127,6 +134,10 @@
     {
       "action": "release_gate",
       "result": "blocked; no Site publication, main branch update, gitlink advancement or website deployment"
+    },
+    {
+      "action": "verified_plant_candidate",
+      "result": "dist/tests content identical; all 23 test programs passed"
     }
   ]
 }
