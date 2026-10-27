@@ -44,7 +44,7 @@
       "required": true,
       "sites": {
         "status": "pending",
-        "source_sha": "ad0dcdbdaffe279309eb1d03ab8bc81e755f2df7",
+        "source_sha": "7eb751de87118e516981e553a01d79718525e927",
         "version_id": "appgprj_6acc5731b6148191817bd7c7fed1242b~appgver_73f3458897d081919dac5f97482e0419",
         "deployment_id": "appgdep_6ae10feb520c8191880a52e43abe2da1"
       },
@@ -150,6 +150,17 @@
         "12 Nauptre meshes and 16264 placements unchanged",
         "19 retained items; hashes verified"
       ]
+    },
+    {
+      "action": "character_site_source_pushed",
+      "commit_sha": "7eb751de87118e516981e553a01d79718525e927",
+      "checks": [
+        "38 fits authored geometry and soft settings",
+        "19 retained item hashes; no legacy plants or stale exports",
+        "152 furniture fit checks",
+        "Interior scene roundtrip"
+      ],
+      "human_webgl": "pending"
     }
   ]
 }
