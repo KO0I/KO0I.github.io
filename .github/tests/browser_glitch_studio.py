@@ -86,14 +86,14 @@ def run(site: Path, executable: str | None = None) -> None:
                 page.locator('#pg-file').set_input_files({
                     'name': 'test.jpg', 'mimeType': 'image/jpeg', 'buffer': jpeg_data
                 })
-                assert page.locator('#pg-codec').input_value() == 'jpeg'
+                expect(page.locator('#pg-codec')).to_have_value('jpeg', timeout=90000)
                 expect(jpeg).to_be_enabled(timeout=90000)
                 png_input = page.locator('#pg-preview').evaluate('(c) => c.toDataURL("image/png")')
                 png_data = base64.b64decode(png_input.split(',', 1)[1])
                 page.locator('#pg-file').set_input_files({
                     'name': 'test.png', 'mimeType': 'image/png', 'buffer': png_data
                 })
-                assert page.locator('#pg-codec').input_value() == 'png'
+                expect(page.locator('#pg-codec')).to_have_value('png', timeout=90000)
                 expect(png).to_be_enabled(timeout=90000)
                 expect(jpeg).to_be_hidden()
                 assert not errors, 'Browser script errors: ' + repr(errors)
