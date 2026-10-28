@@ -1,0 +1,75 @@
+---
+layout: page
+title: PNG Glitch Studio
+description: Image databending with PNG decoder faults, scanline tears, pixel sorting and RGB drift. Free, local, no uploads.
+permalink: /tools/png-glitch/
+interactive: true
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/png-glitch.css' | relative_url }}">
+
+<div id="pg-studio">
+  <header class="pg-intro">
+    <div>
+      <p class="pg-kicker">RASTER LABORATORY / 01</p>
+      <p>Break an image without breaking the file. Experiment with faulty PNG scanline reconstruction, pixel sorting, signal tears, and RGB drift.</p>
+    </div>
+    <span class="pg-privacy">LOCAL PROCESSING · NO UPLOADS</span>
+  </header>
+  <div class="pg-layout">
+    <section class="pg-viewer" aria-label="Glitched image preview">
+      <div class="pg-viewer-head"><span>OUTPUT / RGBA</span><span id="pg-size">1000 × 640</span></div>
+      <div id="pg-drop" class="pg-image-frame">
+        <canvas id="pg-preview" width="1000" height="640" aria-label="Live glitched image preview" role="img"></canvas>
+        <span class="pg-drop-hint" aria-hidden="true">DROP IMAGE</span>
+      </div>
+      <div class="pg-viewer-foot">
+        <button type="button" id="pg-compare" class="pg-button pg-button-quiet">Hold to compare</button>
+        <span id="pg-status" role="status" aria-live="polite">Initializing demonstration…</span>
+      </div>
+    </section>
+    <section class="pg-panel" aria-label="Glitch controls">
+      <div class="pg-panel-title"><span>CONTROL / IMAGE</span><span class="pg-panel-index">01–05</span></div>
+      <div class="pg-field">
+        <label for="pg-file">Image source</label>
+        <input id="pg-file" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="pg-file-hint">
+        <p class="pg-help" id="pg-file-hint">PNG, JPEG or WebP · drag, select or paste · large images scale down to 2048 px</p>
+      </div>
+      <div class="pg-field">
+        <label for="pg-mode">Glitch method</label>
+        <select id="pg-mode">
+          <option value="decoder">PNG decoder fault</option>
+          <option value="tear">Scanline tear</option>
+          <option value="sort">Pixel sort</option>
+          <option value="spectrum">RGB drift</option>
+          <option value="collapse" selected>Signal collapse / combined</option>
+        </select>
+        <p class="pg-help" id="pg-mode-help">A combination of scanline errors, sorting, displacement and channel drift.</p>
+      </div>
+      <div class="pg-field">
+        <label for="pg-damage">Damage <output id="pg-damage-value">58%</output></label>
+        <input id="pg-damage" type="range" min="0" max="100" step="1" value="58">
+      </div>
+      <div class="pg-field">
+        <label for="pg-density">Glitch density <output id="pg-density-value">52%</output></label>
+        <input id="pg-density" type="range" min="0" max="100" step="1" value="52">
+      </div>
+      <div class="pg-field">
+        <label for="pg-seed">Random seed</label>
+        <div class="pg-seed-line">
+          <input id="pg-seed" type="number" min="0" max="4294967295" step="1" value="1907">
+          <button id="pg-reroll" type="button" class="pg-button pg-button-quiet">Reseed</button>
+        </div>
+        <p class="pg-help">The same image, seed and settings reproduce the same glitches.</p>
+      </div>
+      <div class="pg-actions">
+        <button id="pg-download" type="button" class="pg-button pg-primary" disabled>Export PNG</button>
+        <button id="pg-reset" type="button" class="pg-button pg-button-quiet">Reset settings</button>
+        <button id="pg-demo" type="button" class="pg-button pg-button-quiet">Load demo</button>
+      </div>
+    </section>
+  </div>
+  <p class="pg-about">Inspired by the scanline-filter databending explored in <a href="https://ucnv.github.io/pnglitch/" target="_blank" rel="noopener noreferrer">UCNV’s The Art of PNG Glitch</a>. This is an independent JavaScript implementation that simulates decoding faults in pixels and exports a structurally valid PNG, rather than corrupting the PNG file itself. Images never leave your browser.</p>
+</div>
+<noscript><p>PNG Glitch Studio requires JavaScript to process images in your browser.</p></noscript>
+<script type="module" src="{{ '/assets/js/png-glitch/app.mjs' | relative_url }}"></script>
