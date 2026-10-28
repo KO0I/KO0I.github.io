@@ -100,3 +100,8 @@
   #pg-studio .pg-actions .pg-primary { flex: 1 1 100%; }
   #pg-studio .pg-privacy { font-size: 10px; }
 }
+
+#pg-studio [hidden] { display: none !important; }
+#pg-studio #pg-jpeg-fields { padding-top: 7px; border-top: 1px solid var(--pg-line); }
+#pg-studio #pg-jpeg-fields input:disabled { opacity: .32; cursor: not-allowed; }
+#pg-studio .pg-actions #pg-download-raw { flex: 1 1 100%; font-size: 12px; color: var(--pg-muted); }

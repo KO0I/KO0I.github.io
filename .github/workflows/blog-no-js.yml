@@ -19,6 +19,12 @@ jobs:
           submodules: false
       - name: Initialize the pinned Marain sources
         run: git submodule update --init tools/marain-dictionary
+      - name: Validate PNG and JPEG glitch modules
+        run: |
+          for source in assets/js/png-glitch/*.mjs assets/js/png-glitch/vendor/*.mjs; do
+            node --check "$source"
+          done
+          node --test tests/png-glitch.test.mjs tests/jpeg-glitch.test.mjs
       - name: Assemble site sources
         run: python3 scripts/prepare_site.py .site-source
       - name: Test the HTML auditor
@@ -37,4 +43,6 @@ jobs:
           /tmp/blog-tests/bin/python -m playwright install --with-deps chromium
       - name: Read and navigate without site JavaScript
         run: /tmp/blog-tests/bin/python .github/tests/browser_static_blog.py _site
+      - name: Test PNG and JPEG glitch studio in Chromium
+        run: /tmp/blog-tests/bin/python .github/tests/browser_glitch_studio.py _site
       # Deliberately no deployment, artifact-receiver secrets, or release steps.

@@ -71,9 +71,9 @@ out" the gas giants in the end)*
 #### <span style="color: #9ACD32; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓆸</span> [Plant Workbench]({{ '/tools/rfl-plant-workbench/dist/' | relative_url }})
 
 
-#### <span style="color: #c889bc; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓂀</span> [PNG Glitch Studio]({{ '/tools/png-glitch/' | relative_url }})
+#### <span style="color: #c889bc; font-size: 1.9em; line-height: 0.8; vertical-align: -0.08em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓂀</span> [Image Glitch Studio]({{ '/tools/png-glitch/' | relative_url }})
 
-*Databend your images with PNG-style filter faults, scanline tears, pixel sorting, and RGB drift. Runs locally in the browser.*
+*Databend PNG scanlines or JPEG compressed data with glitch-canvas and p5.glitch. Browser-local, with safe and raw exports.*
 
 # <span style="color: #fff;">Waves &amp; Vibes</span>
 

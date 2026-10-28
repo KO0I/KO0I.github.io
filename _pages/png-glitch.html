@@ -1,7 +1,7 @@
 ---
 layout: page
-title: PNG Glitch Studio
-description: Image databending with PNG decoder faults, scanline tears, pixel sorting and RGB drift. Free, local, no uploads.
+title: Image Glitch Studio
+description: Glitch PNG scanlines and JPEG compression with glitch-canvas and p5.glitch. Local browser processing and exports.
 permalink: /tools/png-glitch/
 interactive: true
 ---
@@ -12,13 +12,13 @@ interactive: true
   <header class="pg-intro">
     <div>
       <p class="pg-kicker">RASTER LABORATORY / 01</p>
-      <p>Break an image without breaking the file. Experiment with faulty PNG scanline reconstruction, pixel sorting, signal tears, and RGB drift.</p>
+      <p>Databend PNG scanlines or actual JPEG compressed data. Combine glitch-canvas with p5.glitch for entropy corruption and quantization artifacts.</p>
     </div>
     <span class="pg-privacy">LOCAL PROCESSING · NO UPLOADS</span>
   </header>
   <div class="pg-layout">
     <section class="pg-viewer" aria-label="Glitched image preview">
-      <div class="pg-viewer-head"><span>OUTPUT / RGBA</span><span id="pg-size">1000 × 640</span></div>
+      <div class="pg-viewer-head"><span id="pg-output-kind">OUTPUT / PNG RASTER</span><span id="pg-size">1000 × 640</span></div>
       <div id="pg-drop" class="pg-image-frame">
         <canvas id="pg-preview" width="1000" height="640" aria-label="Live glitched image preview" role="img"></canvas>
         <span class="pg-drop-hint" aria-hidden="true">DROP IMAGE</span>
@@ -32,8 +32,16 @@ interactive: true
       <div class="pg-panel-title"><span>CONTROL / IMAGE</span><span class="pg-panel-index">01–05</span></div>
       <div class="pg-field">
         <label for="pg-file">Image source</label>
-        <input id="pg-file" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="pg-file-hint">
-        <p class="pg-help" id="pg-file-hint">PNG, JPEG or WebP · drag, select or paste · large images scale down to 2048 px</p>
+        <input id="pg-file" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" aria-describedby="pg-file-hint">
+        <p class="pg-help" id="pg-file-hint">PNG or JPEG · drag, select or paste · large images scale down to 2048 px</p>
+      </div>
+      <div class="pg-field">
+        <label for="pg-codec">Image codec</label>
+        <select id="pg-codec">
+          <option value="png" selected>PNG · raster and scanline faults</option>
+          <option value="jpeg">JPEG · compressed databending</option>
+        </select>
+        <p class="pg-help">JPEG images select JPEG automatically; PNG images select PNG. You can change the codec at any time.</p>
       </div>
       <div class="pg-field">
         <label for="pg-mode">Glitch method</label>
@@ -54,6 +62,22 @@ interactive: true
         <label for="pg-density">Glitch density <output id="pg-density-value">52%</output></label>
         <input id="pg-density" type="range" min="0" max="100" step="1" value="52">
       </div>
+      <div id="pg-jpeg-fields" hidden>
+        <div class="pg-field">
+          <label for="pg-quality">JPEG quality <output id="pg-quality-value">70%</output></label>
+          <input id="pg-quality" type="range" min="5" max="99" step="1" value="70">
+          <p class="pg-help">Compression quality before databending; lower values enlarge 8×8 DCT artifacts.</p>
+        </div>
+        <div class="pg-field">
+          <label for="pg-iterations">glitch-canvas iterations <output id="pg-iterations-value">12</output></label>
+          <input id="pg-iterations" type="range" min="1" max="36" step="1" value="12">
+        </div>
+        <div class="pg-field">
+          <label for="pg-quantization">p5.glitch quantization <output id="pg-quantization-value">40%</output></label>
+          <input id="pg-quantization" type="range" min="0" max="100" step="1" value="40">
+          <p class="pg-help">Distorts JPEG's DCT quantization tables in the hybrid and quantization modes.</p>
+        </div>
+      </div>
       <div class="pg-field">
         <label for="pg-seed">Random seed</label>
         <div class="pg-seed-line">
@@ -64,12 +88,14 @@ interactive: true
       </div>
       <div class="pg-actions">
         <button id="pg-download" type="button" class="pg-button pg-primary" disabled>Export PNG</button>
+        <button id="pg-download-jpeg" type="button" class="pg-button pg-primary" disabled hidden>Export JPEG</button>
+        <button id="pg-download-raw" type="button" class="pg-button pg-button-quiet" disabled hidden>Export raw JPEG</button>
         <button id="pg-reset" type="button" class="pg-button pg-button-quiet">Reset settings</button>
         <button id="pg-demo" type="button" class="pg-button pg-button-quiet">Load demo</button>
       </div>
     </section>
   </div>
-  <p class="pg-about">Inspired by the scanline-filter databending explored in <a href="https://ucnv.github.io/pnglitch/" target="_blank" rel="noopener noreferrer">UCNV’s The Art of PNG Glitch</a>. This is an independent JavaScript implementation that simulates decoding faults in pixels and exports a structurally valid PNG, rather than corrupting the PNG file itself. Images never leave your browser.</p>
+  <p class="pg-about">PNG techniques are inspired by <a href="https://ucnv.github.io/pnglitch/" target="_blank" rel="noopener noreferrer">UCNV’s The Art of PNG Glitch</a>. JPEG mode integrates <a href="https://github.com/snorpey/glitch-canvas" target="_blank" rel="noopener noreferrer">Georg Fischer’s glitch-canvas</a> with <a href="https://github.com/ffd8/p5.glitch" target="_blank" rel="noopener noreferrer">Ted Davis’s p5.glitch</a> (MIT). Safe exports are re-encoded from the preview; raw JPEG exports retain databent bytes and might not open in every viewer. All image processing is local to the browser.</p>
 </div>
-<noscript><p>PNG Glitch Studio requires JavaScript to process images in your browser.</p></noscript>
+<noscript><p>Image Glitch Studio requires JavaScript to process images in your browser.</p></noscript>
 <script type="module" src="{{ '/assets/js/png-glitch/app.mjs' | relative_url }}"></script>
