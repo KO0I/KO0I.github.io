@@ -23,7 +23,7 @@
         "deployment_id": "appgdep_6ae0e6dc73008191b53d4559f58697ea"
       },
       "github": {
-        "status": "blocked",
+        "status": "succeeded",
         "staging_commit": "0dbea0fb34a380ebab7ae36d97eba0b7fcfc9c3b",
         "staging_branch": "sync/workbenches-20261027-rerun",
         "base_sha": "b4b66a8dfd02963eab57d5fa448b693fff96aaa0",
@@ -33,82 +33,106 @@
             "passed": 23,
             "note": "produce combinations passed on isolated retry with sufficient runtime"
           }
-        ]
+        ],
+        "current_head": "90c826191f3e0131d01126d9fdb583cbaf79565c",
+        "commit_sha": "90c826191f3e0131d01126d9fdb583cbaf79565c",
+        "branch": "main"
       },
-      "blockers": [
-        "Staged snapshot matches deployed Site dist/tests exactly. Await coordinated release; main and website gitlink unchanged."
-      ]
+      "blockers": [],
+      "mapping": {
+        "status": "verified",
+        "description": "Every tracked Site file matches current GitHub main by Git blob SHA; GitHub-only README and LICENSE preserved."
+      }
     },
     {
       "id": "characters",
       "required": true,
       "sites": {
-        "status": "succeeded",
-        "source_sha": "7eb751de87118e516981e553a01d79718525e927",
-        "version_id": "appgprj_6acc5731b6148191817bd7c7fed1242b~appgver_1c10838fdd1c8191b24a9a0f30bf7f21",
-        "deployment_id": "appgdep_6ae1220425688191bd595f609f941576",
+        "status": "unchanged_verified",
+        "source_sha": "7f3e7072023a1862e4a330d416d57b9e4b9f3e77",
+        "version_id": "appgprj_6acc5731b6148191817bd7c7fed1242b~appgver_498e5718012c819192ffa66d3a6a2419",
+        "deployment_id": "appgdep_6ae145b1bd9c81918aae0e90ed976557",
         "url": "https://character-studio.sesheta.chatgpt.site"
       },
       "github": {
-        "status": "blocked",
-        "base_sha": "68e4caab6b99eec7a47f21a5d7a81a9880c779a3"
+        "status": "succeeded",
+        "base_sha": "68e4caab6b99eec7a47f21a5d7a81a9880c779a3",
+        "current_head": "7879b0bfd52e5bdee4451bdca060f5c7ea91b476",
+        "commit_sha": "7879b0bfd52e5bdee4451bdca060f5c7ea91b476",
+        "branch": "main",
+        "checks": [
+          {
+            "name": "Build RFL catalog",
+            "run_id": 40615979266,
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Eight Bep-Fahj solid renderer and export round trips",
+            "status": "passed"
+          }
+        ]
       },
-      "blockers": [
-        "Transfer resumed with explicit user authorization; GitHub commit verification pending."
-      ]
+      "blockers": [],
+      "mapping": {
+        "status": "verified",
+        "description": "All 70 Bep-Fahj changed blobs match Site source exactly; existing GitHub-only documentation preserved; Pages workflow intentionally remains removed."
+      }
     },
     {
       "id": "climate",
       "required": true,
       "sites": {
-        "status": "pending",
-        "source_sha": "b80bc564ee0c69ccc690779268eb5060cb71e68a",
-        "version_id": "appgprj_6aa286fb2d588191bd7c44312f39ca41~appgver_ad14ba078e748191b162dd6e441f9e78",
-        "deployment_id": "appgdep_6ae05bf2c900819195af0c56c66ce476"
+        "status": "unchanged_verified",
+        "source_sha": "1c73279565545822bbb2c759059798f40119cd9a",
+        "version_id": "appgprj_6aa286fb2d588191bd7c44312f39ca41~appgver_ca7a65a31b2081919fe446afb2ca7cf9",
+        "deployment_id": "appgdep_6ae1201d9da48191a09352cdded25074"
       },
       "github": {
-        "status": "blocked"
+        "status": "blocked",
+        "current_head": "8a97b686b3921f39b523a58b9b67eae58b5e70c9"
       },
       "blockers": [
-        "Source reconciliation incomplete; preserve independent GitHub styling and assets."
+        "Current deployed Site has 19 differing shared files and 47 added files compared with GitHub main; independent GitHub source, styling and assets require reconciliation. No source overwrite performed."
       ]
     },
     {
       "id": "interiors",
       "required": true,
       "sites": {
-        "status": "succeeded",
+        "status": "unchanged_verified",
         "source_sha": "b82fe5a6b23061050ee5596cff866fe329750170",
         "version_id": "appgprj_6abf081f9aa08191b1d8f0433d33092f~appgver_7ca123c5b8ec81919394f67c4ce1260e",
         "deployment_id": "appgdep_6ae123e84fd081919afbecc0168fcaef",
         "url": "https://interiors.sesheta.chatgpt.site"
       },
       "github": {
-        "status": "blocked"
+        "status": "blocked",
+        "current_head": "b20377720b4a116e257e0cc458e746be0e05535b"
       },
       "blockers": [
-        "Matching GitHub synchronization is pending; deployed character and item assets now come from Character Creator source 7eb751de87118e516981e553a01d79718525e927."
+        "Current deployed snapshot contains original Character Creator source in dist/assets/afterlight/source-gsv.js; destination KO0I/rfl-interiors-workbench is public. Private source must not be copied into the public repository under the current release policy.",
+        "GitHub source reconciliation is incomplete; website continues to exclude Interiors."
       ]
     },
     {
       "id": "rfl",
       "required": true,
       "sites": {
-        "status": "pending",
-        "source_sha": "5d41379e3ecddf8f68e5d13477a38d7cd20212d6",
-        "version_id": "appgprj_6ab6f57f38e081918a48848e6c64df17~appgver_e9255be320a881919385ce5000f0f833",
-        "deployment_id": "appgdep_6ae10e1ba1208191b872521261073d87"
+        "status": "unchanged_verified",
+        "source_sha": "f16cebcead2cd405f0ea0f7a3d060a8c599767d5",
+        "version_id": "appgprj_6ab6f57f38e081918a48848e6c64df17~appgver_36b40a2b287481919cef9e6165b3244d",
+        "deployment_id": "appgdep_6ae13c1ee69881919b38dfb5654ffd32"
       },
       "github": {
-        "status": "blocked"
+        "status": "blocked",
+        "current_head": "10bfd1df2637f73ddb3260442a877f8e9f33c1e8"
       },
       "blockers": [
-        "Source comparison against verified historical GitHub/Sites snapshot pair found 43 conflicts and 19 paths added differently; candidate merge has not been applied.",
-        "Private Character Creator GitHub snapshot must be completed before pinning the game's submodule.",
-        "Focused local tests passed for 11 non-Zes residents, indexed mesh draw with mock GPU, 38 catalog fits and gelsuit selections. No new RFL Site deployment or GitHub commit.",
-        "Legacy botanical removal is prepared in the game catalog; Nauptre's 12 golden meshes and 16264 placements passed unchanged.",
-        "Additional checks: interior-ui fails because shipInterior markup is absent; current game also has a separate plate-interior/plate-interiors path whose roster still needs reconciliation. The 11-resident unit check does not prove that active Plate runtime is integrated.",
-        "stellar-interior fails its swept-core high-speed tunneling assertion; authored soft-contact test passes. No claim of full game release validation."
+        "Refreshed three-way comparison of the 43 previously conflicting paths leaves 42 conflicts; dist/interior.js now merges cleanly. The previous 19 added-both paths also require reconciliation.",
+        "Current deployed Site fails tests/interior-ui.mjs with --experimental-vm-modules: Markup provides shipInterior.",
+        "Current deployed Site fails tests/stellar-interior.mjs: Swept core prevents high-speed tunneling.",
+        "No new browser artifact has been selected or created for this release."
       ]
     }
   ],
@@ -236,6 +260,19 @@
       "authorization": "User explicitly requested continuing transfer of that exact source snapshot to GitHub.",
       "mapping_verified_files": 726,
       "changed_files": 102
+    },
+    {
+      "action": "full_release_resume_after_bep_fahj",
+      "characters_github": "7879b0bfd52e5bdee4451bdca060f5c7ea91b476",
+      "plant_github": "90c826191f3e0131d01126d9fdb583cbaf79565c",
+      "deployments": "All five current saved Site versions verified succeeded",
+      "checks": [
+        "All tracked Plant Site files match GitHub main",
+        "Character Creator catalog CI succeeded: 40615979266",
+        "Interiors: all 933 room doorways/spawns clear; Afterlight validation passed",
+        "RFL: 42 previously identified conflict paths remain; interior UI and stellar swept-core checks fail"
+      ],
+      "website": "No website gitlinks, artifact selection, or deployment changed"
     }
   ]
 }
