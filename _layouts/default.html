@@ -7,7 +7,7 @@
 {% endif %}
 <body id="top" data-site-kind="{{ site_kind }}">
   <a class="skip-link" href="#main-content">Skip to content</a>
-  {% if page.analytics and site.data.settings.google-analytics %}
+  {% if site.data.settings.google-analytics %}
     {% include google-analytics.html %}
   {% endif %}
   {% include header.html %}
