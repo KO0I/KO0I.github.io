@@ -7,9 +7,33 @@ permalink: /music/
 image: '/images/kefel_glitch.jpg'
 ---
 
+<style>
+.music-camelot-symbol {
+  display: inline-block;
+  font-size: 1.9em;
+  line-height: 0.8;
+  vertical-align: -0.08em;
+  font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;
+  color: #00ffff;
+}
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .music-camelot-symbol {
+    background-image: linear-gradient(90deg, #ff6b6b, #ffb347, #ffe66d, #66e58f, #00ffff, #8ca9ff, #e08bff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+</style>
+
 <p>Dreamy textures, glitch music, experimental electronics, and live noise as <strong>en_somnia</strong>.</p>
 
 {% include music-links.html expanded=true label='Listen on SoundCloud, YouTube, or TIDAL' %}
+
+<h2>Music tools</h2>
+<h3><span class="music-camelot-symbol" aria-hidden="true">𓏢</span> <a href="{{ '/tools/camelot-wheel/' | relative_url }}">Interactive Camelot Wheel</a></h3>
+<p>Harmonic mixing key wheel; based on the <a href="https://mixedinkey.com/camelot-wheel/#chart">original by Mixed In Key</a>.</p>
 
 <h2>Music &amp; live performance</h2>
 <div class="feature-list">

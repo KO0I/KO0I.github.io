@@ -137,39 +137,25 @@ if (root) {
       requestAnimationFrame(() => void regenerate(version));
     }
   }
-  function makeDemo() {
-    setDimensions(1000, 640);
-    const w = original.width, h = original.height;
-    const gradient = sourceCtx.createLinearGradient(0, 0, w, h);
-    gradient.addColorStop(0, '#0f1932');
-    gradient.addColorStop(0.5, '#6a315d');
-    gradient.addColorStop(1, '#d77281');
-    sourceCtx.fillStyle = gradient;
-    sourceCtx.fillRect(0, 0, w, h);
-    sourceCtx.fillStyle = '#0d0c1d';
-    sourceCtx.beginPath();
-    sourceCtx.moveTo(0, 450); sourceCtx.lineTo(270, 180);
-    sourceCtx.lineTo(480, 450); sourceCtx.lineTo(630, 330);
-    sourceCtx.lineTo(1000, 560); sourceCtx.lineTo(1000, 640);
-    sourceCtx.lineTo(0, 640); sourceCtx.fill();
-    sourceCtx.fillStyle = '#59c6d7';
-    sourceCtx.beginPath(); sourceCtx.arc(745, 232, 134, 0, Math.PI * 2); sourceCtx.fill();
-    sourceCtx.fillStyle = '#ff9eab';
-    sourceCtx.beginPath(); sourceCtx.arc(745, 232, 78, 0, Math.PI * 2); sourceCtx.fill();
-    for (let i = 0; i < 95; i++) {
-      sourceCtx.fillStyle = i % 4 ? '#f2c3d5' : '#31c3c6';
-      sourceCtx.globalAlpha = (i % 5 + 2) / 8;
-      sourceCtx.fillRect((i * 131 + 79) % w, (i * 83 + 17) % h, i % 3 ? 62 : 200, 1 + i % 4);
+  async function loadSiteImage() {
+    const token = ++uploadSequence;
+    ++generation;
+    clearTimeout(renderTimer);
+    setExportState(false);
+    setStatus('Loading image from this site…');
+    try {
+      const imagePath = root.dataset.demoImage;
+      if (!imagePath) throw new Error('Site image path is missing.');
+      const response = await fetch(imagePath, { cache: 'force-cache' });
+      if (!response.ok) throw new Error('Site image could not be loaded.');
+      const blob = await response.blob();
+      if (token !== uploadSequence) return; // A later local upload takes priority.
+      await loadFile(new File([blob], 'kefel_glitch.png', { type: 'image/png' }));
+    } catch (error) {
+      if (token === uploadSequence) {
+        setStatus('Site sample unavailable. Select your own PNG or JPEG image.');
+      }
     }
-    sourceCtx.globalAlpha = 1;
-    sourceCtx.fillStyle = '#f8d6e9';
-    sourceCtx.font = 'bold 103px monospace'; sourceCtx.fillText('SIGNAL', 80, 390);
-    sourceCtx.font = '26px monospace'; sourceCtx.fillText('RASTER / UNSTABLE', 86, 430);
-    sourceCtx.fillStyle = '#69d9e1'; sourceCtx.fillRect(86, 447, 285, 9);
-    imageName = 'demo';
-    imageNote = '';
-    sourcePixels = sourceCtx.getImageData(0, 0, w, h);
-    queueRender();
   }
   async function loadFile(file) {
     if (!file) return;
@@ -221,7 +207,7 @@ if (root) {
     quality.value = '70'; iterations.value = '12'; quantization.value = '40';
     queueRender();
   });
-  find('pg-demo').addEventListener('click', () => { uploadSequence++; fileInput.value = ''; makeDemo(); });
+  find('pg-demo').addEventListener('click', () => { fileInput.value = ''; void loadSiteImage(); });
   function saveBlob(blob, suffix) {
     if (!blob) { setStatus('Export unavailable in this browser.'); return; }
     const url = URL.createObjectURL(blob);
@@ -270,5 +256,5 @@ if (root) {
     if (item) { event.preventDefault(); loadFile(item.getAsFile()); }
   });
   updateCodec();
-  makeDemo();
+  void loadSiteImage();
 }

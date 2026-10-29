@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Image Glitch Studio
+title: Glitch Art
 description: Glitch PNG scanlines and JPEG compression with glitch-canvas and p5.glitch. Local browser processing and exports.
 permalink: /tools/png-glitch/
 interactive: true
@@ -8,10 +8,9 @@ interactive: true
 
 <link rel="stylesheet" href="{{ '/assets/css/png-glitch.css' | relative_url }}">
 
-<div id="pg-studio">
+<div id="pg-studio" data-demo-image="{{ '/images/kefel_glitch.png' | relative_url }}">
   <header class="pg-intro">
     <div>
-      <p class="pg-kicker">RASTER LABORATORY / 01</p>
       <p>Databend PNG scanlines or actual JPEG compressed data. Combine glitch-canvas with p5.glitch for entropy corruption and quantization artifacts.</p>
     </div>
     <span class="pg-privacy">LOCAL PROCESSING · NO UPLOADS</span>
@@ -29,7 +28,7 @@ interactive: true
       </div>
     </section>
     <section class="pg-panel" aria-label="Glitch controls">
-      <div class="pg-panel-title"><span>CONTROL / IMAGE</span><span class="pg-panel-index">01–05</span></div>
+      <div class="pg-panel-title"><span>IMAGE CONTROLS</span></div>
       <div class="pg-field">
         <label for="pg-file">Image source</label>
         <input id="pg-file" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" aria-describedby="pg-file-hint">
@@ -91,11 +90,11 @@ interactive: true
         <button id="pg-download-jpeg" type="button" class="pg-button pg-primary" disabled hidden>Export JPEG</button>
         <button id="pg-download-raw" type="button" class="pg-button pg-button-quiet" disabled hidden>Export raw JPEG</button>
         <button id="pg-reset" type="button" class="pg-button pg-button-quiet">Reset settings</button>
-        <button id="pg-demo" type="button" class="pg-button pg-button-quiet">Load demo</button>
+        <button id="pg-demo" type="button" class="pg-button pg-button-quiet">Load site image</button>
       </div>
     </section>
   </div>
   <p class="pg-about">PNG techniques are inspired by <a href="https://ucnv.github.io/pnglitch/" target="_blank" rel="noopener noreferrer">UCNV’s The Art of PNG Glitch</a>. JPEG mode integrates <a href="https://github.com/snorpey/glitch-canvas" target="_blank" rel="noopener noreferrer">Georg Fischer’s glitch-canvas</a> with <a href="https://github.com/ffd8/p5.glitch" target="_blank" rel="noopener noreferrer">Ted Davis’s p5.glitch</a> (MIT). Safe exports are re-encoded from the preview; raw JPEG exports retain databent bytes and might not open in every viewer. All image processing is local to the browser.</p>
 </div>
-<noscript><p>Image Glitch Studio requires JavaScript to process images in your browser.</p></noscript>
+<noscript><p>Glitch Art requires JavaScript to process images in your browser.</p></noscript>
 <script type="module" src="{{ '/assets/js/png-glitch/app.mjs' | relative_url }}"></script>

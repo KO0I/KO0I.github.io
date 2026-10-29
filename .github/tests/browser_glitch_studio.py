@@ -41,7 +41,9 @@ def run(site: Path, executable: str | None = None) -> None:
                 page.on('pageerror', lambda e: errors.append(str(e)))
                 response = page.goto(origin + '/tools/png-glitch/', wait_until='domcontentloaded')
                 assert response and response.status == 200
-                assert page.locator('h1').first.inner_text().find('Image Glitch Studio') >= 0
+                assert page.locator('h1').first.inner_text().find('Glitch Art') >= 0
+                assert page.locator('#pg-studio').get_attribute('data-demo-image') == '/images/kefel_glitch.png'
+                expect(page.locator('#pg-status')).to_contain_text('kefel_glitch', timeout=90000)
                 assert 'webp' not in (page.locator('#pg-file').get_attribute('accept') or '').lower()
                 assert 'WebP' not in page.locator('#pg-studio').inner_text()
                 png = page.locator('#pg-download')
@@ -97,7 +99,17 @@ def run(site: Path, executable: str | None = None) -> None:
                 expect(png).to_be_enabled(timeout=90000)
                 expect(jpeg).to_be_hidden()
                 assert not errors, 'Browser script errors: ' + repr(errors)
-                print('Image Glitch Studio: PNG, JPEG, four codec modes, exports and file filters PASS')
+                page.goto(origin + '/tools/', wait_until='domcontentloaded')
+                assert page.get_by_role('link', name='Glitch Art').count() == 1
+                assert page.get_by_role('link', name='Interactive Camelot Wheel').count() == 0
+                page.goto(origin + '/music/', wait_until='domcontentloaded')
+                camelot = page.get_by_role('link', name='Interactive Camelot Wheel')
+                assert camelot.count() == 1
+                assert camelot.get_attribute('href') == '/tools/camelot-wheel/'
+                symbol = page.locator('.music-camelot-symbol')
+                assert symbol.count() == 1 and symbol.inner_text() == '𓏢'
+                assert 'linear-gradient' in symbol.evaluate('(e) => getComputedStyle(e).backgroundImage')
+                print('Glitch Art site sample, PNG/JPEG exports and relocated Camelot link PASS')
             finally:
                 browser.close()
     finally:
