@@ -2,14 +2,15 @@
 """Audit the actual Jekyll output, not Markdown or code examples.
 
 Usage: python3 .github/tests/audit_static_blog.py _site
-No third-party Python packages are required. JavaScript is allowed only below
-``/tools/`` and on the three explicitly allowlisted interactive pages. A build
-containing no core pages is an error.
+No third-party Python packages are required. The only scripts on core pages
+are the existing paired GA4 bootstrap and gtag loader. Other JavaScript is
+allowed only on explicitly interactive pages. A build with no core pages fails.
 """
 from __future__ import annotations
 import argparse
 from collections import Counter
 import json
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -21,6 +22,16 @@ INTERACTIVE_PAGES = {
     'roadmap/index.html',
 }
 
+GA_SOURCE = re.compile(
+    r'https://www\.googletagmanager\.com/gtag/js\?id=(G-[A-Z0-9]+)'
+)
+GA_BOOTSTRAP = re.compile(
+    r"window\.dataLayer\s*=\s*window\.dataLayer\s*\|\|\s*\[\];\s*"
+    r"function\s+gtag\(\)\s*\{\s*dataLayer\.push\(arguments\);\s*\}\s*"
+    r"gtag\('js',\s*new Date\(\)\);\s*"
+    r"gtag\('config',\s*'(G-[A-Z0-9]+)'\);"
+)
+
 
 class Document(HTMLParser):
     def __init__(self, text: str):
@@ -31,12 +42,19 @@ class Document(HTMLParser):
         self.ids: set[str] = set()
         self.has_main = False
         self.styles: list[str] = []
+        self.ga_loader_ids: list[str] = []
+        self.ga_bootstrap_ids: list[str] = []
+        self._script_text: list[str] | None = None
         self.stack: list[tuple[str, set[str]]] = []
         self.grid_posts: list[str] = []
         self.archive_posts: list[str] = []
         self.pagination: dict[str, str] = {}
         self.feed(text)
         self.close()
+        if self.ga_loader_ids or self.ga_bootstrap_ids:
+            if (len(self.ga_loader_ids) != 1 or
+                    self.ga_loader_ids != self.ga_bootstrap_ids):
+                self.errors.append('Google Analytics script pair mismatch')
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         a = dict(attrs)
@@ -61,7 +79,15 @@ class Document(HTMLParser):
                 self.errors.append(f"Duplicate tag ID: {a['id']}")
             self.ids.add(a['id'])
         if tag == 'script':
-            self.errors.append('Script element found')
+            script_src = a.get('src')
+            if script_src:
+                match = GA_SOURCE.fullmatch(script_src)
+                if match:
+                    self.ga_loader_ids.append(match.group(1))
+                else:
+                    self.errors.append('Script element found')
+            else:
+                self._script_text = []
         for name, value in attrs:
             if name.lower().startswith('on'):
                 self.errors.append(f'Inline event handler: {name}')
@@ -87,7 +113,19 @@ class Document(HTMLParser):
         if tag == 'button' and 'load-more-posts' in (a.get('class') or '').split():
             self.errors.append('JavaScript-only pagination button')
 
+    def handle_data(self, data: str) -> None:
+        if self._script_text is not None:
+            self._script_text.append(data)
+
     def handle_endtag(self, tag: str) -> None:
+        if tag == 'script' and self._script_text is not None:
+            script_text = ''.join(self._script_text).strip()
+            match = GA_BOOTSTRAP.fullmatch(script_text)
+            if match:
+                self.ga_bootstrap_ids.append(match.group(1))
+            else:
+                self.errors.append('Script element found')
+            self._script_text = None
         for i in range(len(self.stack) - 1, -1, -1):
             if self.stack[i][0] == tag:
                 del self.stack[i:]

@@ -126,7 +126,7 @@ def run(site: Path, executable: str | None = None) -> dict[str, int]:
                     for path in samples[:5]:
                         page.goto(origin + path, wait_until='domcontentloaded')
                         assert page.locator('main').is_visible()
-                        assert page.locator('script').count() == 0
+                        assert page.locator('script').count() in (0, 2), 'Only the paired GA4 scripts are permitted'
                         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 2'), f'Page overflows at {width}px: {path}'
                         for summary in page.locator('.diagram-source > summary').all():
                             summary.click()
@@ -137,14 +137,14 @@ def run(site: Path, executable: str | None = None) -> dict[str, int]:
                     # Isolate viewport checks from browser rendering state.
                     browser.close()
                     browser = p.chromium.launch(**options)
-                # Enabled JS must also generate no script requests on the core.
+                # Enabled JS must not request scripts other than the approved GA4 loader.
                 context = browser.new_context(java_script_enabled=True)
                 requests = []
                 context.on('request', lambda r: requests.append(r.url) if r.resource_type == 'script' else None)
                 context.route('**/*', lambda route: route.continue_() if route.request.url.startswith(origin) or route.request.url.startswith('data:') else route.abort())
                 page = context.new_page()
                 page.goto(origin + '/', wait_until='networkidle')
-                assert not requests, f'Scripts requested: {requests}'
+                assert all(url.startswith('https://www.googletagmanager.com/gtag/js?id=G-') for url in requests), f'Unexpected script requests: {requests}'
                 context.close()
                 checks += 1
             finally:

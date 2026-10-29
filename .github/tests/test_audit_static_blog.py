@@ -16,6 +16,22 @@ class AuditTests(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertTrue(Document(text).errors)
 
+    def test_only_exact_sitewide_ga4_pair_is_allowed(self):
+        pair = (
+            '<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NJMFM3MWS"></script>'
+            '<script>\n'
+            '  window.dataLayer = window.dataLayer || [];\n'
+            '  function gtag() { dataLayer.push(arguments); }\n'
+            "  gtag('js', new Date());\n"
+            "  gtag('config', 'G-6NJMFM3MWS');\n"
+            '</script>'
+        )
+        self.assertEqual(Document(pair).errors, [])
+        self.assertTrue(Document(pair.replace('G-6NJMFM3MWS', 'G-DIFFERENT', 1)).errors)
+        self.assertTrue(Document(pair + '<script src="/app.js"></script>').errors)
+        self.assertTrue(Document(pair + '<script>alert(1)</script>').errors)
+        self.assertTrue(Document(pair.replace('gtag(', 'eval(', 1)).errors)
+
     def test_escaped_code_is_not_a_script(self):
         self.assertEqual(Document('<pre>&lt;script&gt;example&lt;/script&gt;</pre>').errors, [])
 
