@@ -109,7 +109,14 @@ def run(site: Path, executable: str | None = None) -> None:
                 symbol = page.locator('.music-camelot-symbol')
                 assert symbol.count() == 1 and symbol.inner_text() == '𓏢'
                 assert 'linear-gradient' in symbol.evaluate('(e) => getComputedStyle(e).backgroundImage')
-                print('Glitch Art site sample, PNG/JPEG exports and relocated Camelot link PASS')
+                heading = page.get_by_role('heading', name='Music & Live Performance', exact=True)
+                assert heading.count() == 1
+                music_list = heading.locator('xpath=following-sibling::ul[1]')
+                assert music_list.count() == 1
+                assert music_list.locator('li').count() == 3
+                assert music_list.locator('a').all_inner_texts() == ['SoundCloud', 'YouTube', 'TIDAL']
+                assert page.locator('details.music-links').count() == 0
+                print('Glitch Art and Music page, standard bullet links and Camelot placement PASS')
             finally:
                 browser.close()
     finally:

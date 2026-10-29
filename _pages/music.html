@@ -29,13 +29,16 @@ image: '/images/kefel_glitch.jpg'
 
 <p>Dreamy textures, glitch music, experimental electronics, and live noise as <strong>en_somnia</strong>.</p>
 
-{% include music-links.html expanded=true label='Listen on SoundCloud, YouTube, or TIDAL' %}
-
 <h2>Music tools</h2>
 <h3><span class="music-camelot-symbol" aria-hidden="true">𓏢</span> <a href="{{ '/tools/camelot-wheel/' | relative_url }}">Interactive Camelot Wheel</a></h3>
 <p>Harmonic mixing key wheel; based on the <a href="https://mixedinkey.com/camelot-wheel/#chart">original by Mixed In Key</a>.</p>
 
-<h2>Music &amp; live performance</h2>
+<h2>Music &amp; Live Performance</h2>
+<ul>
+  {% for platform in site.data.music_platforms %}
+  <li><a href="{{ platform.url | escape }}" rel="noopener noreferrer">{{ platform.name | escape }}</a></li>
+  {% endfor %}
+</ul>
 <div class="feature-list">
   {% assign noise_article = site.posts | where: 'title', 'What is a Noise Complaint?' | first %}
   {% if noise_article %}
