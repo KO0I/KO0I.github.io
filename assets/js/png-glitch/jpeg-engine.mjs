@@ -66,6 +66,28 @@ function jpegBytesFromDataURL(url) {
   return bytes;
 }
 
+
+/**
+ * Remove stray bytes after JPEG's end marker, or restore the marker if a
+ * databending operation drops it. Browser decoders may accept malformed
+ * tails, but raw .jpg downloads should always terminate in FF D9.
+ */
+export function normalizeJpegEoi(bytes) {
+  if (!bytes || bytes.length < 4 || bytes[0] !== 0xff || bytes[1] !== 0xd8) {
+    throw new Error('Not a JPEG byte stream.');
+  }
+  for (let i = bytes.length - 2; i >= 2; i--) {
+    if (bytes[i] === 0xff && bytes[i + 1] === 0xd9) {
+      return Uint8Array.from(bytes.subarray(0, i + 2));
+    }
+  }
+  const fixed = new Uint8Array(bytes.length + 2);
+  fixed.set(bytes);
+  fixed[fixed.length - 2] = 0xff;
+  fixed[fixed.length - 1] = 0xd9;
+  return fixed;
+}
+
 function jpegDataFromCanvas(image, quality) {
   const c = document.createElement('canvas');
   c.width = image.width; c.height = image.height;
@@ -170,7 +192,7 @@ export async function glitchJpeg(image, opts = {}) {
   const iterations = limit(Math.round(Number(opts.iterations ?? 12) || 12), 1, 36);
   const quantization = limit(Number(opts.quantization ?? 40) || 0, 0, 100);
   const source = jpegDataFromCanvas(image, quality);
-  let jpegBytes = jpegBytesFromDataURL(source.url);
+  let jpegBytes = normalizeJpegEoi(jpegBytesFromDataURL(source.url));
   let warning = '';
   if (damage === 0 || density === 0) {
     return { width: image.width, height: image.height, data: source.pixels.data,
@@ -187,7 +209,7 @@ export async function glitchJpeg(image, opts = {}) {
           amount: limit(Math.round(damage * (1 - attempt * 0.3)), 1, 99),
           iterations: Math.max(1, Math.round(iterations * (1 - attempt * 0.35)))
         }).fromImageData(source.pixels).toDataURL();
-        const candidate = jpegBytesFromDataURL(url);
+        const candidate = normalizeJpegEoi(jpegBytesFromDataURL(url));
         if (await decodedOrNull(candidate, image.width, image.height)) {
           jpegBytes = candidate; succeeded = true; break;
         }
@@ -203,14 +225,14 @@ export async function glitchJpeg(image, opts = {}) {
     const previous = jpegBytes;
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
-        const candidate = bendJpegWithP5(previous, {
+        const candidate = normalizeJpegEoi(bendJpegWithP5(previous, {
           seed: seed + attempt * 977,
           damage: damage * (1 - attempt * 0.4),
           density,
           quantization,
           entropy: entropy && attempt < 2,
           quantize
-        });
+        }));
         if (await decodedOrNull(candidate, image.width, image.height)) {
           jpegBytes = candidate; succeeded = true; break;
         }

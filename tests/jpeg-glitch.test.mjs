@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { inspectJpeg, bendJpegWithP5, JPEG_MODES } from '../assets/js/png-glitch/jpeg-engine.mjs';
+import { inspectJpeg, bendJpegWithP5, JPEG_MODES, normalizeJpegEoi } from '../assets/js/png-glitch/jpeg-engine.mjs';
 
 function fixture() {
   // Marker and quantization layout resembling a baseline JPEG.
@@ -36,6 +36,16 @@ test('JPEG parser locates scan data and quantization payload', () => {
   assert.equal(info.scanEnd, data.length - 2);
   assert.throws(() => inspectJpeg(new Uint8Array(4)), /Not a JPEG/);
   assert.throws(() => inspectJpeg(Uint8Array.from([255,216,255,219,255,255,0,1,2,3])), Error);
+});
+
+test('raw JPEG exports always terminate at the end-of-image marker', () => {
+  const sample = fixture();
+  assert.deepEqual(normalizeJpegEoi(sample), sample);
+  const padded = Uint8Array.from([...sample, 0, 255, 0, 1]);
+  assert.deepEqual(normalizeJpegEoi(padded), sample);
+  const truncated = sample.slice(0, -2);
+  assert.deepEqual(normalizeJpegEoi(truncated), sample);
+  assert.throws(() => normalizeJpegEoi(Uint8Array.from([1, 2, 3, 4])), /Not a JPEG/);
 });
 
 test('p5.glitch quantization mutates values while retaining segment boundaries', () => {
