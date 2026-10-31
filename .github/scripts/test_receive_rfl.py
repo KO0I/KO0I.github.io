@@ -105,7 +105,7 @@ class ReceiverTests(unittest.TestCase):
     def test_live_receipt_pins_existing_deployment(self):
         data, artifact, run = fixture()
         receipt = {'artifact_id': 456, 'sha': SHA, 'run_id': 123, 'digest': artifact['digest']}
-        with patch.dict('os.environ', {'RFL_ARTIFACTS_TOKEN': 'test', 'RFL_ARTIFACT_ID': '', 'RFL_DRY_RUN': 'true'}), \
+        with patch.dict('os.environ', {'RFL_ARTIFACTS_TOKEN': 'test', 'RFL_ARTIFACT_ID': '', 'RFL_DRY_RUN': 'true'}, clear=True), \
              patch.object(receiver, 'load_preserved', return_value=None), \
              patch.object(receiver, 'fetch', return_value=json.dumps(receipt).encode()) as fetch, \
              patch.object(receiver, 'api', side_effect=[artifact, run]) as api, \
