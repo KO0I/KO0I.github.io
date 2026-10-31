@@ -173,9 +173,15 @@ def verify_preserved(release, artifact_id, token, allow_draft=False):
     if str(artifact['id']) != str(artifact_id):
         raise ValueError('Preserved artifact ID mismatch')
     sha = validate_origin(artifact, run, False)
-    ref = api('/git/ref/tags/' + tag, token)
-    if ref.get('object', {}).get('type') != 'commit' or ref['object']['sha'] != sha:
-        raise ValueError('Preserved release tag does not pin its exact producer commit')
+    try:
+        ref = api('/git/ref/tags/' + tag, token)
+    except urllib.error.HTTPError as error:
+        if not (allow_draft and release.get('draft') is True and error.code == 404
+                and release.get('target_commitish') == sha):
+            raise
+    else:
+        if ref.get('object', {}).get('type') != 'commit' or ref['object']['sha'] != sha:
+            raise ValueError('Preserved release tag does not pin its exact producer commit')
     data = contents[BUNDLE_NAME]
     expected = contents['sha256.txt'].decode('ascii').strip()
     if not re.fullmatch(r'[a-f0-9]{64}', expected) or hashlib.sha256(data).hexdigest() != expected:
