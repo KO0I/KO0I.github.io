@@ -64,6 +64,27 @@
         "monorepo_sha": null,
         "mirror_sha": null,
         "content_sha256": null
+      },
+      "planner": {
+        "tool": ".github/scripts/reconcile_sources.py",
+        "revision": null,
+        "inventory_evidence_url": null,
+        "plan_evidence_url": null,
+        "plan_sha256": null,
+        "status": "pending",
+        "fresh_check_evidence_url": null
+      },
+      "pilot": {
+        "fixture_status": "pending",
+        "live_status": "pending",
+        "modes_verified": [],
+        "evidence_url": null,
+        "unfinished_sites_edit_preserved": null
+      },
+      "snapshot_evidence": {
+        "sites": null,
+        "monorepo": null,
+        "mirror": null
       }
     }
   },

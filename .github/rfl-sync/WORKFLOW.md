@@ -21,6 +21,8 @@ Select the requested components and affected consumers. Read the current Sites s
 
 ## Reconcile sources
 
+Follow [RECONCILIATION.md](RECONCILIATION.md) to prepare canonical snapshots and run the read-only planner before either direction writes. Store live snapshot inventories and reports privately when they reference private monorepo content. A `ready` report describes a mapped candidate; it does not authorize writes or prove the export adapter works.
+
 Before either direction writes, compare every selected source and destination to their last verified synchronized revisions. For a Site/monorepo pair, compute Site changes since its baseline and monorepo changes since its baseline using explicit path mappings and content hashes. Include independent component-repository changes before overwriting a mirror.
 
 Apply disjoint changes together. Treat different edits to the same mapped content, delete/edit collisions, and ambiguous renames as conflicts. Preserve unfinished or unpublished Sites work even in `monorepo-first` mode. Stop conflicting files and their dependents for resolution; the chosen mode does not resolve conflicts automatically.
@@ -28,6 +30,8 @@ Apply disjoint changes together. Treat different edits to the same mapped conten
 Prepare the reconciled candidate and per-destination patch outside live destinations. Record observed heads, baseline revisions, mapped paths and hashes, intended additions/modifications/deletions, preserved destination-only files, conflict decisions and validation evidence. Translate standalone Site files into app/domain ownership rather than copying editor UI into domain packages. Export only explicit allowed paths; never blindly mirror a whole directory or include private source in a public mirror.
 
 Immediately before each write, recheck the destination head against the reconciled plan. If either side advanced, invalidate that part of the plan, reread both sides, reconcile and revalidate. A previously clean plan is not permission to overwrite newly saved Sites work. If a mapping or export adapter is unavailable, mark that destination blocked without claiming it synchronized.
+
+Before treating a component's downstream export as connected, complete the live two-direction pilot in RECONCILIATION.md. Automated fixtures test conflict handling but do not establish a real Sites baseline or export connection.
 
 On a first run with no baseline, compare current files and history explicitly. Stop only ambiguous conflicting changes and their dependents; do independent work. Establish a baseline only after verifying equivalent mapped content. Use expected-head checks, no force pushes. If a head changes, re-read, reconcile and revalidate affected work.
 
@@ -54,7 +58,7 @@ For a GitHub-only private preview, dispatch `browser-release.yml` from the inten
 
 Create schema-2 checkpoints for new runs. Keep schema-1 historical records readable; do not invent missing historical modes or source baselines. Establish an unknown baseline through explicit comparison before writing. After each verified write, record its expected new head before planning the next destination. A head changed by an unrecorded external edit still invalidates the affected plan.
 
-Copy release-template.json to releases/<unique-release-id>.json on a dedicated synchronization branch in this repository. Persist checkpoints after external mutations, including partial success. Keep secrets, access tokens, account details and signed download URLs out of records. Do not commit checkpoint-only updates to an auto-deploy branch during an incomplete release.
+Copy release-template.json to releases/<unique-release-id>.json on a dedicated synchronization branch in this repository. Persist checkpoints after external mutations, including partial success. Keep secrets, access tokens, account details and signed download URLs out of records. Routine `master` pushes validate without deployment. Keep incomplete records on the synchronization branch so they cannot be mistaken for a successful baseline.
 
 Use statuses pending, succeeded, failed, blocked, unchanged_verified or not_in_scope independently for Sites, GitHub and website. Attach evidence to success: revisions, IDs, checks, hashes and terminal deployment results.
 
@@ -62,7 +66,7 @@ A failed prerequisite blocks its dependent work and the final website release. C
 
 For deployment failure, preserve the failed record and the prior release's exact commit/artifact set. Use the established rollback path within the user's authorization; never rewrite history or invent successful rollback evidence.
 
-After a successful deployment, record final evidence on the synchronization branch without causing a second publication. Make the last successful record discoverable by a GitHub URL in the next run's baseline. Merge archival records only through a path that accounts for any deployment trigger.
+After a successful deployment, record final evidence on the synchronization branch without causing a second publication. Make the last successful record discoverable by a GitHub URL in the next run's baseline. Merge archival records without dispatching a production workflow.
 
 ## Completion report
 
