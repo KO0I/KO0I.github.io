@@ -142,14 +142,16 @@ def unpack(data, artifact, run, output, dry_run):
         return receipt
 
 def main():
+    dry_run = os.environ.get('RFL_DRY_RUN') == 'true'
+    artifact_id = os.environ.get('RFL_ARTIFACT_ID', '')
+    if not dry_run and not artifact_id:
+        raise ValueError('Production requires an explicit release artifact ID')
     token = os.environ['RFL_ARTIFACTS_TOKEN']
     if not token:
         raise ValueError('Artifact reader token is not configured')
-    dry_run = os.environ.get('RFL_DRY_RUN') == 'true'
-    artifact_id = os.environ.get('RFL_ARTIFACT_ID', '')
     live = None
     if not artifact_id:
-        # Ordinary site pushes preserve the last successfully deployed release, never "latest".
+        # Validation may reuse the deployed release, never "latest".
         # Missing, expired or corrupt artifacts fail closed and leave the live site intact.
         live = json.loads(fetch(LIVE_RECEIPT + '?t=' + str(time.time_ns())))
         artifact_id = str(live['artifact_id'])
@@ -180,4 +182,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
