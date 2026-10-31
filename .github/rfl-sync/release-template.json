@@ -97,7 +97,10 @@
       "id": null,
       "run_id": null,
       "source_sha": null,
-      "sha256": null
+      "sha256": null,
+      "storage": null,
+      "release_tag": null,
+      "provenance_asset_sha256": null
     },
     "workflow_run_id": null,
     "deployment_id": null,

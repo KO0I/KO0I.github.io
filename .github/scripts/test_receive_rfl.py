@@ -5,9 +5,11 @@ from pathlib import Path
 import stat
 import tempfile
 import unittest
+import urllib.error
 from unittest.mock import patch
 import zipfile
 import receive_rfl as receiver
+import browser_bundle as bundle
 
 SHA = 'a' * 40
 
@@ -67,7 +69,7 @@ class ReceiverTests(unittest.TestCase):
             with self.assertRaises(ValueError): self.unpack((data, artifact, run))
 
     def test_forbidden_paths(self):
-        for name in ('../escape.js', '/absolute.js', '.git/config', 'app.js.map', 'src/source.ts', 'interior.js', 'a\\b.js'):
+        for name in ('../escape.js', '/absolute.js', '.git/config', 'app.js.map', 'src/source.ts', 'interior.js', 'a\\b.js', 'a/./b.js', 'a//b.js'):
             with self.subTest(name=name), self.assertRaises(ValueError):
                 self.unpack(fixture(files={'index.html': b'ok', name: b'bad'}))
 
@@ -104,6 +106,7 @@ class ReceiverTests(unittest.TestCase):
         data, artifact, run = fixture()
         receipt = {'artifact_id': 456, 'sha': SHA, 'run_id': 123, 'digest': artifact['digest']}
         with patch.dict('os.environ', {'RFL_ARTIFACTS_TOKEN': 'test', 'RFL_ARTIFACT_ID': '', 'RFL_DRY_RUN': 'true'}), \
+             patch.object(receiver, 'load_preserved', return_value=None), \
              patch.object(receiver, 'fetch', return_value=json.dumps(receipt).encode()) as fetch, \
              patch.object(receiver, 'api', side_effect=[artifact, run]) as api, \
              patch.object(receiver, 'download', return_value=data), \
@@ -124,14 +127,41 @@ class ReceiverTests(unittest.TestCase):
         data, artifact, run = fixture()
         with patch.dict('os.environ', {'RFL_ARTIFACTS_TOKEN': 'test', 'RFL_ARTIFACT_ID': '456', 'RFL_DRY_RUN': 'false'}, clear=True), \
              patch.object(receiver, 'fetch') as fetch, \
-             patch.object(receiver, 'api', side_effect=[artifact, run]) as api, \
-             patch.object(receiver, 'download', return_value=data), \
+             patch.object(receiver, 'load_preserved', return_value=(artifact, run, data, 'browser-artifact-456')), \
+             patch.object(receiver, 'api') as api, \
              patch.object(receiver, 'unpack', return_value={'sha': SHA, 'artifact_id': 456, 'expires_at': artifact['expires_at']}) as unpack:
             receiver.main()
             fetch.assert_not_called()
-            self.assertEqual(api.call_args_list[0].args[0], '/actions/artifacts/456')
+            api.assert_not_called()
             self.assertEqual(unpack.call_args.args[-1], False)
+            self.assertEqual(unpack.call_args.kwargs['preserved_tag'], 'browser-artifact-456')
+
+    def test_production_requires_preservation_and_never_falls_back_to_actions(self):
+        with patch.object(receiver, 'load_preserved', return_value=None), patch.object(receiver, 'api') as api:
+            with self.assertRaisesRegex(ValueError, 'preserved private browser release'):
+                receiver.load_source('456', 'test', False)
+            api.assert_not_called()
+
+    def test_corrupt_or_missing_archive_asset_never_falls_back(self):
+        for error in (ValueError('corrupt'), urllib.error.HTTPError('url', 404, 'missing asset', {}, None)):
+            with patch.object(receiver, 'load_preserved', side_effect=error), patch.object(receiver, 'api') as api:
+                with self.assertRaises(type(error)):
+                    receiver.load_source('456', 'test', True)
+                api.assert_not_called()
+
+    def test_old_reader_permission_only_allows_validation(self):
+        data, artifact, run = fixture()
+        error = urllib.error.HTTPError('url', 403, 'permission', {}, None)
+        with patch.object(receiver, 'load_preserved', side_effect=error), \
+             patch.object(receiver, 'api', side_effect=[artifact, run]), patch.object(receiver, 'download', return_value=data):
+            self.assertIsNone(receiver.load_source('456', 'test', True)[-1])
+            with self.assertRaises(urllib.error.HTTPError):
+                receiver.load_source('456', 'test', False)
+
+    def test_preserved_receipt_has_no_actions_expiry(self):
+        receipt = receiver.unpack(*fixture(), self.output, False, preserved_tag='browser-artifact-456')
+        self.assertIsNone(receipt['expires_at'])
+        self.assertEqual(receipt['storage'], 'private-release')
+        self.assertEqual(receipt['release_tag'], 'browser-artifact-456')
 
 if __name__ == '__main__': unittest.main()
-
-
