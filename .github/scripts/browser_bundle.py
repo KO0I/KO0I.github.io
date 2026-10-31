@@ -44,7 +44,8 @@ def api(endpoint, token):
 
 def download_binary(endpoint, token):
     try:
-        return fetch(API + endpoint, token, accept='application/octet-stream')
+        accept = 'application/octet-stream' if endpoint.startswith('/releases/assets/') else 'application/vnd.github+json'
+        return fetch(API + endpoint, token, accept=accept)
     except urllib.error.HTTPError as error:
         if error.code != 302:
             raise
