@@ -112,5 +112,26 @@ class ReceiverTests(unittest.TestCase):
             self.assertTrue(fetch.call_args.args[0].startswith(receiver.LIVE_RECEIPT + '?t='))
             self.assertEqual(api.call_args_list[0].args[0], '/actions/artifacts/456')
 
+    def test_production_requires_explicit_artifact_before_network_access(self):
+        with patch.dict('os.environ', {'RFL_ARTIFACT_ID': '', 'RFL_DRY_RUN': 'false'}, clear=True), \
+             patch.object(receiver, 'fetch') as fetch, patch.object(receiver, 'api') as api:
+            with self.assertRaisesRegex(ValueError, 'explicit release artifact ID'):
+                receiver.main()
+            fetch.assert_not_called()
+            api.assert_not_called()
+
+    def test_explicit_release_uses_its_successful_producer(self):
+        data, artifact, run = fixture()
+        with patch.dict('os.environ', {'RFL_ARTIFACTS_TOKEN': 'test', 'RFL_ARTIFACT_ID': '456', 'RFL_DRY_RUN': 'false'}, clear=True), \
+             patch.object(receiver, 'fetch') as fetch, \
+             patch.object(receiver, 'api', side_effect=[artifact, run]) as api, \
+             patch.object(receiver, 'download', return_value=data), \
+             patch.object(receiver, 'unpack', return_value={'sha': SHA, 'artifact_id': 456, 'expires_at': artifact['expires_at']}) as unpack:
+            receiver.main()
+            fetch.assert_not_called()
+            self.assertEqual(api.call_args_list[0].args[0], '/actions/artifacts/456')
+            self.assertEqual(unpack.call_args.args[-1], False)
+
 if __name__ == '__main__': unittest.main()
+
 
