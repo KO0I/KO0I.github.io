@@ -10,7 +10,7 @@ on:
         required: true
         default: true
       rfl_artifact_id:
-        description: Exact artifact ID required for deployment; dry runs may reuse the deployed version
+        description: Original artifact ID of a preserved private Release; dry runs may reuse the deployed version
         type: string
         default: ''
 permissions: {}
@@ -86,4 +86,3 @@ jobs:
       - name: Deploy the complete site
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
-

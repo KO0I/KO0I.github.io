@@ -1,20 +1,33 @@
 # Deploy the website from a verified release
 
-Pushes to `master` validate the assembled website. They do not upload a Pages artifact or deploy the website. Documentation, checkpoint, source, and gitlink commits can merge without publishing unfinished work.
+Pushes to `master` validate the assembled website. They do not upload a Pages artifact or deploy the website.
 
-To publish an RFL release and the current website:
+## Publish a new browser release
 
-1. Reconcile the selected sources using `WORKFLOW.md` and merge the intended website changes.
-2. Run `RFL browser release` in `KO0I/rasd-fastwalker-league-js` on `main` with `dry_run=false`, `request_latest_assets=false`, and `handoff=true`. Keep `itch=false` unless that upload is also intended.
-3. Complete any configured `rfl-public-handoff` environment approval. The handoff dispatches `Pages with private RFL browser artifact` on `master` with the exact artifact ID.
-4. Verify that the producer run, website build, and Pages deployment succeed. Check the published `/rfl/version.json` and `/rfl/deployment.json` against the intended commit, run, artifact ID, and digest.
+1. Reconcile selected sources using `WORKFLOW.md` and merge the intended website changes.
+2. Run `RFL browser release` in private `KO0I/rasd-fastwalker-league-js` on `main` with `dry_run=false`, `request_latest_assets=false`, and `handoff=true`. Keep `itch=false` unless that upload is intended.
+3. Wait for the whole producer run to succeed. The separate `Preserve approved browser release` workflow enters the existing `rfl-public-handoff` environment and saves the exact ZIP in a private `browser-artifact-ID` Release. Complete any configured environment review.
+4. After the archive is verified, the preservation workflow dispatches Pages with the original exact artifact ID. A failed preservation cannot hand off to Pages.
+5. Verify the website build and deployment, then compare `/rfl/version.json` and `/rfl/deployment.json` against the intended source SHA, producer run, artifact ID, digest, and private Release tag.
 
-The receiver waits for the producer to finish successfully. Production accepts only an unexpired `rfl-release` from the fixed private repository's `browser-release.yml` workflow on `main`. It verifies the artifact digest, manifest provenance, every payload hash, and the exclusion of Interiors before replacing the assembled RFL directory. The complete website must then pass its build checks before Pages can deploy.
+The Release contains `browser.zip`, `sha256.txt`, and `provenance.json`. Its tag pins the producer commit. The receiver verifies saved successful-main provenance, the tag, attachment digests, manifest, every payload hash, and Interiors exclusion. It executes no private source or downloaded payload code. Production reads this preserved archive without requiring retained Actions artifacts or run metadata.
 
-A private `rfl-preview`, failed or incomplete producer, invalid payload, or failed website build cannot deploy. This gate verifies automated release checks. It does not claim that human WebGL review passed.
+## Configure private Release access
 
-For a website-only release, manually dispatch the Pages workflow on `master` with `dry_run=false` and the exact previously verified release artifact ID. Blank IDs are allowed only during validation. `RFL_PAGES_ENABLED` must remain `true` for publication.
+The token stored as `RFL_ARTIFACTS_TOKEN` in the public repository's protected `rfl-artifact-read` environment needs **Contents: read**, **Actions: read**, and **Metadata: read**, restricted to `KO0I/rasd-fastwalker-league-js`. Contents access is required for private Release attachments and also grants source-read access within that selected repository. Keep the token unavailable to PR code. No extra permission is needed on the website dispatch credential.
 
-For validation without publication, keep `dry_run=true`. An explicit preview artifact is allowed in this mode. A blank ID validates against the currently deployed release.
+An existing Actions-only token can still validate an unexpired legacy artifact in dry-run mode while this setup is completed. Production requires a readable, verified private archive.
 
-`Restore website checkpoint` remains an explicit recovery route for a previously verified complete website checkpoint. It does not select a new RFL artifact. Routine source merges never invoke recovery.
+## Backfill or roll back
+
+To preserve existing approved bundles, manually run `Preserve approved browser release` on private `main` with an exact production artifact ID, or `all` for all retained successful production artifacts. Manual preservation never dispatches the website. Private previews and failed producers are excluded. Expired artifacts without an archive cannot be recovered by this route.
+
+For a website-only release or RFL rollback, dispatch the Pages workflow on `master` with the original preserved artifact ID and `dry_run=true`. Review the assembled site, then repeat with `dry_run=false` to publish. Blank IDs are permitted only for validation. `RFL_PAGES_ENABLED` must be `true` for publication.
+
+A dry run can validate an explicit private preview or, with a blank ID, the currently deployed version. A preview cannot publish. A corrupt or missing preserved attachment fails closed and never silently selects another release.
+
+Keep preserved Releases, attachments, and tags. They have no Actions retention timer; do not replace or retarget them. The workflow reuses matching published archives and resumes matching drafts without overwriting bytes. Durable private archive receipts record `storage=private-release`, `release_tag`, and `expires_at=null`.
+
+The RFL rollback route rebuilds the surrounding website from current `master`. For an exact complete-site rollback, `Restore website checkpoint` remains the explicit recovery route for a previously verified website package.
+
+Automated checks do not establish human WebGL acceptance. Record visual review separately.
