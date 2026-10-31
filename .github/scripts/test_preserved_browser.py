@@ -44,6 +44,14 @@ def asset(index, name, body):
 
 
 class PreservedBundleTests(unittest.TestCase):
+    def test_github_download_endpoints_use_their_required_media_types(self):
+        with patch.object(bundle, 'fetch', return_value=b'ZIP') as fetch:
+            bundle.download('456', 'token')
+            fetch.assert_called_once_with(bundle.API + '/actions/artifacts/456/zip', 'token', accept='application/vnd.github+json')
+            fetch.reset_mock()
+            bundle.download_binary('/releases/assets/789', 'token')
+            fetch.assert_called_once_with(bundle.API + '/releases/assets/789', 'token', accept='application/octet-stream')
+
     def setUp(self):
         self.release, self.bodies, self.artifact, self.run = fixture()
 
