@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "website_repository": "KO0I/KO0I.github.io",
   "discover_branch_each_run": true,
   "components": [
@@ -9,9 +9,18 @@
       "site_project_id": "appgprj_6adab577bbac819191dc039545c0d8da",
       "website_gitlink": "tools/rfl-plant-workbench",
       "depends_on": [],
-      "source_paths": "discover and verify against both checkouts",
+      "source_paths": "Discover and verify Sites/monorepo/mirror mappings and adapter revisions",
       "publication": "submodule-packaging-must-be-verified",
-      "mapping_evidence": "repository hosting.json and Sites listing"
+      "mapping_evidence": "repository hosting.json and Sites listing",
+      "monorepo_paths": [
+        "apps/plants-workbench",
+        "packages/plants"
+      ],
+      "migration": {
+        "source_imported": true,
+        "game_consumer_migrated": "verify-per-consumer",
+        "downstream_export_connected": "verify-before-use"
+      }
     },
     {
       "id": "characters",
@@ -19,9 +28,18 @@
       "site_project_id": "appgprj_6acc5731b6148191817bd7c7fed1242b",
       "website_gitlink": null,
       "depends_on": [],
-      "source_paths": "discover and verify against both checkouts",
+      "source_paths": "Discover and verify Sites/monorepo/mirror mappings and adapter revisions",
       "publication": "no-direct-website-route-verified",
-      "mapping_evidence": "repository hosting.json and Sites listing"
+      "mapping_evidence": "repository hosting.json and Sites listing",
+      "monorepo_paths": [
+        "apps/characters-workbench",
+        "packages/characters"
+      ],
+      "migration": {
+        "source_imported": true,
+        "game_consumer_migrated": "verify-per-consumer",
+        "downstream_export_connected": "verify-before-use"
+      }
     },
     {
       "id": "climate",
@@ -31,9 +49,18 @@
       "depends_on": [
         "plants"
       ],
-      "source_paths": "discover and verify against both checkouts",
+      "source_paths": "Discover and verify Sites/monorepo/mirror mappings and adapter revisions",
       "publication": "submodule-packaging-must-be-verified",
-      "mapping_evidence": "repository hosting.json and Sites listing"
+      "mapping_evidence": "repository hosting.json and Sites listing",
+      "monorepo_paths": [
+        "apps/climate-workbench",
+        "packages/climate"
+      ],
+      "migration": {
+        "source_imported": true,
+        "game_consumer_migrated": "verify-per-consumer",
+        "downstream_export_connected": "verify-before-use"
+      }
     },
     {
       "id": "interiors",
@@ -44,9 +71,18 @@
         "plants",
         "characters"
       ],
-      "source_paths": "discover and verify against both checkouts",
+      "source_paths": "Discover and verify Sites/monorepo/mirror mappings and adapter revisions",
       "publication": "submodule-packaging-must-be-verified",
-      "mapping_evidence": "Sites listing and website .gitmodules; hosting.json not found"
+      "mapping_evidence": "Sites listing and website .gitmodules; hosting.json not found",
+      "monorepo_paths": [
+        "apps/interiors-workbench",
+        "packages/interiors"
+      ],
+      "migration": {
+        "source_imported": true,
+        "game_consumer_migrated": "verify-per-consumer",
+        "downstream_export_connected": "verify-before-use"
+      }
     },
     {
       "id": "rfl",
@@ -59,21 +95,50 @@
         "climate",
         "interiors"
       ],
-      "source_paths": "discover and verify against both checkouts",
+      "source_paths": "Discover and verify Sites/monorepo/mirror mappings and adapter revisions",
       "publication": "private-browser-artifact",
-      "mapping_evidence": "repository hosting.json and Sites listing"
+      "mapping_evidence": "repository hosting.json and Sites listing",
+      "monorepo_paths": [
+        "apps/game",
+        "dist"
+      ],
+      "migration": {
+        "source_imported": true,
+        "game_consumer_migrated": "legacy-dist",
+        "downstream_export_connected": "verify-before-use"
+      }
     }
   ],
   "additional_discovery": {
     "cloud_atmosphere": {
       "site_project_id": "appgprj_6ad90458e6b88191bbbd233a3e894399",
       "repository": null,
-      "note": "Separate from planetary climate; resolve source/export ownership when selected"
+      "note": "Source imported; distinct from planetary Climate. Verify Site/export adapter and mirror before writes.",
+      "monorepo_paths": [
+        "apps/clouds-workbench",
+        "packages/clouds"
+      ]
     },
     "a_full_plate": {
       "owner": "rfl",
       "kind": "prototype_scene"
+    },
+    "nebula": {
+      "repository": "KO0I/rfl-nebula-workbench",
+      "monorepo_paths": [
+        "apps/nebula-workbench",
+        "packages/nebula"
+      ],
+      "site_project_id": null,
+      "note": "Source imported. Discover and verify exact Site identity and export adapter when selected."
     }
   },
-  "other_submodules": "Discover from .gitmodules every run; include only within selected release scope"
+  "other_submodules": "Discover from .gitmodules every run; include only within selected release scope",
+  "integration_repository": "KO0I/rasd-fastwalker-league-js",
+  "entry_modes": [
+    "sites-first",
+    "monorepo-first"
+  ],
+  "default_mode_for_imported_components": "monorepo-first",
+  "reconciliation_required_before_every_destination_write": true
 }
