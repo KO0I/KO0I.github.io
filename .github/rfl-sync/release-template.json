@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "release_id": null,
-  "kind": "application_release",
+  "kind": "synchronization",
   "status": "pending",
   "scope": [],
   "baseline_record_url": null,
@@ -30,7 +30,42 @@
       "documented_differences": []
     },
     "dependencies": [],
-    "blockers": []
+    "blockers": [],
+    "mode": null,
+    "integration_repository": "KO0I/rasd-fastwalker-league-js",
+    "monorepo_paths": [],
+    "migration": {
+      "source_imported": null,
+      "game_consumer_migrated": null,
+      "downstream_export_connected": null
+    },
+    "reconciliation": {
+      "status": "pending",
+      "baseline": {
+        "sites_source_sha": null,
+        "monorepo_sha": null,
+        "mirror_sha": null
+      },
+      "observed_heads": {
+        "sites_source_sha": null,
+        "monorepo_sha": null,
+        "mirror_sha": null
+      },
+      "adapter": {
+        "path": null,
+        "revision": null
+      },
+      "planned_changes": [],
+      "preserved_paths": [],
+      "conflicts": [],
+      "validation": [],
+      "verified_result": {
+        "sites_source_sha": null,
+        "monorepo_sha": null,
+        "mirror_sha": null,
+        "content_sha256": null
+      }
+    }
   },
   "website": {
     "status": "pending",
@@ -52,5 +87,30 @@
     "status": "pending",
     "evidence": null
   },
-  "events": []
+  "events": [],
+  "allowed_modes": [
+    "sites-first",
+    "monorepo-first"
+  ],
+  "scope_policy": {
+    "synchronize": true,
+    "private_preview": false,
+    "publish_sites": false,
+    "publish_website": false
+  },
+  "private_preview": {
+    "status": "not_in_scope",
+    "source_sha": null,
+    "workflow": "browser-release.yml",
+    "inputs": {
+      "dry_run": true,
+      "request_latest_assets": false,
+      "handoff": false,
+      "itch": false
+    },
+    "run_id": null,
+    "artifact_id": null,
+    "sha256": null,
+    "verified": false
+  }
 }
