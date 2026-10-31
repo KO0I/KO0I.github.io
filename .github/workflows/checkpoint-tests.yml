@@ -3,12 +3,14 @@ on:
   pull_request:
     paths:
       - '.github/scripts/**'
+      - '.github/rfl-sync/**'
       - '.github/workflows/*checkpoint*.yml'
       - '.github/workflows/pages-with-rfl.yml'
   push:
     branches: [master]
     paths:
       - '.github/scripts/**'
+      - '.github/rfl-sync/**'
       - '.github/workflows/*checkpoint*.yml'
 permissions:
   contents: read

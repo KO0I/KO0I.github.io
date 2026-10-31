@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "component": "plants",
+  "mode": "monorepo-first",
+  "adapter": {
+    "path": null,
+    "revision": null
+  },
+  "baseline_record_url": null,
+  "sides": {
+    "sites": {
+      "source": null,
+      "head": null,
+      "current": null,
+      "complete": false,
+      "baseline_head": null,
+      "baseline": null
+    },
+    "monorepo": {
+      "source": null,
+      "head": null,
+      "current": null,
+      "complete": false,
+      "baseline_head": null,
+      "baseline": null
+    }
+  },
+  "paths": []
+}
