@@ -77,6 +77,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
+      actions: write
       pages: write
       id-token: write
     environment:
@@ -86,3 +87,11 @@ jobs:
       - name: Deploy the complete site
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+      - name: Request a checkpoint only after successful deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEPLOYMENT_RUN_ID: ${{ github.run_id }}
+        run: |
+          jq -n --arg run "$DEPLOYMENT_RUN_ID" '{ref:"master",inputs:{run_id:$run}}' > "$RUNNER_TEMP/checkpoint-dispatch.json"
+          gh api --method POST "repos/$GH_REPO/actions/workflows/save-pages-checkpoint.yml/dispatches" --input "$RUNNER_TEMP/checkpoint-dispatch.json"

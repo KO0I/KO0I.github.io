@@ -1,9 +1,5 @@
 name: Save website checkpoint
 on:
-  workflow_run:
-    workflows: [Pages with private RFL browser artifact]
-    types: [completed]
-    branches: [master]
   workflow_dispatch:
     inputs:
       run_id:
@@ -12,11 +8,11 @@ on:
         type: string
 permissions: {}
 concurrency:
-  group: save-pages-checkpoint-${{ inputs.run_id || github.event.workflow_run.id }}
+  group: save-pages-checkpoint-${{ inputs.run_id }}
   cancel-in-progress: false
 jobs:
   save:
-    if: github.ref == 'refs/heads/master' && (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success')
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
@@ -30,5 +26,5 @@ jobs:
       - name: Save the deployed package without rebuilding
         env:
           GH_TOKEN: ${{ github.token }}
-          RUN_ID: ${{ inputs.run_id || github.event.workflow_run.id }}
+          RUN_ID: ${{ inputs.run_id }}
         run: python3 .github/scripts/pages_checkpoint.py save "$RUN_ID"

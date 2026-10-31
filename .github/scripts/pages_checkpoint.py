@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import time
 import zipfile
 
 WORKFLOW = '.github/workflows/pages-with-rfl.yml'
@@ -71,16 +72,23 @@ def download_release(repo, tag, directory):
     return expected
 
 
+def completed_run(root, run_id):
+    for attempt in range(41):
+        run = api(f'{root}/actions/runs/{run_id}')
+        if run.get('status') == 'completed':
+            return run
+        if attempt < 40:
+            time.sleep(3)
+    raise ValueError('Deployment workflow did not finish before checkpoint timeout')
+
+
 def save(repo, run_id):
     if not re.fullmatch(r'[1-9][0-9]*', run_id):
         raise ValueError('Enter the numeric deployment run ID from its Actions URL')
     root = f'repos/{repo}'
-    run = api(f'{root}/actions/runs/{run_id}')
+    run = completed_run(root, run_id)
     jobs = api(f'{root}/actions/runs/{run_id}/jobs?filter=latest&per_page=100')['jobs']
     if not validate_run(run, jobs, repo):
-        if os.environ.get('GITHUB_EVENT_NAME') == 'workflow_run':
-            summary('No deployment in this run; no checkpoint saved.')
-            return
         raise ValueError('This run did not deploy Pages (possibly a dry run)')
     tag = f"pages-checkpoint-{run_id}-{run['run_attempt']}"
     # Published releases are never overwritten. Retrying a save verifies and reuses them.
