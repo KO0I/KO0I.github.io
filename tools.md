@@ -47,6 +47,12 @@ image: '/images/surf.png'
 
 # <span style="color: #fff;">Tooling</span>
 
+#### <span style="color: lightblue; font-size: 1.9em; font-family: 'Noto Sans Egyptian Hieroglyphs', 'Segoe UI Historic', sans-serif;" aria-hidden="true">𓎱</span> [Liquid Glass Lab]({{ '/tools/liquid-glass/' | relative_url }})
+
+*Drag a WebGPU lens over text and color, tune the glass, and export your settings.*
+
+*Based on [arya3d's liquid-glass-webgpu](https://github.com/arya3d/liquid-glass-webgpu).*
+
 #### <span class="tool-symbol--color-wheel" aria-hidden="true">𓇳</span> [Color Wheel]({{ '/tools/color-wheel/' | relative_url }})
 
 *Explore color harmonies, drag the points, and copy your palette.*

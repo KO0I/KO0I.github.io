@@ -320,7 +320,7 @@
     align-items: flex-end;
     width: 100%;
     min-height: 240px;
-    padding: 0 32px 32px;
+    padding: 24px 16px 16px;
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -336,13 +336,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba($dark, 0.6);
+      background: linear-gradient(transparent, rgba($dark, .32));
       pointer-events: none;
       transition: .25s;
     }
     &:hover {
       &::after {
-        background-color: rgba($dark, 0.7);
+        background-color: rgba($dark, .12);
       }
     }
 
@@ -366,6 +366,10 @@
     }
 
     .post__nav-box {
+      @include chipchirp-glass;
+      border-radius: 12px;
+      padding: 14px 16px;
+      overflow-wrap: anywhere;
       position: relative;
       z-index: 1;
       width: 100%;

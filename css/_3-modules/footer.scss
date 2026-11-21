@@ -17,28 +17,22 @@
 }
 
 .widget__title {
-  position: relative;
-  padding-left: 8px;
+  @include chipchirp-glass(.24, 3px);
+  width: fit-content;
+  max-width: 100%;
   margin-bottom: 36px;
+  padding: 8px 16px;
+  border-radius: 9px;
+  box-shadow:
+    inset 0 1px 1px rgba($white, .68),
+    inset 2px 0 2px rgba(#70e8ff, .68),
+    inset -2px -1px 2px rgba(#d99aff, .76),
+    inset 4px 3px 7px rgba(#87cfff, .14),
+    inset -4px -3px 7px rgba(#ca83ed, .18),
+    0 3px 8px rgba($dark, .45);
   font-size: 24px;
-  line-height: 1;
+  line-height: 1.15;
   color: $white;
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    z-index: -1;
-    transform: translateY(-50%);
-    display: block;
-    width: 106px;
-    height: 38px;
-    border-radius: 4px 0px 0px 4px;
-    background: linear-gradient(90deg, $brand-color -5.19%, rgba($background-color, 0) 100%);;
-  }
-  @media only screen and (max-width: $desktop) {
-    font-size: 24px;
-  }
 }
 
 // Widget Latest Posts

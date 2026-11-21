@@ -85,4 +85,6 @@ jobs:
         run: /tmp/blog-tests/bin/python .github/tests/browser_static_blog.py _site
       - name: Test PNG and JPEG glitch studio in Chromium
         run: /tmp/blog-tests/bin/python .github/tests/browser_glitch_studio.py _site
+      - name: Test liquid glass rendering and controls in Chromium
+        run: /tmp/blog-tests/bin/python .github/tests/browser_liquid_glass.py _site
       # Deliberately no deployment, artifact-receiver secrets, or release steps.

@@ -1,0 +1,57 @@
+---
+layout: page
+title: Liquid Glass Lab
+description: Bend text and color through a draggable WebGPU lens. Tune the glass and export your settings.
+permalink: /tools/liquid-glass/
+interactive: true
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/liquid-glass.css' | relative_url }}">
+
+<div id="lg-lab">
+  <p class="lg-intro">Drag the lens across the preview, tune its edges and reflections, and save a look for later.</p>
+  <noscript><p class="lg-notice">Enable JavaScript to use the liquid-glass controls. The preview below is still readable.</p></noscript>
+  <div class="lg-layout">
+    <section class="lg-viewer" aria-labelledby="lg-preview-title">
+      <div class="lg-toolbar">
+        <h2 id="lg-preview-title">Preview</h2>
+        <label for="lg-scene">Background</label>
+        <select id="lg-scene"><option value="type">Type &amp; color</option><option value="grid">Calibration grid</option><option value="photo">Surf photograph</option></select>
+      </div>
+      <div id="lg-stage">
+        <div id="lg-scene-content" data-scene="type">
+          <img class="lg-photo" src="{{ '/images/surf.png' | relative_url }}" alt="" loading="eager" decoding="async">
+          <div class="lg-scene-copy">
+            <p class="lg-eyebrow">CHIPCHIRP / MATERIAL STUDIES</p>
+            <h3>Through<br>the glass.</h3>
+            <p class="lg-sample">Bend the letters.<br>Split the colors.<br>Catch the light.</p>
+            <div class="lg-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <p class="lg-fine-type">Aa Bb Cc · 0123456789<br>Refraction / reflection / dispersion</p>
+          </div>
+        </div>
+        <canvas id="lg-glass" hidden tabindex="0" role="img" aria-label="Movable glass lens" aria-describedby="lg-move-help"></canvas>
+      </div>
+      <div class="lg-viewer-foot">
+        <p id="lg-move-help">Drag the glass. Focus it and use arrow keys to move; hold Shift for larger steps.</p>
+        <button id="lg-center" type="button">Center lens</button>
+      </div>
+      <p id="lg-status" role="status" aria-live="polite">Starting WebGPU…</p>
+    </section>
+
+    <form class="lg-panel" id="lg-controls">
+      <div class="lg-panel-heading"><h2>Glass settings</h2><button id="lg-reset" type="button">Reset</button></div>
+      <label for="lg-preset">Starting look</label>
+      <select id="lg-preset"><option value="original">Original glass</option><option value="subtle">Subtle</option><option value="prism">Prism</option><option value="magnify">Deep lens</option><option value="custom" disabled>Custom</option></select>
+      <fieldset><legend>Shape</legend><label for="lg-shape">Set shape</label> <select id="lg-shape"><option value="">Custom dimensions</option><option value="pill">Capsule</option><option value="circle">Circle</option><option value="box">Rectangle</option></select><div id="lg-shape-fields"></div></fieldset>
+      <fieldset><legend>Optics</legend><div id="lg-optics-fields"></div></fieldset>
+      <details><summary>Light &amp; edges</summary><div id="lg-light-fields"></div></details>
+      <div class="lg-actions"><button id="lg-copy" type="button">Copy settings</button><button id="lg-download" type="button">Download JSON</button></div>
+      <p id="lg-export-status" role="status" aria-live="polite"></p>
+      <details><summary>Settings JSON</summary><textarea id="lg-json" rows="10" readonly aria-label="Current glass settings JSON" spellcheck="false"></textarea></details>
+    </form>
+  </div>
+  <p class="lg-credits">Adapted from <a href="https://github.com/arya3d/liquid-glass-webgpu">arya3d's liquid-glass-webgpu</a>, with its original glass shader. Requires WebGPU over HTTPS or localhost. All rendering happens in your browser. <a href="{{ '/assets/js/liquid-glass/vendor/LICENSE-arya3d.txt' | relative_url }}">MIT license</a>.</p>
+</div>
+
+<script src="{{ '/assets/js/liquid-glass/vendor/html2canvas-pro-2.6.3.min.js' | relative_url }}" defer></script>
+<script type="module" src="{{ '/assets/js/liquid-glass/app.mjs' | relative_url }}"></script>

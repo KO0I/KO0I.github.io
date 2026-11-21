@@ -1,0 +1,81 @@
+.page:has(#lg-lab) { max-width: 1140px; }
+#lg-lab {
+  --lg-bg: #0f0e15;
+  --lg-panel: #1b101e;
+  --lg-line: #443149;
+  --lg-accent: #a67ca8;
+  --lg-ink: #eee;
+  --lg-muted: #b9adbf;
+  color: var(--lg-ink);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+#lg-lab * { box-sizing: border-box; }
+#lg-lab [hidden] { display: none !important; }
+#lg-lab .lg-intro { max-width: 750px; margin: 0 0 1.5rem; color: var(--lg-muted); }
+#lg-lab .lg-layout { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr); gap: 1.25rem; align-items: start; }
+#lg-lab .lg-viewer, #lg-lab .lg-panel { background: var(--lg-panel); border: 1px solid var(--lg-line); border-radius: 10px; min-width: 0; }
+#lg-lab .lg-viewer { overflow: hidden; }
+#lg-lab .lg-toolbar, #lg-lab .lg-panel-heading, #lg-lab .lg-viewer-foot { display: flex; align-items: center; gap: .75rem; padding: 1rem; }
+#lg-lab h2 { font-size: 1rem; letter-spacing: 0; margin: 0; }
+#lg-lab .lg-toolbar h2 { margin-right: auto; }
+#lg-lab .lg-toolbar label { font-size: .875rem; }
+#lg-lab button, #lg-lab select, #lg-lab textarea { font: inherit; font-size: .875rem; color: var(--lg-ink); background: var(--lg-bg); border: 1px solid var(--lg-line); border-radius: 5px; padding: .6rem .7rem; }
+#lg-lab button, #lg-lab select { cursor: pointer; min-height: 42px; }
+#lg-lab select { appearance: none; padding-right: 2rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23a67ca8' stroke-width='2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .7rem center; }
+#lg-lab button:hover, #lg-lab select:hover { border-color: #a860ff; }
+#lg-lab :focus-visible { outline: 2px solid #0aced7; outline-offset: 3px; }
+#lg-lab button:disabled { opacity: .5; cursor: default; }
+#lg-stage { position: relative; overflow: hidden; background: #0f0e15; }
+#lg-scene-content { position: relative; min-height: 530px; background: #0f0e15; overflow: hidden; }
+#lg-lab .lg-scene-copy { position: relative; padding: 2.4rem 2rem; }
+#lg-lab .lg-eyebrow { font-size: .75rem; letter-spacing: .13em; color: #c4a1cd; margin: 0 0 2rem; }
+#lg-lab .lg-scene-copy h3 { color: #eee; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.06; letter-spacing: -.06em; margin: 0 0 1.4rem; }
+#lg-lab .lg-sample { color: #c4b2cd; font-size: 1.05rem; line-height: 1.6; margin: 0 0 1.8rem; }
+#lg-lab .lg-spectrum { display: flex; height: 50px; gap: 6px; }
+#lg-lab .lg-spectrum span { flex: 1; background: #c889bc; border-radius: 3px; }
+#lg-lab .lg-spectrum span:nth-child(2) { background: #a860ff; }
+#lg-lab .lg-spectrum span:nth-child(3) { background: #497add; }
+#lg-lab .lg-spectrum span:nth-child(4) { background: #0aced7; }
+#lg-lab .lg-spectrum span:nth-child(5) { background: #a6cf83; }
+#lg-lab .lg-spectrum span:nth-child(6) { background: #efc58e; }
+#lg-lab .lg-fine-type { font-size: .875rem; color: #b9adbf; margin: 1rem 0 0; }
+#lg-lab .lg-photo { display: none; position: absolute; width: 100%; height: 100%; object-fit: cover; margin: 0; border-radius: 0; }
+#lg-scene-content[data-scene="photo"] .lg-photo { display: block; }
+#lg-scene-content[data-scene="photo"] .lg-scene-copy { background: linear-gradient(90deg, #0f0e15cc, #0f0e1533); }
+#lg-scene-content[data-scene="grid"] { background-color: #181121; background-image: linear-gradient(#705980 1px, transparent 1px), linear-gradient(90deg, #705980 1px, transparent 1px); background-size: 24px 24px; }
+#lg-scene-content[data-scene="grid"] .lg-sample, #lg-scene-content[data-scene="grid"] .lg-fine-type { color: #eee; }
+#lg-glass { position: absolute; top: 0; left: 0; display: block; cursor: grab; touch-action: none; box-shadow: 0 8px 24px #0006; }
+#lg-glass:active { cursor: grabbing; }
+#lg-glass:focus-visible { outline-offset: -3px; }
+#lg-lab .lg-viewer-foot { border-top: 1px solid var(--lg-line); align-items: flex-start; }
+#lg-lab .lg-viewer-foot p { flex: 1; font-size: .875rem; margin: 0; color: var(--lg-muted); }
+#lg-lab .lg-viewer-foot button { flex-shrink: 0; }
+#lg-status { font-size: .875rem; padding: 0 1rem 1rem; margin: 0; color: #9ad5dc; }
+#lg-lab .lg-panel { padding: 1rem; }
+#lg-lab .lg-panel-heading { padding: 0 0 1rem; justify-content: space-between; }
+#lg-lab .lg-panel > label { display: block; font-size: .875rem; margin-bottom: .4rem; color: var(--lg-muted); }
+#lg-preset { width: 100%; }
+#lg-lab fieldset { border: 0; border-top: 1px solid var(--lg-line); padding: .7rem 0 0; margin: 1.4rem 0 0; min-width: 0; }
+#lg-lab legend, #lg-lab summary { font-size: .875rem; font-weight: 600; color: #d0acd2; }
+#lg-lab legend { padding-right: .6rem; }
+#lg-lab details { border-top: 1px solid var(--lg-line); padding-top: .8rem; margin-top: 1rem; }
+#lg-lab summary { cursor: pointer; margin-bottom: .65rem; }
+#lg-lab .lg-field { margin-bottom: .75rem; }
+#lg-lab .lg-field label { display: flex; justify-content: space-between; gap: .75rem; font-size: .875rem; }
+#lg-lab output { color: #9ad5dc; font-variant-numeric: tabular-nums; }
+#lg-lab input[type="range"] { width: 100%; accent-color: var(--lg-accent); min-height: 26px; margin: .25rem 0 0; cursor: pointer; }
+#lg-lab .lg-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+#lg-copy { background: #49304f !important; border-color: var(--lg-accent) !important; }
+#lg-lab textarea { display: block; width: 100%; resize: vertical; font-family: monospace; }
+#lg-export-status { font-size: .875rem; color: #9ad5dc; margin: .5rem 0 0; }
+#lg-lab .lg-credits { font-size: .875rem; line-height: 1.7; color: var(--lg-muted); margin: 1.5rem 0 0; }
+#lg-lab .lg-notice { border: 1px solid var(--lg-accent); padding: 1rem; }
+@media (max-width: 850px) { #lg-lab .lg-layout { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  #lg-lab .lg-toolbar { flex-wrap: wrap; }
+  #lg-lab .lg-toolbar h2 { flex-basis: 100%; }
+  #lg-lab .lg-scene-copy { padding: 2rem 1.25rem; }
+  #lg-lab .lg-viewer-foot { flex-wrap: wrap; }
+  #lg-lab .lg-viewer-foot p { flex-basis: 100%; }
+}
