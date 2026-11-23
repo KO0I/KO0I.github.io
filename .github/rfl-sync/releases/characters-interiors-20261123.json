@@ -39,8 +39,10 @@
       "mode": "monorepo-first",
       "sites": {
         "status": "pending",
-        "source_sha": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
-        "planned_commit": "e9c4756e7045f10f3e35fe25b0b34bf542eecc9e"
+        "source_sha": "e9c4756e7045f10f3e35fe25b0b34bf542eecc9e",
+        "previous_source_sha": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
+        "publication": "not_in_scope",
+        "note": "Source push read back by ref; full file readback pending"
       },
       "github": {
         "status": "unchanged_verified",
@@ -109,6 +111,14 @@
       "overlap": "blocked",
       "stale_plan": "rejected",
       "scope": "isolated pilot only"
+    },
+    {
+      "type": "interiors_source_write",
+      "status": "succeeded",
+      "previous": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
+      "commit": "e9c4756e7045f10f3e35fe25b0b34bf542eecc9e",
+      "method": "conditional fast-forward",
+      "publication": "not_in_scope"
     }
   ]
 }
