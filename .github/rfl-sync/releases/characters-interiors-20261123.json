@@ -65,6 +65,15 @@
         "readback": "3ba7fde717c10733a7f3df0755d90ee12ef685bb",
         "publication": "not_in_scope"
       }
+    },
+    {
+      "type": "isolated_plant_site_edit",
+      "status": "succeeded",
+      "branch": "sync/rfl-lease-pilot-20261123",
+      "previous": "3ba7fde717c10733a7f3df0755d90ee12ef685bb",
+      "commit": "f192b899310b7b8e8b7f78daf45a0b21f94d5a1b",
+      "readback": "f192b899310b7b8e8b7f78daf45a0b21f94d5a1b",
+      "publication": "not_in_scope"
     }
   ]
 }
