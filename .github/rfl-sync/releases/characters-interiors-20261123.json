@@ -20,13 +20,16 @@
       "required": true,
       "mode": "sites-first",
       "sites": {
-        "status": "pending"
+        "status": "unchanged_verified",
+        "source_sha": "8c4362d382d63c4467b5357caf99c7d8662eae87"
       },
       "github": {
-        "status": "pending"
+        "status": "unchanged_verified",
+        "base_sha": "ee668b4aab4a085e6cca2887b0b266975c2361a8"
       },
       "reconciliation": {
-        "status": "pending"
+        "status": "unchanged_verified",
+        "evidence": "Existing merged PR 54; 193 locked editor assets verified; experimental weapons excluded"
       },
       "blockers": []
     },
@@ -35,13 +38,20 @@
       "required": true,
       "mode": "monorepo-first",
       "sites": {
-        "status": "pending"
+        "status": "pending",
+        "source_sha": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
+        "planned_commit": "e9c4756e7045f10f3e35fe25b0b34bf542eecc9e"
       },
       "github": {
-        "status": "pending"
+        "status": "unchanged_verified",
+        "base_sha": "ee668b4aab4a085e6cca2887b0b266975c2361a8"
       },
       "reconciliation": {
-        "status": "pending"
+        "status": "ready",
+        "baseline_site_sha": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
+        "baseline_monorepo_sha": "225f07cde88384434f1b6da680caa636194a5ea6",
+        "planner_sha256": "531ae1ffc458f4fab70c11e99fc31cc812701c1a63234f8b3ee0b21933f7ab84",
+        "validated": "261 tests passed, 1 skipped; receipt checks passed; no experimental weapon changes"
       },
       "blockers": []
     }
