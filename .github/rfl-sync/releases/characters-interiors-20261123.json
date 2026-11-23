@@ -86,6 +86,19 @@
       "verified_files": 310,
       "plan_sha256": "3e437dbfe69a041c3c0bb510e9b02f02f14bb0bc81006916513e89df7413ecc1",
       "publication": "not_in_scope"
+    },
+    {
+      "type": "current_adapter_pilot_readback",
+      "status": "succeeded",
+      "remote_commit": "4a75c927473992ac7db534d396148c19554feab0",
+      "adapter_blob": "9c79a9f9349c0f5fd71ffe5fae5fe59203f6d74c",
+      "receipt_sha256": "0fd87760624c21f7122d63fcd34208b8f0b23a65c9e770bc75ed4218bef8913b",
+      "remote_files_verified": 337,
+      "receipt_files_verified": 310,
+      "repeat_plan": "132 unchanged; zero conflicts or imports",
+      "overlap": "blocked",
+      "stale_plan": "rejected",
+      "scope": "isolated pilot only"
     }
   ]
 }
