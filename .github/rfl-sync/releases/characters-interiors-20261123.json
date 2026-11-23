@@ -2,7 +2,7 @@
   "schema_version": 2,
   "release_id": "characters-interiors-20261123",
   "kind": "synchronization",
-  "status": "pending",
+  "status": "succeeded",
   "scope": [
     "characters",
     "interiors"
@@ -38,22 +38,24 @@
       "required": true,
       "mode": "monorepo-first",
       "sites": {
-        "status": "pending",
+        "status": "succeeded",
         "source_sha": "e9c4756e7045f10f3e35fe25b0b34bf542eecc9e",
         "previous_source_sha": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
         "publication": "not_in_scope",
-        "note": "Source push read back by ref; full file readback pending"
+        "readback": "all candidate files match; 1163 receipt files verified; no weapon file changed"
       },
       "github": {
         "status": "unchanged_verified",
         "base_sha": "ee668b4aab4a085e6cca2887b0b266975c2361a8"
       },
       "reconciliation": {
-        "status": "ready",
+        "status": "succeeded",
         "baseline_site_sha": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
         "baseline_monorepo_sha": "225f07cde88384434f1b6da680caa636194a5ea6",
         "planner_sha256": "531ae1ffc458f4fab70c11e99fc31cc812701c1a63234f8b3ee0b21933f7ab84",
-        "validated": "261 tests passed, 1 skipped; receipt checks passed; no experimental weapon changes"
+        "validated": "261 tests passed, 1 skipped; receipt checks passed; no experimental weapon changes",
+        "scope": "Two selected Interiors package sources and three affected Site bundles; experimental weapons and other preserved outputs excluded",
+        "shared_full_baseline": "not advanced"
       },
       "blockers": []
     }
@@ -118,6 +120,17 @@
       "previous": "714968fb67d8c36091fbf5531526deb3fb4fa61e",
       "commit": "e9c4756e7045f10f3e35fe25b0b34bf542eecc9e",
       "method": "conditional fast-forward",
+      "publication": "not_in_scope"
+    },
+    {
+      "type": "interiors_readback",
+      "status": "succeeded",
+      "commit": "e9c4756e7045f10f3e35fe25b0b34bf542eecc9e",
+      "receipt_files_verified": 1163,
+      "added": 0,
+      "deleted": 0,
+      "modified": 6,
+      "weapon_changes": 0,
       "publication": "not_in_scope"
     }
   ]
