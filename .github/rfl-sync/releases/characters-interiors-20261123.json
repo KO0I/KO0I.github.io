@@ -74,6 +74,18 @@
       "commit": "f192b899310b7b8e8b7f78daf45a0b21f94d5a1b",
       "readback": "f192b899310b7b8e8b7f78daf45a0b21f94d5a1b",
       "publication": "not_in_scope"
+    },
+    {
+      "type": "isolated_plant_adapter_export",
+      "status": "succeeded",
+      "branch": "sync/rfl-lease-pilot-20261123",
+      "previous": "f192b899310b7b8e8b7f78daf45a0b21f94d5a1b",
+      "commit": "4a75c927473992ac7db534d396148c19554feab0",
+      "readback": "4a75c927473992ac7db534d396148c19554feab0",
+      "adapter_blob": "9c79a9f9349c0f5fd71ffe5fae5fe59203f6d74c",
+      "verified_files": 310,
+      "plan_sha256": "3e437dbfe69a041c3c0bb510e9b02f02f14bb0bc81006916513e89df7413ecc1",
+      "publication": "not_in_scope"
     }
   ]
 }
