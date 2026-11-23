@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "release_id": "characters-interiors-20261123",
+  "kind": "synchronization",
+  "status": "pending",
+  "scope": [
+    "characters",
+    "interiors"
+  ],
+  "scope_policy": {
+    "synchronize": true,
+    "private_preview": false,
+    "publish_sites": false,
+    "publish_website": false,
+    "exclude_experimental_weapons": true
+  },
+  "components": [
+    {
+      "id": "characters",
+      "required": true,
+      "mode": "sites-first",
+      "sites": {
+        "status": "pending"
+      },
+      "github": {
+        "status": "pending"
+      },
+      "reconciliation": {
+        "status": "pending"
+      },
+      "blockers": []
+    },
+    {
+      "id": "interiors",
+      "required": true,
+      "mode": "monorepo-first",
+      "sites": {
+        "status": "pending"
+      },
+      "github": {
+        "status": "pending"
+      },
+      "reconciliation": {
+        "status": "pending"
+      },
+      "blockers": []
+    }
+  ],
+  "website": {
+    "status": "not_in_scope"
+  },
+  "human_webgl": {
+    "status": "pending"
+  },
+  "events": [
+    {
+      "type": "isolated_plant_stale_head_pilot",
+      "status": "succeeded",
+      "evidence": {
+        "branch": "sync/rfl-lease-pilot-20261123",
+        "baseline": "2bf5853433c95581de095913f9a18f8350cf0047",
+        "accepted_commit": "3ba7fde717c10733a7f3df0755d90ee12ef685bb",
+        "stale_commit": "595e65688943de9e1435360a6bfbd176c21e64ea",
+        "stale_write": "rejected",
+        "readback": "3ba7fde717c10733a7f3df0755d90ee12ef685bb",
+        "publication": "not_in_scope"
+      }
+    }
+  ]
+}
